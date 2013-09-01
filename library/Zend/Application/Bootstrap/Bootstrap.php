@@ -21,6 +21,9 @@
  */
 
 /**
+ * 
+ * 
+ * 
  * Concrete base class for bootstrap classes
  *
  * Registers and utilizes Zend_Controller_Front by default.
