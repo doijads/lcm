@@ -1,5 +1,4 @@
 <?php
-
 class Application_Form_EditRegister extends Applicagittion_Form_Register
 {
     public function init()
