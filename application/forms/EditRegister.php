@@ -1,5 +1,6 @@
 <?php
-class Application_Form_EditRegister extends Application_Form_Register
+
+class Application_Form_EditRegister extends Applicagittion_Form_Register
 {
     public function init()
     {
