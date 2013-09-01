@@ -1,0 +1,51 @@
+
+<div class="banner-strip"></div>
+<div id="content">     
+    
+<script type="text/javascript">
+    	$(function(){
+    		$('legend').click(function(){
+                        //$(this).parent().find('.lawyer-form').show();
+    			$(this).parent().find('.client-form').slideToggle();
+    		});
+    	});
+                
+</script>
+ 
+ <?php if ($this->isClientCreated) { ?>
+                <div class="success_message">New Client account has been added.</div>
+                <div style="clear:both"></div>
+ <?php } ?>
+                
+<fieldset>
+    <legend>Add Client</legend>    
+    <div class="client-form">       
+    	<?php echo $this->registerForm; ?>  
+    </div>
+</fieldset>
+<br/>
+<fieldset>
+    <legend>Search Client</legend>    
+    <div class="client-form">
+    	<?php echo $this->searchForm; ?>  
+    </div>
+</fieldset>
+<br/>
+<div> 
+<table id="search-table" class="display" cellpadding="0" cellspacing="0" border="0" width="100%"> 
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile No</th>
+        <th>Address</th>    
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>       
+        <tr id="no-record-tr"><td>No Records <td></tr>
+    </tbody>
+</table>
+</div>
+
+</div>

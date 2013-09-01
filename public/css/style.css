@@ -1,0 +1,124 @@
+* {margin:0 auto;padding:0}
+
+.fleft {float:left}
+.fright {float:right}
+.fclear {clear:both}
+.zend_form dt{
+    display: table;
+    float: left;
+    padding: 5px;
+    width: 150px;
+}
+
+.zend_form dd{padding: 5px;}
+
+.register input{ width:200px;}
+
+.register input#submit{ width:200px; cursor: pointer;}
+
+.inner_copy, .inner_copy a {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0}
+body {font-family:Helvetica,Arial,sans-serif ;color:#61492D;font-size:13px;font-weight:normal;overflow: auto;}
+h1, h2, h3 {font-family:Georgia, "Times New Roman", Times, serif;font-weight:normal;color:#80614D}
+h1 {letter-spxacing:-2px;font-size:2em}
+h2 {letter-spacing:-1px;font-size:2em}
+h3 {font-size:1em}
+p, ul, ol {line-height:150%}
+blockquote {margin:15px 0px;padding:5px 7px 5px 40px;font-weight:normal;font-size:17px;line-height:1.6em;font-style:italic;font-family:Georgia, 'Times New Roman', Times, serif;color:#B29269;border:1px solid #E3D1BA;background:#F5EFE9}
+blockquote p, blockquote ul, blockquote ol {line-height:normal;font-style:italic}
+a {color:#85612E}
+a:hover {color:#85612E}
+/* Menu */
+#menu {position:relative;display:block;height:39px;font-size:11px;font-weight:bold;background:transparent url(/images/bgOFF.gif) repeat-x top left;font-family:Arial,Verdana,Helvitica,sans-serif;border-top:4px solid #B30000}
+#menu ul {margin:0;padding:0;list-style-type:none;width:auto}
+#menu ul li {display:block;float:left;margin:0}
+#menu ul li a {display:block;float:left;color:#666;text-decoration:none;padding:11px 20px 0 20px;height:23px;background:transparent url(images/bgDIVIDER.gif) no-repeat top right}
+#menu ul li a:hover,#menu ul li a.current {color:#B30000;background:#fff url(/images/bgON.gif) no-repeat top right}
+/* Layout */
+.LegalTemplate #container {width:791px;margin:0 auto}
+/* Header */
+#header {background:url(/images/2.jpg) top repeat-x;margin:0 auto}
+/*Banner*/
+.banner {background:url(/images/banner.jpg) center no-repeat;height:330px;padding:0;margin:0 auto}
+#wrapper {background:#eadfc1 url(/images/sidebar_bg.jpg) top repeat-x}
+/* Sidebar */
+.LegalTemplate #sidebar1 {float:left;width:229px}
+.LegalTemplate #sidebar1 ul {margin:0 0 20px 0px;padding:0;list-style:none}
+.LegalTemplate #sidebar1 li {margin:0;padding:0;border-bottom:1px #CFBAA1 solid}
+.LegalTemplate #sidebar1 h2 {height:35px;font-size:18px;color:#80614D;border-bottom:2px #CFBAA1 solid}
+.LegalTemplate #sidebar1 a {text-decoration:none}
+.LegalTemplate #sidebar1 a:hover {text-decoration:none}
+.sidebar1_contents {margin:10px}
+.sidebar1_box {margin:10px;background:#f6efe9;border:2px #fff solid;color:#333;padding:8px;}
+/* Content */
+.LegalTemplate #mainContent {margin:0 10px 20px 230px;padding:10px 10px 0 10px;background:#fff}
+#mainContent h3 {padding-left:15px;background:url(/images/img04.gif) no-repeat left center}
+#mainContent .lined {margin:0 0 15px 0;padding:0 0 10px 15px;border-bottom:1px dashed #ccc}
+#mainContent .more {margin:0;padding:0;border:none}
+#mainContent .more a {padding-left:15px;background:url(/images/img05.gif) no-repeat left center}
+#feature {width:700px;margin:0 auto;padding:20px 20px 10px 20px;background:#F5F5F5;border:1px solid #E0E0E0}
+#feature img {float:right;margin:0 0 10px 10px;clear:right}
+#feature h2 {margin:0}
+/* Footer */
+.LegalTemplate #footer {line-height:0;padding:10px;background:#6d6759} 
+.LegalTemplate #footer p {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:10px;margin:0 auto;color:#ccc;text-align:center}
+.LegalTemplate #footer a {color:#fff}
+.fltrt {float:right;margin:10px 0 2px 10px;clear:right}
+.fltlft {float:left;margin-right:8px}
+img {border:0}
+.clearfloat {clear:both;height:0;font-size:1px;line-height:0}
+.banner-strip {
+    background: url("/images/banner-strip-1.png") no-repeat scroll center center transparent;
+    height: 74px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#content {margin:0 10px;padding:10px 10px 10px 10px;background:#fff}
+#accordion{
+  width:750px;  
+}
+fieldset legend{
+    font-weight: bold;
+    cursor: pointer;  
+}
+select#user_role{
+    width:138px;
+}
+.errors
+{
+    color:red;
+}
+table thead{
+    border-bottom: 1px solid black;
+    padding: 3px 18px 3px 10px;
+}
+.success_message
+{
+    padding: 5px;
+    background: none repeat scroll 0 0 #F9C570;
+    border: 2px solid #FFD870;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 5px;
+    text-align:center;
+}
+table.display {
+    clear: both;
+    margin: 0 auto;
+    width: 100%;
+}
+
+table tr:nth-of-type(even){background: #EEEEFF;}
+
+#search-table
+{
+    border: 1px solid #61492D;
+    width: 100%;
+}
+#search-table th{ 
+    font-weight: bold;
+    text-align: left;
+    background-color: #EADFC1;
+}
