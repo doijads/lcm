@@ -15,9 +15,15 @@
  *
  * @category   Zend
  * @package    Zend_Db
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Db.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Db.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -26,7 +32,11 @@
  *
  * @category   Zend
  * @package    Zend_Db
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Db
@@ -90,9 +100,12 @@ class Zend_Db
      *    'NULL_TO_STRING', 'ERR_NONE', 'FETCH_ORI_NEXT',
      *    'FETCH_ORI_PRIOR', 'FETCH_ORI_FIRST', 'FETCH_ORI_LAST',
      *    'FETCH_ORI_ABS', 'FETCH_ORI_REL', 'CURSOR_FWDONLY', 'CURSOR_SCROLL',
+<<<<<<< HEAD
      *    'ERR_CANT_MAP', 'ERR_SYNTAX', 'ERR_CONSTRAINT', 'ERR_NOT_FOUND',
      *    'ERR_ALREADY_EXISTS', 'ERR_NOT_IMPLEMENTED', 'ERR_MISMATCH',
      *    'ERR_TRUNCATED', 'ERR_DISCONNECTED', 'ERR_NO_PERM',
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * );
      *
      * $const = array();
@@ -125,6 +138,7 @@ class Zend_Db
     const CASE_UPPER = 1;
     const CURSOR_FWDONLY = 0;
     const CURSOR_SCROLL = 1;
+<<<<<<< HEAD
     const ERR_ALREADY_EXISTS = NULL;
     const ERR_CANT_MAP = NULL;
     const ERR_CONSTRAINT = NULL;
@@ -136,6 +150,9 @@ class Zend_Db
     const ERR_NOT_IMPLEMENTED = NULL;
     const ERR_SYNTAX = NULL;
     const ERR_TRUNCATED = NULL;
+=======
+    const ERR_NONE = '00000';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     const ERRMODE_EXCEPTION = 2;
     const ERRMODE_SILENT = 0;
     const ERRMODE_WARNING = 1;

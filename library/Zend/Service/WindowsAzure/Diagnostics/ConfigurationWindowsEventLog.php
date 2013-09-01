@@ -15,12 +15,17 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
 /**
+<<<<<<< HEAD
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
@@ -38,10 +43,45 @@ class Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog
     /**
      * Constructor
      * 
+=======
+ * @see Zend_Service_WindowsAzure_Diagnostics_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/Exception.php';
+
+/**
+ * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationObjectBaseAbstract.php';
+
+/**
+ * @see Zend_Service_WindowsAzure_Diagnostics_LogLevel
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/LogLevel.php';
+
+/**
+ * @category   Zend
+ * @package    Zend_Service_WindowsAzure
+ * @subpackage Diagnostics
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+ * @property    int        BufferQuotaInMB                        Buffer quota in MB
+ * @property    int        ScheduledTransferPeriodInMinutes    Scheduled transfer period in minutes
+ * @property    string    ScheduledTransferLogLevelFilter        Scheduled transfer log level filter
+ * @property    array    Subscriptions                        Subscriptions
+ */
+class Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog
+    extends Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+{
+    /**
+     * Constructor
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param	int		$bufferQuotaInMB					Buffer quota in MB
 	 * @param	int		$scheduledTransferPeriodInMinutes	Scheduled transfer period in minutes
 	 * @param	string	$scheduledTransferLogLevelFilter	Scheduled transfer log level filter
 	 */
+<<<<<<< HEAD
     public function __construct($bufferQuotaInMB = 0, $scheduledTransferPeriodInMinutes = 0, $scheduledTransferLogLevelFilter = Zend_Service_WindowsAzure_Diagnostics_LogLevel::UNDEFINED) 
     {	        
         $this->_data = array(
@@ -55,22 +95,54 @@ class Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog
 	/**
 	 * Add subscription
 	 * 
+=======
+    public function __construct($bufferQuotaInMB = 0, $scheduledTransferPeriodInMinutes = 0, $scheduledTransferLogLevelFilter = Zend_Service_WindowsAzure_Diagnostics_LogLevel::UNDEFINED)
+    {	
+        $this->_data = array(
+            'bufferquotainmb'                    => $bufferQuotaInMB,
+            'scheduledtransferperiodinminutes'     => $scheduledTransferPeriodInMinutes,
+            'scheduledtransferloglevelfilter'    => $scheduledTransferLogLevelFilter,
+            'subscriptions'                        => array()
+        );
+    }
+
+	/**
+	 * Add subscription
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  	 * @param	string	$filter	Event log filter
 	 */
     public function addSubscription($filter)
     {
+<<<<<<< HEAD
     	$this->_data['subscriptions'][$filter] = $filter;
     }
     
 	/**
 	 * Remove subscription
 	 * 
+=======
+        $this->_data['subscriptions'][$filter] = $filter;
+    }
+
+	/**
+	 * Remove subscription
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  	 * @param	string	$filter	Event log filter
 	 */
     public function removeSubscription($filter)
     {
+<<<<<<< HEAD
     	if (isset($this->_data['subscriptions'][$filter])) {
     		unset($this->_data['subscriptions'][$filter]);
     	}
     }
 }
+=======
+        if (isset($this->_data['subscriptions'][$filter])) {
+            unset($this->_data['subscriptions'][$filter]);
+        }
+    }
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

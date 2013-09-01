@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Soap
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Wsdl.php 25033 2012-08-17 19:50:08Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Wsdl.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -96,12 +102,16 @@ class Zend_Soap_Wsdl
                     xmlns:xsd='http://www.w3.org/2001/XMLSchema'
                     xmlns:soap-enc='http://schemas.xmlsoap.org/soap/encoding/'
                     xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'></definitions>";
+<<<<<<< HEAD
         libxml_disable_entity_loader(true);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->_dom = new DOMDocument();
         if (!$this->_dom->loadXML($wsdl)) {
             require_once 'Zend/Server/Exception.php';
             throw new Zend_Server_Exception('Unable to create DomDocument');
         } else {
+<<<<<<< HEAD
             foreach ($this->_dom->childNodes as $child) {
                 if ($child->nodeType === XML_DOCUMENT_TYPE_NODE) {
                     require_once 'Zend/Server/Exception.php';
@@ -113,6 +123,10 @@ class Zend_Soap_Wsdl
             $this->_wsdl = $this->_dom->documentElement;
         }
         libxml_disable_entity_loader(false);
+=======
+            $this->_wsdl = $this->_dom->documentElement;
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         $this->setComplexTypeStrategy($strategy);
     }
@@ -135,10 +149,15 @@ class Zend_Soap_Wsdl
             // @todo: This is the worst hack ever, but its needed due to design and non BC issues of WSDL generation
             $xml = $this->_dom->saveXML();
             $xml = str_replace($oldUri, $uri, $xml);
+<<<<<<< HEAD
             libxml_disable_entity_loader(true);
             $this->_dom = new DOMDocument();
             $this->_dom->loadXML($xml);
             libxml_disable_entity_loader(false);
+=======
+            $this->_dom = new DOMDocument();
+            $this->_dom->loadXML($xml);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return $this;
@@ -555,6 +574,7 @@ class Zend_Soap_Wsdl
             case 'string':
             case 'str':
                 return 'xsd:string';
+<<<<<<< HEAD
             case 'long':
                 return 'xsd:long';
             case 'int':
@@ -573,6 +593,30 @@ class Zend_Soap_Wsdl
                 return 'xsd:struct';
             case 'mixed':
                 return 'xsd:anyType';
+=======
+                break;
+            case 'int':
+            case 'integer':
+                return 'xsd:int';
+                break;
+            case 'float':
+            case 'double':
+                return 'xsd:float';
+                break;
+            case 'boolean':
+            case 'bool':
+                return 'xsd:boolean';
+                break;
+            case 'array':
+                return 'soap-enc:Array';
+                break;
+            case 'object':
+                return 'xsd:struct';
+                break;
+            case 'mixed':
+                return 'xsd:anyType';
+                break;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             case 'void':
                 return '';
             default:

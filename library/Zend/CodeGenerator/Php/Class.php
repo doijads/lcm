@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_CodeGenerator
  * @subpackage PHP
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Class.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Class.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -48,7 +54,11 @@ require_once 'Zend/CodeGenerator/Php/Docblock.php';
 /**
  * @category   Zend
  * @package    Zend_CodeGenerator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
@@ -85,11 +95,14 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     protected $_properties = null;
 
     /**
+<<<<<<< HEAD
      * @var array Array of constants
      */
     protected $_constants = null;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @var array Array of methods
      */
     protected $_methods = null;
@@ -161,7 +174,11 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
 
         if (is_array($docblock)) {
             $docblock = new Zend_CodeGenerator_Php_Docblock($docblock);
+<<<<<<< HEAD
         } elseif ((!is_null($docblock)) && (!$docblock instanceof Zend_CodeGenerator_Php_Docblock)) {
+=======
+        } elseif (!$docblock instanceof Zend_CodeGenerator_Php_Docblock) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             require_once 'Zend/CodeGenerator/Php/Exception.php';
             throw new Zend_CodeGenerator_Php_Exception('setDocblock() is expecting either a string, array or an instance of Zend_CodeGenerator_Php_Docblock');
         }
@@ -284,6 +301,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * setConstants()
      *
      * @param array $constants
@@ -299,6 +317,8 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * setProperty()
      *
      * @param array|Zend_CodeGenerator_Php_Property $property
@@ -316,9 +336,12 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
             throw new Zend_CodeGenerator_Php_Exception('setProperty() expects either an array of property options or an instance of Zend_CodeGenerator_Php_Property');
         }
 
+<<<<<<< HEAD
         if ($property->isConst()) {
             return $this->setConstant($property);
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (isset($this->_properties[$propertyName])) {
             require_once 'Zend/CodeGenerator/Php/Exception.php';
             throw new Zend_CodeGenerator_Php_Exception('A property by name ' . $propertyName . ' already exists in this class.');
@@ -329,6 +352,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * setConstant()
      *
      * @param array|Zend_CodeGenerator_Php_Property $const
@@ -360,6 +384,8 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * getProperties()
      *
      * @return array
@@ -370,6 +396,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * getConstants()
      *
      * @return array
@@ -380,6 +407,8 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * getProperty()
      *
      * @param string $propertyName
@@ -396,6 +425,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * getConstant()
      *
      * @param string $constName
@@ -412,6 +442,8 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * hasProperty()
      *
      * @param string $propertyName
@@ -423,6 +455,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * hasConstant()
      *
      * @param string $constName
@@ -434,6 +467,8 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * setMethods()
      *
      * @param array $methods
@@ -528,12 +563,15 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
             }
         }
 
+<<<<<<< HEAD
         foreach ($this->_constants as $constant) {
             if ($constant->isSourceDirty()) {
                 return true;
             }
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         foreach ($this->_methods as $method) {
             if ($method->isSourceDirty()) {
                 return true;
@@ -578,6 +616,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
 
         $output .= self::LINE_FEED . '{' . self::LINE_FEED . self::LINE_FEED;
 
+<<<<<<< HEAD
         $constants = $this->getConstants();
         if (!empty($constants)) {
             foreach ($constants as $const) {
@@ -585,6 +624,8 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
             }
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $properties = $this->getProperties();
         if (!empty($properties)) {
             foreach ($properties as $property) {
@@ -611,7 +652,10 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     protected function _init()
     {
         $this->_properties = new Zend_CodeGenerator_Php_Member_Container(Zend_CodeGenerator_Php_Member_Container::TYPE_PROPERTY);
+<<<<<<< HEAD
         $this->_constants = new Zend_CodeGenerator_Php_Member_Container(Zend_CodeGenerator_Php_Member_Container::TYPE_PROPERTY);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->_methods = new Zend_CodeGenerator_Php_Member_Container(Zend_CodeGenerator_Php_Member_Container::TYPE_METHOD);
     }
 

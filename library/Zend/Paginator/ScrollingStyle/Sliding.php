@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Sliding.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Sliding.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/Paginator/ScrollingStyle/Interface.php';
  * @link       http://search.yahoo.com/search?p=Zend+Framework
  * @category   Zend
  * @package    Zend_Paginator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Paginator_ScrollingStyle_Sliding implements Zend_Paginator_ScrollingStyle_Interface

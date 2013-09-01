@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Db.php 25123 2012-11-14 18:27:44Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Db.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,7 +38,11 @@ require_once 'Zend/Application/Resource/ResourceAbstract.php';
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Application_Resource_Db extends Zend_Application_Resource_ResourceAbstract
@@ -45,7 +55,11 @@ class Zend_Application_Resource_Db extends Zend_Application_Resource_ResourceAbs
     protected $_adapter = null;
 
     /**
+<<<<<<< HEAD
      * @var Zend_Db_Adapter_Abstract
+=======
+     * @var Zend_Db_Adapter_Interface
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     protected $_db;
 
@@ -132,7 +146,11 @@ class Zend_Application_Resource_Db extends Zend_Application_Resource_ResourceAbs
     /**
      * Retrieve initialized DB connection
      *
+<<<<<<< HEAD
      * @return null|Zend_Db_Adapter_Abstract
+=======
+     * @return null|Zend_Db_Adapter_Interface
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function getDbAdapter()
     {
@@ -140,12 +158,15 @@ class Zend_Application_Resource_Db extends Zend_Application_Resource_ResourceAbs
             && (null !== ($adapter = $this->getAdapter()))
         ) {
             $this->_db = Zend_Db::factory($adapter, $this->getParams());
+<<<<<<< HEAD
 
             if ($this->_db instanceof Zend_Db_Adapter_Abstract 
                 && $this->isDefaultTableAdapter()
             ) {
                 Zend_Db_Table::setDefaultAdapter($this->_db);
             }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
         return $this->_db;
     }
@@ -158,6 +179,12 @@ class Zend_Application_Resource_Db extends Zend_Application_Resource_ResourceAbs
     public function init()
     {
         if (null !== ($db = $this->getDbAdapter())) {
+<<<<<<< HEAD
+=======
+            if ($this->isDefaultTableAdapter()) {
+                Zend_Db_Table::setDefaultAdapter($db);
+            }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return $db;
         }
     }

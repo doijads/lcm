@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Zend_Controller_Action_Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ContextSwitch.php 24864 2012-06-02 00:51:50Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: ContextSwitch.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,7 +38,11 @@ require_once 'Zend/Controller/Action/Helper/Abstract.php';
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Zend_Controller_Action_Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action_Helper_Abstract
@@ -1304,6 +1314,10 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
         if (null === $controller) {
             return array();
         }
+<<<<<<< HEAD
+=======
+        $action     = (string) $action;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $contextKey = $this->_contextKey;
 
         if (!isset($controller->$contextKey)) {
@@ -1311,7 +1325,10 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
         }
 
         if (null !== $action) {
+<<<<<<< HEAD
             $action = (string) $action;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if (isset($controller->{$contextKey}[$action])) {
                 return $controller->{$contextKey}[$action];
             } else {

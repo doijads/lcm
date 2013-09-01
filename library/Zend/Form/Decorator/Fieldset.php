@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -30,9 +34,15 @@ require_once 'Zend/Form/Decorator/Abstract.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Fieldset.php 24961 2012-06-15 14:15:47Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Fieldset.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Decorator_Fieldset extends Zend_Form_Decorator_Abstract
 {
@@ -46,7 +56,10 @@ class Zend_Form_Decorator_Fieldset extends Zend_Form_Decorator_Abstract
         'helper',
         'method',
         'name',
+<<<<<<< HEAD
         'accept-charset',
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     );
 
     /**
@@ -132,7 +145,11 @@ class Zend_Form_Decorator_Fieldset extends Zend_Form_Decorator_Abstract
         $name    = $element->getFullyQualifiedName();
         $id      = (string)$element->getId();
 
+<<<<<<< HEAD
         if ((!array_key_exists('id', $attribs) || $attribs['id'] == $id) && '' !== $id) {
+=======
+        if (!array_key_exists('id', $attribs) && '' !== $id) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $attribs['id'] = 'fieldset-' . $id;
         }
 

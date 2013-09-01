@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Paginator.php 24754 2012-05-05 02:30:56Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Paginator.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,7 +38,11 @@ require_once 'Zend/Json.php';
 /**
  * @category   Zend
  * @package    Zend_Paginator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Paginator implements Countable, IteratorAggregate
@@ -524,12 +534,17 @@ class Zend_Paginator implements Countable, IteratorAggregate
     }
 
     /**
+<<<<<<< HEAD
      * Returns the total number of items available.  Uses cache if caching is enabled.
+=======
+     * Returns the total number of items available.
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      *
      * @return integer
      */
     public function getTotalItemCount()
     {
+<<<<<<< HEAD
         if (!$this->_cacheEnabled()) {
             return count($this->getAdapter());
         } else {
@@ -544,6 +559,9 @@ class Zend_Paginator implements Countable, IteratorAggregate
             
             return $itemCount;
         }
+=======
+        return count($this->getAdapter());
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -1057,6 +1075,7 @@ class Zend_Paginator implements Countable, IteratorAggregate
      */
     protected function _getCacheInternalId()
     {
+<<<<<<< HEAD
         $adapter = $this->getAdapter();
         
         if (method_exists($adapter, 'getCacheIdentifier')) {
@@ -1069,6 +1088,12 @@ class Zend_Paginator implements Countable, IteratorAggregate
                 $this->getItemCountPerPage()
             )));
         }
+=======
+        return md5(serialize(array(
+            $this->getAdapter(),
+            $this->getItemCountPerPage()
+        )));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -1078,7 +1103,11 @@ class Zend_Paginator implements Countable, IteratorAggregate
      */
     protected function _calculatePageCount()
     {
+<<<<<<< HEAD
         return (integer) ceil($this->getTotalItemCount() / $this->getItemCountPerPage());
+=======
+        return (integer) ceil($this->getAdapter()->count() / $this->getItemCountPerPage());
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**

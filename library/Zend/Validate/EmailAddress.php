@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: EmailAddress.php 25057 2012-11-02 20:35:40Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: EmailAddress.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,7 +38,11 @@ require_once 'Zend/Validate/Hostname.php';
 /**
  * @category   Zend
  * @package    Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
@@ -52,17 +62,27 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
      */
     protected $_messageTemplates = array(
         self::INVALID            => "Invalid type given. String expected",
+<<<<<<< HEAD
         self::INVALID_FORMAT     => "'%value%' is not a valid email address in the basic format local-part@hostname",
         self::INVALID_HOSTNAME   => "'%hostname%' is not a valid hostname for email address '%value%'",
+=======
+        self::INVALID_FORMAT     => "'%value%' is no valid email address in the basic format local-part@hostname",
+        self::INVALID_HOSTNAME   => "'%hostname%' is no valid hostname for email address '%value%'",
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         self::INVALID_MX_RECORD  => "'%hostname%' does not appear to have a valid MX record for the email address '%value%'",
         self::INVALID_SEGMENT    => "'%hostname%' is not in a routable network segment. The email address '%value%' should not be resolved from public network",
         self::DOT_ATOM           => "'%localPart%' can not be matched against dot-atom format",
         self::QUOTED_STRING      => "'%localPart%' can not be matched against quoted-string format",
+<<<<<<< HEAD
         self::INVALID_LOCAL_PART => "'%localPart%' is not a valid local part for email address '%value%'",
+=======
+        self::INVALID_LOCAL_PART => "'%localPart%' is no valid local part for email address '%value%'",
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         self::LENGTH_EXCEEDED    => "'%value%' exceeds the allowed length",
     );
 
     /**
+<<<<<<< HEAD
      * As of RFC5753 (JAN 2010), the following blocks are no logner reserved:
      *   - 128.0.0.0/16
      *   - 191.255.0.0/16
@@ -73,16 +93,26 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
      *   - 100.64.0.0/10
      * @see http://tools.ietf.org/html/rfc6598#section-7
      *
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @see http://en.wikipedia.org/wiki/IPv4
      * @var array
      */
     protected $_invalidIp = array(
         '0'   => '0.0.0.0/8',
         '10'  => '10.0.0.0/8',
+<<<<<<< HEAD
         '100' => '100.64.0.0/10',
         '127' => '127.0.0.0/8',
         '169' => '169.254.0.0/16',
         '172' => '172.16.0.0/12',
+=======
+        '127' => '127.0.0.0/8',
+        '128' => '128.0.0.0/16',
+        '169' => '169.254.0.0/16',
+        '172' => '172.16.0.0/12',
+        '191' => '191.255.0.0/16',
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         '192' => array(
             '192.0.0.0/24',
             '192.0.2.0/24',
@@ -90,6 +120,10 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
             '192.168.0.0/16'
         ),
         '198' => '198.18.0.0/15',
+<<<<<<< HEAD
+=======
+        '223' => '223.255.255.0/24',
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         '224' => '224.0.0.0/4',
         '240' => '240.0.0.0/4'
     );
@@ -185,8 +219,11 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
             } else {
                 $this->setHostnameValidator($options['hostname']);
             }
+<<<<<<< HEAD
         } elseif ($this->_options['hostname'] == null) {
             $this->setHostnameValidator();
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         if (array_key_exists('mx', $options)) {
@@ -215,6 +252,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
      */
     public function setMessage($messageString, $messageKey = null)
     {
+<<<<<<< HEAD
         if ($messageKey === null) {
             $this->_options['hostname']->setMessage($messageString);
             parent::setMessage($messageString);
@@ -226,6 +264,19 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
         }
 
         $this->_messageTemplates[$messageKey] = $messageString;
+=======
+        $messageKeys = $messageKey;
+        if ($messageKey === null) {
+            $keys = array_keys($this->_messageTemplates);
+            $messageKeys = current($keys);
+        }
+
+        if (!isset($this->_messageTemplates[$messageKeys])) {
+            $this->_options['hostname']->setMessage($messageString, $messageKey);
+        }
+
+        $this->_messageTemplates[$messageKeys] = $messageString;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this;
     }
 

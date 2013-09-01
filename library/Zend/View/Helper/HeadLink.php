@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: HeadLink.php 24858 2012-06-01 01:24:17Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: HeadLink.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -30,7 +35,11 @@ require_once 'Zend/View/Helper/Placeholder/Container/Standalone.php';
  * @uses       Zend_View_Helper_Placeholder_Container_Standalone
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_Standalone
@@ -40,6 +49,7 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
      *
      * @var array
      */
+<<<<<<< HEAD
     protected $_itemKeys = array(
         'charset',
         'href',
@@ -53,6 +63,9 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
         'extras',
         'sizes',
     );
+=======
+    protected $_itemKeys = array('charset', 'href', 'hreflang', 'id', 'media', 'rel', 'rev', 'type', 'title', 'extras');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * @var string registry key
@@ -391,7 +404,11 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
         }
 
         $attributes = compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras');
+<<<<<<< HEAD
         return $this->createData($this->_applyExtras($attributes));
+=======
+        return $this->createData($attributes);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -444,6 +461,7 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
         $title = (string) $title;
 
         $attributes = compact('rel', 'href', 'type', 'title', 'extras');
+<<<<<<< HEAD
         return $this->createData($this->_applyExtras($attributes));
     }
 
@@ -463,5 +481,8 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
             }
         }
         return $attributes;
+=======
+        return $this->createData($attributes);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 }

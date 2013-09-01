@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Menu.php 25239 2013-01-22 09:45:01Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Menu.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,7 +37,11 @@ require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_Navigation_Menu
@@ -45,6 +55,7 @@ class Zend_View_Helper_Navigation_Menu
     protected $_ulClass = 'navigation';
 
     /**
+<<<<<<< HEAD
      * Unique identifier (id) for the ul element
      *
      * @var string
@@ -73,6 +84,8 @@ class Zend_View_Helper_Navigation_Menu
     protected $_renderParentClass = false;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Whether only active branch should be rendered
      *
      * @var bool
@@ -94,6 +107,7 @@ class Zend_View_Helper_Navigation_Menu
     protected $_partial = null;
 
     /**
+<<<<<<< HEAD
      * Expand all sibling nodes of active branch nodes
      *
      * @var bool
@@ -115,6 +129,8 @@ class Zend_View_Helper_Navigation_Menu
     protected $_innerIndent = '    ';
     
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * View helper entry point:
      * Retrieves helper and optionally sets container to operate on
      *
@@ -160,6 +176,7 @@ class Zend_View_Helper_Navigation_Menu
     }
 
     /**
+<<<<<<< HEAD
      * Sets unique identifier (id) to use for the first 'ul' element when
      * rendering
      *
@@ -261,6 +278,8 @@ class Zend_View_Helper_Navigation_Menu
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets a flag indicating whether only active branch should be rendered
      *
      * @param  bool $flag                        [optional] render only active
@@ -285,6 +304,7 @@ class Zend_View_Helper_Navigation_Menu
     {
         return $this->_onlyActiveBranch;
     }
+<<<<<<< HEAD
     
     /**
      * Sets a flag indicating whether to expand all sibling nodes of the active branch
@@ -313,6 +333,10 @@ class Zend_View_Helper_Navigation_Menu
     }
     
     /**
+=======
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Enables/disables rendering of parents when only rendering active branch
      *
      * See {@link setOnlyActiveBranch()} for more information.
@@ -371,6 +395,7 @@ class Zend_View_Helper_Navigation_Menu
         return $this->_partial;
     }
 
+<<<<<<< HEAD
     /**
      * Adds CSS class from page to li element
      *
@@ -443,6 +468,8 @@ class Zend_View_Helper_Navigation_Menu
         return $this->_innerIndent;
     }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     // Public methods:
 
     /**
@@ -474,6 +501,7 @@ class Zend_View_Helper_Navigation_Menu
         $attribs = array(
             'id'     => $page->getId(),
             'title'  => $title,
+<<<<<<< HEAD
         );
 
         if (false === $this->getAddPageClassToLi()) {
@@ -486,13 +514,26 @@ class Zend_View_Helper_Navigation_Menu
             $attribs['href']      = $href;
             $attribs['target']    = $page->getTarget();
             $attribs['accesskey'] = $page->getAccessKey();
+=======
+            'class'  => $page->getClass()
+        );
+
+        // does page have a href?
+        if ($href = $page->getHref()) {
+            $element = 'a';
+            $attribs['href'] = $href;
+            $attribs['target'] = $page->getTarget();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } else {
             $element = 'span';
         }
 
+<<<<<<< HEAD
         // Add custom HTML attributes
         $attribs = array_merge($attribs, $page->getCustomHtmlAttribs());
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return '<' . $element . $this->_htmlAttribs($attribs) . '>'
              . $this->view->escape($label)
              . '</' . $element . '>';
@@ -506,13 +547,17 @@ class Zend_View_Helper_Navigation_Menu
      */
     protected function _normalizeOptions(array $options = array())
     {
+<<<<<<< HEAD
         // Ident
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (isset($options['indent'])) {
             $options['indent'] = $this->_getWhitespace($options['indent']);
         } else {
             $options['indent'] = $this->getIndent();
         }
 
+<<<<<<< HEAD
         // Inner ident
         if (isset($options['innerIndent'])) {
             $options['innerIndent'] =
@@ -522,12 +567,15 @@ class Zend_View_Helper_Navigation_Menu
         }
 
         // UL class
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (isset($options['ulClass']) && $options['ulClass'] !== null) {
             $options['ulClass'] = (string) $options['ulClass'];
         } else {
             $options['ulClass'] = $this->getUlClass();
         }
 
+<<<<<<< HEAD
         // UL id
         if (isset($options['ulId']) && $options['ulId'] !== null) {
             $options['ulId'] = (string) $options['ulId'];
@@ -551,6 +599,8 @@ class Zend_View_Helper_Navigation_Menu
         }
 
         // Minimum depth
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (array_key_exists('minDepth', $options)) {
             if (null !== $options['minDepth']) {
                 $options['minDepth'] = (int) $options['minDepth'];
@@ -563,7 +613,10 @@ class Zend_View_Helper_Navigation_Menu
             $options['minDepth'] = 0;
         }
 
+<<<<<<< HEAD
         // Maximum depth
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (array_key_exists('maxDepth', $options)) {
             if (null !== $options['maxDepth']) {
                 $options['maxDepth'] = (int) $options['maxDepth'];
@@ -572,21 +625,28 @@ class Zend_View_Helper_Navigation_Menu
             $options['maxDepth'] = $this->getMaxDepth();
         }
 
+<<<<<<< HEAD
         // Only active branch
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (!isset($options['onlyActiveBranch'])) {
             $options['onlyActiveBranch'] = $this->getOnlyActiveBranch();
         }
 
+<<<<<<< HEAD
         // Expand sibling nodes of active branch
         if (!isset($options['expandSiblingNodesOfActiveBranch'])) {
             $options['expandSiblingNodesOfActiveBranch'] = $this->getExpandSiblingNodesOfActiveBranch();
         }
 
         // Render parents?
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (!isset($options['renderParents'])) {
             $options['renderParents'] = $this->getRenderParents();
         }
 
+<<<<<<< HEAD
         // Render parent class?
         if (!isset($options['renderParentClass'])) {
             $options['renderParentClass'] = $this->getRenderParentClass();
@@ -597,6 +657,8 @@ class Zend_View_Helper_Navigation_Menu
             $options['addPageClassToLi'] = $this->getAddPageClassToLi();
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $options;
     }
 
@@ -606,6 +668,7 @@ class Zend_View_Helper_Navigation_Menu
      * Renders the deepest active menu within [$minDepth, $maxDeth], (called
      * from {@link renderMenu()})
      *
+<<<<<<< HEAD
      * @param  Zend_Navigation_Container $container     container to render
      * @param  string                    $ulClass       CSS class for first UL
      * @param  string                    $indent        initial indentation
@@ -622,10 +685,20 @@ class Zend_View_Helper_Navigation_Menu
      *                                                      li's
      * @param  bool                      $renderParentClass Render parent class?
      * @return string                                       rendered menu (HTML)
+=======
+     * @param  Zend_Navigation_Container $container  container to render
+     * @param  array                     $active     active page and depth
+     * @param  string                    $ulClass    CSS class for first UL
+     * @param  string                    $indent     initial indentation
+     * @param  int|null                  $minDepth   minimum depth
+     * @param  int|null                  $maxDepth   maximum depth
+     * @return string                                rendered menu
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     protected function _renderDeepestMenu(Zend_Navigation_Container $container,
                                           $ulClass,
                                           $indent,
+<<<<<<< HEAD
                                           $innerIndent,
                                           $minDepth,
                                           $maxDepth,
@@ -634,6 +707,10 @@ class Zend_View_Helper_Navigation_Menu
                                           $activeClass,
                                           $parentClass,
                                           $renderParentClass)
+=======
+                                          $minDepth,
+                                          $maxDepth)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         if (!$active = $this->findActive($container, $minDepth - 1, $maxDepth)) {
             return '';
@@ -647,11 +724,16 @@ class Zend_View_Helper_Navigation_Menu
         } else if (!$active['page']->hasPages()) {
             // found pages has no children; render siblings
             $active['page'] = $active['page']->getParent();
+<<<<<<< HEAD
         } else if (is_int($maxDepth) && $active['depth'] + 1 > $maxDepth) {
+=======
+        } else if (is_int($maxDepth) && $active['depth'] +1 > $maxDepth) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             // children are below max depth; render siblings
             $active['page'] = $active['page']->getParent();
         }
 
+<<<<<<< HEAD
         $attribs = array(
             'class' => $ulClass,
             'id'    => $ulId,
@@ -668,11 +750,16 @@ class Zend_View_Helper_Navigation_Menu
 
         // Reset prefix for IDs
         $this->_skipPrefixForId = $skipValue;
+=======
+        $ulClass = $ulClass ? ' class="' . $ulClass . '"' : '';
+        $html = $indent . '<ul' . $ulClass . '>' . self::EOL;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         foreach ($active['page'] as $subPage) {
             if (!$this->accept($subPage)) {
                 continue;
             }
+<<<<<<< HEAD
 
             $liClass = '';
             if ($subPage->isActive(true) && $addPageClassToLi) {
@@ -690,6 +777,12 @@ class Zend_View_Helper_Navigation_Menu
             $html .= $indent . str_repeat($innerIndent, 2) . $this->htmlify($subPage)
                                                            . $this->getEOL();
             $html .= $indent . $innerIndent . '</li>' . $this->getEOL();
+=======
+            $liClass = $subPage->isActive(true) ? ' class="active"' : '';
+            $html .= $indent . '    <li' . $liClass . '>' . self::EOL;
+            $html .= $indent . '        ' . $this->htmlify($subPage) . self::EOL;
+            $html .= $indent . '    </li>' . self::EOL;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         $html .= $indent . '</ul>';
@@ -700,6 +793,7 @@ class Zend_View_Helper_Navigation_Menu
     /**
      * Renders a normal menu (called from {@link renderMenu()})
      *
+<<<<<<< HEAD
      * @param  Zend_Navigation_Container $container     container to render
      * @param  string                    $ulClass       CSS class for first UL
      * @param  string                    $indent        initial indentation
@@ -719,10 +813,20 @@ class Zend_View_Helper_Navigation_Menu
      *                                                      li's
      * @param  bool                      $renderParentClass Render parent class?
      * @return string                                       rendered menu (HTML)
+=======
+     * @param  Zend_Navigation_Container $container   container to render
+     * @param  string                    $ulClass     CSS class for first UL
+     * @param  string                    $indent      initial indentation
+     * @param  int|null                  $minDepth    minimum depth
+     * @param  int|null                  $maxDepth    maximum depth
+     * @param  bool                      $onlyActive  render only active branch?
+     * @return string
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     protected function _renderMenu(Zend_Navigation_Container $container,
                                    $ulClass,
                                    $indent,
+<<<<<<< HEAD
                                    $innerIndent,
                                    $minDepth,
                                    $maxDepth,
@@ -733,6 +837,11 @@ class Zend_View_Helper_Navigation_Menu
                                    $activeClass,
                                    $parentClass,
                                    $renderParentClass)
+=======
+                                   $minDepth,
+                                   $maxDepth,
+                                   $onlyActive)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $html = '';
 
@@ -759,6 +868,7 @@ class Zend_View_Helper_Navigation_Menu
             if ($depth < $minDepth || !$this->accept($page)) {
                 // page is below minDepth or not accepted by acl/visibilty
                 continue;
+<<<<<<< HEAD
             } else if ($expandSibs && $depth > $minDepth) {
                 // page is not active itself, but might be in the active branch
                 $accept = false;
@@ -774,6 +884,8 @@ class Zend_View_Helper_Navigation_Menu
                 if (!$isActive && !$accept) {
                     continue;
                 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             } else if ($onlyActive && !$isActive) {
                 // page is not active itself, but might be in the active branch
                 $accept = false;
@@ -798,6 +910,7 @@ class Zend_View_Helper_Navigation_Menu
             }
 
             // make sure indentation is correct
+<<<<<<< HEAD
             $depth   -= $minDepth;
             $myIndent = $indent . str_repeat($innerIndent, $depth * 2);
 
@@ -863,6 +976,37 @@ class Zend_View_Helper_Navigation_Menu
                    . $myIndent . str_repeat($innerIndent, 2)
                    . $this->htmlify($page)
                    . $this->getEOL();
+=======
+            $depth -= $minDepth;
+            $myIndent = $indent . str_repeat('        ', $depth);
+
+            if ($depth > $prevDepth) {
+                // start new ul tag
+                if ($ulClass && $depth ==  0) {
+                    $ulClass = ' class="' . $ulClass . '"';
+                } else {
+                    $ulClass = '';
+                }
+                $html .= $myIndent . '<ul' . $ulClass . '>' . self::EOL;
+            } else if ($prevDepth > $depth) {
+                // close li/ul tags until we're at current depth
+                for ($i = $prevDepth; $i > $depth; $i--) {
+                    $ind = $indent . str_repeat('        ', $i);
+                    $html .= $ind . '    </li>' . self::EOL;
+                    $html .= $ind . '</ul>' . self::EOL;
+                }
+                // close previous li tag
+                $html .= $myIndent . '    </li>' . self::EOL;
+            } else {
+                // close previous li tag
+                $html .= $myIndent . '    </li>' . self::EOL;
+            }
+
+            // render li tag and page
+            $liClass = $isActive ? ' class="active"' : '';
+            $html .= $myIndent . '    <li' . $liClass . '>' . self::EOL
+                   . $myIndent . '        ' . $this->htmlify($page) . self::EOL;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
             // store as previous depth for next iteration
             $prevDepth = $depth;
@@ -871,11 +1015,19 @@ class Zend_View_Helper_Navigation_Menu
         if ($html) {
             // done iterating container; close open ul/li tags
             for ($i = $prevDepth+1; $i > 0; $i--) {
+<<<<<<< HEAD
                 $myIndent = $indent . str_repeat($innerIndent . $innerIndent, $i - 1);
                 $html    .= $myIndent . $innerIndent . '</li>' . $this->getEOL()
                          . $myIndent . '</ul>' . $this->getEOL();
             }
             $html = rtrim($html, $this->getEOL());
+=======
+                $myIndent = $indent . str_repeat('        ', $i-1);
+                $html .= $myIndent . '    </li>' . self::EOL
+                       . $myIndent . '</ul>' . self::EOL;
+            }
+            $html = rtrim($html, self::EOL);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return $html;
@@ -909,6 +1061,7 @@ class Zend_View_Helper_Navigation_Menu
         $options = $this->_normalizeOptions($options);
 
         if ($options['onlyActiveBranch'] && !$options['renderParents']) {
+<<<<<<< HEAD
             $html = $this->_renderDeepestMenu(
                 $container,
                 $options['ulClass'],
@@ -938,6 +1091,20 @@ class Zend_View_Helper_Navigation_Menu
                 $options['parentClass'],
                 $options['renderParentClass']
             );
+=======
+            $html = $this->_renderDeepestMenu($container,
+                                              $options['ulClass'],
+                                              $options['indent'],
+                                              $options['minDepth'],
+                                              $options['maxDepth']);
+        } else {
+            $html = $this->_renderMenu($container,
+                                       $options['ulClass'],
+                                       $options['indent'],
+                                       $options['minDepth'],
+                                       $options['maxDepth'],
+                                       $options['onlyActiveBranch']);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return $html;
@@ -962,7 +1129,11 @@ class Zend_View_Helper_Navigation_Menu
      *                                               render. Default is to render
      *                                               the container registered in
      *                                               the helper.
+<<<<<<< HEAD
      * @param  string|null               $ulClass    [optional] CSS class to
+=======
+     * @param  string                    $ulClass    [optional] CSS class to
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      *                                               use for UL element. Default
      *                                               is to use the value from
      *                                               {@link getUlClass()}.
@@ -971,6 +1142,7 @@ class Zend_View_Helper_Navigation_Menu
      *                                               spaces. Default is to use
      *                                               the value retrieved from
      *                                               {@link getIndent()}.
+<<<<<<< HEAD
      * @param  string|null               $ulId       [optional] Unique identifier
      *                                               (id) use for UL element
      * @param  bool                      $addPageClassToLi  adds CSS class from
@@ -992,13 +1164,27 @@ class Zend_View_Helper_Navigation_Menu
         return $this->renderMenu($container, array(
             'indent'           => $indent,
             'innerIndent'      => $innerIndent,
+=======
+     * @return string                                rendered content
+     */
+    public function renderSubMenu(Zend_Navigation_Container $container = null,
+                                  $ulClass = null,
+                                  $indent = null)
+    {
+        return $this->renderMenu($container, array(
+            'indent'           => $indent,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             'ulClass'          => $ulClass,
             'minDepth'         => null,
             'maxDepth'         => null,
             'onlyActiveBranch' => true,
+<<<<<<< HEAD
             'renderParents'    => false,
             'ulId'             => $ulId,
             'addPageClassToLi' => $addPageClassToLi,
+=======
+            'renderParents'    => false
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         ));
     }
 
@@ -1023,8 +1209,11 @@ class Zend_View_Helper_Navigation_Menu
      *                                               and the module where the
      *                                               script can be found.
      * @return string                                helper output
+<<<<<<< HEAD
      *
      * @throws Zend_View_Exception   When no partial script is set
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function renderPartial(Zend_Navigation_Container $container = null,
                                   $partial = null)

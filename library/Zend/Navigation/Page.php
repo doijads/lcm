@@ -14,9 +14,15 @@
  *
  * @category  Zend
  * @package   Zend_Navigation
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Page.php 25125 2012-11-16 15:12:06Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Page.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -29,7 +35,11 @@ require_once 'Zend/Navigation/Container.php';
  *
  * @category  Zend
  * @package   Zend_Navigation
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Navigation_Page extends Zend_Navigation_Container
@@ -42,6 +52,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     protected $_label;
 
     /**
+<<<<<<< HEAD
      * Fragment identifier (anchor identifier)
      * 
      * The fragment identifier (anchor identifier) pointing to an anchor within 
@@ -56,6 +67,8 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     protected $_fragment;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Page id
      *
      * @var string|null
@@ -84,6 +97,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     protected $_target;
 
     /**
+<<<<<<< HEAD
      * Accessibility key character
      *
      * This attribute assigns an access key to an element. An access key is a
@@ -96,6 +110,8 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     protected $_accesskey;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Forward links to other pages
      *
      * @link http://www.w3.org/TR/html4/struct/links.html#h-12.3.1
@@ -163,6 +179,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     protected $_properties = array();
 
     /**
+<<<<<<< HEAD
      * Custom HTML attributes
      *
      * @var array
@@ -170,6 +187,8 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     protected $_customHtmlAttribs = array();
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * The type of page to use when it wasn't set
      *
      * @var string
@@ -255,8 +274,12 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
 
         $hasUri = isset($options['uri']);
         $hasMvc = isset($options['action']) || isset($options['controller']) ||
+<<<<<<< HEAD
                   isset($options['module']) || isset($options['route']) ||
                   isset($options['params']);
+=======
+                  isset($options['module']) || isset($options['route']);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         if ($hasMvc) {
             require_once 'Zend/Navigation/Page/Mvc.php';
@@ -266,6 +289,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
             return new Zend_Navigation_Page_Uri($options);
         } else {
             require_once 'Zend/Navigation/Exception.php';
+<<<<<<< HEAD
             
             $message = 'Invalid argument: Unable to determine class to instantiate';
             if (isset($options['label'])) {
@@ -274,6 +298,11 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
             
             throw new Zend_Navigation_Exception($message);
     }
+=======
+            throw new Zend_Navigation_Exception(
+                'Invalid argument: Unable to determine class to instantiate');
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -369,6 +398,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     }
 
     /**
+<<<<<<< HEAD
      * Sets a fragment identifier
      *
      * @param  string $fragment   new fragment identifier
@@ -398,6 +428,8 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets page id
      *
      * @param  string|null $id            [optional] id to set. Default is null,
@@ -519,6 +551,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     }
 
     /**
+<<<<<<< HEAD
      * Sets access key for this page
      *
      * @param  string|null $character     [optional] access key to set. Default
@@ -553,6 +586,8 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets the page's forward links to other pages
      *
      * This method expects an associative array of forward links to other pages,
@@ -679,6 +714,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     }
 
     /**
+<<<<<<< HEAD
      * Sets a single custom HTML attribute
      *
      * @param  string      $name            name of the HTML attribute
@@ -792,6 +828,8 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets page order to use in parent container
      *
      * @param  int $order                 [optional] page order in container.
@@ -955,9 +993,12 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
      */
     public function setVisible($visible = true)
     {
+<<<<<<< HEAD
         if (is_string($visible) && 'false' == strtolower($visible)) {
             $visible = false;
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->_visible = (bool) $visible;
         return $this;
     }
@@ -1308,6 +1349,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
         return array_merge(
             $this->getCustomProperties(),
             array(
+<<<<<<< HEAD
                 'label'             => $this->getlabel(),
                 'fragment'          => $this->getFragment(),
                 'id'                => $this->getId(),
@@ -1327,6 +1369,23 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
                 'pages'             => parent::toArray()
             )
         );
+=======
+                'label'     => $this->getlabel(),
+                'id'        => $this->getId(),
+                'class'     => $this->getClass(),
+                'title'     => $this->getTitle(),
+                'target'    => $this->getTarget(),
+                'rel'       => $this->getRel(),
+                'rev'       => $this->getRev(),
+                'order'     => $this->getOrder(),
+                'resource'  => $this->getResource(),
+                'privilege' => $this->getPrivilege(),
+                'active'    => $this->isActive(),
+                'visible'   => $this->isVisible(),
+                'type'      => get_class($this),
+                'pages'     => parent::toArray()
+            ));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     // Internal methods:

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Service_Amazon
  * @subpackage Ec2
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Instance.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Instance.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,16 +38,23 @@ require_once 'Zend/Service/Amazon/Ec2/Abstract.php';
  * @category   Zend
  * @package    Zend_Service_Amazon
  * @subpackage Ec2
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_Amazon_Ec2_Instance extends Zend_Service_Amazon_Ec2_Abstract
 {
     /**
+<<<<<<< HEAD
      * Constant for Micro Instance Type
      */
     const MICRO = 't1.micro';
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Constant for Small Instance TYpe
      */
     const SMALL = 'm1.small';
@@ -172,6 +185,10 @@ class Zend_Service_Amazon_Ec2_Instance extends Zend_Service_Amazon_Ec2_Abstract
         if(isset($options['monitor']) && $options['monitor'] === true) {
             $params['Monitoring.Enabled'] = true;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $response = $this->sendRequest($params);
         $xpath = $response->getXPath();
 

@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Router
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Route.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Route.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -28,7 +33,11 @@ require_once 'Zend/Controller/Router/Route/Abstract.php';
  *
  * @package    Zend_Controller
  * @subpackage Router
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @see        http://manuals.rubyonrails.com/read/chapter/65
  */
@@ -77,7 +86,11 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
     protected $_translatable = array();
 
     protected $_urlVariable = ':';
+<<<<<<< HEAD
     protected $_urlDelimiter = self::URI_DELIMITER;
+=======
+    protected $_urlDelimiter = '/';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     protected $_regexDelimiter = '#';
     protected $_defaultRegex = null;
 
@@ -347,7 +360,11 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
                     $value = $this->_values[$name];
                 } elseif (!$reset && !$useDefault && isset($this->_wildcardData[$name])) {
                     $value = $this->_wildcardData[$name];
+<<<<<<< HEAD
                 } elseif (array_key_exists($name, $this->_defaults)) {
+=======
+                } elseif (isset($this->_defaults[$name])) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     $value = $this->_defaults[$name];
                 } else {
                     require_once 'Zend/Controller/Router/Exception.php';

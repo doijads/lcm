@@ -15,12 +15,24 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
 /**
+<<<<<<< HEAD
+=======
+ * @see Zend_Service_WindowsAzure_Diagnostics_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/Exception.php';
+
+/**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
  */
 require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationObjectBaseAbstract.php';
@@ -34,6 +46,7 @@ require_once 'Zend/Service/WindowsAzure/Diagnostics/DirectoryConfigurationSubscr
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  *
@@ -62,24 +75,71 @@ class Zend_Service_WindowsAzure_Diagnostics_ConfigurationDirectories
 	/**
 	 * Add subscription
 	 * 
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+ * @property    int        BufferQuotaInMB                        Buffer quota in MB
+ * @property    int        ScheduledTransferPeriodInMinutes    Scheduled transfer period in minutes
+ * @property    array    Subscriptions                        Subscriptions
+ */
+class Zend_Service_WindowsAzure_Diagnostics_ConfigurationDirectories
+    extends Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+{
+    /**
+     * Constructor
+     *
+	 * @param	int		$bufferQuotaInMB					Buffer quota in MB
+	 * @param	int		$scheduledTransferPeriodInMinutes	Scheduled transfer period in minutes
+	 */
+    public function __construct($bufferQuotaInMB = 0, $scheduledTransferPeriodInMinutes = 0)
+    {	
+        $this->_data = array(
+            'bufferquotainmb'                    => $bufferQuotaInMB,
+            'scheduledtransferperiodinminutes'     => $scheduledTransferPeriodInMinutes,
+            'subscriptions'                        => array()
+        );
+    }
+
+	/**
+	 * Add subscription
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param	string	$path					Path
 	 * @param	string	$container				Container
 	 * @param	int		$directoryQuotaInMB		Directory quota in MB
 	 */
     public function addSubscription($path, $container, $directoryQuotaInMB = 1024)
     {
+<<<<<<< HEAD
     	$this->_data['subscriptions'][$path] = new Zend_Service_WindowsAzure_Diagnostics_DirectoryConfigurationSubscription($path, $container, $directoryQuotaInMB);
     }
     
 	/**
 	 * Remove subscription
 	 * 
+=======
+        $this->_data['subscriptions'][$path] = new Zend_Service_WindowsAzure_Diagnostics_DirectoryConfigurationSubscription($path, $container, $directoryQuotaInMB);
+    }
+
+	/**
+	 * Remove subscription
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param	string	$path					Path
 	 */
     public function removeSubscription($path)
     {
+<<<<<<< HEAD
     	if (isset($this->_data['subscriptions'][$path])) {
     		unset($this->_data['subscriptions'][$path]);
     	}
     }
 }
+=======
+        if (isset($this->_data['subscriptions'][$path])) {
+            unset($this->_data['subscriptions'][$path]);
+        }
+    }
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

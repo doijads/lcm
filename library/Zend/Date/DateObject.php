@@ -14,8 +14,13 @@
  *
  * @category   Zend
  * @package    Zend_Date
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: DateObject.php 24880 2012-06-12 20:35:18Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: DateObject.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -23,7 +28,11 @@
  * @category   Zend
  * @package    Zend_Date
  * @subpackage Zend_Date_DateObject
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Date_DateObject {
@@ -312,6 +321,7 @@ abstract class Zend_Date_DateObject {
         }
 
         if (abs($timestamp) <= 0x7FFFFFFF) {
+<<<<<<< HEAD
             // See ZF-11992
             // "o" will sometimes resolve to the previous year (see 
             // http://php.net/date ; it's part of the ISO 8601 
@@ -319,6 +329,8 @@ abstract class Zend_Date_DateObject {
             // all occurrences of "o" not preceded by a backslash 
             // with "Y"
             $format = preg_replace('/(?<!\\\\)o\b/', 'Y', $format);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $result = ($gmt) ? @gmdate($format, $timestamp) : @date($format, $timestamp);
             date_default_timezone_set($oldzone);
             return $result;

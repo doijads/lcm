@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: HeadScript.php 24960 2012-06-15 14:09:34Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: HeadScript.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -29,7 +34,11 @@ require_once 'Zend/View/Helper/Placeholder/Container/Standalone.php';
  * @uses       Zend_View_Helper_Placeholder_Container_Standalone
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container_Standalone
@@ -245,7 +254,11 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
                     break;
                 case 'file':
                 default:
+<<<<<<< HEAD
                     if (!$this->_isDuplicate($content) || $action=='set') {
+=======
+                    if (!$this->_isDuplicate($content)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                         $attrs['src'] = $content;
                         $item = $this->createData($type, $attrs);
                         if ('offsetSet' == $action) {
@@ -410,8 +423,13 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
         $attrString = '';
         if (!empty($item->attributes)) {
             foreach ($item->attributes as $key => $value) {
+<<<<<<< HEAD
                 if ((!$this->arbitraryAttributesAllowed() && !in_array($key, $this->_optionalAttributes))
                     || in_array($key, array('conditional', 'noescape')))
+=======
+                if (!$this->arbitraryAttributesAllowed()
+                    && !in_array($key, $this->_optionalAttributes))
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 {
                     continue;
                 }
@@ -422,6 +440,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
             }
         }
 
+<<<<<<< HEAD
         $addScriptEscape = !(isset($item->attributes['noescape']) && filter_var($item->attributes['noescape'], FILTER_VALIDATE_BOOLEAN));
 
         $type = ($this->_autoEscape) ? $this->_escape($item->type) : $item->type;
@@ -440,6 +459,12 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
             }
 
             $html .= $indent;
+=======
+        $type = ($this->_autoEscape) ? $this->_escape($item->type) : $item->type;
+        $html  = '<script type="' . $type . '"' . $attrString . '>';
+        if (!empty($item->source)) {
+              $html .= PHP_EOL . $indent . '    ' . $escapeStart . PHP_EOL . $item->source . $indent . '    ' . $escapeEnd . PHP_EOL . $indent;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
         $html .= '</script>';
 

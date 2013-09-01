@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Mime
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Mime.php 24953 2012-06-13 19:09:58Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Mime.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -25,7 +31,11 @@
  *
  * @category   Zend
  * @package    Zend_Mime
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Mime
@@ -130,7 +140,11 @@ class Zend_Mime
         $str = self::_encodeQuotedPrintable($str);
 
         // Split encoded text into separate lines
+<<<<<<< HEAD
         while(strlen($str) > 0) {
+=======
+        while ($str) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $ptr = strlen($str);
             if ($ptr > $lineLength) {
                 $ptr = $lineLength;
@@ -194,7 +208,11 @@ class Zend_Mime
         $str = self::_encodeQuotedPrintable($str);
 
         // Mail-Header required chars have to be encoded also:
+<<<<<<< HEAD
         $str = str_replace(array('?', ' ', '_', ','), array('=3F', '=20', '=5F', '=2C'), $str);
+=======
+        $str = str_replace(array('?', ' ', '_'), array('=3F', '=20', '=5F'), $str);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         // initialize first line, we need it anyways
         $lines = array(0 => "");

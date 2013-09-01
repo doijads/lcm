@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Filter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Input.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Input.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -37,7 +43,11 @@ require_once 'Zend/Validate.php';
 /**
  * @category   Zend
  * @package    Zend_Filter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Filter_Input
@@ -801,9 +811,12 @@ class Zend_Filter_Input
             $this->_data = array();
             return;
         }
+<<<<<<< HEAD
         
         // remember the default not empty message in case we want to temporarily change it        
         $preserveDefaultNotEmptyMessage = $this->_defaults[self::NOT_EMPTY_MESSAGE];
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         foreach ($this->_validatorRules as $ruleName => &$validatorRule) {
             /**
@@ -839,6 +852,7 @@ class Zend_Filter_Input
                 $validatorRule[self::PRESENCE] = $this->_defaults[self::PRESENCE];
             }
             if (!isset($validatorRule[self::ALLOW_EMPTY])) {
+<<<<<<< HEAD
                 $foundNotEmptyValidator = false;
                 
                 foreach ($validatorRule as $rule) {
@@ -879,6 +893,9 @@ class Zend_Filter_Input
                 } else {
                     $validatorRule[self::ALLOW_EMPTY] = false;
                 }
+=======
+                $validatorRule[self::ALLOW_EMPTY] = $this->_defaults[self::ALLOW_EMPTY];
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
 
             if (!isset($validatorRule[self::MESSAGES])) {
@@ -886,8 +903,11 @@ class Zend_Filter_Input
             } else if (!is_array($validatorRule[self::MESSAGES])) {
                 $validatorRule[self::MESSAGES] = array($validatorRule[self::MESSAGES]);
             } else if (array_intersect_key($validatorList, $validatorRule[self::MESSAGES])) {
+<<<<<<< HEAD
                 // this seems pointless... it just re-adds what it already has...
                 // I can disable all this and not a single unit test fails...
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 // There are now corresponding numeric keys in the validation rule messages array
                 // Treat it as a named messages list for all rule validators
                 $unifiedMessages = $validatorRule[self::MESSAGES];
@@ -920,6 +940,7 @@ class Zend_Filter_Input
                         }
 
                         if ($validator instanceof Zend_Validate_NotEmpty) {
+<<<<<<< HEAD
                             /** we are changing the defaults here, this is alright if all subsequent validators are also a not empty
                             * validator, but it goes wrong if one of them is not AND is required!!!
                             * that is why we restore the default value at the end of this loop
@@ -931,6 +952,9 @@ class Zend_Filter_Input
                             } else {
                                 $this->_defaults[self::NOT_EMPTY_MESSAGE] = $value;
                             }
+=======
+                            $this->_defaults[self::NOT_EMPTY_MESSAGE] = $value;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                         }
                     }
 
@@ -951,12 +975,16 @@ class Zend_Filter_Input
             } else {
                 $this->_validateRule($validatorRule);
             }
+<<<<<<< HEAD
             
             // reset the default not empty message
             $this->_defaults[self::NOT_EMPTY_MESSAGE] = $preserveDefaultNotEmptyMessage;
         }
         
 
+=======
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         /**
          * Unset fields in $_data that have been added to other arrays.
@@ -1031,12 +1059,18 @@ class Zend_Filter_Input
                 $messages         = array();
 
                 foreach ($data as $fieldKey => $field) {
+<<<<<<< HEAD
                     // if there is no Zend_Validate_NotEmpty instance in the rules, we will use the default
                     if (!($notEmptyValidator = $this->_getNotEmptyValidatorInstance($validatorRule))) {
                         $notEmptyValidator = $this->_getValidator('NotEmpty');
                         $notEmptyValidator->setMessage($this->_getNotEmptyMessage($validatorRule[self::RULE], $fieldKey));
                     }            
                             
+=======
+                    $notEmptyValidator = $this->_getValidator('NotEmpty');
+                    $notEmptyValidator->setMessage($this->_getNotEmptyMessage($validatorRule[self::RULE], $fieldKey));
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     if (!$notEmptyValidator->isValid($field)) {
                         foreach ($notEmptyValidator->getMessages() as $messageKey => $message) {
                             if (!isset($messages[$messageKey])) {
@@ -1073,12 +1107,17 @@ class Zend_Filter_Input
                 $field = array($field);
             }
 
+<<<<<<< HEAD
             // if there is no Zend_Validate_NotEmpty instance in the rules, we will use the default
             if (!($notEmptyValidator = $this->_getNotEmptyValidatorInstance($validatorRule))) {
                 $notEmptyValidator = $this->_getValidator('NotEmpty');
                 $notEmptyValidator->setMessage($this->_getNotEmptyMessage($validatorRule[self::RULE], $fieldName));
             }
             
+=======
+            $notEmptyValidator = $this->_getValidator('NotEmpty');
+            $notEmptyValidator->setMessage($this->_getNotEmptyMessage($validatorRule[self::RULE], $fieldName));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if ($validatorRule[self::ALLOW_EMPTY]) {
                 $validatorChain = $validatorRule[self::VALIDATOR_CHAIN];
             } else {
@@ -1087,7 +1126,11 @@ class Zend_Filter_Input
                 $validatorChain->addValidator($validatorRule[self::VALIDATOR_CHAIN]);
             }
 
+<<<<<<< HEAD
             foreach ($field as $key => $value) {
+=======
+            foreach ($field as $value) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 if ($validatorRule[self::ALLOW_EMPTY]  &&  !$notEmptyValidator->isValid($value)) {
                     // Field is empty AND it's allowed. Do nothing.
                     continue;
@@ -1136,6 +1179,7 @@ class Zend_Filter_Input
             }
         }
     }
+<<<<<<< HEAD
     
     /**
      * Check a validatorRule for the presence of a NotEmpty validator instance.
@@ -1153,6 +1197,8 @@ class Zend_Filter_Input
         
         return false;
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * @param mixed $classBaseName

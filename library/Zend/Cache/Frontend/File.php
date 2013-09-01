@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Frontend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: File.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: File.php 23793 2011-03-02 22:31:05Z mabe $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -30,7 +36,11 @@ require_once 'Zend/Cache/Core.php';
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Frontend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Cache_Frontend_File extends Zend_Cache_Core
@@ -123,7 +133,11 @@ class Zend_Cache_Frontend_File extends Zend_Cache_Core
             $this->_masterFile_mtimes[$i] = $mtime;
             $this->_specificOptions['master_files'][$i] = $masterFile;
             if ($i === 0) { // to keep a compatibility
+<<<<<<< HEAD
                 $this->_specificOptions['master_file'] = $masterFile;
+=======
+                $this->_specificOptions['master_files'] = $masterFile;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
 
             $i++;

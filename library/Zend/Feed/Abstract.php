@@ -15,9 +15,15 @@
  *
  * @category   Zend
  * @package    Zend_Feed
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Abstract.php 25160 2012-12-18 15:17:16Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Abstract.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -37,7 +43,11 @@ require_once 'Zend/Feed/Element.php';
  *
  * @category   Zend
  * @package    Zend_Feed
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Feed_Abstract extends Zend_Feed_Element implements Iterator, Countable
@@ -81,9 +91,15 @@ abstract class Zend_Feed_Abstract extends Zend_Feed_Element implements Iterator,
                  * @see Zend_Feed_Exception
                  */
                 require_once 'Zend/Feed/Exception.php';
+<<<<<<< HEAD
                 throw new Zend_Feed_Exception('Feed failed to load, got response code ' . $response->getStatus() . '; request: ' . $client->getLastRequest() . "\nresponse: " . $response->asString());
             }
             $this->_element = $this->_importFeedFromString($response->getBody());
+=======
+                throw new Zend_Feed_Exception('Feed failed to load, got response code ' . $response->getStatus());
+            }
+            $this->_element = $response->getBody();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $this->__wakeup();
         } elseif ($string !== null) {
             // Retrieve the feed from $string
@@ -256,6 +272,7 @@ abstract class Zend_Feed_Abstract extends Zend_Feed_Element implements Iterator,
      * @return void
      */
     abstract public function send();
+<<<<<<< HEAD
 
     /**
      * Import a feed from a string
@@ -301,4 +318,6 @@ abstract class Zend_Feed_Abstract extends Zend_Feed_Element implements Iterator,
 
         return $doc->saveXML($doc->documentElement);
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

@@ -14,7 +14,11 @@
  *
  * @category   Zend
  * @package    Zend_Form
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -27,9 +31,15 @@ require_once 'Zend/Form/Element/Xhtml.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Element
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: File.php 25225 2013-01-17 15:59:16Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: File.php 23871 2011-04-23 22:40:16Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
 {
@@ -150,8 +160,12 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
         }
 
         if (empty($type)) {
+<<<<<<< HEAD
             $nsSeparator = (false !== strpos($prefix, '\\'))?'\\':'_';
             $pluginPrefix = rtrim($prefix, $nsSeparator) . $nsSeparator . 'Transfer' . $nsSeparator . 'Adapter';
+=======
+            $pluginPrefix = rtrim($prefix, '_') . '_Transfer_Adapter';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $pluginPath   = rtrim($path, DIRECTORY_SEPARATOR) . '/Transfer/Adapter/';
             $loader       = $this->getPluginLoader(self::TRANSFER_ADAPTER);
             $loader->addPrefixPath($pluginPrefix, $pluginPath);
@@ -431,7 +445,11 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
         } else {
             $adapter->setOptions(array('ignoreNoFile' => false), $this->getName());
             if ($this->autoInsertNotEmptyValidator() && !$this->getValidator('NotEmpty')) {
+<<<<<<< HEAD
                 $this->addValidator('NotEmpty', true);
+=======
+                $this->addValidator = array('validator' => 'NotEmpty', 'breakChainOnFailure' => true);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
 

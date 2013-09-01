@@ -16,9 +16,15 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Amazon.php 24782 2012-05-09 12:04:50Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Amazon.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -30,7 +36,11 @@ require_once 'Zend/Rest/Client.php';
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_Amazon
@@ -104,7 +114,11 @@ class Zend_Service_Amazon
      * @param  array $options Options to use for the Search Query
      * @throws Zend_Service_Exception
      * @return Zend_Service_Amazon_ResultSet
+<<<<<<< HEAD
      * @see http://www.amazon.com/gp/aws/sdk/main.html/102-9041115-9057709?s=AWSEcommerceService&v=2011-08-01&p=ApiReference/ItemSearchOperation
+=======
+     * @see http://www.amazon.com/gp/aws/sdk/main.html/102-9041115-9057709?s=AWSEcommerceService&v=2005-10-05&p=ApiReference/ItemSearchOperation
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function itemSearch(array $options)
     {
@@ -142,7 +156,11 @@ class Zend_Service_Amazon
      *
      * @param  string $asin    Amazon ASIN ID
      * @param  array  $options Query Options
+<<<<<<< HEAD
      * @see http://www.amazon.com/gp/aws/sdk/main.html/102-9041115-9057709?s=AWSEcommerceService&v=2011-08-01&p=ApiReference/ItemLookupOperation
+=======
+     * @see http://www.amazon.com/gp/aws/sdk/main.html/102-9041115-9057709?s=AWSEcommerceService&v=2005-10-05&p=ApiReference/ItemLookupOperation
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @throws Zend_Service_Exception
      * @return Zend_Service_Amazon_Item|Zend_Service_Amazon_ResultSet
      */
@@ -171,7 +189,11 @@ class Zend_Service_Amazon
         $dom->loadXML($response->getBody());
         self::_checkErrors($dom);
         $xpath = new DOMXPath($dom);
+<<<<<<< HEAD
         $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2011-08-01');
+=======
+        $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2005-10-05');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $items = $xpath->query('//az:Items/az:Item');
 
         if ($items->length == 1) {
@@ -229,7 +251,11 @@ class Zend_Service_Amazon
         $options['AWSAccessKeyId'] = $this->appId;
         $options['Service']        = 'AWSECommerceService';
         $options['Operation']      = (string) $query;
+<<<<<<< HEAD
         $options['Version']        = '2011-08-01';
+=======
+        $options['Version']        = '2005-10-05';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         // de-canonicalize out sort key
         if (isset($options['ResponseGroup'])) {
@@ -302,7 +328,11 @@ class Zend_Service_Amazon
     protected static function _checkErrors(DOMDocument $dom)
     {
         $xpath = new DOMXPath($dom);
+<<<<<<< HEAD
         $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2011-08-01');
+=======
+        $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2005-10-05');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         if ($xpath->query('//az:Error')->length >= 1) {
             $code = $xpath->query('//az:Error/az:Code/text()')->item(0)->data;

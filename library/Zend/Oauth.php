@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Oauth
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Oauth.php 25167 2012-12-19 16:28:01Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Oauth.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Http_Client */
@@ -25,7 +31,11 @@ require_once 'Zend/Http/Client.php';
 /**
  * @category   Zend
  * @package    Zend_Oauth
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Oauth
@@ -38,7 +48,10 @@ class Zend_Oauth
     const PUT                        = 'PUT';
     const DELETE                     = 'DELETE';
     const HEAD                       = 'HEAD';
+<<<<<<< HEAD
     const OPTIONS                    = 'OPTIONS';
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Singleton instance if required of the HTTP client

@@ -1,5 +1,8 @@
 * {margin:0 auto;padding:0}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 .fleft {float:left}
 .fright {float:right}
 .fclear {clear:both}
@@ -122,3 +125,19 @@ table tr:nth-of-type(even){background: #EEEEFF;}
     text-align: left;
     background-color: #EADFC1;
 }
+<<<<<<< HEAD
+=======
+
+
+input[type="text"], input[type="password"], input[type="date"], textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 2px #CCCCCC inset;
+    color: #5F5F5F;
+    font-size: 13px;
+    padding: 4px;
+    resize: none;
+    vertical-align: middle;
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Abstract.php 25105 2012-11-07 20:33:22Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Abstract.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -27,7 +33,11 @@ require_once 'Zend/Validate/Interface.php';
 /**
  * @category   Zend
  * @package    Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
@@ -230,13 +240,18 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
                 $value = $value->__toString();
             }
         } else {
+<<<<<<< HEAD
             $value = implode((array) $value);
+=======
+            $value = (string)$value;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         if ($this->getObscureValue()) {
             $value = str_repeat('*', strlen($value));
         }
 
+<<<<<<< HEAD
         $message = str_replace('%value%', $value, $message);
         foreach ($this->_messageVariables as $ident => $property) {
             $message = str_replace(
@@ -244,6 +259,11 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
                 implode(' ', (array) $this->$property),
                 $message
             );
+=======
+        $message = str_replace('%value%', (string) $value, $message);
+        foreach ($this->_messageVariables as $ident => $property) {
+            $message = str_replace("%$ident%", (string) $this->$property, $message);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         $length = self::getMessageLength();

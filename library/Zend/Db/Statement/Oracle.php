@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Statement
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Oracle.php 24863 2012-06-02 00:22:47Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Oracle.php 23959 2011-05-03 10:45:47Z yoshida@zend.co.jp $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,7 +37,11 @@ require_once 'Zend/Db/Statement.php';
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Statement
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Db_Statement_Oracle extends Zend_Db_Statement
@@ -240,7 +250,11 @@ class Zend_Db_Statement_Oracle extends Zend_Db_Statement
             }
             $error = false;
             foreach (array_keys($params) as $name) {
+<<<<<<< HEAD
                 if (!$this->bindParam($name, $params[$name], null, -1)) {
+=======
+                if (!@oci_bind_by_name($this->_stmt, $name, $params[$name], -1)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     $error = true;
                     break;
                 }

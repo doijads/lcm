@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Controller
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Action.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Action.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -37,7 +43,11 @@ require_once 'Zend/Controller/Front.php';
 /**
  * @category   Zend
  * @package    Zend_Controller
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Controller_Action implements Zend_Controller_Action_Interface
@@ -505,6 +515,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
                 $this->_classMethods = get_class_methods($this);
             }
 
+<<<<<<< HEAD
             // If pre-dispatch hooks introduced a redirect then stop dispatch
             // @see ZF-7496
             if (!($this->getResponse()->isRedirect())) {
@@ -517,6 +528,16 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
                 } else {
                     $this->__call($action, array());
                 }
+=======
+            // preDispatch() didn't change the action, so we can continue
+            if ($this->getInvokeArg('useCaseSensitiveActions') || in_array($action, $this->_classMethods)) {
+                if ($this->getInvokeArg('useCaseSensitiveActions')) {
+                    trigger_error('Using case sensitive actions without word separators is deprecated; please do not rely on this "feature"');
+                }
+                $this->$action();
+            } else {
+                $this->__call($action, array());
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
             $this->postDispatch();
         }
@@ -583,6 +604,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     protected function _getParam($paramName, $default = null)
     {
+<<<<<<< HEAD
         return $this->getParam($paramName, $default);
     }
 
@@ -599,6 +621,8 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     public function getParam($paramName, $default = null)
     {
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $value = $this->getRequest()->getParam($paramName);
          if ((null === $value || '' === $value) && (null !== $default)) {
             $value = $default;
@@ -613,6 +637,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * @param string $paramName
      * @param mixed $value
      * @return Zend_Controller_Action
+<<<<<<< HEAD
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             setParam() instead.
      */
@@ -630,6 +655,11 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     public function setParam($paramName, $value)
     {
+=======
+     */
+    protected function _setParam($paramName, $value)
+    {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->getRequest()->setParam($paramName, $value);
 
         return $this;
@@ -641,6 +671,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      *
      * @param string $paramName
      * @return boolean
+<<<<<<< HEAD
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             hasParam() instead.
      */
@@ -658,6 +689,11 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     public function hasParam($paramName)
     {
+=======
+     */
+    protected function _hasParam($paramName)
+    {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return null !== $this->getRequest()->getParam($paramName);
     }
 
@@ -666,6 +702,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * as an associative array.
      *
      * @return array
+<<<<<<< HEAD
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             getAllParams() instead.
      */
@@ -682,6 +719,11 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     public function getAllParams()
     {
+=======
+     */
+    protected function _getAllParams()
+    {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this->getRequest()->getParams();
     }
 
@@ -711,6 +753,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * @param string $module
      * @param array $params
      * @return void
+<<<<<<< HEAD
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             forward() instead.
      */
@@ -747,6 +790,11 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     final public function forward($action, $controller = null, $module = null, array $params = null)
     {
+=======
+     */
+    final protected function _forward($action, $controller = null, $module = null, array $params = null)
+    {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $request = $this->getRequest();
 
         if (null !== $params) {
@@ -774,6 +822,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * @param string $url
      * @param array $options Options to be used when redirecting
      * @return void
+<<<<<<< HEAD
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             redirect() instead.
      */
@@ -793,6 +842,11 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      */
     public function redirect($url, array $options = array())
     {
+=======
+     */
+    protected function _redirect($url, array $options = array())
+    {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->_helper->redirector->gotoUrl($url, $options);
     }
 }

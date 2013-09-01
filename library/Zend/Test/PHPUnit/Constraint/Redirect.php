@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Test
  * @subpackage PHPUnit
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Redirect.php 25002 2012-06-26 14:38:28Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Redirect.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** @see PHPUnit_Framework_Constraint */
@@ -30,7 +36,11 @@ require_once 'PHPUnit/Framework/Constraint.php';
  * @category   Zend
  * @package    Zend_Test
  * @subpackage PHPUnit
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
@@ -64,11 +74,14 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
      * @var string
      */
     protected $_match             = null;
+<<<<<<< HEAD
     
     /**
      * What is actual redirect
      */
     protected $_actual            = null;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Whether or not assertion is negated
@@ -147,12 +160,15 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
                     : $this->_regex($response, $match);
             case self::ASSERT_REDIRECT:
             default:
+<<<<<<< HEAD
                 $headers  = $response->sendHeaders();
                 if (isset($headers['location'])) {
                     $redirect = $headers['location'];
                     $redirect = str_replace('Location: ', '', $redirect);
                     $this->_actual = $redirect;
                 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 return ($this->_negate) ? !$response->isRedirect() : $response->isRedirect();
         }
     }
@@ -177,9 +193,12 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
                     $failure = 'Failed asserting response DOES NOT redirect to "%s"';
                 }
                 $failure = sprintf($failure, $this->_match);
+<<<<<<< HEAD
                 if (!$this->_negate && $this->_actual) {
                     $failure .= sprintf(PHP_EOL . 'It redirects to "%s".', $this->_actual);
                 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 break;
             case self::ASSERT_REDIRECT_REGEX:
                 $failure = 'Failed asserting response redirects to URL MATCHING "%s"';
@@ -187,18 +206,24 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
                     $failure = 'Failed asserting response DOES NOT redirect to URL MATCHING "%s"';
                 }
                 $failure = sprintf($failure, $this->_match);
+<<<<<<< HEAD
                 if ($this->_actual) {
                     $failure .= sprintf(PHP_EOL . 'It redirects to "%s".', $this->_actual);
                 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 break;
             case self::ASSERT_REDIRECT:
             default:
                 $failure = 'Failed asserting response is a redirect';
                 if ($this->_negate) {
                     $failure = 'Failed asserting response is NOT a redirect';
+<<<<<<< HEAD
                     if ($this->_actual) {
                         $failure .= sprintf(PHP_EOL . 'It redirects to "%s"', $this->_actual);
                     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
                 break;
         }
@@ -236,7 +261,10 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
         $headers  = $response->sendHeaders();
         $redirect = $headers['location'];
         $redirect = str_replace('Location: ', '', $redirect);
+<<<<<<< HEAD
         $this->_actual = $redirect;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         return ($redirect == $match);
     }
@@ -257,7 +285,10 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
         $headers  = $response->sendHeaders();
         $redirect = $headers['location'];
         $redirect = str_replace('Location: ', '', $redirect);
+<<<<<<< HEAD
         $this->_actual = $redirect;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         return ($redirect != $match);
     }
@@ -278,7 +309,10 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
         $headers  = $response->sendHeaders();
         $redirect = $headers['location'];
         $redirect = str_replace('Location: ', '', $redirect);
+<<<<<<< HEAD
         $this->_actual = $redirect;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         return preg_match($pattern, $redirect);
     }
@@ -299,7 +333,10 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit_Framework_Constraint
         $headers  = $response->sendHeaders();
         $redirect = $headers['location'];
         $redirect = str_replace('Location: ', '', $redirect);
+<<<<<<< HEAD
         $this->_actual = $redirect;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         return !preg_match($pattern, $redirect);
     }

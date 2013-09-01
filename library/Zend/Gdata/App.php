@@ -16,9 +16,15 @@
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage App
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: App.php 25259 2013-02-13 17:38:12Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: App.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -42,11 +48,14 @@ require_once 'Zend/Version.php';
 require_once 'Zend/Gdata/App/MediaSource.php';
 
 /**
+<<<<<<< HEAD
  * Zend_Uri/Http
  */
 require_once 'Zend/Uri/Http.php';
 
 /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * Provides Atom Publishing Protocol (APP) functionality.  This class and all
  * other components of Zend_Gdata_App are designed to work independently from
  * other Zend_Gdata components in order to interact with generic APP services.
@@ -54,7 +63,11 @@ require_once 'Zend/Uri/Http.php';
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage App
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_App
@@ -724,6 +737,7 @@ class Zend_Gdata_App
      * @param  string $uri
      * @param  Zend_Http_Client $client The client used for communication
      * @param  string $className The class which is used as the return type
+<<<<<<< HEAD
      * @param  bool $useObjectMapping Enable/disable the use of XML to object mapping.
      * @throws Zend_Gdata_App_Exception
      * @return string|Zend_Gdata_App_Feed Returns string only if the fourth
@@ -732,6 +746,16 @@ class Zend_Gdata_App
      */
     public static function import($uri, $client = null,
         $className='Zend_Gdata_App_Feed', $useObjectMapping = true)
+=======
+     * @throws Zend_Gdata_App_Exception
+     * @return string|Zend_Gdata_App_Feed Returns string only if the object
+     *                                    mapping has been disabled explicitly
+     *                                    by passing false to the
+     *                                    useObjectMapping() function.
+     */
+    public static function import($uri, $client = null,
+        $className='Zend_Gdata_App_Feed')
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $app = new Zend_Gdata_App($client);
         $requestData = $app->prepareRequest('GET', $uri);
@@ -739,7 +763,11 @@ class Zend_Gdata_App
             $requestData['method'], $requestData['url']);
 
         $feedContent = $response->getBody();
+<<<<<<< HEAD
         if (false === $useObjectMapping) {
+=======
+        if (!$this->_useObjectMapping) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return $feedContent;
         }
         $feed = self::importString($feedContent, $className);
@@ -1060,9 +1088,12 @@ class Zend_Gdata_App
                      break;
                  } catch (Zend_Exception $e) {
                      // package wasn't here- continue searching
+<<<<<<< HEAD
                  } catch (ErrorException $e) {
                      // package wasn't here- continue searching
                      // @see ZF-7013 and ZF-11959
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                  }
             }
             if ($foundClassName != null) {

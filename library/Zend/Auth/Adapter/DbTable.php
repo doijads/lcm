@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Auth
  * @subpackage Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DbTable.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: DbTable.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -41,7 +47,11 @@ require_once 'Zend/Auth/Result.php';
  * @category   Zend
  * @package    Zend_Auth
  * @subpackage Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
@@ -477,7 +487,11 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
                 $origDbFetchMode = $this->_zendDb->getFetchMode();
                 $this->_zendDb->setFetchMode(Zend_DB::FETCH_ASSOC);
             }
+<<<<<<< HEAD
             $resultIdentities = $this->_zendDb->fetchAll($dbSelect);
+=======
+            $resultIdentities = $this->_zendDb->fetchAll($dbSelect->__toString());
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if (isset($origDbFetchMode)) {
                 $this->_zendDb->setFetchMode($origDbFetchMode);
                 unset($origDbFetchMode);

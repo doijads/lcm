@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: TwoLevels.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: TwoLevels.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -35,7 +41,11 @@ require_once 'Zend/Cache/Backend.php';
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -383,6 +393,10 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
         return $this->_slowBackend->getIdsMatchingAnyTags($tags);
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     /**
      * Return the filling percentage of the backend storage
      *
@@ -480,6 +494,7 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
      */
     private function _getFastLifetime($lifetime, $priority, $maxLifetime = null)
     {
+<<<<<<< HEAD
         if ($lifetime <= 0) {
             // if no lifetime, we have an infinite lifetime
             // we need to use arbitrary lifetimes
@@ -493,6 +508,20 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
             return $maxLifetime;
         }
 
+=======
+        if ($lifetime === null) {
+            // if lifetime is null, we have an infinite lifetime
+            // we need to use arbitrary lifetimes
+            $fastLifetime = (int) (2592000 / (11 - $priority));
+        } else {
+            $fastLifetime = (int) ($lifetime / (11 - $priority));
+        }
+        if (($maxLifetime !== null) && ($maxLifetime >= 0)) {
+            if ($fastLifetime > $maxLifetime) {
+                return $maxLifetime;
+            }
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $fastLifetime;
     }
 

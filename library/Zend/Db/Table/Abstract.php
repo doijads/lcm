@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Table
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Abstract.php 24958 2012-06-15 13:44:04Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Abstract.php 23994 2011-05-04 06:09:42Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -41,7 +47,11 @@ require_once 'Zend/Db.php';
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Table
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Db_Table_Abstract
@@ -70,7 +80,10 @@ abstract class Zend_Db_Table_Abstract
     const ON_UPDATE        = 'onUpdate';
 
     const CASCADE          = 'cascade';
+<<<<<<< HEAD
     const CASCADE_RECURSE  = 'cascadeRecurse';
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     const RESTRICT         = 'restrict';
     const SET_NULL         = 'setNull';
 
@@ -745,7 +758,10 @@ abstract class Zend_Db_Table_Abstract
      * Initialize database adapter.
      *
      * @return void
+<<<<<<< HEAD
      * @throws Zend_Db_Table_Exception
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     protected function _setupDatabaseAdapter()
     {
@@ -886,7 +902,11 @@ abstract class Zend_Db_Table_Abstract
             // then throw an exception.
             if (empty($this->_primary)) {
                 require_once 'Zend/Db/Table/Exception.php';
+<<<<<<< HEAD
                 throw new Zend_Db_Table_Exception("A table must have a primary key, but none was found for table '{$this->_name}'");
+=======
+                throw new Zend_Db_Table_Exception('A table must have a primary key, but none was found');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         } else if (!is_array($this->_primary)) {
             $this->_primary = array(1 => $this->_primary);
@@ -976,7 +996,10 @@ abstract class Zend_Db_Table_Abstract
      *
      * @param  string $key The specific info part to return OPTIONAL
      * @return mixed
+<<<<<<< HEAD
      * @throws Zend_Db_Table_Exception
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function info($key = null)
     {
@@ -1055,7 +1078,11 @@ abstract class Zend_Db_Table_Abstract
         /**
          * If the primary key can be generated automatically, and no value was
          * specified in the user-supplied data, then omit it from the tuple.
+<<<<<<< HEAD
          *
+=======
+         * 
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
          * Note: this checks for sensible values in the supplied primary key
          * position of the data.  The following values are considered empty:
          *   null, false, true, '', array()
@@ -1181,6 +1208,7 @@ abstract class Zend_Db_Table_Abstract
      */
     public function delete($where)
     {
+<<<<<<< HEAD
         $depTables = $this->getDependentTables();
         if (!empty($depTables)) {
             $resultSet = $this->fetchAll($where);
@@ -1197,6 +1225,8 @@ abstract class Zend_Db_Table_Abstract
             }
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $tableSpec = ($this->_schema ? $this->_schema . '.' : '') . $this->_name;
         return $this->_db->delete($tableSpec, $where);
     }
@@ -1210,6 +1240,7 @@ abstract class Zend_Db_Table_Abstract
      */
     public function _cascadeDelete($parentTableClassname, array $primaryKey)
     {
+<<<<<<< HEAD
         // setup metadata
         $this->_setupMetadata();
         
@@ -1260,6 +1291,29 @@ abstract class Zend_Db_Table_Abstract
                     $rowsAffected += $this->delete($where);
                 }
                 
+=======
+        $this->_setupMetadata();
+        $rowsAffected = 0;
+        foreach ($this->_getReferenceMapNormalized() as $map) {
+            if ($map[self::REF_TABLE_CLASS] == $parentTableClassname && isset($map[self::ON_DELETE])) {
+                switch ($map[self::ON_DELETE]) {
+                    case self::CASCADE:
+                        $where = array();
+                        for ($i = 0; $i < count($map[self::COLUMNS]); ++$i) {
+                            $col = $this->_db->foldCase($map[self::COLUMNS][$i]);
+                            $refCol = $this->_db->foldCase($map[self::REF_COLUMNS][$i]);
+                            $type = $this->_metadata[$col]['DATA_TYPE'];
+                            $where[] = $this->_db->quoteInto(
+                                $this->_db->quoteIdentifier($col, true) . ' = ?',
+                                $primaryKey[$refCol], $type);
+                        }
+                        $rowsAffected += $this->delete($where);
+                        break;
+                    default:
+                        // no action
+                        break;
+                }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
         return $rowsAffected;
@@ -1577,6 +1631,7 @@ abstract class Zend_Db_Table_Abstract
         return $data;
     }
 
+<<<<<<< HEAD
     public static function getTableFromString($tableName, Zend_Db_Table_Abstract $referenceTable = null)
     {
         if ($referenceTable instanceof Zend_Db_Table_Abstract) {
@@ -1611,4 +1666,6 @@ abstract class Zend_Db_Table_Abstract
         return new $tableName($options);
     }
     
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

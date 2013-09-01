@@ -38,7 +38,11 @@ CREATE TABLE message
   handle character(32),
   body character varying(8192) NOT NULL,
   md5 character(32) NOT NULL,
+<<<<<<< HEAD
   timeout double precision,
+=======
+  timeout real,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
   created integer,
   CONSTRAINT message_pk PRIMARY KEY (message_id),
   CONSTRAINT message_ibfk_1 FOREIGN KEY (queue_id)
@@ -46,4 +50,8 @@ CREATE TABLE message
       ON UPDATE CASCADE ON DELETE CASCADE
 )
 WITH (OIDS=FALSE);
+<<<<<<< HEAD
 ALTER TABLE message OWNER TO queue;
+=======
+ALTER TABLE message OWNER TO queue;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

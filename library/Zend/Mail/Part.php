@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Mail
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Part.php 24759 2012-05-05 02:58:55Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Part.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -34,7 +40,11 @@ require_once 'Zend/Mail/Part/Interface.php';
 /**
  * @category   Zend
  * @package    Zend_Mail
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface
@@ -86,12 +96,15 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface
      * @var int
      */
     protected $_messageNum = 0;
+<<<<<<< HEAD
     
     /**
      * Class to use when creating message parts
      * @var string 
      */
     protected $_partClass;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Public constructor
@@ -128,10 +141,13 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface
             $this->_mail       = $params['handler'];
             $this->_messageNum = $params['id'];
         }
+<<<<<<< HEAD
         
         if (isset($params['partclass'])) {
             $this->setPartClass($params['partclass']);
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         if (isset($params['raw'])) {
             Zend_Mime_Decode::splitMessage($params['raw'], $this->_headers, $this->_content);
@@ -150,6 +166,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface
             }
         }
     }
+<<<<<<< HEAD
     
     /**
      * Set name pf class used to encapsulate message parts
@@ -188,6 +205,8 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface
         }
         return $this->_partClass;
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Check if part is a multipart message
@@ -271,10 +290,16 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface
         if ($parts === null) {
             return;
         }
+<<<<<<< HEAD
         $partClass = $this->getPartClass();
         $counter = 1;
         foreach ($parts as $part) {
             $this->_parts[$counter++] = new $partClass(array('headers' => $part['header'], 'content' => $part['body']));
+=======
+        $counter = 1;
+        foreach ($parts as $part) {
+            $this->_parts[$counter++] = new self(array('headers' => $part['header'], 'content' => $part['body']));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
     }
 

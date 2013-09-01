@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage ReCaptcha
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -25,9 +29,15 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage ReCaptcha
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Response.php 25152 2012-11-28 11:55:44Z cogo $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Response.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Service_ReCaptcha_Response
 {
@@ -142,6 +152,7 @@ class Zend_Service_ReCaptcha_Response
     {
         $body = $response->getBody();
 
+<<<<<<< HEAD
         // Default status and error code
         $status = 'false';
         $errorCode = '';
@@ -154,6 +165,15 @@ class Zend_Service_ReCaptcha_Response
 
         if (!empty($parts[1])) {
             $errorCode = $parts[1];
+=======
+        $parts = explode("\n", $body, 2);
+
+        if (count($parts) !== 2) {
+            $status = 'false';
+            $errorCode = '';
+        } else {
+            list($status, $errorCode) = $parts;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         $this->setStatus($status);
@@ -161,4 +181,8 @@ class Zend_Service_ReCaptcha_Response
 
         return $this;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

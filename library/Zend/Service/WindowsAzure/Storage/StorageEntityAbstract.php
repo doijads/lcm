@@ -15,23 +15,43 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
 /**
+<<<<<<< HEAD
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * 
+=======
+ * @see Zend_Service_WindowsAzure_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Exception.php';
+
+
+/**
+ * @category   Zend
+ * @package    Zend_Service_WindowsAzure
+ * @subpackage Storage
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 abstract class Zend_Service_WindowsAzure_Storage_StorageEntityAbstract
 {
     /**
      * Data
+<<<<<<< HEAD
      * 
      * @var array
      */
@@ -40,6 +60,16 @@ abstract class Zend_Service_WindowsAzure_Storage_StorageEntityAbstract
     /**
      * Magic overload for setting properties
      * 
+=======
+     *
+     * @var array
+     */
+    protected $_data = null;
+
+    /**
+     * Magic overload for setting properties
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $name     Name of the property
      * @param string $value    Value to set
      */
@@ -48,20 +78,34 @@ abstract class Zend_Service_WindowsAzure_Storage_StorageEntityAbstract
             $this->_data[strtolower($name)] = $value;
             return;
         }
+<<<<<<< HEAD
 		require_once 'Zend/Service/WindowsAzure/Exception.php';
         throw new Zend_Service_WindowsAzure_Exception("Unknown property: " . $name);
+=======
+
+        throw new Exception("Unknown property: " . $name);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
      * Magic overload for getting properties
+<<<<<<< HEAD
      * 
+=======
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $name     Name of the property
      */
     public function __get($name) {
         if (array_key_exists(strtolower($name), $this->_data)) {
             return $this->_data[strtolower($name)];
         }
+<<<<<<< HEAD
 		require_once 'Zend/Service/WindowsAzure/Exception.php';
         throw new Zend_Service_WindowsAzure_Exception("Unknown property: " . $name);
+=======
+
+        throw new Exception("Unknown property: " . $name);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 }

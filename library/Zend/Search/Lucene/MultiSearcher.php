@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Search_Lucene
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MultiSearcher.php 24862 2012-06-02 00:04:53Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: MultiSearcher.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -24,20 +30,30 @@
 require_once 'Zend/Search/Lucene/Interface.php';
 
 /**
+<<<<<<< HEAD
  * Import Zend_Search_Lucene_Interface_MultiSearcher for BC (see ZF-12067)
  * @see Zend_Search_Lucene_Interface_MultiSearcher 
  */
 require_once 'Zend/Search/Lucene/Interface/MultiSearcher.php';
 
 /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * Multisearcher allows to search through several independent indexes.
  *
  * @category   Zend
  * @package    Zend_Search_Lucene
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ */
+class Zend_Search_Lucene_Interface_MultiSearcher implements Zend_Search_Lucene_Interface
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 {
     /**
      * List of indices for searching.
@@ -977,6 +993,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
         // Do nothing, since it's never referenced by indices
     }
 }
+<<<<<<< HEAD
 
 /**
  * This class is provided for backwards-compatibility (See ZF-12067)
@@ -990,3 +1007,5 @@ class Zend_Search_Lucene_Interface_MultiSearcher
     extends Zend_Search_Lucene_MultiSearcher
 {
 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

@@ -1,6 +1,9 @@
 <?php
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 class Application_Model_UsersMapper
 {
     protected $_dbTable;
@@ -60,14 +63,22 @@ class Application_Model_UsersMapper
         $userDetailsData = array(
               'user_id' => $uid['id'],
               'pan_card_number'  => $formData['pan_card_number'],
+<<<<<<< HEAD
               'IFSC_code'  => $formData['IFSC_code'],
+=======
+              'IFSC_code '  => $formData['ifsc_code'],
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
               'bank_account_number'  => $formData['bank_account_number'],
               'service_tax_number'  => $formData['service_tax_number']           
         );
                 
         $userMapperObj = new Application_Model_UsersdetailMapper();
+<<<<<<< HEAD
         $userMapperObj->getDbTable()->insert($userDetailsData); 
       
+=======
+        $userMapperObj->getDbTable()->insert($userDetailsData);               
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
  
     public function getUsers( $params ){
@@ -98,6 +109,7 @@ class Application_Model_UsersMapper
         //$result = $model->getTable()->delete('creative_id = ' . $this->id);
         return $userData->toArray();
     }
+<<<<<<< HEAD
     
     public function deleteUsers( $uid ){         
         $userDetailsObj = new Application_Model_UsersdetailMapper();
@@ -116,5 +128,8 @@ class Application_Model_UsersMapper
         return $row->toArray();        
         
     }
+=======
+  
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }
 ?>

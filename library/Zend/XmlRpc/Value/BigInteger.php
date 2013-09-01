@@ -16,9 +16,15 @@
  * @category   Zend
  * @package    Zend_XmlRpc
  * @subpackage Value
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: BigInteger.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: BigInteger.php 23969 2011-05-03 14:48:31Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -30,7 +36,11 @@ require_once 'Zend/XmlRpc/Value/Integer.php';
  * @category   Zend
  * @package    Zend_XmlRpc
  * @subpackage Value
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_XmlRpc_Value_BigInteger extends Zend_XmlRpc_Value_Integer
@@ -45,10 +55,17 @@ class Zend_XmlRpc_Value_BigInteger extends Zend_XmlRpc_Value_Integer
         $this->_value = $integer->init($value);
         $this->_type = self::XMLRPC_TYPE_I8;
     }
+<<<<<<< HEAD
 
     /**
      * Return bigint value
      *
+=======
+    
+    /**
+     * Return bigint value
+     * 
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return string
      */
     public function getValue()

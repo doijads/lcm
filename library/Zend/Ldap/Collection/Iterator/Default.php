@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Ldap
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Default.php 24612 2012-01-21 14:42:30Z sgehrig $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Default.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -25,7 +31,11 @@
  *
  * @category   Zend
  * @package    Zend_Ldap
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Ldap_Collection_Iterator_Default implements Iterator, Countable
@@ -260,7 +270,11 @@ class Zend_Ldap_Collection_Iterator_Default implements Iterator, Countable
      */
     public function next()
     {
+<<<<<<< HEAD
         if (is_resource($this->_current) && $this->_itemCount > 0) {
+=======
+        if (is_resource($this->_current)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $this->_current = @ldap_next_entry($this->_ldap->getResource(), $this->_current);
             /** @see Zend_Ldap_Exception */
             require_once 'Zend/Ldap/Exception.php';
@@ -273,8 +287,11 @@ class Zend_Ldap_Collection_Iterator_Default implements Iterator, Countable
                      throw new Zend_Ldap_Exception($this->_ldap, 'getting next entry (' . $msg . ')');
                 }
             }
+<<<<<<< HEAD
         } else {
             $this->_current = false;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
     }
 

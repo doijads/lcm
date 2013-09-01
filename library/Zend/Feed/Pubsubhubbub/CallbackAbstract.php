@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Feed_Pubsubhubbub
  * @subpackage Callback
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: CallbackAbstract.php 24842 2012-05-31 18:31:28Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: CallbackAbstract.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -34,7 +40,11 @@ require_once 'Zend/Feed/Pubsubhubbub/HttpResponse.php';
  * @category   Zend
  * @package    Zend_Feed_Pubsubhubbub
  * @subpackage Callback
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Feed_Pubsubhubbub_CallbackAbstract
@@ -219,9 +229,13 @@ abstract class Zend_Feed_Pubsubhubbub_CallbackAbstract
     protected function _detectCallbackUrl()
     {
         $callbackUrl = '';
+<<<<<<< HEAD
         if (isset($_SERVER['HTTP_X_ORIGINAL_URL'])) {
             $callbackUrl = $_SERVER['HTTP_X_ORIGINAL_URL'];
         } elseif (isset($_SERVER['HTTP_X_REWRITE_URL'])) {
+=======
+        if (isset($_SERVER['HTTP_X_REWRITE_URL'])) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $callbackUrl = $_SERVER['HTTP_X_REWRITE_URL'];
         } elseif (isset($_SERVER['REQUEST_URI'])) {
             $callbackUrl = $_SERVER['REQUEST_URI'];

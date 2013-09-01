@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_Locale
  * @subpackage Format
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Format.php 24807 2012-05-15 12:10:42Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Format.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -29,7 +34,11 @@ require_once 'Zend/Locale/Data.php';
  * @category   Zend
  * @package    Zend_Locale
  * @subpackage Format
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Locale_Format
@@ -99,9 +108,14 @@ class Zend_Locale_Format
                         $options['number_format'] = Zend_Locale_Data::getContent($locale, 'decimalnumber');
                     } else if ((gettype($value) !== 'string') and ($value !== NULL)) {
                         require_once 'Zend/Locale/Exception.php';
+<<<<<<< HEAD
                         $stringValue = (string)(is_array($value) ? implode(' ', $value) : $value);
                         throw new Zend_Locale_Exception("Unknown number format type '" . gettype($value) . "'. "
                             . "Format '$stringValue' must be a valid number format string.");
+=======
+                        throw new Zend_Locale_Exception("Unknown number format type '" . gettype($value) . "'. "
+                            . "Format '$value' must be a valid number format string.");
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     }
                     break;
 
@@ -114,9 +128,14 @@ class Zend_Locale_Format
                         $options['date_format'] = Zend_Locale_Format::getDateFormat($locale);
                     } else if ((gettype($value) !== 'string') and ($value !== NULL)) {
                         require_once 'Zend/Locale/Exception.php';
+<<<<<<< HEAD
                         $stringValue = (string)(is_array($value) ? implode(' ', $value) : $value);
                         throw new Zend_Locale_Exception("Unknown dateformat type '" . gettype($value) . "'. "
                             . "Format '$stringValue' must be a valid ISO or PHP date format string.");
+=======
+                        throw new Zend_Locale_Exception("Unknown dateformat type '" . gettype($value) . "'. "
+                            . "Format '$value' must be a valid ISO or PHP date format string.");
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     } else {
                         if (((isset($options['format_type']) === true) and ($options['format_type'] == 'php')) or
                             ((isset($options['format_type']) === false) and (self::$_options['format_type'] == 'php'))) {
@@ -302,8 +321,13 @@ class Zend_Locale_Format
         // load class within method for speed
         require_once 'Zend/Locale/Math.php';
 
+<<<<<<< HEAD
         $value             = Zend_Locale_Math::floatalize($value);
         $value             = Zend_Locale_Math::normalize($value);
+=======
+        $value             = Zend_Locale_Math::normalize($value);
+        $value             = Zend_Locale_Math::floatalize($value);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $options           = self::_checkOptions($options) + self::$_options;
         $options['locale'] = (string) $options['locale'];
 
@@ -1139,7 +1163,11 @@ class Zend_Locale_Format
 
         if (empty($options['date_format'])) {
             $options['format_type'] = 'iso';
+<<<<<<< HEAD
             $options['date_format'] = self::getDateFormat(isset($options['locale']) ? $options['locale'] : null);
+=======
+            $options['date_format'] = self::getDateFormat($options['locale']);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
         $options = self::_checkOptions($options) + self::$_options;
 

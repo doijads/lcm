@@ -14,8 +14,13 @@
  *
  * @category   Zend
  * @package    Zend_Translate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Qt.php 24649 2012-02-26 03:37:54Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Qt.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -30,7 +35,11 @@ require_once 'Zend/Translate/Adapter.php';
 /**
  * @category   Zend
  * @package    Zend_Translate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Translate_Adapter_Qt extends Zend_Translate_Adapter {
@@ -74,10 +83,16 @@ class Zend_Translate_Adapter_Qt extends Zend_Translate_Adapter {
         xml_set_character_data_handler($this->_file, "_contentElement");
 
         if (!xml_parse($this->_file, file_get_contents($filename))) {
+<<<<<<< HEAD
             $ex = sprintf('XML error: %s at line %d of file %s',
                           xml_error_string(xml_get_error_code($this->_file)),
                           xml_get_current_line_number($this->_file),
                           $filename);
+=======
+            $ex = sprintf('XML error: %s at line %d',
+                          xml_error_string(xml_get_error_code($this->_file)),
+                          xml_get_current_line_number($this->_file));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             xml_parser_free($this->_file);
             require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception($ex);

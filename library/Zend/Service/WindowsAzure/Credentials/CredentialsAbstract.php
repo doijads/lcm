@@ -14,15 +14,33 @@
  *
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: CredentialsAbstract.php 24593 2012-01-05 20:35:02Z matthew $
  */
 
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: CredentialsAbstract.php 23775 2011-03-01 17:25:24Z ralph $
+ */
+
+/**
+ * @see Zend_Http_Client
+ */
+require_once 'Zend/Http/Client.php';
+
+/**
+ * @see Zend_Service_WindowsAzure_Credentials_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Credentials/Exception.php';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 /**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */ 
@@ -48,6 +66,33 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	const PERMISSION_WRITE       = "w";
 	const PERMISSION_DELETE      = "d";
 	const PERMISSION_LIST        = "l";
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ */
+abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
+{
+    /**
+     * Development storage account and key
+     */
+    const DEVSTORE_ACCOUNT       = "devstoreaccount1";
+    const DEVSTORE_KEY           = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
+    
+    /**
+     * HTTP header prefixes
+     */
+    const PREFIX_PROPERTIES      = "x-ms-prop-";
+    const PREFIX_METADATA        = "x-ms-meta-";
+    const PREFIX_STORAGE_HEADER  = "x-ms-";
+    
+    /**
+     * Permissions
+     */
+    const PERMISSION_READ        = "r";
+    const PERMISSION_WRITE       = "w";
+    const PERMISSION_DELETE      = "d";
+    const PERMISSION_LIST        = "l";
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 	/**
 	 * Account name for Windows Azure
@@ -164,7 +209,11 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	
 	/**
 	 * Prepare query string for signing
+<<<<<<< HEAD
 	 * 
+=======
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param  string $value Original query string
 	 * @return string        Query string for signing
 	 */
@@ -172,13 +221,21 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	{
 	    // Return value
 	    $returnValue = array();
+<<<<<<< HEAD
 	    
+=======
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	    // Prepare query string
 	    $queryParts = $this->_makeArrayOfQueryString($value);
 	    foreach ($queryParts as $key => $value) {
 	    	$returnValue[] = $key . '=' . $value;
 	    }
+<<<<<<< HEAD
 	    
+=======
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	    // Return
 	    if (count($returnValue) > 0) {
 	    	return '?' . implode('&', $returnValue);
@@ -189,7 +246,11 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	
 	/**
 	 * Make array of query string
+<<<<<<< HEAD
 	 * 
+=======
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param  string $value Query string
 	 * @return array         Array of key/value pairs
 	 */
@@ -198,7 +259,11 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		// Returnvalue
 		$returnValue = array();
 		
+<<<<<<< HEAD
 	    // Remove front ?     
+=======
+	    // Remove front ?
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
    		if (strlen($value) > 0 && strpos($value, '?') === 0) {
     		$value = substr($value, 1);
     	}
@@ -222,7 +287,11 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	
 	/**
 	 * Returns an array value if the key is set, otherwide returns $valueIfNotSet
+<<<<<<< HEAD
 	 * 
+=======
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param array $array
 	 * @param mixed $key
 	 * @param mixed $valueIfNotSet

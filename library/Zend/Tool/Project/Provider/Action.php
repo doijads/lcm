@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Tool
  * @subpackage Framework
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Action.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Action.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/Tool/Framework/Provider/Pretendable.php';
 /**
  * @category   Zend
  * @package    Zend_Tool
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Tool_Project_Provider_Action
@@ -134,11 +144,19 @@ class Zend_Tool_Project_Provider_Action
         // get request/response object
         $request = $this->_registry->getRequest();
         $response = $this->_registry->getResponse();
+<<<<<<< HEAD
 
         // determine if testing is enabled in the project
         require_once 'Zend/Tool/Project/Provider/Test.php';
         $testingEnabled = Zend_Tool_Project_Provider_Test::isTestingEnabled($this->_loadedProfile);
 
+=======
+        
+        // determine if testing is enabled in the project
+        require_once 'Zend/Tool/Project/Provider/Test.php';
+        $testingEnabled = Zend_Tool_Project_Provider_Test::isTestingEnabled($this->_loadedProfile);
+        
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ($testingEnabled && !Zend_Tool_Project_Provider_Test::isPHPUnitAvailable()) {
             $testingEnabled = false;
             $response->appendContent(
@@ -146,7 +164,11 @@ class Zend_Tool_Project_Provider_Action
                 array('color' => array('yellow'))
                 );
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Check that there is not a dash or underscore, return if doesnt match regex
         if (preg_match('#[_-]#', $name)) {
             throw new Zend_Tool_Project_Provider_Exception('Action names should be camel cased.');
@@ -167,7 +189,10 @@ class Zend_Tool_Project_Provider_Action
 
         $actionMethodResource = self::createResource($this->_loadedProfile, $name, $controllerName, $module);
 
+<<<<<<< HEAD
         $testActionMethodResource = null;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ($testingEnabled) {
             $testActionMethodResource = Zend_Tool_Project_Provider_Test::createApplicationResource($this->_loadedProfile, $controllerName, $name, $module);
         }
@@ -200,23 +225,39 @@ class Zend_Tool_Project_Provider_Action
                 'Would create an action named ' . $name .
                 ' inside controller at ' . $actionMethodResource->getParentResource()->getContext()->getPath()
                 );
+<<<<<<< HEAD
 
             if ($testActionMethodResource) {
                 $response->appendContent('Would create an action test in ' . $testActionMethodResource->getParentResource()->getContext()->getPath());
             }
 
+=======
+                
+            if ($testActionMethodResource) {
+                $response->appendContent('Would create an action test in ' . $testActionMethodResource->getParentResource()->getContext()->getPath());
+            }
+                
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } else {
             $response->appendContent(
                 'Creating an action named ' . $name .
                 ' inside controller at ' . $actionMethodResource->getParentResource()->getContext()->getPath()
                 );
             $actionMethodResource->create();
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if ($testActionMethodResource) {
                 $response->appendContent('Creating an action test in ' . $testActionMethodResource->getParentResource()->getContext()->getPath());
                 $testActionMethodResource->create();
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $this->_storeProfile();
         }
 

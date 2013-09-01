@@ -1,17 +1,29 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 class Application_Form_Register extends Zend_Form
 {
     public function init()
     {
         // Set the method for the display form to POST
         
+<<<<<<< HEAD
         $userRoleType = $this->getAttrib('userRoleType');             
                   
         $this->setMethod('post');
         $this->setAttrib('class', "register");
         $this->setAttrib('id', "register-form");
         
+=======
+        $userRoleType = $this->getAttrib('userRoleType');
+        
+        $this->setMethod('post');
+        $this->setAttrib('class', "register");
+		$this->setAttrib('id', "register_form");
+		
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
            // Add an email element
         $this->addElement('text', 'name', array(
             'label'      => 'Name:',
@@ -19,6 +31,7 @@ class Application_Form_Register extends Zend_Form
             'filters'    => array('StringTrim')           
         ));
         
+<<<<<<< HEAD
         if( $userRoleType == 'client' ){
             $this->addElement('text', 'contact_person', array(
                 'label'      => 'Contact Person:',
@@ -26,12 +39,18 @@ class Application_Form_Register extends Zend_Form
                 'filters'    => array('StringTrim')           
             ));
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->addElement('text', 'home_phone', array(
             'label'      => 'Home Phone Number:',
             'required'   => false,
             'filters'    => array('StringTrim')           
         ));
+<<<<<<< HEAD
                         
+=======
+        
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
          $this->addElement('text', 'work_phone', array(
             'label'      => 'Work Phone Number:',
             'required'   => false,
@@ -58,12 +77,15 @@ class Application_Form_Register extends Zend_Form
             'filters'    => array('StringTrim')           
         ));
                   
+<<<<<<< HEAD
         $this->addElement('text', 'street_line', array(
             'label'      => 'Address',
             'required'   => false,
             'filters'    => array('StringTrim')           
           ));
                  
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $zipCode = new Zend_Form_Element_Text('postal_code');
         $zipCode->setLabel('Zip Code:');
         $zipCode->addValidator(new Zend_Validate_Int());        
@@ -100,7 +122,17 @@ class Application_Form_Register extends Zend_Form
                 )
             
         );
+<<<<<<< HEAD
                                      
+=======
+                             
+        $this->addElement('text', 'street_line', array(
+            'label'      => 'Address',
+            'required'   => false,
+            'filters'    => array('StringTrim')           
+          ));
+         
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->addElement('text', 'pan_card_number', array(
             'label'      => 'Pan Number',
             'required'   => false,

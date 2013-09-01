@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Amf
  * @subpackage Response
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Http.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Http.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Amf_Response */
@@ -28,7 +34,11 @@ require_once 'Zend/Amf/Response.php';
  *
  * @package    Zend_Amf
  * @subpackage Response
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Response_Http extends Zend_Amf_Response
@@ -41,6 +51,7 @@ class Zend_Amf_Response_Http extends Zend_Amf_Response
     public function getResponse()
     {
         if (!headers_sent()) {
+<<<<<<< HEAD
             if ($this->isIeOverSsl()) {
                 header('Cache-Control: cache, must-revalidate');
                 header('Pragma: public');
@@ -49,10 +60,16 @@ class Zend_Amf_Response_Http extends Zend_Amf_Response
                 header('Pragma: no-cache');
             }
             header('Expires: Thu, 19 Nov 1981 08:52:00 GMT');
+=======
+            header('Cache-Control: no-cache, must-revalidate');
+            header('Expires: Thu, 19 Nov 1981 08:52:00 GMT');
+            header('Pragma: no-cache');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             header('Content-Type: application/x-amf');
         }
         return parent::getResponse();
     }
+<<<<<<< HEAD
 
     protected function isIeOverSsl()
     {
@@ -70,4 +87,6 @@ class Zend_Amf_Response_Http extends Zend_Amf_Response
 
         return true;
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Rest
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Controller.php 25024 2012-07-30 15:08:15Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Controller.php 23953 2011-05-03 05:47:39Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Controller_Action */
@@ -29,7 +35,11 @@ require_once 'Zend/Controller/Action.php';
  * @category   Zend
  * @package Zend_Rest
  * @see Zend_Rest_Route
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Rest_Controller extends Zend_Controller_Action
@@ -48,6 +58,7 @@ abstract class Zend_Rest_Controller extends Zend_Controller_Action
     abstract public function getAction();
 
     /**
+<<<<<<< HEAD
      * The head action handles HEAD requests and receives an 'id' parameter; it
      * should respond with the server resource state of the resource identified
      * by the 'id' value.
@@ -55,6 +66,8 @@ abstract class Zend_Rest_Controller extends Zend_Controller_Action
     abstract public function headAction();
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * The post action handles POST requests; it should accept and digest a
      * POSTed resource representation and persist the resource state.
      */
@@ -74,4 +87,8 @@ abstract class Zend_Rest_Controller extends Zend_Controller_Action
      */
     abstract public function deleteAction();
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Sqlsrv.php 25077 2012-11-06 20:06:24Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Sqlsrv.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -34,7 +40,11 @@ require_once 'Zend/Db/Statement/Sqlsrv.php';
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Db_Adapter_Sqlsrv extends Zend_Db_Adapter_Abstract
@@ -437,9 +447,15 @@ class Zend_Db_Adapter_Sqlsrv extends Zend_Db_Adapter_Abstract
         $sql    = "exec sp_columns @table_name = " . $this->quoteIdentifier($tableName, true);
         $stmt   = $this->query($sql);
         $result = $stmt->fetchAll(Zend_Db::FETCH_NUM);
+<<<<<<< HEAD
         
         // ZF-7698
         $stmt->closeCursor();
+=======
+		
+		// ZF-7698
+		$stmt->closeCursor();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         if (count($result) == 0) {
             return array();
@@ -630,6 +646,7 @@ class Zend_Db_Adapter_Sqlsrv extends Zend_Db_Adapter_Abstract
             $sql = "SELECT ROW_NUMBER() OVER ($over) AS \"ZEND_DB_ROWNUM\", * FROM ($sql) AS inner_tbl";
 
             $start = $offset + 1;
+<<<<<<< HEAD
 
             if ($count == PHP_INT_MAX) {
                 $sql = "WITH outer_tbl AS ($sql) SELECT * FROM outer_tbl WHERE \"ZEND_DB_ROWNUM\" >= $start";
@@ -638,6 +655,11 @@ class Zend_Db_Adapter_Sqlsrv extends Zend_Db_Adapter_Abstract
                 $end = $offset + $count;
                 $sql = "WITH outer_tbl AS ($sql) SELECT * FROM outer_tbl WHERE \"ZEND_DB_ROWNUM\" BETWEEN $start AND $end";
             }
+=======
+            $end = $offset + $count;
+
+            $sql = "WITH outer_tbl AS ($sql) SELECT * FROM outer_tbl WHERE \"ZEND_DB_ROWNUM\" BETWEEN $start AND $end";
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return $sql;

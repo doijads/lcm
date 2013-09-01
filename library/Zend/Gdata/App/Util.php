@@ -16,9 +16,15 @@
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage App
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Util.php 24643 2012-02-25 21:35:32Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Util.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -27,7 +33,11 @@
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage App
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_App_Util
@@ -45,7 +55,11 @@ class Zend_Gdata_App_Util
         $rfc3339 = '/^(\d{4})\-?(\d{2})\-?(\d{2})((T|t)(\d{2})\:?(\d{2})' .
                    '\:?(\d{2})(\.\d{1,})?((Z|z)|([\+\-])(\d{2})\:?(\d{2})))?$/';
 
+<<<<<<< HEAD
         if (ctype_digit((string)$timestamp)) {
+=======
+        if (ctype_digit($timestamp)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return gmdate('Y-m-d\TH:i:sP', $timestamp);
         } elseif (preg_match($rfc3339, $timestamp) > 0) {
             // timestamp is already properly formatted

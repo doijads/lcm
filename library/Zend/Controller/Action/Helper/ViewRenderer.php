@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Zend_Controller_Action_Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ViewRenderer.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: ViewRenderer.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -68,7 +74,11 @@ require_once 'Zend/View.php';
  * @uses       Zend_Controller_Action_Helper_Abstract
  * @package    Zend_Controller
  * @subpackage Zend_Controller_Action_Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_Helper_Abstract
@@ -626,9 +636,12 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
         } elseif (null !== $action) {
             $vars['action'] = $action;
         }
+<<<<<<< HEAD
         
         $replacePattern = array('/[^a-z0-9]+$/i', '/^[^a-z0-9]+/i');
         $vars['action'] = preg_replace($replacePattern, '', $vars['action']);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         $inflector = $this->getInflector();
         if ($this->getNoController() || $this->getNeverController()) {

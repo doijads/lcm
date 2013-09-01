@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: SharedAccessSignature.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: SharedAccessSignature.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -25,21 +31,47 @@
 require_once 'Zend/Service/WindowsAzure/Credentials/CredentialsAbstract.php';
 
 /**
+<<<<<<< HEAD
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */ 
+=======
+ * @see Zend_Service_WindowsAzure_Storage
+ */
+require_once 'Zend/Service/WindowsAzure/Storage.php';
+
+/**
+ * @see Zend_Http_Client
+ */
+require_once 'Zend/Http/Client.php';
+
+/**
+ * @category   Zend
+ * @package    Zend_Service_WindowsAzure
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ */
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
     extends Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 {
     /**
      * Permission set
+<<<<<<< HEAD
      * 
      * @var array
      */
     protected $_permissionSet = array();
     
+=======
+     *
+     * @var array
+     */
+    protected $_permissionSet = array();
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	/**
 	 * Creates a new Zend_Service_WindowsAzure_Credentials_SharedAccessSignature instance
 	 *
@@ -59,11 +91,16 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 	
 	/**
 	 * Get permission set
+<<<<<<< HEAD
 	 * 
+=======
+	 *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @return array
 	 */
     public function getPermissionSet()
 	{
+<<<<<<< HEAD
 	    return $this->_permissionSet;   
 	}
 	
@@ -93,12 +130,43 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
     /**
      * Create signature
      * 
+=======
+	    return $this->_permissionSet;
+	}
+	
+    /**
+     * Set permisison set
+     *
+     * Warning: fine-grained permissions should be added prior to coarse-grained permissions.
+     * For example: first add blob permissions, end with container-wide permissions.
+     *
+     * Warning: the signed access signature URL must match the account name of the
+     * Zend_Service_WindowsAzure_Credentials_Zend_Service_WindowsAzure_Credentials_SharedAccessSignature instance
+     *
+     * @param  array $value Permission set
+     * @return void
+     */
+    public function setPermissionSet($value = array())
+    {
+        foreach ($value as $url) {
+            if (strpos($url, $this->_accountName) === false) {
+                throw new Zend_Service_WindowsAzure_Exception('The permission set can only contain URLs for the account name specified in the Zend_Service_WindowsAzure_Credentials_SharedAccessSignature instance.');
+            }
+        }
+        $this->_permissionSet = $value;
+    }
+
+    /**
+     * Create signature
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $path 		   Path for the request
      * @param string $resource     Signed resource - container (c) - blob (b)
      * @param string $permissions  Signed permissions - read (r), write (w), delete (d) and list (l)
      * @param string $start        The time at which the Shared Access Signature becomes valid.
      * @param string $expiry       The time at which the Shared Access Signature becomes invalid.
      * @param string $identifier   Signed identifier
+<<<<<<< HEAD
      * @return string 
      */
     public function createSignature(
@@ -118,6 +186,27 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 		if (substr($path, 0, 1) !== '/') {
 		    $path = '/' . $path;
 		}
+=======
+     * @return string
+     */
+    public function createSignature(
+        $path = '/',
+        $resource = 'b',
+        $permissions = 'r',
+        $start = '',
+        $expiry = '',
+        $identifier = ''
+    ) {
+        // Determine path
+        if ($this->_usePathStyleUri) {
+            $path = substr($path, strpos($path, '/'));
+        }
+            
+        // Add trailing slash to $path
+        if (substr($path, 0, 1) !== '/') {
+            $path = '/' . $path;
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 		// Build canonicalized resource string
 		$canonicalizedResource  = '/' . $this->_accountName;
@@ -125,8 +214,13 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 			$canonicalizedResource .= '/' . $this->_accountName;
 		}*/
 		$canonicalizedResource .= $path;
+<<<<<<< HEAD
 		    
 		// Create string to sign   
+=======
+		
+		// Create string to sign
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 		$stringToSign   = array();
 		$stringToSign[] = $permissions;
     	$stringToSign[] = $start;
@@ -134,15 +228,26 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
     	$stringToSign[] = $canonicalizedResource;
     	$stringToSign[] = $identifier;
 
+<<<<<<< HEAD
     	$stringToSign = implode("\n", $stringToSign);
     	$signature    = base64_encode(hash_hmac('sha256', $stringToSign, $this->_accountKey, true));
 	
     	return $signature;
+=======
+        $stringToSign = implode("\n", $stringToSign);
+        $signature    = base64_encode(hash_hmac('sha256', $stringToSign, $this->_accountKey, true));
+    
+        return $signature;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
      * Create signed query string
+<<<<<<< HEAD
      * 
+=======
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $path 		   Path for the request
      * @param string $queryString  Query string for the request
      * @param string $resource     Signed resource - container (c) - blob (b)
@@ -150,6 +255,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
      * @param string $start        The time at which the Shared Access Signature becomes valid.
      * @param string $expiry       The time at which the Shared Access Signature becomes invalid.
      * @param string $identifier   Signed identifier
+<<<<<<< HEAD
      * @return string 
      */
     public function createSignedQueryString(
@@ -160,6 +266,18 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
     	$start = '',
     	$expiry = '',
     	$identifier = ''
+=======
+     * @return string
+     */
+    public function createSignedQueryString(
+        $path = '/',
+        $queryString = '',
+        $resource = 'b',
+        $permissions = 'r',
+        $start = '',
+        $expiry = '',
+        $identifier = ''
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     ) {
         // Parts
         $parts = array();
@@ -177,11 +295,16 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
         // Assemble parts and query string
         if ($queryString != '') {
             $queryString .= '&';
+<<<<<<< HEAD
 	    }
+=======
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $queryString .= implode('&', $parts);
 
         return $queryString;
     }
+<<<<<<< HEAD
     
     /**
 	 * Permission matches request?
@@ -197,6 +320,23 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
     	$requestUrl = '',
     	$resourceType = Zend_Service_WindowsAzure_Storage::RESOURCE_UNKNOWN,
     	$requiredPermission = Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PERMISSION_READ
+=======
+
+    /**
+     * Permission matches request?
+     *
+     * @param string $permissionUrl Permission URL
+     * @param string $requestUrl Request URL
+     * @param string $resourceType Resource type
+     * @param string $requiredPermission Required permission
+     * @return string Signed request URL
+     */
+    public function permissionMatchesRequest(
+        $permissionUrl = '',
+        $requestUrl = '',
+        $resourceType = Zend_Service_WindowsAzure_Storage::RESOURCE_UNKNOWN,
+        $requiredPermission = Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PERMISSION_READ
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     ) {
         // Build requirements
         $requiredResourceType = $resourceType;
@@ -206,6 +346,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 
         // Parse permission url
 	    $parsedPermissionUrl = parse_url($permissionUrl);
+<<<<<<< HEAD
 	    
 	    // Parse permission properties
 	    $permissionParts = explode('&', $parsedPermissionUrl['query']);
@@ -213,19 +354,37 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 	    // Parse request url
 	    $parsedRequestUrl = parse_url($requestUrl);
 	    
+=======
+	
+	    // Parse permission properties
+	    $permissionParts = explode('&', $parsedPermissionUrl['query']);
+	
+	    // Parse request url
+	    $parsedRequestUrl = parse_url($requestUrl);
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	    // Check if permission matches request
 	    $matches = true;
 	    foreach ($permissionParts as $part) {
 	        list($property, $value) = explode('=', $part, 2);
+<<<<<<< HEAD
 	        
 	        if ($property == 'sr') {
 	            $matches = $matches && (strpbrk($value, $requiredResourceType) !== false);
 	        }
 	        
+=======
+	
+	        if ($property == 'sr') {
+	            $matches = $matches && (strpbrk($value, $requiredResourceType) !== false);
+	        }
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	    	if ($property == 'sp') {
 	            $matches = $matches && (strpbrk($value, $requiredPermission) !== false);
 	        }
 	    }
+<<<<<<< HEAD
 	    
 	    // Ok, but... does the resource match?
 	    $matches = $matches && (strpos($parsedRequestUrl['path'], $parsedPermissionUrl['path']) !== false);
@@ -252,24 +411,64 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 	        if ($this->permissionMatchesRequest($permittedUrl, $requestUrl, $resourceType, $requiredPermission)) {
 	            // This matches, append signature data
 	            $parsedPermittedUrl = parse_url($permittedUrl);
+=======
+	
+	    // Ok, but... does the resource match?
+	    $matches = $matches && (strpos($parsedRequestUrl['path'], $parsedPermissionUrl['path']) !== false);
+	
+        // Return
+	    return $matches;
+    }
+
+    /**
+     * Sign request URL with credentials
+     *
+     * @param string $requestUrl Request URL
+     * @param string $resourceType Resource type
+     * @param string $requiredPermission Required permission
+     * @return string Signed request URL
+     */
+    public function signRequestUrl(
+        $requestUrl = '',
+        $resourceType = Zend_Service_WindowsAzure_Storage::RESOURCE_UNKNOWN,
+        $requiredPermission = Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PERMISSION_READ
+    ) {
+        // Look for a matching permission
+        foreach ($this->getPermissionSet() as $permittedUrl) {
+            if ($this->permissionMatchesRequest($permittedUrl, $requestUrl, $resourceType, $requiredPermission)) {
+                // This matches, append signature data
+                $parsedPermittedUrl = parse_url($permittedUrl);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 	            if (strpos($requestUrl, '?') === false) {
 	                $requestUrl .= '?';
 	            } else {
 	                $requestUrl .= '&';
 	            }
+<<<<<<< HEAD
 	            
+=======
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	            $requestUrl .= $parsedPermittedUrl['query'];
 
 	            // Return url
 	            return $requestUrl;
 	        }
 	    }
+<<<<<<< HEAD
 	    
 	    // Return url, will be unsigned...
 	    return $requestUrl;
 	}
     
+=======
+	
+	    // Return url, will be unsigned...
+	    return $requestUrl;
+	}
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	/**
 	 * Sign request with credentials
 	 *

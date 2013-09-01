@@ -14,9 +14,15 @@
  *
  * @category  Zend
  * @package   Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version   $Id: IsCompressed.php 24702 2012-03-28 20:08:40Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd     New BSD License
+ * @version   $Id: IsCompressed.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -29,7 +35,11 @@ require_once 'Zend/Validate/File/MimeType.php';
  *
  * @category  Zend
  * @package   Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Validate_File_IsCompressed extends Zend_Validate_File_MimeType
@@ -94,7 +104,10 @@ class Zend_Validate_File_IsCompressed extends Zend_Validate_File_MimeType
             'application/x-stuffit',
             'application/x-tar',
             'application/zip',
+<<<<<<< HEAD
             'application/x-zip',
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             'application/zoo',
             'multipart/x-gzip',
         );

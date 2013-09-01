@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Navigation
  * @subpackage Page
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Mvc.php 25213 2013-01-11 08:19:09Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Mvc.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -44,7 +50,11 @@ require_once 'Zend/Controller/Front.php';
  * @category   Zend
  * @package    Zend_Navigation
  * @subpackage Page
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
@@ -95,6 +105,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     protected $_resetParams = true;
 
     /**
+<<<<<<< HEAD
      * Whether href should be encoded when assembling URL
      *
      * @see getHref()
@@ -118,6 +129,8 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     protected $_scheme;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Cached href
      *
      * The use of this variable minimizes execution time when getHref() is
@@ -136,6 +149,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      */
     protected static $_urlHelper = null;
 
+<<<<<<< HEAD
     /**
      * View helper for assembling URLs with schemes
      *
@@ -144,6 +158,8 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      */
     protected static $_schemeHelper = null;
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     // Accessors:
 
     /**
@@ -159,6 +175,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      */
     public function isActive($recursive = false)
     {
+<<<<<<< HEAD
         if (null === $this->_active) {
             $front     = Zend_Controller_Front::getInstance();
             $request   = $front->getRequest();
@@ -168,10 +185,19 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
                 if (!array_key_exists('module', $reqParams)) {
                     $reqParams['module'] = $front->getDefaultModule();
                 }
+=======
+        if (!$this->_active) {
+            $front = Zend_Controller_Front::getInstance();
+            $reqParams = $front->getRequest()->getParams();
+
+            if (!array_key_exists('module', $reqParams)) {
+                $reqParams['module'] = $front->getDefaultModule();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
 
             $myParams = $this->_params;
 
+<<<<<<< HEAD
             if ($this->_route) {
                 $route = $front->getRouter()->getRoute($this->_route);
                 if(method_exists($route, 'getDefaults')) {
@@ -182,17 +208,27 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
             if (null !== $this->_module) {
                 $myParams['module'] = $this->_module;
             } elseif(!array_key_exists('module', $myParams)) {
+=======
+            if (null !== $this->_module) {
+                $myParams['module'] = $this->_module;
+            } else {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $myParams['module'] = $front->getDefaultModule();
             }
 
             if (null !== $this->_controller) {
                 $myParams['controller'] = $this->_controller;
+<<<<<<< HEAD
             } elseif(!array_key_exists('controller', $myParams)) {
+=======
+            } else {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $myParams['controller'] = $front->getDefaultControllerName();
             }
 
             if (null !== $this->_action) {
                 $myParams['action'] = $this->_action;
+<<<<<<< HEAD
             } elseif(!array_key_exists('action', $myParams)) {
                 $myParams['action'] = $front->getDefaultAction();
             }
@@ -203,13 +239,22 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
                 }
             }
 
+=======
+            } else {
+                $myParams['action'] = $front->getDefaultAction();
+            }
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if (count(array_intersect_assoc($reqParams, $myParams)) ==
                 count($myParams)) {
                 $this->_active = true;
                 return true;
             }
+<<<<<<< HEAD
             
             $this->_active = false;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return parent::isActive($recursive);
@@ -250,6 +295,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
 
         $url = self::$_urlHelper->url($params,
                                       $this->getRoute(),
+<<<<<<< HEAD
                                       $this->getResetParams(),
                                       $this->getEncodeUrl());
 
@@ -270,6 +316,10 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
             $url .= '#' . $fragment;
         }         
         
+=======
+                                      $this->getResetParams());
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this->_hrefCache = $url;
     }
 
@@ -376,6 +426,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     }
 
     /**
+<<<<<<< HEAD
      * Set multiple parameters (to use when assembling URL) at once
      *
      * URL options passed to the url action helper for assembling URLs.
@@ -414,12 +465,31 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     {
         $name = (string) $name;
         $this->_params[$name] = $value;
+=======
+     * Sets params to use when assembling URL
+     *
+     * @see getHref()
+     *
+     * @param  array|null $params        [optional] page params. Default is null
+     *                                   which sets no params.
+     * @return Zend_Navigation_Page_Mvc  fluent interface, returns self
+     */
+    public function setParams(array $params = null)
+    {
+        if (null === $params) {
+            $this->_params = array();
+        } else {
+            // TODO: do this more intelligently?
+            $this->_params = $params;
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         $this->_hrefCache = null;
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Add multiple parameters (to use when assembling URL) at once
      * 
      * URL options passed to the url action helper for assembling URLs.
@@ -479,6 +549,13 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      * @see getHref()
      *
      * @return array                        parameters as array ('name' => 'value')
+=======
+     * Returns params to use when assembling URL
+     *
+     * @see getHref()
+     *
+     * @return array  page params
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function getParams()
     {
@@ -486,6 +563,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     }
 
     /**
+<<<<<<< HEAD
      * Retrieve a single parameter (to use when assembling URL)
      * 
      * @see getHref()
@@ -505,6 +583,8 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets route name to use when assembling URL
      *
      * @see getHref()
@@ -567,6 +647,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     }
 
     /**
+<<<<<<< HEAD
      * Sets whether href should be encoded when assembling URL
      * 
      * @see getHref()
@@ -629,6 +710,8 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets action helper for assembling URLs
      *
      * @see getHref()
@@ -641,6 +724,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
         self::$_urlHelper = $uh;
     }
 
+<<<<<<< HEAD
     /**
      * Sets view helper for assembling URLs with schemes
      *
@@ -654,6 +738,8 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
         self::$_schemeHelper = $sh;
     }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     // Public methods:
 
     /**
@@ -671,10 +757,15 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
                 'module'       => $this->getModule(),
                 'params'       => $this->getParams(),
                 'route'        => $this->getRoute(),
+<<<<<<< HEAD
                 'reset_params' => $this->getResetParams(),
                 'encodeUrl'    => $this->getEncodeUrl(),
                 'scheme'       => $this->getScheme(),
             )
         );
+=======
+                'reset_params' => $this->getResetParams()
+            ));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 }

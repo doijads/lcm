@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Plugins
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Broker.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Broker.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Controller_Plugin_Abstract */
@@ -27,7 +33,11 @@ require_once 'Zend/Controller/Plugin/Abstract.php';
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Plugins
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
@@ -237,7 +247,11 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->routeStartup($request);
             } catch (Exception $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
+<<<<<<< HEAD
                     throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
+=======
+                    throw $e;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     $this->getResponse()->setException($e);
                 }
@@ -260,7 +274,11 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->routeShutdown($request);
             } catch (Exception $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
+<<<<<<< HEAD
                     throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
+=======
+                    throw $e;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     $this->getResponse()->setException($e);
                 }
@@ -287,7 +305,11 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->dispatchLoopStartup($request);
             } catch (Exception $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
+<<<<<<< HEAD
                     throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
+=======
+                    throw $e;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     $this->getResponse()->setException($e);
                 }
@@ -309,11 +331,17 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->preDispatch($request);
             } catch (Exception $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
+<<<<<<< HEAD
                     throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
                 } else {
                     $this->getResponse()->setException($e);
 					// skip rendering of normal dispatch give the error handler a try
 					$this->getRequest()->setDispatched(false);
+=======
+                    throw $e;
+                } else {
+                    $this->getResponse()->setException($e);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
             }
         }
@@ -333,7 +361,11 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->postDispatch($request);
             } catch (Exception $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
+<<<<<<< HEAD
                     throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
+=======
+                    throw $e;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     $this->getResponse()->setException($e);
                 }
@@ -355,7 +387,11 @@ class Zend_Controller_Plugin_Broker extends Zend_Controller_Plugin_Abstract
                 $plugin->dispatchLoopShutdown();
             } catch (Exception $e) {
                 if (Zend_Controller_Front::getInstance()->throwExceptions()) {
+<<<<<<< HEAD
                     throw new Zend_Controller_Exception($e->getMessage() . $e->getTraceAsString(), $e->getCode(), $e);
+=======
+                    throw $e;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     $this->getResponse()->setException($e);
                 }

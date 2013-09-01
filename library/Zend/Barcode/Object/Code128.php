@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Barcode
  * @subpackage Object
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Code25.php 20096 2010-01-06 02:05:09Z bkarwin $
  */
@@ -35,7 +39,11 @@ require_once 'Zend/Validate/Barcode.php';
  *
  * @category   Zend
  * @package    Zend_Barcode
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Barcode_Object_Code128 extends Zend_Barcode_Object_ObjectAbstract

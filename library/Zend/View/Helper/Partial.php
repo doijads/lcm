@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Partial.php 25203 2013-01-10 11:02:17Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Partial.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -28,7 +33,11 @@ require_once 'Zend/View/Helper/Abstract.php';
  *
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_Partial extends Zend_View_Helper_Abstract
@@ -71,10 +80,13 @@ class Zend_View_Helper_Partial extends Zend_View_Helper_Abstract
         if (isset($this->partialCounter)) {
             $view->partialCounter = $this->partialCounter;
         }
+<<<<<<< HEAD
         if (isset($this->partialTotalCount)) {
             $view->partialTotalCount = $this->partialTotalCount;
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ((null !== $module) && is_string($module)) {
             require_once 'Zend/Controller/Front.php';
             $moduleDir = Zend_Controller_Front::getInstance()->getControllerDirectory($module);

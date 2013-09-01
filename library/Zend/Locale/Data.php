@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Locale
  * @subpackage Data
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Data.php 24766 2012-05-06 02:51:42Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Data.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,7 +37,11 @@ require_once 'Zend/Locale.php';
  * @category   Zend
  * @package    Zend_Locale
  * @subpackage Data
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Locale_Data
@@ -361,7 +371,11 @@ class Zend_Locale_Data
                 break;
 
             case 'type':
+<<<<<<< HEAD
                 if (empty($value)) {
+=======
+                if (empty($type)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     $temp = self::_getFile($locale, '/ldml/localeDisplayNames/types/type', 'type');
                 } else {
                     if (($value == 'calendar') or
@@ -1139,10 +1153,13 @@ class Zend_Locale_Data
                 $temp = self::_getFile($locale, '/ldml/dates/calendars/calendar[@type=\'' . $value[0] . '\']/fields/field/relative[@type=\'' . $value[1] . '\']', '', $value[1]);
                 break;
 
+<<<<<<< HEAD
             case 'defaultnumberingsystem':
                 $temp = self::_getFile($locale, '/ldml/numbers/defaultNumberingSystem', '', 'default');
                 break;
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             case 'decimalnumber':
                 $temp = self::_getFile($locale, '/ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern', '', 'default');
                 break;

@@ -14,9 +14,15 @@
  *
  * @category  Zend
  * @package   Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version   $Id: MimeType.php 25175 2012-12-22 20:47:08Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd     New BSD License
+ * @version   $Id: MimeType.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -29,7 +35,11 @@ require_once 'Zend/Validate/Abstract.php';
  *
  * @category  Zend
  * @package   Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
@@ -103,12 +113,15 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     );
 
     /**
+<<<<<<< HEAD
      * Indicates whether use of $_magicFiles should be attempted.
      * @var boolean
      */
     protected $_tryCommonMagicFiles = true;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Option to allow header check
      *
      * @var boolean
@@ -150,14 +163,18 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     /**
      * Returns the actual set magicfile
      *
+<<<<<<< HEAD
      * Note that for PHP 5.3.0 or higher, we don't use $_ENV['MAGIC'] or try to
      * find a magic file in a common location as PHP now has a built-in internal
      * magic file.
      *
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return string
      */
     public function getMagicFile()
     {
+<<<<<<< HEAD
         if (version_compare(PHP_VERSION, '5.3.0', '<')
             && null === $this->_magicfile) {
             if (!empty($_ENV['MAGIC'])) {
@@ -166,6 +183,12 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
                 !(@ini_get("safe_mode") == 'On' || @ini_get("safe_mode") === 1)
                 && $this->shouldTryCommonMagicFiles() // @see ZF-11784
             ) {
+=======
+        if (null === $this->_magicfile) {
+            if (!empty($_ENV['MAGIC'])) {
+                $this->setMagicFile($_ENV['MAGIC']);
+            } elseif (!(@ini_get("safe_mode") == 'On' || @ini_get("safe_mode") === 1)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 require_once 'Zend/Validate/Exception.php';
                 foreach ($this->_magicFiles as $file) {
                     // supressing errors which are thrown due to openbase_dir restrictions
@@ -224,6 +247,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * Enables or disables attempts to try the common magic file locations
      * specified by Zend_Validate_File_MimeType::_magicFiles
      *
@@ -250,6 +274,8 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Returns the Header Check option
      *
      * @return boolean

@@ -16,8 +16,13 @@
  * @category   Zend
  * @package    Zend_Http
  * @subpackage Client
+<<<<<<< HEAD
  * @version    $Id: Client.php 24593 2012-01-05 20:35:02Z matthew $
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @version    $Id: Client.php 24081 2011-05-30 10:41:43Z ezimuel $
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -60,7 +65,11 @@ require_once 'Zend/Http/Response/Stream.php';
  * @package    Zend_Http
  * @subpackage Client
  * @throws     Zend_Http_Client_Exception
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Http_Client
@@ -103,12 +112,15 @@ class Zend_Http_Client
     const ENC_FORMDATA   = 'multipart/form-data';
 
     /**
+<<<<<<< HEAD
      * Value types for Body key/value pairs
      */
     const VTYPE_SCALAR  = 'SCALAR';
     const VTYPE_FILE    = 'FILE';
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Configuration array, set using the constructor or using ::setConfig()
      *
      * @var array
@@ -209,6 +221,7 @@ class Zend_Http_Client
     protected $files = array();
 
     /**
+<<<<<<< HEAD
      * Ordered list of keys from key/value pair data to include in body
      *
      * An associative array, where each element is of the format:
@@ -219,6 +232,8 @@ class Zend_Http_Client
     protected $body_field_order = array();
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * The client's cookie jar
      *
      * @var Zend_Http_CookieJar
@@ -247,6 +262,7 @@ class Zend_Http_Client
     protected $redirectCounter = 0;
 
     /**
+<<<<<<< HEAD
      * Status for unmasking GET array params
      *
      * @var boolean
@@ -261,6 +277,8 @@ class Zend_Http_Client
     protected $_queryBracketsEscaped = true;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Fileinfo magic database resource
      *
      * This variable is populated the first time _detectFileMimeType is called
@@ -285,8 +303,11 @@ class Zend_Http_Client
         if ($config !== null) {
             $this->setConfig($config);
         }
+<<<<<<< HEAD
 
         $this->_queryBracketsEscaped = version_compare(phpversion(), '5.1.3', '>=');
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -298,10 +319,14 @@ class Zend_Http_Client
      */
     public function setUri($uri)
     {
+<<<<<<< HEAD
         if ($uri instanceof Zend_Uri_Http) {
             // clone the URI in order to keep the passed parameter constant
             $uri = clone $uri;
         } elseif (is_string($uri)) {
+=======
+        if (is_string($uri)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $uri = Zend_Uri::factory($uri);
         }
 
@@ -390,7 +415,11 @@ class Zend_Http_Client
             throw new Zend_Http_Client_Exception("'{$method}' is not a valid HTTP request method.");
         }
 
+<<<<<<< HEAD
         if (($method == self::POST || $method == self::PUT || $method == self::DELETE) && $this->enctype === null) {
+=======
+        if ($method == self::POST && $this->enctype === null) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $this->setEncType(self::ENC_URLENCODED);
         }
 
@@ -536,12 +565,15 @@ class Zend_Http_Client
                 break;
             case 'post':
                 $parray = &$this->paramsPost;
+<<<<<<< HEAD
                 if ( $value === null ) {
                     if (isset($this->body_field_order[$name]))
                         unset($this->body_field_order[$name]);
                 } else {
                     $this->body_field_order[$name] = self::VTYPE_SCALAR;
                 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 break;
         }
 
@@ -759,8 +791,11 @@ class Zend_Http_Client
             'ctype'    => $ctype,
             'data'     => $data
         );
+<<<<<<< HEAD
         
         $this->body_field_order[$formname] = self::VTYPE_FILE;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         return $this;
     }
@@ -807,6 +842,7 @@ class Zend_Http_Client
     }
 
     /**
+<<<<<<< HEAD
      * Set the unmask feature for GET parameters as array
      *
      * Example:
@@ -836,6 +872,8 @@ class Zend_Http_Client
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Clear all GET and POST parameters
      *
      * Should be used to reset the request parameters if the client is
@@ -855,7 +893,11 @@ class Zend_Http_Client
         $this->files         = array();
         $this->raw_post_data = null;
         $this->enctype       = null;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if($clearAll) {
             $this->headers = array();
             $this->last_request = null;
@@ -939,10 +981,13 @@ class Zend_Http_Client
      */
     public function getAdapter()
     {
+<<<<<<< HEAD
         if (null === $this->adapter) {
             $this->setAdapter($this->config['adapter']);
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this->adapter;
     }
 
@@ -1032,6 +1077,7 @@ class Zend_Http_Client
                     $query = str_replace('+', '%20', $query);
                 }
 
+<<<<<<< HEAD
                 // @see ZF-11671 to unmask for some services to foo=val1&foo=val2
                 if ($this->getUnmaskStatus()) {
                     if ($this->_queryBracketsEscaped) {
@@ -1041,6 +1087,8 @@ class Zend_Http_Client
                     }
                 }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $uri->setQuery($query);
             }
 
@@ -1080,10 +1128,14 @@ class Zend_Http_Client
             }
 
             if($this->config['output_stream']) {
+<<<<<<< HEAD
                 $streamMetaData = stream_get_meta_data($stream);
                 if ($streamMetaData['seekable']) {
                     rewind($stream);
                 }
+=======
+                rewind($stream);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 // cleanup the adapter
                 $this->adapter->setOutputStream(null);
                 $response = Zend_Http_Response_Stream::fromStream($response, $stream);
@@ -1111,7 +1163,11 @@ class Zend_Http_Client
                 // Avoid problems with buggy servers that add whitespace at the
                 // end of some headers (See ZF-11283)
                 $location = trim($location);
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 // Check whether we send the exact same request again, or drop the parameters
                 // and send a GET request
                 if ($response->getStatus() == 303 ||
@@ -1291,6 +1347,7 @@ class Zend_Http_Client
                     $boundary = '---ZENDHTTPCLIENT-' . md5(microtime());
                     $this->setHeaders(self::CONTENT_TYPE, self::ENC_FORMDATA . "; boundary={$boundary}");
 
+<<<<<<< HEAD
                     // Encode all files and POST vars in the order they were given
                     foreach ($this->body_field_order as $fieldName=>$fieldType) {
                         switch ($fieldType) {
@@ -1315,6 +1372,18 @@ class Zend_Http_Client
                                 }
                                 break;
                         }
+=======
+                    // Get POST parameters and encode them
+                    $params = self::_flattenParametersArray($this->paramsPost);
+                    foreach ($params as $pp) {
+                        $body .= self::encodeFormData($boundary, $pp[0], $pp[1]);
+                    }
+
+                    // Encode files
+                    foreach ($this->files as $file) {
+                        $fhead = array(self::CONTENT_TYPE => $file['ctype']);
+                        $body .= self::encodeFormData($boundary, $file['formname'], $file['data'], $file['filename'], $fhead);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     }
 
                     $body .= "--{$boundary}--\r\n";

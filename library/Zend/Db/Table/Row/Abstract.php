@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Table
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Abstract.php 24831 2012-05-30 12:52:25Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Abstract.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -29,7 +35,11 @@ require_once 'Zend/Db.php';
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Table
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggregate
@@ -725,6 +735,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     }
 
     /**
+<<<<<<< HEAD
      * Retrieves an associative array of primary keys.
      *
      * @param bool $useDirty
@@ -736,6 +747,8 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Constructs where statement for retrieving row(s).
      *
      * @param bool $useDirty
@@ -1178,7 +1191,41 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
      */
     protected function _getTableFromString($tableName)
     {
+<<<<<<< HEAD
         return Zend_Db_Table_Abstract::getTableFromString($tableName, $this->_table);
+=======
+
+        if ($this->_table instanceof Zend_Db_Table_Abstract) {
+            $tableDefinition = $this->_table->getDefinition();
+
+            if ($tableDefinition !== null && $tableDefinition->hasTableConfig($tableName)) {
+                return new Zend_Db_Table($tableName, $tableDefinition);
+            }
+        }
+
+        // assume the tableName is the class name
+        if (!class_exists($tableName)) {
+            try {
+                require_once 'Zend/Loader.php';
+                Zend_Loader::loadClass($tableName);
+            } catch (Zend_Exception $e) {
+                require_once 'Zend/Db/Table/Row/Exception.php';
+                throw new Zend_Db_Table_Row_Exception($e->getMessage(), $e->getCode(), $e);
+            }
+        }
+
+        $options = array();
+
+        if (($table = $this->_getTable())) {
+            $options['db'] = $table->getAdapter();
+        }
+
+        if (isset($tableDefinition) && $tableDefinition !== null) {
+            $options[Zend_Db_Table_Abstract::DEFINITION] = $tableDefinition;
+        }
+
+        return new $tableName($options);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
 }

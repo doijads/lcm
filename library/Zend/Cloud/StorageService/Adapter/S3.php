@@ -13,7 +13,11 @@
  * @category   Zend
  * @package    Zend_Cloud
  * @subpackage StorageService
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -27,7 +31,11 @@ require_once 'Zend/Cloud/StorageService/Exception.php';
  * @category   Zend
  * @package    Zend_Cloud
  * @subpackage StorageService
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Cloud_StorageService_Adapter_S3
@@ -177,6 +185,7 @@ class Zend_Cloud_StorageService_Adapter_S3
     public function copyItem($sourcePath, $destinationPath, $options = array())
     {
         try {
+<<<<<<< HEAD
             $fullSourcePath = $this->_getFullPath($sourcePath, $options);
             $fullDestPath   = $this->_getFullPath($destinationPath, $options);
             return $this->_s3->copyObject(
@@ -185,6 +194,11 @@ class Zend_Cloud_StorageService_Adapter_S3
                 empty($options[self::METADATA]) ? null : $options[self::METADATA]
             );
 
+=======
+            // TODO We *really* need to add support for object copying in the S3 adapter
+            $item = $this->fetch($_getFullPath(sourcePath), $options);
+            $this->storeItem($item, $destinationPath, $options);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } catch (Zend_Service_Amazon_S3_Exception  $e) {
             throw new Zend_Cloud_StorageService_Exception('Error on copy: '.$e->getMessage(), $e->getCode(), $e);
         }

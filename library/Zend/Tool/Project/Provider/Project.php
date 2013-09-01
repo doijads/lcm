@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Tool
  * @subpackage Framework
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Project.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Project.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -28,7 +34,11 @@ require_once 'Zend/Tool/Project/Provider/Abstract.php';
 /**
  * @category   Zend
  * @package    Zend_Tool
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Tool_Project_Provider_Project
@@ -138,6 +148,10 @@ class Zend_Tool_Project_Provider_Project
     <projectDirectory>
         <projectProfileFile />
         <applicationDirectory>
+<<<<<<< HEAD
+=======
+            <apisDirectory enabled="false" />
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             <configsDirectory>
                 <applicationConfigFile type="ini" />
             </configsDirectory>
@@ -151,7 +165,10 @@ class Zend_Tool_Project_Provider_Project
             <layoutsDirectory enabled="false" />
             <modelsDirectory />
             <modulesDirectory enabled="false" />
+<<<<<<< HEAD
             <servicesDirectory enabled="false" />
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             <viewsDirectory>
                 <viewScriptsDirectory>
                     <viewControllerScriptsDirectory forControllerName="Index">

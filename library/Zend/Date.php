@@ -14,9 +14,15 @@
  *
  * @category  Zend
  * @package   Zend_Date
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version   $Id: Date.php 24880 2012-06-12 20:35:18Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd     New BSD License
+ * @version   $Id: Date.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -30,7 +36,11 @@ require_once 'Zend/Locale/Math.php';
 /**
  * @category  Zend
  * @package   Zend_Date
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Date extends Zend_Date_DateObject
@@ -1201,7 +1211,11 @@ class Zend_Date extends Zend_Date_DateObject
         }
 
         preg_match('/([+-]\d{2}):{0,1}\d{2}/', $zone, $match);
+<<<<<<< HEAD
         if (!empty($match) and ($match[count($match) - 1] <= 14) and ($match[count($match) - 1] >= -12)) {
+=======
+        if (!empty($match) and ($match[count($match) - 1] <= 12) and ($match[count($match) - 1] >= -12)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $zone = "Etc/GMT";
             $zone .= ($match[count($match) - 1] < 0) ? "+" : "-";
             $zone .= (int) abs($match[count($match) - 1]);
@@ -2107,10 +2121,14 @@ class Zend_Date extends Zend_Date_DateObject
                 break;
 
             case self::RFC_2822:
+<<<<<<< HEAD
                  $result = preg_match('/^\w{3},\s(\d{1,2})\s(\w{3})\s(\d{4})\s'
                                     . '(\d{2}):(\d{2}):{0,1}(\d{0,2})\s([+-]'
                                     . '{1}\d{4}|\w{1,20})$/', $date, $match);
 
+=======
+                $result = preg_match('/^\w{3},\s(\d{1,2})\s(\w{3})\s(\d{4})\s(\d{2}):(\d{2}):{0,1}(\d{0,2})\s([+-]{1}\d{4})$/', $date, $match);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 if (!$result) {
                     require_once 'Zend/Date/Exception.php';
                     throw new Zend_Date_Exception("no RFC 2822 format ($date)", 0, null, $date);
@@ -2644,8 +2662,15 @@ class Zend_Date extends Zend_Date_DateObject
                                 $parsed['day'] = 0;
                             }
 
+<<<<<<< HEAD
                             if (!isset($parsed['year'])) {
                                 $parsed['year'] = 1970;
+=======
+                            if (isset($parsed['year'])) {
+                                $parsed['year'] -= 1970;
+                            } else {
+                                $parsed['year'] = 0;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                             }
                         }
 
@@ -2655,7 +2680,11 @@ class Zend_Date extends Zend_Date_DateObject
                             isset($parsed['second']) ? $parsed['second'] : 0,
                             isset($parsed['month']) ? (1 + $parsed['month']) : 1,
                             isset($parsed['day']) ? (1 + $parsed['day']) : 1,
+<<<<<<< HEAD
                             $parsed['year'],
+=======
+                            isset($parsed['year']) ? (1970 + $parsed['year']) : 1970,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                             false), $this->getUnixTimestamp(), false);
                     } catch (Zend_Locale_Exception $e) {
                         if (!is_numeric($date)) {

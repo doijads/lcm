@@ -16,7 +16,11 @@
  * @package   Zend_Config
  * @copyright Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
+<<<<<<< HEAD
  * @version   $Id: Json.php 24810 2012-05-17 21:20:12Z rob $
+=======
+ * @version   $Id: Json.php 23294 2010-11-05 00:27:34Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -220,9 +224,13 @@ class Zend_Config_Json extends Zend_Config
     {
         foreach ($this->_getConstants() as $constant) {
             if (strstr($value, $constant)) {
+<<<<<<< HEAD
                 // handle backslashes that may represent windows path names for instance
                 $replacement = str_replace('\\', '\\\\', constant($constant));
                 $value = str_replace($constant, $replacement, $value);
+=======
+                $value = str_replace($constant, constant($constant), $value);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
         return $value;

@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Crypt
  * @subpackage Math
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Exception.php 20096 2010-01-06 02:05:09Z bkarwin $
  */
@@ -28,7 +32,11 @@ require_once 'Zend/Crypt/Exception.php';
 /**
  * @category   Zend
  * @package    Zend_Crypt
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Crypt_Rsa_Exception extends Zend_Crypt_Exception

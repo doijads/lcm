@@ -16,7 +16,11 @@
  * @package    Zend_Config
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+<<<<<<< HEAD
  * @version    $Id: Json.php 23293 2010-11-04 23:40:23Z ramon $
+=======
+ * @version    $Id: Json.php 23294 2010-11-05 00:27:34Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**

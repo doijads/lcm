@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Tool
  * @subpackage Framework
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Layout.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Layout.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -28,15 +34,22 @@ require_once 'Zend/Tool/Project/Provider/Abstract.php';
 /**
  * @category   Zend
  * @package    Zend_Tool
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Tool_Project_Provider_Layout extends Zend_Tool_Project_Provider_Abstract implements Zend_Tool_Framework_Provider_Pretendable
 {
+<<<<<<< HEAD
        /**
         * @var string Layout path
         */
        protected $_layoutPath = 'APPLICATION_PATH "/layouts/scripts/"';
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     public static function createResource(Zend_Tool_Project_Profile $profile, $layoutName = 'layout')
     {
@@ -74,11 +87,16 @@ class Zend_Tool_Project_Provider_Layout extends Zend_Tool_Project_Provider_Abstr
 
         $zc = $applicationConfigResource->getAsZendConfig();
 
+<<<<<<< HEAD
         if (isset($zc->resources) && isset($zc->resources->layout)) {
+=======
+        if (isset($zc->resources) && isset($zf->resources->layout)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $this->_registry->getResponse()->appendContent('A layout resource already exists in this project\'s application configuration file.');
             return;
         }
 
+<<<<<<< HEAD
         if ($this->_registry->getRequest()->isPretend()) {
             $this->_registry->getResponse()->appendContent('Would add "resources.layout.layoutPath" key to the application config file.');
         } else {
@@ -137,4 +155,37 @@ class Zend_Tool_Project_Provider_Layout extends Zend_Tool_Project_Provider_Abstr
 
         return $applicationConfigResource;
     }
+=======
+        $layoutPath = 'APPLICATION_PATH "/layouts/scripts/"';
+
+        if ($this->_registry->getRequest()->isPretend()) {
+            $this->_registry->getResponse()->appendContent('Would add "resources.layout.layoutPath" key to the application config file.');
+        } else {
+            $applicationConfigResource->addStringItem('resources.layout.layoutPath', $layoutPath, 'production', false);
+            $applicationConfigResource->create();
+
+            $layoutScriptFile = self::createResource($profile);
+
+            $layoutScriptFile->create();
+
+            $this->_registry->getResponse()->appendContent(
+                'Layouts have been enabled, and a default layout created at '
+                . $layoutScriptFile->getPath()
+                );
+
+            $this->_registry->getResponse()->appendContent('A layout entry has been added to the application config file.');
+        }
+
+
+
+    }
+
+    public function disable()
+    {
+        // @todo
+    }
+
+
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

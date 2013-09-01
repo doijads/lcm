@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -36,9 +40,15 @@ require_once 'Zend/File/Transfer/Adapter/Http.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: File.php 25067 2012-11-03 14:20:28Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: File.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Decorator_File
     extends Zend_Form_Decorator_Abstract
@@ -117,17 +127,27 @@ class Zend_Form_Decorator_File
             $markup[] = $view->formHidden('UPLOAD_IDENTIFIER', uniqid(), array('id' => 'progress_key'));
         }
 
+<<<<<<< HEAD
         $helper = $element->helper;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ($element->isArray()) {
             $name .= "[]";
             $count = $element->getMultiFile();
             for ($i = 0; $i < $count; ++$i) {
                 $htmlAttribs        = $attribs;
                 $htmlAttribs['id'] .= '-' . $i;
+<<<<<<< HEAD
                 $markup[] = $view->$helper($name, $htmlAttribs);
             }
         } else {
             $markup[] = $view->$helper($name, $attribs);
+=======
+                $markup[] = $view->formFile($name, $htmlAttribs);
+            }
+        } else {
+            $markup[] = $view->formFile($name, $attribs);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         $markup = implode($separator, $markup);

@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -35,9 +39,15 @@ require_once 'Zend/Form/Decorator/Abstract.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: FormElements.php 25093 2012-11-07 20:08:05Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: FormElements.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Decorator_FormElements extends Zend_Form_Decorator_Abstract
 {
@@ -76,12 +86,16 @@ class Zend_Form_Decorator_FormElements extends Zend_Form_Decorator_Abstract
 
         $belongsTo      = ($form instanceof Zend_Form) ? $form->getElementsBelongTo() : null;
         $elementContent = '';
+<<<<<<< HEAD
         $displayGroups  = ($form instanceof Zend_Form) ? $form->getDisplayGroups() : array();
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $separator      = $this->getSeparator();
         $translator     = $form->getTranslator();
         $items          = array();
         $view           = $form->getView();
         foreach ($form as $item) {
+<<<<<<< HEAD
             $item->setView($view);
 
             // Set translator
@@ -99,6 +113,11 @@ class Zend_Form_Decorator_FormElements extends Zend_Form_Decorator_Abstract
                         continue 2;
                     }
                 }
+=======
+            $item->setView($view)
+                 ->setTranslator($translator);
+            if ($item instanceof Zend_Form_Element) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $item->setBelongsTo($belongsTo);
             } elseif (!empty($belongsTo) && ($item instanceof Zend_Form)) {
                 if ($item->isArray()) {

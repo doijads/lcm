@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Hostname.php 25061 2012-11-02 21:24:09Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Hostname.php 23972 2011-05-03 16:26:36Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -41,7 +47,11 @@ require_once 'Zend/Validate/Ip.php';
  *
  * @category   Zend
  * @package    Zend_Validate
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Validate_Hostname extends Zend_Validate_Abstract
@@ -100,12 +110,20 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
     /**
      * Allows all types of hostnames
      */
+<<<<<<< HEAD
     const ALLOW_URI = 8;
+=======
+    const ALLOW_ALL   = 7;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Allows all types of hostnames
      */
+<<<<<<< HEAD
     const ALLOW_ALL = 15;
+=======
+    const ALLOW_URI = 8;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Array of valid top-level-domains
@@ -133,7 +151,11 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
         'sm', 'sn', 'so', 'sr', 'st', 'su', 'sv', 'sy', 'sz', 'tc', 'td', 'tel', 'tf', 'tg', 'th',
         'tj', 'tk', 'tl', 'tm', 'tn', 'to', 'tp', 'tr', 'travel', 'tt', 'tv', 'tw', 'tz', 'ua',
         'ug', 'uk', 'um', 'us', 'uy', 'uz', 'va', 'vc', 've', 'vg', 'vi', 'vn', 'vu', 'wf', 'ws',
+<<<<<<< HEAD
         'xxx', 'ye', 'yt', 'yu', 'za', 'zm', 'zw'
+=======
+        'ye', 'yt', 'yu', 'za', 'zm', 'zw'
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     );
 
     /**
@@ -205,7 +227,11 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
         'CN'  => 'Hostname/Cn.php',
         'COM' => 'Zend/Validate/Hostname/Com.php',
         'DE'  => array(1 => '/^[\x{002d}0-9a-zà-öø-ÿăąāćĉčċďđĕěėęēğĝġģĥħĭĩįīıĵķĺľļłńňņŋŏőōœĸŕřŗśŝšşťţŧŭůűũųūŵŷźžż]{1,63}$/iu'),
+<<<<<<< HEAD
         'DK'  => array(1 => '/^[\x{002d}0-9a-zäéöüæøå]{1,63}$/iu'),
+=======
+        'DK'  => array(1 => '/^[\x{002d}0-9a-zäéöü]{1,63}$/iu'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'ES'  => array(1 => '/^[\x{002d}0-9a-zàáçèéíïñòóúü·]{1,63}$/iu'),
         'EU'  => array(1 => '/^[\x{002d}0-9a-zà-öø-ÿ]{1,63}$/iu',
             2 => '/^[\x{002d}0-9a-zāăąćĉċčďđēĕėęěĝğġģĥħĩīĭįıĵķĺļľŀłńņňŉŋōŏőœŕŗřśŝšťŧũūŭůűųŵŷźżž]{1,63}$/iu',
@@ -283,10 +309,13 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
         'SA'  => array(1 => '/^[\x{002d}.0-9\x{0621}-\x{063A}\x{0641}-\x{064A}\x{0660}-\x{0669}]{1,63}$/iu'),
         'SE'  => array(1 => '/^[\x{002d}0-9a-zäåéöü]{1,63}$/iu'),
         'SH'  => array(1 => '/^[\x{002d}0-9a-zà-öø-ÿăąāćĉčċďđĕěėęēğĝġģĥħĭĩįīıĵķĺľļłńňņŋŏőōœĸŕřŗśŝšşťţŧŭůűũųūŵŷźžż]{1,63}$/iu'),
+<<<<<<< HEAD
         'SI'  => array(
             1 => '/^[\x{002d}0-9a-zà-öø-ÿ]{1,63}$/iu',
             2 => '/^[\x{002d}0-9a-zāăąćĉċčďđēĕėęěĝğġģĥħĩīĭįıĵķĺļľŀłńņňŉŋōŏőœŕŗřśŝšťŧũūŭůűųŵŷźżž]{1,63}$/iu',
             3 => '/^[\x{002d}0-9a-zșț]{1,63}$/iu'),
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'SJ'  => array(1 => '/^[\x{002d}0-9a-zàáä-éêñ-ôöøüčđńŋšŧž]{1,63}$/iu'),
         'TH'  => array(1 => '/^[\x{002d}0-9a-z\x{0E01}-\x{0E3A}\x{0E40}-\x{0E4D}\x{0E50}-\x{0E59}]{1,63}$/iu'),
         'TM'  => array(1 => '/^[\x{002d}0-9a-zà-öø-ÿāăąćĉċčďđēėęěĝġģĥħīįĵķĺļľŀłńņňŋőœŕŗřśŝşšţťŧūŭůűųŵŷźżž]{1,63}$/iu'),
@@ -499,6 +528,10 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      */
     public function isValid($value)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (!is_string($value)) {
             $this->_error(self::INVALID);
             return false;
@@ -506,6 +539,10 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
 
         $this->_setValue($value);
         // Check input against IP address schema
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (preg_match('/^[0-9a-f:.]*$/i', $value) &&
             $this->_options['ip']->setTranslator($this->getTranslator())->isValid($value)) {
             if (!($this->_options['allow'] & self::ALLOW_IP)) {
@@ -523,6 +560,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
         //     necessary to distinguish between the complete domain name and
         //     some local domain.
         //     
+<<<<<<< HEAD
         // (see ZF-6363)
         
         // Local hostnames are allowed to be partitial (ending '.')
@@ -546,6 +584,18 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
         }
 
         // Check input against DNS hostname schema
+=======
+        // Strip trailing '.' since it is not necessary to validate a non-IP
+        // hostname.
+        //
+        // (see ZF-6363)
+        if (substr($value, -1) === '.') {
+            $value = substr($value, 0, strlen($value)-1);
+        }
+        
+        // Check input against DNS hostname schema
+        $domainParts = explode('.', $value);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ((count($domainParts) > 1) && (strlen($value) >= 4) && (strlen($value) <= 254)) {
             $status = false;
 
@@ -666,7 +716,11 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
         }
 
         // Check input against local network name schema; last chance to pass validation
+<<<<<<< HEAD
         $regexLocal = '/^(([a-zA-Z0-9\x2d]{1,63}\x2e)*[a-zA-Z0-9\x2d]{1,63}[\x2e]{0,1}){1,254}$/';
+=======
+        $regexLocal = '/^(([a-zA-Z0-9\x2d]{1,63}\x2e)*[a-zA-Z0-9\x2d]{1,63}){1,254}$/';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $status = @preg_match($regexLocal, $value);
 
         // If the input passes as a local network name, and local network names are allowed, then the

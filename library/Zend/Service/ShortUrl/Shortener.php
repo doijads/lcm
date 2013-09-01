@@ -14,7 +14,11 @@
  *
  * @category   Zend
  * @package    Zend_Service_ShortUrl
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: $
  */
@@ -22,7 +26,11 @@
 /**
  * @category   Zend
  * @package    Zend_Service_ShortUrl
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 interface Zend_Service_ShortUrl_Shortener
@@ -33,7 +41,11 @@ interface Zend_Service_ShortUrl_Shortener
      * @param  string $url URL to Shorten
      * @return string Shortened Url
      */
+<<<<<<< HEAD
     public function shorten($url);
+=======
+    public function shorten($shortenedUrl);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Reveals target for short URL

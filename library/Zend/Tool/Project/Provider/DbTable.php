@@ -15,15 +15,25 @@
  * @category   Zend
  * @package    Zend_Tool
  * @subpackage Framework
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DbTable.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: DbTable.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
  * @category   Zend
  * @package    Zend_Tool
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Tool_Project_Provider_DbTable
@@ -143,11 +153,14 @@ class Zend_Tool_Project_Provider_DbTable
         }
     }
 
+<<<<<<< HEAD
     /**
      * @param string $module        Module name action should be applied to.
      * @param bool $forceOverwrite  Whether should force overwriting previous classes generated
      * @return void 
      */
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     public function createFromDatabase($module = null, $forceOverwrite = false)
     {
         $this->_loadProfile(self::NO_PROFILE_THROW_EXCEPTION);

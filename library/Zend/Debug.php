@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Debug
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Debug.php 25095 2012-11-07 20:11:07Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Debug.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -24,7 +30,11 @@
  *
  * @category   Zend
  * @package    Zend_Debug
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -90,12 +100,16 @@ class Zend_Debug
                     . PHP_EOL;
         } else {
             if(!extension_loaded('xdebug')) {
+<<<<<<< HEAD
                 $flags = ENT_QUOTES;
                 // PHP 5.4.0+
                 if (defined('ENT_SUBSTITUTE')) {
                     $flags = ENT_QUOTES | ENT_SUBSTITUTE;
                 }
                 $output = htmlspecialchars($output, $flags);
+=======
+                $output = htmlspecialchars($output, ENT_QUOTES);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
 
             $output = '<pre>'

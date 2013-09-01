@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Sitemap.php 25239 2013-01-22 09:45:01Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Sitemap.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_Navigation_Sitemap
@@ -54,6 +64,16 @@ class Zend_View_Helper_Navigation_Sitemap
     const SITEMAP_XSD = 'http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd';
 
     /**
+<<<<<<< HEAD
+=======
+     * Whether XML output should be formatted
+     *
+     * @var bool
+     */
+    protected $_formatOutput = false;
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Whether the XML declaration should be included in XML output
      *
      * @var bool
@@ -102,6 +122,34 @@ class Zend_View_Helper_Navigation_Sitemap
     // Accessors:
 
     /**
+<<<<<<< HEAD
+=======
+     * Sets whether XML output should be formatted
+     *
+     * @param  bool $formatOutput                   [optional] whether output
+     *                                              should be formatted. Default
+     *                                              is true.
+     * @return Zend_View_Helper_Navigation_Sitemap  fluent interface, returns
+     *                                              self
+     */
+    public function setFormatOutput($formatOutput = true)
+    {
+        $this->_formatOutput = (bool) $formatOutput;
+        return $this;
+    }
+
+    /**
+     * Returns whether XML output should be formatted
+     *
+     * @return bool  whether XML output should be formatted
+     */
+    public function getFormatOutput()
+    {
+        return $this->_formatOutput;
+    }
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets whether the XML declaration should be used in output
      *
      * @param  bool $useXmlDecl                     whether XML delcaration
@@ -237,8 +285,20 @@ class Zend_View_Helper_Navigation_Sitemap
             $enc = $this->view->getEncoding();
         }
 
+<<<<<<< HEAD
         // do not encode existing HTML entities
         return htmlspecialchars($string, ENT_QUOTES, $enc, false);
+=======
+        // TODO: remove check when minimum PHP version is >= 5.2.3
+        if (version_compare(PHP_VERSION, '5.2.3', '>=')) {
+            // do not encode existing HTML entities
+            return htmlspecialchars($string, ENT_QUOTES, $enc, false);
+        } else {
+            $string = preg_replace('/&(?!(?:#\d++|[a-z]++);)/ui', '&amp;', $string);
+            $string = str_replace(array('<', '>', '\'', '"'), array('&lt;', '&gt;', '&#39;', '&quot;'), $string);
+            return $string;
+        }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     // Public methods:
@@ -439,6 +499,10 @@ class Zend_View_Helper_Navigation_Sitemap
                $dom->saveXML() :
                $dom->saveXML($dom->documentElement);
 
+<<<<<<< HEAD
         return rtrim($xml, self::EOL);
+=======
+        return rtrim($xml, PHP_EOL);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 }

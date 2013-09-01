@@ -16,7 +16,11 @@
  * @package    Zend_Config
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+<<<<<<< HEAD
  * @version    $Id: Yaml.php 23650 2011-01-21 21:32:57Z mikaelkael $
+=======
+ * @version    $Id: Yaml.php 23651 2011-01-21 21:51:00Z mikaelkael $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**

@@ -15,19 +15,42 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: BlobContainer.php 24593 2012-01-05 20:35:02Z matthew $
  */
 
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: BlobContainer.php 23775 2011-03-01 17:25:24Z ralph $
+ */
+
+/**
+ * @see Zend_Service_WindowsAzure_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Exception.php';
+
+/**
+ * @see Zend_Service_WindowsAzure_Storage_StorageEntityAbstract
+ */
+require_once 'Zend/Service/WindowsAzure/Storage/StorageEntityAbstract.php';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 /**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * 
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @property string $Name          Name of the container
  * @property string $Etag          Etag of the container
  * @property string $LastModified  Last modified date of the container
@@ -37,6 +60,7 @@ class Zend_Service_WindowsAzure_Storage_BlobContainer
 {
     /**
      * Data
+<<<<<<< HEAD
      * 
      * @var array
      */
@@ -45,12 +69,26 @@ class Zend_Service_WindowsAzure_Storage_BlobContainer
     /**
      * Constructor
      * 
+=======
+     *
+     * @var array
+     */
+    protected $_data = null;
+
+    /**
+     * Constructor
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $name          Name
      * @param string $etag          Etag
      * @param string $lastModified  Last modified date
      * @param array  $metadata      Key/value pairs of meta data
      */
+<<<<<<< HEAD
     public function __construct($name, $etag, $lastModified, $metadata = array()) 
+=======
+    public function __construct($name, $etag, $lastModified, $metadata = array())
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $this->_data = array(
             'name'         => $name,
@@ -59,10 +97,17 @@ class Zend_Service_WindowsAzure_Storage_BlobContainer
             'metadata'     => $metadata
         );
     }
+<<<<<<< HEAD
     
     /**
      * Magic overload for setting properties
      * 
+=======
+
+    /**
+     * Magic overload for setting properties
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $name     Name of the property
      * @param string $value    Value to set
      */
@@ -77,7 +122,11 @@ class Zend_Service_WindowsAzure_Storage_BlobContainer
 
     /**
      * Magic overload for getting properties
+<<<<<<< HEAD
      * 
+=======
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $name     Name of the property
      */
     public function __get($name) {

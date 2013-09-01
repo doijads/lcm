@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Oauth
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Client.php 25167 2012-12-19 16:28:01Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Client.php 23983 2011-05-03 19:27:35Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Oauth */
@@ -34,7 +40,11 @@ require_once 'Zend/Oauth/Config.php';
 /**
  * @category   Zend
  * @package    Zend_Oauth
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Oauth_Client extends Zend_Http_Client
@@ -69,18 +79,27 @@ class Zend_Oauth_Client extends Zend_Http_Client
      * assist in automating OAuth parameter generation, addition and
      * cryptographioc signing of requests.
      *
+<<<<<<< HEAD
      * @param  array|Zend_Config $oauthOptions
      * @param  string            $uri
+=======
+     * @param  array $oauthOptions
+     * @param  string $uri
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param  array|Zend_Config $config
      * @return void
      */
     public function __construct($oauthOptions, $uri = null, $config = null)
     {
+<<<<<<< HEAD
         if ($config instanceof Zend_Config && !isset($config->rfc3986_strict)) {
             $config                   = $config->toArray();
             $config['rfc3986_strict'] = true;
         } else if (null === $config ||
                    (is_array($config) && !isset($config['rfc3986_strict']))) {
+=======
+        if (!isset($config['rfc3986_strict'])) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $config['rfc3986_strict'] = true;
         }
         parent::__construct($uri, $config);
@@ -93,6 +112,19 @@ class Zend_Oauth_Client extends Zend_Http_Client
         }
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Return the current connection adapter
+     *
+     * @return Zend_Http_Client_Adapter_Interface|string $adapter
+     */
+    public function getAdapter()
+    {
+        return $this->adapter;
+    }
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
    /**
      * Load the connection adapter
      *
@@ -196,12 +228,19 @@ class Zend_Oauth_Client extends Zend_Http_Client
             $this->setRequestMethod(self::POST);
         } elseif($method == self::PUT) {
             $this->setRequestMethod(self::PUT);
+<<<<<<< HEAD
         } elseif($method == self::DELETE) {
             $this->setRequestMethod(self::DELETE);
         } elseif($method == self::HEAD) {
             $this->setRequestMethod(self::HEAD);
         } elseif($method == self::OPTIONS) {
             $this->setRequestMethod(self::OPTIONS);
+=======
+        }  elseif($method == self::DELETE) {
+            $this->setRequestMethod(self::DELETE);
+        }   elseif($method == self::HEAD) {
+            $this->setRequestMethod(self::HEAD);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
         return parent::setMethod($method);
     }
@@ -263,14 +302,22 @@ class Zend_Oauth_Client extends Zend_Http_Client
             $this->setRawData($raw, 'application/x-www-form-urlencoded');
             $this->paramsPost = array();
         } elseif ($requestScheme == Zend_Oauth::REQUEST_SCHEME_QUERYSTRING) {
+<<<<<<< HEAD
             $params = $this->paramsGet;            
+=======
+            $params = array();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $query = $this->getUri()->getQuery();
             if ($query) {
                 $queryParts = explode('&', $this->getUri()->getQuery());
                 foreach ($queryParts as $queryPart) {
                     $kvTuple = explode('=', $queryPart);
                     $params[urldecode($kvTuple[0])] =
+<<<<<<< HEAD
                         (array_key_exists(1, $kvTuple) ? urldecode($kvTuple[1]) : null);
+=======
+                        (array_key_exists(1, $kvTuple) ? urldecode($kvTuple[1]) : NULL);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
             }
             if (!empty($this->paramsPost)) {

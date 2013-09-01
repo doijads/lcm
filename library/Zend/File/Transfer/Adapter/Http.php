@@ -14,9 +14,15 @@
  *
  * @category  Zend
  * @package   Zend_File_Transfer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version   $Id: Http.php 25087 2012-11-06 21:15:45Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd     New BSD License
+ * @version   $Id: Http.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -29,7 +35,11 @@ require_once 'Zend/File/Transfer/Adapter/Abstract.php';
  *
  * @category  Zend
  * @package   Zend_File_Transfer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstract
@@ -128,10 +138,13 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
         // Workaround for a PHP error returning empty $_FILES when form data exceeds php settings
         if (empty($this->_files) && ($content > 0)) {
             if (is_array($files)) {
+<<<<<<< HEAD
                 if (0 === count($files)) {
                     return false;
                 }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $files = current($files);
             }
 

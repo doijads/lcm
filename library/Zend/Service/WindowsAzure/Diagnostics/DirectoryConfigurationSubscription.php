@@ -15,16 +15,33 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
+<<<<<<< HEAD
+=======
+/**
+ * @see Zend_Service_WindowsAzure_Diagnostics_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/Exception.php';
+
+/**
+ * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationObjectBaseAbstract.php';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 /**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  *
@@ -38,10 +55,26 @@ class Zend_Service_WindowsAzure_Diagnostics_DirectoryConfigurationSubscription
     /**
      * Constructor
      * 
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+ * @property    string    Path                    Path
+ * @property    string    Container                Container
+ * @property    int        DirectoryQuotaInMB        Directory quota in MB
+ */
+class Zend_Service_WindowsAzure_Diagnostics_DirectoryConfigurationSubscription
+    extends Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+{
+    /**
+     * Constructor
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 	 * @param	string	$path					Path
 	 * @param	string	$container				Container
 	 * @param	int		$directoryQuotaInMB		Directory quota in MB
 	 */
+<<<<<<< HEAD
     public function __construct($path, $container, $directoryQuotaInMB = 1024) 
     {	        
         $this->_data = array(
@@ -51,3 +84,14 @@ class Zend_Service_WindowsAzure_Diagnostics_DirectoryConfigurationSubscription
         );
     }
 }
+=======
+    public function __construct($path, $container, $directoryQuotaInMB = 1024)
+    {	
+        $this->_data = array(
+            'path'                  => $path,
+            'container'             => $container,
+            'directoryquotainmb'    => $directoryQuotaInMB,
+        );
+    }
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

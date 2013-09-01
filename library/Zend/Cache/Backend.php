@@ -15,16 +15,26 @@
  * @category   Zend
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Backend.php 24989 2012-06-21 07:24:13Z mabe $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Backend.php 23800 2011-03-10 20:52:08Z mabe $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Cache_Backend
@@ -112,6 +122,7 @@ class Zend_Cache_Backend
     }
 
     /**
+<<<<<<< HEAD
      * Returns an option
      *
      * @param string $name Optional, the options name to return
@@ -134,6 +145,8 @@ class Zend_Cache_Backend
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Get the life time
      *
      * if $specificLifetime is not false, the given specific life time is used
@@ -176,7 +189,11 @@ class Zend_Cache_Backend
         $tmpdir = array();
         foreach (array($_ENV, $_SERVER) as $tab) {
             foreach (array('TMPDIR', 'TEMP', 'TMP', 'windir', 'SystemRoot') as $key) {
+<<<<<<< HEAD
                 if (isset($tab[$key]) && is_string($tab[$key])) {
+=======
+                if (isset($tab[$key])) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     if (($key == 'windir') or ($key == 'SystemRoot')) {
                         $dir = realpath($tab[$key] . '\\temp');
                     } else {

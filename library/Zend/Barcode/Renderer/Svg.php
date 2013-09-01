@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Barcode
  * @subpackage Renderer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Image.php 20366 2010-01-18 03:56:52Z ralph $
  */
@@ -28,7 +32,11 @@ require_once 'Zend/Barcode/Renderer/RendererAbstract.php';
  *
  * @category   Zend
  * @package    Zend_Barcode
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Barcode_Renderer_Svg extends Zend_Barcode_Renderer_RendererAbstract

@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Layout
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Layout.php 25263 2013-02-18 11:48:02Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Layout.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -24,7 +30,11 @@
  *
  * @category   Zend
  * @package    Zend_Layout
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Layout
@@ -174,12 +184,21 @@ class Zend_Layout
     {
         if (null === self::$_mvcInstance) {
             self::$_mvcInstance = new self($options, true);
+<<<<<<< HEAD
         } else {
             if (is_string($options)) {
                 self::$_mvcInstance->setLayoutPath($options);
             } elseif (is_array($options) || $options instanceof Zend_Config) {
                 self::$_mvcInstance->setOptions($options);
             }
+=======
+        }
+
+        if (is_string($options)) {
+            self::$_mvcInstance->setLayoutPath($options);
+        } elseif (is_array($options) || $options instanceof Zend_Config) {
+            self::$_mvcInstance->setOptions($options);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return self::$_mvcInstance;

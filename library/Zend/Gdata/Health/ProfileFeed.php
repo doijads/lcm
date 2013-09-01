@@ -16,6 +16,7 @@
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Health
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ProfileFeed.php 24779 2012-05-08 19:13:59Z adamlundrigan $
@@ -27,6 +28,14 @@
 require_once 'Zend/Exception.php';
 
 /**
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: ProfileFeed.php 23775 2011-03-01 17:25:24Z ralph $
+ */
+
+/**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @see Zend_Gdata_Feed
  */
 require_once 'Zend/Gdata/Feed.php';
@@ -39,12 +48,26 @@ require_once 'Zend/Gdata/Feed.php';
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Health
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_Health_ProfileFeed extends Zend_Gdata_Feed
 {
     /**
+<<<<<<< HEAD
+=======
+     * The class name for individual profile feed elements.
+     *
+     * @var string
+     */
+    protected $_entryClassName = 'Zend_Gdata_Health_ProfileEntry';
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Creates a Health Profile feed, representing a user's Health profile
      *
      * @param DOMElement $element (optional) DOMElement from which this
@@ -52,10 +75,22 @@ class Zend_Gdata_Health_ProfileFeed extends Zend_Gdata_Feed
      */
     public function __construct($element = null)
     {
+<<<<<<< HEAD
         throw new Zend_Exception(
             'Google Health API has been discontinued by Google and was removed'
             . ' from Zend Framework in 1.12.0.  For more information see: '
             . 'http://googleblog.blogspot.ca/2011/06/update-on-google-health-and-google.html'
         );
+=======
+        foreach (Zend_Gdata_Health::$namespaces as $nsPrefix => $nsUri) {
+            $this->registerNamespace($nsPrefix, $nsUri);
+        }
+        parent::__construct($element);
+    }
+
+    public function getEntries()
+    {
+        return $this->entry;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 }

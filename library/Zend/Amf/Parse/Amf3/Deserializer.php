@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Amf
  * @subpackage Parse_Amf3
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Deserializer.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Deserializer.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Amf_Parse_Deserializer */
@@ -34,7 +40,11 @@ require_once 'Zend/Amf/Parse/TypeLoader.php';
  * @todo       Class could be implemented as Factory Class with each data type it's own class.
  * @package    Zend_Amf
  * @subpackage Parse_Amf3
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Parse_Amf3_Deserializer extends Zend_Amf_Parse_Deserializer
@@ -225,7 +235,11 @@ class Zend_Amf_Parse_Amf3_Deserializer extends Zend_Amf_Parse_Deserializer
         $timestamp = floor($this->_stream->readDouble() / 1000);
 
         require_once 'Zend/Date.php';
+<<<<<<< HEAD
         $dateTime  = new Zend_Date($timestamp);
+=======
+        $dateTime  = new Zend_Date((int) $timestamp);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->_referenceObjects[] = $dateTime;
         return $dateTime;
     }
@@ -385,7 +399,10 @@ class Zend_Amf_Parse_Amf3_Deserializer extends Zend_Amf_Parse_Deserializer
             }
 
             // Add properties back to the return object.
+<<<<<<< HEAD
             if (!is_array($properties)) $properties = array();
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             foreach($properties as $key=>$value) {
                 if($key) {
                     $returnObject->$key = $value;

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Validate
  * @subpackage Sitemap
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Priority.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Priority.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/Validate/Abstract.php';
  * @category   Zend
  * @package    Zend_Validate
  * @subpackage Sitemap
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Validate_Sitemap_Priority extends Zend_Validate_Abstract
@@ -51,7 +61,11 @@ class Zend_Validate_Sitemap_Priority extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
+<<<<<<< HEAD
         self::NOT_VALID => "'%value%' is not a valid sitemap priority",
+=======
+        self::NOT_VALID => "'%value%' is no valid sitemap priority",
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         self::INVALID   => "Invalid type given. Numeric string, integer or float expected",
     );
 

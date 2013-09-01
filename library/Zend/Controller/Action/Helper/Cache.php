@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Controller
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Cache.php 24853 2012-05-31 23:19:27Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Cache.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -37,7 +43,11 @@ require_once 'Zend/Cache/Manager.php';
 /**
  * @category   Zend
  * @package    Zend_Controller
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Controller_Action_Helper_Cache
@@ -130,13 +140,17 @@ class Zend_Controller_Action_Helper_Cache
     public function removePage($relativeUrl, $recursive = false)
     {
         $cache = $this->getCache(Zend_Cache_Manager::PAGECACHE);
+<<<<<<< HEAD
         $encodedCacheId = $this->_encodeCacheId($relativeUrl);
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ($recursive) {
             $backend = $cache->getBackend();
             if (($backend instanceof Zend_Cache_Backend)
                 && method_exists($backend, 'removeRecursively')
             ) {
+<<<<<<< HEAD
                 $result = $backend->removeRecursively($encodedCacheId);
                 if (is_null($result) ) {
                     $result = $backend->removeRecursively($relativeUrl);
@@ -150,6 +164,13 @@ class Zend_Controller_Action_Helper_Cache
             $result = $cache->remove($relativeUrl);
         }
         return $result;
+=======
+                return $backend->removeRecursively($relativeUrl);
+            }
+        }
+
+        return $cache->remove($relativeUrl);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**

@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DbSelect.php 24754 2012-05-05 02:30:56Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: DbSelect.php 23855 2011-04-10 19:03:02Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -37,7 +43,11 @@ require_once 'Zend/Db/Select.php';
 /**
  * @category   Zend
  * @package    Zend_Paginator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interface
@@ -71,6 +81,7 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
     protected $_rowCount = null;
 
     /**
+<<<<<<< HEAD
      * Identifies this adapter for caching purposes.  This value will remain constant for
      * the entire life of this adapter regardless of how many different pages are queried.
      *
@@ -79,6 +90,8 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
     protected $_cacheIdentifier = null;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Constructor.
      *
      * @param Zend_Db_Select $select The select query
@@ -86,6 +99,7 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
     public function __construct(Zend_Db_Select $select)
     {
         $this->_select = $select;
+<<<<<<< HEAD
         $this->_cacheIdentifier = md5($select->assemble());
     }
 
@@ -100,6 +114,11 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
     }
     
     /**
+=======
+    }
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets the total row count, either directly or through a supplied
      * query.  Without setting this, {@link getPages()} selects the count
      * as a subquery (SELECT COUNT ... FROM (SELECT ...)).  While this
@@ -237,8 +256,12 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
              * than one group, or if the query has a HAVING clause, then take
              * the original query and use it as a subquery os the COUNT query.
              */
+<<<<<<< HEAD
             if (($isDistinct && ((count($columnParts) == 1 && $columnParts[0][1] == Zend_Db_Select::SQL_WILDCARD) 
                  || count($columnParts) > 1)) || count($groupParts) > 1 || !empty($havingParts)) {
+=======
+            if (($isDistinct && count($columnParts) > 1) || count($groupParts) > 1 || !empty($havingParts)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $rowCount->reset(Zend_Db_Select::ORDER);
                 $rowCount = $db
                                ->select()

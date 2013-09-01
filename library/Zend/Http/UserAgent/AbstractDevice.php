@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Http
  * @subpackage UserAgent
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -27,7 +31,11 @@ require_once 'Zend/Http/UserAgent/Device.php';
  * @category   Zend
  * @package    Zend_Http
  * @subpackage UserAgent
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Http_UserAgent_AbstractDevice
@@ -195,7 +203,11 @@ abstract class Zend_Http_UserAgent_AbstractDevice
      */
     public function hasFeature($feature)
     {
+<<<<<<< HEAD
         return (isset($this->_aFeatures[$feature]) && !is_null($this->_aFeatures[$feature]));
+=======
+        return (!empty($this->_aFeatures[$feature]));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -504,9 +516,13 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                 $result['browser_name']    = $real[1][0];
                 $result['browser_version'] = $real[3][0];
             } else {
+<<<<<<< HEAD
                 if(isset($result['browser_token'])) {
                     $result['browser_name']    = $result['browser_token'];
                 }
+=======
+                $result['browser_name']    = $result['browser_token'];
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $result['browser_version'] = '??';
             }
         } elseif ($product == 'mozilla' && $result['browser_version'] < 5.0) {
@@ -556,6 +572,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
             if (in_array($result['compatibility_flag'], $apple_device)) {
                 $result['device']           = strtolower($result['compatibility_flag']);
                 $result['device_os_token']  = 'iPhone OS';
+<<<<<<< HEAD
                 if (isset($comment[3])) {
                     $result['browser_language'] = trim($comment[3]);
                 }
@@ -564,6 +581,10 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                 } elseif (isset($result['others']['detail']) && count($result['others']['detail'])) {
                     $result['browser_version']  = $result['others']['detail'][0][2];
                 }
+=======
+                $result['browser_language'] = trim($comment[3]);
+                $result['browser_version']  = $result['others']['detail'][1][2];
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 if (!empty($result['others']['detail'][2])) {
                     $result['firmware'] = $result['others']['detail'][2][2];
                 }
@@ -578,7 +599,11 @@ abstract class Zend_Http_UserAgent_AbstractDevice
         if (isset($result['others'])) {
             if ($result['others']['detail'][0][1] == 'AppleWebKit') {
                 $result['browser_engine'] = 'AppleWebKit';
+<<<<<<< HEAD
                 if (isset($result['others']['detail'][1]) && $result['others']['detail'][1][1] == 'Version') {
+=======
+                if ($result['others']['detail'][1][1] == 'Version') {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     $result['browser_version'] = $result['others']['detail'][1][2];
                 } else {
                     $result['browser_version'] = $result['others']['detail'][count($result['others']['detail']) - 1][2];
@@ -590,6 +615,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                 $last = $result['others']['detail'][count($result['others']['detail']) - 1][1];
 
                 if (empty($result['others']['detail'][2][1]) || $result['others']['detail'][2][1] == 'Safari') {
+<<<<<<< HEAD
                     if (isset($result['others']['detail'][1])) {
                         $result['browser_name']    = ($result['others']['detail'][1][1] && $result['others']['detail'][1][1] != 'Version' ? $result['others']['detail'][1][1] : 'Safari');
                         $result['browser_version'] = ($result['others']['detail'][1][2] ? $result['others']['detail'][1][2] : $result['others']['detail'][0][2]);
@@ -597,6 +623,10 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                         $result['browser_name']    = ($result['others']['detail'][0][1] && $result['others']['detail'][0][1] != 'Version' ? $result['others']['detail'][0][1] : 'Safari');
                         $result['browser_version'] = $result['others']['detail'][0][2];
                     }
+=======
+                    $result['browser_name']    = ($result['others']['detail'][1][1] && $result['others']['detail'][1][1] != 'Version' ? $result['others']['detail'][1][1] : 'Safari');
+                    $result['browser_version'] = ($result['others']['detail'][1][2] ? $result['others']['detail'][1][2] : $result['others']['detail'][0][2]);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     $result['browser_name']    = $result['others']['detail'][2][1];
                     $result['browser_version'] = $result['others']['detail'][2][2];
@@ -698,6 +728,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                 }
             }
 
+<<<<<<< HEAD
             // UA ends with 'Opera X.XX' or 'Opera/X.XX'
             if ($result['others']['detail'][0][1] == 'Opera') {
                 $result['browser_name']    = $result['others']['detail'][0][1];
@@ -708,6 +739,12 @@ abstract class Zend_Http_UserAgent_AbstractDevice
                 } elseif (isset($result['others']['detail'][0][2])) {
                     $result['browser_version'] = $result['others']['detail'][0][2];
                 }
+=======
+            // UA ends with 'Opera X.XX'
+            if ($result['others']['detail'][0][1] == 'Opera') {
+                $result['browser_name']    = $result['others']['detail'][0][1];
+                $result['browser_version'] = $result['others']['detail'][1][1];
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
 
             // Opera Mini

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Element
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Captcha.php 24848 2012-05-31 19:28:48Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Captcha.php 23871 2011-04-23 22:40:16Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** @see Zend_Form_Element_Xhtml */
@@ -38,7 +44,11 @@ require_once 'Zend/Captcha/Adapter.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Element
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
@@ -127,6 +137,27 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Return all attributes
+     *
+     * @return array
+     */
+    public function getAttribs()
+    {
+        $attribs = get_object_vars($this);
+        unset($attribs['helper']);
+        foreach ($attribs as $key => $value) {
+            if ('_' == substr($key, 0, 1)) {
+                unset($attribs[$key]);
+            }
+        }
+
+        return $attribs;
+    }
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Set options
      *
      * Overrides to allow passing captcha options
@@ -136,6 +167,7 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
      */
     public function setOptions(array $options)
     {
+<<<<<<< HEAD
         $captcha        = null;
         $captchaOptions = array();
 
@@ -144,14 +176,25 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
             if (array_key_exists('captchaOptions', $options)) {
                 $captchaOptions = $options['captchaOptions'];
                 unset($options['captchaOptions']);
+=======
+        if (array_key_exists('captcha', $options)) {
+            if (array_key_exists('captchaOptions', $options)) {
+                $this->setCaptcha($options['captcha'], $options['captchaOptions']);
+                unset($options['captchaOptions']);
+            } else {
+                $this->setCaptcha($options['captcha']);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
             unset($options['captcha']);
         }
         parent::setOptions($options);
+<<<<<<< HEAD
 
         if(null !== $captcha) {
             $this->setCaptcha($captcha, $captchaOptions);
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this;
     }
 
@@ -166,6 +209,7 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
         $captcha    = $this->getCaptcha();
         $captcha->setName($this->getFullyQualifiedName());
 
+<<<<<<< HEAD
         if (!$this->loadDefaultDecoratorsIsDisabled()) {
             $decorators = $this->getDecorators();
             $decorator  = $captcha->getDecorator();
@@ -184,6 +228,19 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
 
             $this->setDecorators($decorators);
         }
+=======
+        $decorators = $this->getDecorators();
+
+        $decorator  = $captcha->getDecorator();
+        if (!empty($decorator)) {
+            array_unshift($decorators, $decorator);
+        }
+
+        $decorator = array('Captcha', array('captcha' => $captcha));
+        array_unshift($decorators, $decorator);
+
+        $this->setDecorators($decorators);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         $this->setValue($this->getCaptcha()->generate());
 
@@ -232,8 +289,12 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
         switch ($type) {
             case null:
                 $loader = $this->getPluginLoader(self::CAPTCHA);
+<<<<<<< HEAD
                 $nsSeparator = (false !== strpos($prefix, '\\'))?'\\':'_';
                 $cPrefix = rtrim($prefix, $nsSeparator) . $nsSeparator . 'Captcha';
+=======
+                $cPrefix = rtrim($prefix, '_') . '_Captcha';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $cPath   = rtrim($path, '/\\') . '/Captcha';
                 $loader->addPrefixPath($cPrefix, $cPath);
                 return parent::addPrefixPath($prefix, $path);

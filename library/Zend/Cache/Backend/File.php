@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: File.php 24844 2012-05-31 19:01:36Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: File.php 24030 2011-05-09 22:10:00Z mabe $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -34,7 +40,11 @@ require_once 'Zend/Cache/Backend.php';
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_Backend_ExtendedInterface
@@ -71,11 +81,15 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
      * for you. Maybe, 1 or 2 is a good start.
      *
      * =====> (int) hashed_directory_umask :
+<<<<<<< HEAD
      * - deprecated
      * - Permissions for hashed directory structure
      *
      * =====> (int) hashed_directory_perm :
      * - Permissions for hashed directory structure
+=======
+     * - Umask for hashed directory structure
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      *
      * =====> (string) file_name_prefix :
      * - prefix for cache files
@@ -83,11 +97,15 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
      *   (like /tmp) can cause disasters when cleaning the cache
      *
      * =====> (int) cache_file_umask :
+<<<<<<< HEAD
      * - deprecated
      * - Permissions for cache files
      *
      * =====> (int) cache_file_perm :
      * - Permissions for cache files
+=======
+     * - Umask for cache files
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      *
      * =====> (int) metatadatas_array_max_size :
      * - max size for the metadatas array (don't change this value unless you
@@ -101,9 +119,15 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
         'read_control' => true,
         'read_control_type' => 'crc32',
         'hashed_directory_level' => 0,
+<<<<<<< HEAD
         'hashed_directory_perm' => 0700,
         'file_name_prefix' => 'zend_cache',
         'cache_file_perm' => 0600,
+=======
+        'hashed_directory_umask' => 0700,
+        'file_name_prefix' => 'zend_cache',
+        'cache_file_umask' => 0600,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'metadatas_array_max_size' => 100
     );
 
@@ -138,6 +162,7 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
         if ($this->_options['metadatas_array_max_size'] < 10) {
             Zend_Cache::throwException('Invalid metadatas_array_max_size, must be > 10');
         }
+<<<<<<< HEAD
 
         if (isset($options['hashed_directory_umask'])) {
             // See #ZF-12047
@@ -161,6 +186,15 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
         if (isset($options['cache_file_perm']) && is_string($options['cache_file_perm'])) {
             // See #ZF-4422
             $this->_options['cache_file_perm'] = octdec($this->_options['cache_file_perm']);
+=======
+        if (isset($options['hashed_directory_umask']) && is_string($options['hashed_directory_umask'])) {
+            // See #ZF-4422
+            $this->_options['hashed_directory_umask'] = octdec($this->_options['hashed_directory_umask']);
+        }
+        if (isset($options['cache_file_umask']) && is_string($options['cache_file_umask'])) {
+            // See #ZF-4422
+            $this->_options['cache_file_umask'] = octdec($this->_options['cache_file_umask']);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
     }
 
@@ -175,10 +209,17 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
     public function setCacheDir($value, $trailingSeparator = true)
     {
         if (!is_dir($value)) {
+<<<<<<< HEAD
             Zend_Cache::throwException(sprintf('cache_dir "%s" must be a directory', $value));
         }
         if (!is_writable($value)) {
             Zend_Cache::throwException(sprintf('cache_dir "%s" is not writable', $value));
+=======
+            Zend_Cache::throwException('cache_dir must be a directory');
+        }
+        if (!is_writable($value)) {
+            Zend_Cache::throwException('cache_dir is not writable');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
         if ($trailingSeparator) {
             // add a trailing DIRECTORY_SEPARATOR if necessary
@@ -943,8 +984,13 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
         $partsArray = $this->_path($id, true);
         foreach ($partsArray as $part) {
             if (!is_dir($part)) {
+<<<<<<< HEAD
                 @mkdir($part, $this->_options['hashed_directory_perm']);
                 @chmod($part, $this->_options['hashed_directory_perm']); // see #ZF-320 (this line is required in some configurations)
+=======
+                @mkdir($part, $this->_options['hashed_directory_umask']);
+                @chmod($part, $this->_options['hashed_directory_umask']); // see #ZF-320 (this line is required in some configurations)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
         return true;
@@ -1012,7 +1058,11 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
             }
             @fclose($f);
         }
+<<<<<<< HEAD
         @chmod($file, $this->_options['cache_file_perm']);
+=======
+        @chmod($file, $this->_options['cache_file_umask']);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $result;
     }
 

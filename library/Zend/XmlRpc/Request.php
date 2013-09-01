@@ -14,7 +14,11 @@
  *
  * @category   Zend
  * @package    Zend_Controller
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -41,9 +45,15 @@ require_once 'Zend/XmlRpc/Fault.php';
  *
  * @category Zend
  * @package  Zend_XmlRpc
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version $Id: Request.php 25033 2012-08-17 19:50:08Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version $Id: Request.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_XmlRpc_Request
 {
@@ -303,6 +313,7 @@ class Zend_XmlRpc_Request
             return false;
         }
 
+<<<<<<< HEAD
         // @see ZF-12293 - disable external entities for security purposes
         $loadEntities = libxml_disable_entity_loader(true);
         try {
@@ -318,11 +329,18 @@ class Zend_XmlRpc_Request
             }
             $xml = simplexml_import_dom($dom);
             libxml_disable_entity_loader($loadEntities);
+=======
+        try {
+            $xml = new SimpleXMLElement($request);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } catch (Exception $e) {
             // Not valid XML
             $this->_fault = new Zend_XmlRpc_Fault(631);
             $this->_fault->setEncoding($this->getEncoding());
+<<<<<<< HEAD
             libxml_disable_entity_loader($loadEntities);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return false;
         }
 

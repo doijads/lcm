@@ -15,9 +15,15 @@
  *
  * @category   Zend
  * @package    Zend_Session
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Session.php 25121 2012-11-13 21:51:23Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Session.php 23955 2011-05-03 09:58:12Z yoshida@zend.co.jp $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @since      Preview Release 0.2
  */
 
@@ -43,7 +49,11 @@ require_once 'Zend/Session/SaveHandler/Interface.php';
  *
  * @category   Zend
  * @package    Zend_Session
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Session extends Zend_Session_Abstract
@@ -308,13 +318,33 @@ class Zend_Session extends Zend_Session_Abstract
                 "() before any output has been sent to the browser; output started in {$filename}/{$linenum}");
         }
 
+<<<<<<< HEAD
         if ( !self::$_sessionStarted ) {
             self::$_regenerateIdState = -1;
         } else {
+=======
+        if (self::$_sessionStarted && self::$_regenerateIdState <= 0) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if (!self::$_unitTestEnabled) {
                 session_regenerate_id(true);
             }
             self::$_regenerateIdState = 1;
+<<<<<<< HEAD
+=======
+        } else {
+            /**
+             * @todo If we can detect that this requester had no session previously,
+             *       then why regenerate the id before the session has started?
+             *       Feedback wanted for:
+             //
+            if (isset($_COOKIE[session_name()]) || (!use only cookies && isset($_REQUEST[session_name()]))) {
+                self::$_regenerateIdState = 1;
+            } else {
+                self::$_regenerateIdState = -1;
+            }
+            //*/
+            self::$_regenerateIdState = -1;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
     }
 
@@ -383,9 +413,15 @@ class Zend_Session extends Zend_Session_Abstract
      */
     public static function sessionExists()
     {
+<<<<<<< HEAD
         if ((bool)ini_get('session.use_cookies') == true && isset($_COOKIE[session_name()])) {
             return true;
         } elseif ((bool)ini_get('session.use_only_cookies') == false && isset($_REQUEST[session_name()])) {
+=======
+        if (ini_get('session.use_cookies') == '1' && isset($_COOKIE[session_name()])) {
+            return true;
+        } elseif (!empty($_REQUEST[session_name()])) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return true;
         } elseif (self::$_unitTestEnabled) {
             return true;
@@ -415,6 +451,7 @@ class Zend_Session extends Zend_Session_Abstract
      */
     public static function start($options = false)
     {
+<<<<<<< HEAD
         // Check to see if we've been passed an invalid session ID
         if ( self::getId() && !self::_checkId(self::getId()) ) {
             // Generate a valid, temporary replacement
@@ -423,6 +460,8 @@ class Zend_Session extends Zend_Session_Abstract
             self::$_regenerateIdState = -1;
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (self::$_sessionStarted && self::$_destroyed) {
             require_once 'Zend/Session/Exception.php';
             throw new Zend_Session_Exception('The session was explicitly destroyed during this request, attempting to re-start is not allowed.');
@@ -507,6 +546,7 @@ class Zend_Session extends Zend_Session_Abstract
         self::_processStartupMetadataGlobal();
     }
 
+<<<<<<< HEAD
     /**
      * Perform a hash-bits check on the session ID
      *
@@ -535,6 +575,8 @@ class Zend_Session extends Zend_Session_Abstract
         return preg_match('#'.$pattern.'#', $id);
     }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * _processGlobalMetadata() - this method initizes the sessions GLOBAL
@@ -600,7 +642,11 @@ class Zend_Session extends Zend_Session_Abstract
                         unset($_SESSION['__ZF'][$namespace]['ENVGH']);
                     }
                 }
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 if (isset($namespace) && empty($_SESSION['__ZF'][$namespace])) {
                     unset($_SESSION['__ZF'][$namespace]);
                 }

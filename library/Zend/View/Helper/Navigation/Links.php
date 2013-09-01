@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Links.php 25239 2013-01-22 09:45:01Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Links.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,7 +37,11 @@ require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_Navigation_Links
@@ -769,7 +779,11 @@ class Zend_View_Helper_Navigation_Links
             foreach ($types as $relation => $pages) {
                 foreach ($pages as $page) {
                     if ($r = $this->renderLink($page, $attrib, $relation)) {
+<<<<<<< HEAD
                         $output .= $indent . $r . $this->getEOL();
+=======
+                        $output .= $indent . $r . self::EOL;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     }
                 }
             }

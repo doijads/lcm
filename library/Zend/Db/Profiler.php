@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Profiler
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Profiler.php 25127 2012-11-16 15:17:42Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Profiler.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -25,7 +31,11 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Profiler
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Db_Profiler
@@ -225,9 +235,13 @@ class Zend_Db_Profiler
     }
 
     /**
+<<<<<<< HEAD
      * Clone a profiler query
      *
      * @param  Zend_Db_Profiler_Query $query
+=======
+     * @param  integer $queryId
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return integer or null
      */
     public function queryClone(Zend_Db_Profiler_Query $query)
@@ -289,12 +303,20 @@ class Zend_Db_Profiler
     }
 
     /**
+<<<<<<< HEAD
      * Ends a query. Pass it the handle that was returned by queryStart().
+=======
+     * Ends a query.  Pass it the handle that was returned by queryStart().
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * This will mark the query as ended and save the time.
      *
      * @param  integer $queryId
      * @throws Zend_Db_Profiler_Exception
+<<<<<<< HEAD
      * @return string   Inform that a query is stored or ignored.
+=======
+     * @return void
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function queryEnd($queryId)
     {

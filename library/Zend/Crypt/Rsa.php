@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Crypt
  * @subpackage Rsa
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Rsa.php 24808 2012-05-17 19:56:09Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Rsa.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/Crypt/Rsa/Key/Public.php';
 /**
  * @category   Zend
  * @package    Zend_Crypt
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Crypt_Rsa
@@ -71,7 +81,11 @@ class Zend_Crypt_Rsa
     {
         if (!extension_loaded('openssl')) {
             require_once 'Zend/Crypt/Rsa/Exception.php';
+<<<<<<< HEAD
             throw new Zend_Crypt_Rsa_Exception('Zend_Crypt_Rsa requires openssl extension to be loaded.');
+=======
+            throw new Zend_Crypt_Rsa_Exception('Zend_Crypt_Rsa requires openssl extention to be loaded.');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         // Set _hashAlgorithm property when we are sure, that openssl extension is loaded
@@ -201,6 +215,7 @@ class Zend_Crypt_Rsa
         return $decrypted;
     }
 
+<<<<<<< HEAD
     /**
      * @param  array $configargs
      * 
@@ -208,6 +223,8 @@ class Zend_Crypt_Rsa
      * 
      * @return ArrayObject
      */
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     public function generateKeys(array $configargs = null)
     {
         $config = null;
@@ -222,10 +239,13 @@ class Zend_Crypt_Rsa
         $privateKey = null;
         $publicKey = null;
         $resource = openssl_pkey_new($config);
+<<<<<<< HEAD
         if (!$resource) {
             require_once 'Zend/Crypt/Rsa/Exception.php';
             throw new Zend_Crypt_Rsa_Exception('Failed to generate a new private key');
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // above fails on PHP 5.3
         openssl_pkey_export($resource, $private, $passPhrase);
         $privateKey = new Zend_Crypt_Rsa_Key_Private($private, $passPhrase);
@@ -323,9 +343,12 @@ class Zend_Crypt_Rsa
     protected function _parseConfigArgs(array $config = null)
     {
         $configs = array();
+<<<<<<< HEAD
         if (isset($config['private_key_bits'])) {
             $configs['private_key_bits'] = $config['private_key_bits'];
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (isset($config['privateKeyBits'])) {
             $configs['private_key_bits'] = $config['privateKeyBits'];
         }

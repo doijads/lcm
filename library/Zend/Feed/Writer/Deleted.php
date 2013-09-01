@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Feed_Writer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Deleted.php 25160 2012-12-18 15:17:16Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Deleted.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 require_once 'Zend/Feed/Writer/Feed/FeedAbstract.php';
@@ -24,7 +30,11 @@ require_once 'Zend/Feed/Writer/Feed/FeedAbstract.php';
  /**
  * @category   Zend
  * @package    Zend_Feed_Writer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Feed_Writer_Deleted
@@ -128,10 +138,17 @@ class Zend_Feed_Writer_Deleted
         $zdate = null;
         if ($date === null) {
             $zdate = new Zend_Date;
+<<<<<<< HEAD
         } elseif ($date instanceof Zend_Date) {
             $zdate = $date;
         } elseif (ctype_digit((string)$date)) {
             $zdate = new Zend_Date($date, Zend_Date::TIMESTAMP);
+=======
+        } elseif (ctype_digit($date) && strlen($date) == 10) {
+            $zdate = new Zend_Date($date, Zend_Date::TIMESTAMP);
+        } elseif ($date instanceof Zend_Date) {
+            $zdate = $date;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } else {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid Zend_Date object or UNIX Timestamp passed as parameter');

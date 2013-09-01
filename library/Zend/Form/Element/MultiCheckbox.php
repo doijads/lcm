@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Element
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -32,9 +36,15 @@ require_once 'Zend/Form/Element/Multi.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Element
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: MultiCheckbox.php 24963 2012-06-15 14:32:23Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: MultiCheckbox.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Element_MultiCheckbox extends Zend_Form_Element_Multi
 {
@@ -49,6 +59,7 @@ class Zend_Form_Element_MultiCheckbox extends Zend_Form_Element_Multi
      * @var bool
      */
     protected $_isArray = true;
+<<<<<<< HEAD
 
     /**
      * Load default decorators
@@ -70,4 +81,6 @@ class Zend_Form_Element_MultiCheckbox extends Zend_Form_Element_Multi
 
         return $this;
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

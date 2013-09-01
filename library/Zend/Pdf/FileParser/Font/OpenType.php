@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Pdf
  * @subpackage FileParser
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: OpenType.php 25197 2013-01-09 11:32:22Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: OpenType.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Pdf_FileParser_Font */
@@ -45,7 +51,11 @@ require_once 'Zend/Pdf/FileParser/Font.php';
  *
  * @package    Zend_Pdf
  * @subpackage FileParser
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Pdf_FileParser_Font_OpenType extends Zend_Pdf_FileParser_Font
@@ -582,6 +592,7 @@ abstract class Zend_Pdf_FileParser_Font_OpenType extends Zend_Pdf_FileParser_Fon
              * outlines from fonts yet, so this means no embed.
              */
             $this->isEmbeddable = false;
+<<<<<<< HEAD
         } elseif ($this->isBitSet(2, $embeddingFlags)
                 || $this->isBitSet(3, $embeddingFlags)
                 || $this->isBitSet(4, $embeddingFlags)
@@ -600,6 +611,14 @@ abstract class Zend_Pdf_FileParser_Font_OpenType extends Zend_Pdf_FileParser_Fon
                  * in the future...
                  */
                 $this->isEmbeddable = false;
+=======
+        } else if ($this->isBitSet(1, $embeddingFlags)) {
+            /* Restricted license embedding. We currently don't have any way to
+             * enforce this, so interpret this as no embed. This may be revised
+             * in the future...
+             */
+            $this->isEmbeddable = false;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } else {
             /* The remainder of the bit settings grant us permission to embed
              * the font. There may be additional usage rights granted or denied

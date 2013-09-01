@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Frontend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Output.php 24800 2012-05-13 11:59:32Z mabe $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Output.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -30,7 +36,11 @@ require_once 'Zend/Cache/Core.php';
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Frontend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Cache_Frontend_Output extends Zend_Cache_Core
@@ -55,7 +65,11 @@ class Zend_Cache_Frontend_Output extends Zend_Cache_Core
      *
      * @param  string  $id                     Cache id
      * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
+<<<<<<< HEAD
      * @param  boolean $echoData               If set to true, datas are sent to the browser if the cache is hit (simply returned else)
+=======
+     * @param  boolean $echoData               If set to true, datas are sent to the browser if the cache is hit (simpy returned else)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return mixed True if the cache is hit (false else) with $echoData=true (default) ; string else (datas)
      */
     public function start($id, $doNotTestCacheValidity = false, $echoData = true)

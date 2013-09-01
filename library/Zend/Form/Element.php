@@ -14,7 +14,11 @@
  *
  * @category   Zend
  * @package    Zend_Form
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -36,9 +40,15 @@ require_once 'Zend/Validate/Abstract.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Element
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Element.php 25173 2012-12-22 20:05:32Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Element.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Element implements Zend_Validate_Interface
 {
@@ -315,6 +325,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
 
         $decorators = $this->getDecorators();
         if (empty($decorators)) {
+<<<<<<< HEAD
             $this->addDecorator('ViewHelper')
                  ->addDecorator('Errors')
                  ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
@@ -322,12 +333,23 @@ class Zend_Form_Element implements Zend_Validate_Interface
                      'tag' => 'dd',
                      'id'  => array('callback' => array(get_class($this), 'resolveElementId'))
                  ))
+=======
+            $getId = create_function('$decorator',
+                                     'return $decorator->getElement()->getId()
+                                             . "-element";');
+            $this->addDecorator('ViewHelper')
+                 ->addDecorator('Errors')
+                 ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
+                 ->addDecorator('HtmlTag', array('tag' => 'dd',
+                                                 'id'  => array('callback' => $getId)))
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                  ->addDecorator('Label', array('tag' => 'dt'));
         }
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Used to resolve and return an element ID
      *
      * Passed to the HtmlTag decorator as a callback in order to provide an ID.
@@ -341,6 +363,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Set object state from options array
      *
      * @param  array $options
@@ -904,7 +928,10 @@ class Zend_Form_Element implements Zend_Validate_Interface
     public function getAttribs()
     {
         $attribs = get_object_vars($this);
+<<<<<<< HEAD
         unset($attribs['helper']);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         foreach ($attribs as $key => $value) {
             if ('_' == substr($key, 0, 1)) {
                 unset($attribs[$key]);
@@ -1071,6 +1098,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
                 $loader->addPrefixPath($prefix, $path);
                 return $this;
             case null:
+<<<<<<< HEAD
                 $nsSeparator = (false !== strpos($prefix, '\\'))?'\\':'_';
                 $prefix = rtrim($prefix, $nsSeparator) . $nsSeparator;
                 $path   = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
@@ -1078,6 +1106,16 @@ class Zend_Form_Element implements Zend_Validate_Interface
                     $cType        = ucfirst(strtolower($type));
                     $loader       = $this->getPluginLoader($type);
                     $loader->addPrefixPath($prefix . $cType, $path . $cType . DIRECTORY_SEPARATOR);
+=======
+                $prefix = rtrim($prefix, '_');
+                $path   = rtrim($path, DIRECTORY_SEPARATOR);
+                foreach (array(self::DECORATOR, self::FILTER, self::VALIDATE) as $type) {
+                    $cType        = ucfirst(strtolower($type));
+                    $pluginPath   = $path . DIRECTORY_SEPARATOR . $cType . DIRECTORY_SEPARATOR;
+                    $pluginPrefix = $prefix . '_' . $cType;
+                    $loader       = $this->getPluginLoader($type);
+                    $loader->addPrefixPath($pluginPrefix, $pluginPath);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
                 return $this;
             default:
@@ -1389,6 +1427,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
             if ($isArray && is_array($value)) {
                 $messages = array();
                 $errors   = array();
+<<<<<<< HEAD
                 if (empty($value)) {
                     if ($this->isRequired()
                         || (!$this->isRequired() && !$this->getAllowEmpty())
@@ -1397,6 +1436,9 @@ class Zend_Form_Element implements Zend_Validate_Interface
                     }
                 }
                 foreach ((array)$value as $val) {
+=======
+                foreach ($value as $val) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     if (!$validator->isValid($val, $context)) {
                         $result = false;
                         if ($this->_hasErrorMessages()) {
@@ -2242,14 +2284,24 @@ class Zend_Form_Element implements Zend_Validate_Interface
             if (null !== $translator) {
                 $message = $translator->translate($message);
             }
+<<<<<<< HEAD
             if ($this->isArray() || is_array($value)) {
+=======
+            if (($this->isArray() || is_array($value))
+                && !empty($value)
+            ) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $aggregateMessages = array();
                 foreach ($value as $val) {
                     $aggregateMessages[] = str_replace('%value%', $val, $message);
                 }
+<<<<<<< HEAD
                 if (count($aggregateMessages)) {
                     $messages[$key] = implode($this->getErrorMessageSeparator(), $aggregateMessages);
                 }
+=======
+                $messages[$key] = implode($this->getErrorMessageSeparator(), $aggregateMessages);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             } else {
                 $messages[$key] = str_replace('%value%', $value, $message);
             }

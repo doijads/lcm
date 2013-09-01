@@ -15,16 +15,26 @@
  * @category   Zend
  * @package    Zend_Json
  * @subpackage Server
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Response.php 24807 2012-05-15 12:10:42Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Response.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
  * @category   Zend
  * @package    Zend_Json
  * @subpackage Server
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Json_Server_Response
@@ -144,14 +154,23 @@ class Zend_Json_Server_Response
      */
     public function setVersion($version)
     {
+<<<<<<< HEAD
         $version = is_array($version)
             ? implode(' ', $version)
             : $version;
         if ((string)$version == '2.0') {
+=======
+        $version = (string) $version;
+        if ('2.0' == $version) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $this->_version = '2.0';
         } else {
             $this->_version = null;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this;
     }
 
@@ -174,6 +193,10 @@ class Zend_Json_Server_Response
     {
         if ($this->isError()) {
             $response = array(
+<<<<<<< HEAD
+=======
+                'result' => null,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 'error'  => $this->getError()->toArray(),
                 'id'     => $this->getId(),
             );
@@ -181,6 +204,10 @@ class Zend_Json_Server_Response
             $response = array(
                 'result' => $this->getResult(),
                 'id'     => $this->getId(),
+<<<<<<< HEAD
+=======
+                'error'  => null,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             );
         }
 

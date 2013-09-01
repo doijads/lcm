@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Navigation
  * @subpackage Page
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Uri.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Uri.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,7 +37,11 @@ require_once 'Zend/Navigation/Page.php';
  * @category   Zend
  * @package    Zend_Navigation
  * @subpackage Page
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Navigation_Page_Uri extends Zend_Navigation_Page
@@ -79,6 +89,7 @@ class Zend_Navigation_Page_Uri extends Zend_Navigation_Page
      */
     public function getHref()
     {
+<<<<<<< HEAD
         $uri = $this->getUri();
         
         $fragment = $this->getFragment();       
@@ -91,6 +102,9 @@ class Zend_Navigation_Page_Uri extends Zend_Navigation_Page
         }
         
         return $uri;
+=======
+        return $this->getUri();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     // Public methods:

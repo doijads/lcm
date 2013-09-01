@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: FormPassword.php 24750 2012-05-05 01:24:21Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: FormPassword.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -33,7 +39,11 @@ require_once 'Zend/View/Helper/FormElement.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_FormPassword extends Zend_View_Helper_FormElement
@@ -74,6 +84,15 @@ class Zend_View_Helper_FormPassword extends Zend_View_Helper_FormElement
             unset($attribs['renderPassword']);
         }
 
+<<<<<<< HEAD
+=======
+        // XHTML or HTML end tag?
+        $endTag = ' />';
+        if (($this->view instanceof Zend_View_Abstract) && !$this->view->doctype()->isXhtml()) {
+            $endTag= '>';
+        }
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // render the element
         $xhtml = '<input type="password"'
                 . ' name="' . $this->view->escape($name) . '"'
@@ -81,7 +100,11 @@ class Zend_View_Helper_FormPassword extends Zend_View_Helper_FormElement
                 . $valueString
                 . $disabled
                 . $this->_htmlAttribs($attribs)
+<<<<<<< HEAD
                 . $this->getClosingBracket();
+=======
+                . $endTag;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         return $xhtml;
     }

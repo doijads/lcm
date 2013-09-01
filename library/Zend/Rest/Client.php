@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Rest
  * @subpackage Client
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Client.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Client.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -34,7 +40,11 @@ require_once 'Zend/Uri.php';
  * @category   Zend
  * @package    Zend_Rest
  * @subpackage Client
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Rest_Client extends Zend_Service_Abstract
@@ -50,6 +60,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @var Zend_Uri_Http
      */
     protected $_uri = null;
+<<<<<<< HEAD
     
     /**
      * Flag indicating the Zend_Http_Client is fresh and needs no reset.
@@ -57,6 +68,8 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @var bool true if you do not want a reset. Default false.
      */
     protected $_noReset = false;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Constructor
@@ -105,7 +118,11 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @throws Zend_Rest_Client_Exception
      * @return void
      */
+<<<<<<< HEAD
     private function _prepareRest($path)
+=======
+    final private function _prepareRest($path)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         // Get the URI object and configure it
         if (!$this->_uri instanceof Zend_Uri_Http) {
@@ -125,6 +142,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
          * Get the HTTP client and configure it for the endpoint URI.  Do this each time
          * because the Zend_Http_Client instance is shared among all Zend_Service_Abstract subclasses.
          */
+<<<<<<< HEAD
         if ($this->_noReset) {
             // if $_noReset we do not want to reset on this request, 
             // but we do on any subsequent request
@@ -148,6 +166,9 @@ class Zend_Rest_Client extends Zend_Service_Abstract
     public function setNoReset($bool = true)
     {
         $this->_noReset = $bool;
+=======
+        self::getHttpClient()->resetParameters()->setUri($this->_uri);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -158,7 +179,11 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @throws Zend_Http_Client_Exception
      * @return Zend_Http_Response
      */
+<<<<<<< HEAD
     public function restGet($path, array $query = null)
+=======
+    final public function restGet($path, array $query = null)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $this->_prepareRest($path);
         $client = self::getHttpClient();
@@ -196,7 +221,11 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @throws Zend_Http_Client_Exception
      * @return Zend_Http_Response
      */
+<<<<<<< HEAD
     public function restPost($path, $data = null)
+=======
+    final public function restPost($path, $data = null)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $this->_prepareRest($path);
         return $this->_performPost('POST', $data);
@@ -210,7 +239,11 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @throws Zend_Http_Client_Exception
      * @return Zend_Http_Response
      */
+<<<<<<< HEAD
     public function restPut($path, $data = null)
+=======
+    final public function restPut($path, $data = null)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $this->_prepareRest($path);
         return $this->_performPost('PUT', $data);
@@ -223,10 +256,17 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * @throws Zend_Http_Client_Exception
      * @return Zend_Http_Response
      */
+<<<<<<< HEAD
     public function restDelete($path, $data = null)
     {
         $this->_prepareRest($path);
         return $this->_performPost('DELETE', $data);
+=======
+    final public function restDelete($path)
+    {
+        $this->_prepareRest($path);
+        return self::getHttpClient()->request('DELETE');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**

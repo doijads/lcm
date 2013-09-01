@@ -13,9 +13,15 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
+<<<<<<< HEAD
  * @package    Zend_View
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Exception.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @package    Zend_Date
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Exception.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -30,8 +36,13 @@ require_once 'Zend/Exception.php';
  * Exception for Zend_View class.
  *
  * @category   Zend
+<<<<<<< HEAD
  * @package    Zend_View
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @package    Zend_Date
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Exception extends Zend_Exception

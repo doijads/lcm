@@ -16,8 +16,13 @@
  * @category   Zend
  * @package    Zend_Http
  * @subpackage Client_Adapter
+<<<<<<< HEAD
  * @version    $Id: Curl.php 24593 2012-01-05 20:35:02Z matthew $
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @version    $Id: Curl.php 23775 2011-03-01 17:25:24Z ralph $
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -42,7 +47,11 @@ require_once 'Zend/Http/Client/Adapter/Stream.php';
  * @category   Zend
  * @package    Zend_Http
  * @subpackage Client_Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Http_Client_Adapter_Curl implements Zend_Http_Client_Adapter_Interface, Zend_Http_Client_Adapter_Stream
@@ -393,9 +402,12 @@ class Zend_Http_Client_Adapter_Curl implements Zend_Http_Client_Adapter_Interfac
         } elseif ($method == Zend_Http_Client::PUT) {
             // This is a PUT by a setRawData string, not by file-handle
             curl_setopt($this->_curl, CURLOPT_POSTFIELDS, $body);
+<<<<<<< HEAD
         } elseif ($method == Zend_Http_Client::DELETE) {
             // This is a DELETE by a setRawData string
             curl_setopt($this->_curl, CURLOPT_POSTFIELDS, $body);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         // set additional curl options

@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Dom
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Query.php 25033 2012-08-17 19:50:08Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Query.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -34,7 +40,11 @@ require_once 'Zend/Dom/Query/Result.php';
  *
  * @package    Zend_Dom
  * @subpackage Query
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Dom_Query
@@ -124,10 +134,13 @@ class Zend_Dom_Query
         }
         // breaking XML declaration to make syntax highlighting work
         if ('<' . '?xml' == substr(trim($document), 0, 5)) {
+<<<<<<< HEAD
             if (preg_match('/<html[^>]*xmlns="([^"]+)"[^>]*>/i', $document, $matches)) {
                 $this->_xpathNamespaces[] = $matches[1];
                 return $this->setDocumentXhtml($document, $encoding);
             }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return $this->setDocumentXml($document, $encoding);
         }
         if (strstr($document, 'DTD XHTML')) {
@@ -245,7 +258,10 @@ class Zend_Dom_Query
 
         $encoding = $this->getEncoding();
         libxml_use_internal_errors(true);
+<<<<<<< HEAD
         libxml_disable_entity_loader(true);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (null === $encoding) {
             $domDoc = new DOMDocument('1.0');
         } else {
@@ -255,6 +271,7 @@ class Zend_Dom_Query
         switch ($type) {
             case self::DOC_XML:
                 $success = $domDoc->loadXML($document);
+<<<<<<< HEAD
                 foreach ($domDoc->childNodes as $child) {
                     if ($child->nodeType === XML_DOCUMENT_TYPE_NODE) {
                         require_once 'Zend/Dom/Exception.php';
@@ -263,6 +280,8 @@ class Zend_Dom_Query
                         );
                     }
                 }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 break;
             case self::DOC_HTML:
             case self::DOC_XHTML:
@@ -275,7 +294,10 @@ class Zend_Dom_Query
             $this->_documentErrors = $errors;
             libxml_clear_errors();
         }
+<<<<<<< HEAD
         libxml_disable_entity_loader(false);
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         libxml_use_internal_errors(false);
 
         if (!$success) {

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon_Sqs
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Sqs.php 25024 2012-07-30 15:08:15Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Sqs.php 23953 2011-05-03 05:47:39Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -36,7 +42,11 @@ require_once 'Zend/Crypt/Hmac.php';
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon_Sqs
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @see        http://aws.amazon.com/sqs/ Amazon Simple Queue Service
  */
@@ -67,6 +77,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      */
     protected $_sqsSignatureMethod = 'HmacSHA256';
 
+<<<<<<< HEAD
     protected $_sqsEndpoints = array('us-east-1' => 'sqs.us-east-1.amazonaws.com',
                                      'us-west-1' => 'sqs.us-west-1.amazonaws.com',
                                      'eu-west-1' => 'sqs.eu-west-1.amazonaws.com',
@@ -78,6 +89,11 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      * The default region is us-east-1. Use the region to set it to one of the regions that is build-in into ZF.
      * To add a new AWS region use the setEndpoint() method.
      *
+=======
+    /**
+     * Constructor
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $accessKey
      * @param string $secretKey
      * @param string $region
@@ -85,6 +101,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
     public function __construct($accessKey = null, $secretKey = null, $region = null)
     {
         parent::__construct($accessKey, $secretKey, $region);
+<<<<<<< HEAD
         
         if (null !== $region) {
             $this->_setEndpoint($region);
@@ -157,6 +174,11 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
     }
     
     /**
+=======
+    }
+
+    /**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Create a new queue
      *
      * Visibility timeout is how long a message is left in the queue "invisible"

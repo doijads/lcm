@@ -14,7 +14,11 @@
  *
  * @category   Zend
  * @package    Zend_Form
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -23,9 +27,15 @@
  *
  * @category   Zend
  * @package    Zend_Form
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: DisplayGroup.php 25093 2012-11-07 20:08:05Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: DisplayGroup.php 23871 2011-04-23 22:40:16Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_DisplayGroup implements Iterator,Countable
 {
@@ -977,6 +987,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
     }
 
     /**
+<<<<<<< HEAD
      * Does this display group have its own specific translator?
      *
      * @return bool
@@ -987,6 +998,8 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Indicate whether or not translation should be disabled
      *
      * @param  bool $flag

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Dojo
  * @subpackage View
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: SimpleTextarea.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: SimpleTextarea.php 23925 2011-05-02 19:21:00Z matthew $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Dojo_View_Helper_Dijit */
@@ -29,9 +35,15 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @uses       Zend_Dojo_View_Helper_Dijit
  * @package    Zend_Dojo
  * @subpackage View
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: SimpleTextarea.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: SimpleTextarea.php 23925 2011-05-02 19:21:00Z matthew $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Dojo_View_Helper_SimpleTextarea extends Zend_Dojo_View_Helper_Dijit
 {

@@ -15,12 +15,29 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
 /**
+<<<<<<< HEAD
+=======
+ * @see Zend_Service_WindowsAzure_Diagnostics_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/Exception.php';
+
+/**
+ * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+ */
+require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationObjectBaseAbstract.php';
+
+/**
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationLogs
  */
 require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationLogs.php';
@@ -49,6 +66,7 @@ require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationDirectories.php
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  *
@@ -79,3 +97,35 @@ class Zend_Service_WindowsAzure_Diagnostics_ConfigurationDataSources
         );
     }
 }
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+ * @property    int                                                                                OverallQuotaInMB                Overall quota in MB
+ * @property    Zend_Service_WindowsAzure_Diagnostics_ConfigurationLogs                            Logs                            Logs
+ * @property    Zend_Service_WindowsAzure_Diagnostics_ConfigurationDiagnosticInfrastructureLogs    DiagnosticInfrastructureLogs    Diagnostic infrastructure logs
+ * @property    Zend_Service_WindowsAzure_Diagnostics_ConfigurationPerformanceCounters                PerformanceCounters                Performance counters
+ * @property    Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog                    WindowsEventLog                    Windows Event Log
+ * @property    Zend_Service_WindowsAzure_Diagnostics_ConfigurationDirectories                        Directories                        Directories
+ */
+class Zend_Service_WindowsAzure_Diagnostics_ConfigurationDataSources
+    extends Zend_Service_WindowsAzure_Diagnostics_ConfigurationObjectBaseAbstract
+{
+    /**
+     * Constructor
+     *
+	 * @param	int	$overallQuotaInMB				Overall quota in MB
+	 */
+    public function __construct($overallQuotaInMB = 0)
+    {	
+        $this->_data = array(
+            'overallquotainmb'             => $overallQuotaInMB,
+            'logs'                         => new Zend_Service_WindowsAzure_Diagnostics_ConfigurationLogs(),
+            'diagnosticinfrastructurelogs' => new Zend_Service_WindowsAzure_Diagnostics_ConfigurationDiagnosticInfrastructureLogs(),
+            'performancecounters'          => new Zend_Service_WindowsAzure_Diagnostics_ConfigurationPerformanceCounters(),
+            'windowseventlog'              => new Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog(),
+            'directories'                  => new Zend_Service_WindowsAzure_Diagnostics_ConfigurationDirectories(),
+        );
+    }
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

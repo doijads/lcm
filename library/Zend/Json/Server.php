@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Json
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Server.php 25085 2012-11-06 21:11:41Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Server.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -27,7 +33,11 @@ require_once 'Zend/Server/Abstract.php';
 /**
  * @category   Zend
  * @package    Zend_Json
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Json_Server extends Zend_Server_Abstract
@@ -547,7 +557,11 @@ class Zend_Json_Server extends Zend_Server_Abstract
                 if( isset( $params[ $refParam->getName() ] ) ) {
                     $orderedParams[ $refParam->getName() ] = $params[ $refParam->getName() ];
                 } elseif( $refParam->isOptional() ) {
+<<<<<<< HEAD
                     $orderedParams[ $refParam->getName() ] = $refParam->getDefaultValue();
+=======
+                    $orderedParams[ $refParam->getName() ] = null;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 } else {
                     throw new Zend_Server_Exception(
                         'Missing required parameter: ' . $refParam->getName()

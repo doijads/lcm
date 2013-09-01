@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: HeadMeta.php 24776 2012-05-08 18:36:40Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: HeadMeta.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -30,7 +35,11 @@ require_once 'Zend/View/Helper/Placeholder/Container/Standalone.php';
  * @uses       Zend_View_Helper_Placeholder_Container_Standalone
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_Standalone
@@ -168,6 +177,7 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
         return parent::__call($method, $args);
     }
 
+<<<<<<< HEAD
     /**
      * Create an HTML5-style meta charset tag. Something like <meta charset="utf-8">
      *
@@ -176,6 +186,16 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
      * @param string $charset
      * @return Zend_View_Helper_HeadMeta Provides a fluent interface
      */
+=======
+	/**
+	 * Create an HTML5-style meta charset tag. Something like <meta charset="utf-8">
+	 *
+	 * Not valid in a non-HTML5 doctype
+	 *
+	 * @param string $charset
+	 * @return Zend_View_Helper_HeadMeta Provides a fluent interface
+	 */
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     public function setCharset($charset)
     {
         $item = new stdClass;
@@ -202,15 +222,25 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
             return false;
         }
 
+<<<<<<< HEAD
         $isHtml5 = is_null($this->view) ? false : $this->view->doctype()->isHtml5();
 
         if (!isset($item->content)
         && (! $isHtml5 || (! $isHtml5 && $item->type !== 'charset'))) {
+=======
+        if (!isset($item->content)
+        && (! $this->view->doctype()->isHtml5()
+        || (! $this->view->doctype()->isHtml5() && $item->type !== 'charset'))) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return false;
         }
 
         // <meta property= ... /> is only supported with doctype RDFa
+<<<<<<< HEAD
         if ( !is_null($this->view) && !$this->view->doctype()->isRdfa()
+=======
+        if (!$this->view->doctype()->isRdfa()
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             && $item->type === 'property') {
             return false;
         }
@@ -342,7 +372,11 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
 
         $modifiersString = '';
         foreach ($item->modifiers as $key => $value) {
+<<<<<<< HEAD
             if (!is_null($this->view) && $this->view->doctype()->isHtml5()
+=======
+            if ($this->view->doctype()->isHtml5()
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             && $key == 'scheme') {
                 require_once 'Zend/View/Exception.php';
                 throw new Zend_View_Exception('Invalid modifier '
@@ -376,6 +410,7 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
             $this->_escape($item->content),
             $modifiersString
         );
+<<<<<<< HEAD
         
         if (isset($item->modifiers['conditional'])
             && !empty($item->modifiers['conditional'])
@@ -384,6 +419,8 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
             $meta = '<!--[if ' . $this->_escape($item->modifiers['conditional']) . ']>' . $meta . '<![endif]-->';
         }
         
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $meta;
     }
 

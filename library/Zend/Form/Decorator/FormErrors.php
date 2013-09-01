@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -32,9 +36,15 @@ require_once 'Zend/Form/Decorator/Abstract.php';
  * @category   Zend
  * @package    Zend_Form
  * @subpackage Decorator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: FormErrors.php 25257 2013-02-13 16:47:18Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: FormErrors.php 23853 2011-04-10 16:06:30Z ramon $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Form_Decorator_FormErrors extends Zend_Form_Decorator_Abstract
 {
@@ -70,12 +80,15 @@ class Zend_Form_Decorator_FormErrors extends Zend_Form_Decorator_Abstract
     /**#@-*/
 
     /**
+<<<<<<< HEAD
      * Whether or not to escape error label and error message
      * @var bool
      */
     protected $_escape;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Render errors
      *
      * @param  string $content
@@ -411,6 +424,7 @@ class Zend_Form_Decorator_FormErrors extends Zend_Form_Decorator_Abstract
     }
 
     /**
+<<<<<<< HEAD
      * Set whether or not to escape error label and error message
      *
      * Sets also the 'escape' option for the view helper
@@ -446,6 +460,8 @@ class Zend_Form_Decorator_FormErrors extends Zend_Form_Decorator_Abstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Render element label
      *
      * @param  Zend_Form_Element $element
@@ -457,6 +473,7 @@ class Zend_Form_Decorator_FormErrors extends Zend_Form_Decorator_Abstract
         $label = $element->getLabel();
         if (empty($label)) {
             $label = $element->getName();
+<<<<<<< HEAD
 
             // Translate element name
             if (null !== ($translator = $element->getTranslator())) {
@@ -470,6 +487,12 @@ class Zend_Form_Decorator_FormErrors extends Zend_Form_Decorator_Abstract
 
         return $this->getMarkupElementLabelStart()
              . $label
+=======
+        }
+
+        return $this->getMarkupElementLabelStart()
+             . $view->escape($label)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
              . $this->getMarkupElementLabelEnd();
     }
 

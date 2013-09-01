@@ -3,6 +3,10 @@
 class AjaxController extends Zend_Controller_Action
 {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     public function init()
     {
         /* Initialize action controller here */
@@ -31,6 +35,7 @@ class AjaxController extends Zend_Controller_Action
         exit(0);       
         //$this->asJSON();        
     }
+<<<<<<< HEAD
     
     public function editlawyersAction(){
         $this->_helper->viewRenderer->setNoRender(true);
@@ -73,6 +78,8 @@ class AjaxController extends Zend_Controller_Action
         
     }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     public function contactAction(){
         
         

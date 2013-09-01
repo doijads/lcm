@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Version
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Version.php 25289 2013-03-13 16:51:14Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Version.php 24102 2011-06-01 21:30:38Z matthew $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -24,7 +30,11 @@
  *
  * @category   Zend
  * @package    Zend_Version
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 final class Zend_Version
@@ -32,7 +42,11 @@ final class Zend_Version
     /**
      * Zend Framework version identification - see compareVersion()
      */
+<<<<<<< HEAD
     const VERSION = '1.12.3';
+=======
+    const VERSION = '1.11.7';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * The latest stable version Zend Framework available

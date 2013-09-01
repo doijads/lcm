@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Reflection
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: File.php 24803 2012-05-14 12:23:46Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: File.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,7 +38,11 @@ require_once 'Zend/Reflection/Function.php';
 /**
  * @category   Zend
  * @package    Zend_Reflection
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Reflection_File implements Reflector
@@ -86,6 +96,7 @@ class Zend_Reflection_File implements Reflector
     public function __construct($file)
     {
         $fileName = $file;
+<<<<<<< HEAD
         
         $fileRealpath = realpath($fileName);
         if ($fileRealpath) {
@@ -97,6 +108,10 @@ class Zend_Reflection_File implements Reflector
         }
         
         if ($fileRealpath === false) {
+=======
+
+        if (($fileRealpath = realpath($fileName)) === false) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $fileRealpath = self::findRealpathInIncludePath($file);
         }
 
@@ -309,11 +324,18 @@ class Zend_Reflection_File implements Reflector
         $contents = $this->_contents;
         $tokens   = token_get_all($contents);
 
+<<<<<<< HEAD
         $functionTrapped           = false;
         $classTrapped              = false;
         $requireTrapped            = false;
         $embeddedVariableTrapped   = false;
         $openBraces                = 0;
+=======
+        $functionTrapped = false;
+        $classTrapped    = false;
+        $requireTrapped  = false;
+        $openBraces      = 0;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         $this->_checkFileDocBlock($tokens);
 
@@ -340,23 +362,30 @@ class Zend_Reflection_File implements Reflector
                 if ($token == '{') {
                     $openBraces++;
                 } else if ($token == '}') {
+<<<<<<< HEAD
                     if ( $embeddedVariableTrapped ) {
                         $embeddedVariableTrapped = false;
                     } else {
                         $openBraces--;
                     }
+=======
+                    $openBraces--;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
 
                 continue;
             }
 
             switch ($type) {
+<<<<<<< HEAD
                 case T_STRING_VARNAME:
                 case T_DOLLAR_OPEN_CURLY_BRACES:
                 case T_CURLY_OPEN:
                     $embeddedVariableTrapped = true;
                     continue;
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 // Name of something
                 case T_STRING:
                     if ($functionTrapped) {

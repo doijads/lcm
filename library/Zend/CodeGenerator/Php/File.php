@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_CodeGenerator
  * @subpackage PHP
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: File.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: File.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/CodeGenerator/Php/Class.php';
 /**
  * @category   Zend
  * @package    Zend_CodeGenerator
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_CodeGenerator_Php_File extends Zend_CodeGenerator_Php_Abstract
@@ -110,7 +120,11 @@ class Zend_CodeGenerator_Php_File extends Zend_CodeGenerator_Php_Abstract
         $realpath = realpath($filePath);
 
         if ($realpath === false) {
+<<<<<<< HEAD
             if ( ($realpath = Zend_Reflection_File::findRealpathInIncludePath($filePath)) === false) {
+=======
+            if ( ($realpath = Zend_Reflection_file::findRealpathInIncludePath($filePath)) === false) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 require_once 'Zend/CodeGenerator/Php/Exception.php';
                 throw new Zend_CodeGenerator_Php_Exception('No file for ' . $realpath . ' was found.');
             }
@@ -394,7 +408,11 @@ class Zend_CodeGenerator_Php_File extends Zend_CodeGenerator_Php_Abstract
 
         // if there are markers, put the body into the output
         $body = $this->getBody();
+<<<<<<< HEAD
         if (preg_match('#/\* Zend_CodeGenerator_Php_File-(.*?)Marker#', $body)) {
+=======
+        if (preg_match('#/\* Zend_CodeGenerator_Php_File-(.*?)Marker:#', $body)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $output .= $body;
             $body    = '';
         }
@@ -428,9 +446,12 @@ class Zend_CodeGenerator_Php_File extends Zend_CodeGenerator_Php_Abstract
         $classes = $this->getClasses();
         if (!empty($classes)) {
             foreach ($classes as $class) {
+<<<<<<< HEAD
                 if($this->getDocblock() == $class->getDocblock()) {
                     $class->setDocblock(null);
                 }                   
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $regex = str_replace('?', $class->getName(), self::$_markerClass);
                 $regex = preg_quote($regex, '#');
                 if (preg_match('#'.$regex.'#', $output)) {

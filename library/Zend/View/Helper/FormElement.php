@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: FormElement.php 24823 2012-05-29 19:52:12Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: FormElement.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,20 +37,32 @@ require_once 'Zend/View/Helper/HtmlElement.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_View_Helper_FormElement extends Zend_View_Helper_HtmlElement
 {
     /**
+<<<<<<< HEAD
      * @var Zend_Translate_Adapter|null
+=======
+     * @var Zend_Translate
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     protected $_translator;
 
     /**
      * Get translator
      *
+<<<<<<< HEAD
      * @return Zend_Translate_Adapter|null
+=======
+     * @return Zend_Translate
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function getTranslator()
     {
@@ -54,7 +72,11 @@ abstract class Zend_View_Helper_FormElement extends Zend_View_Helper_HtmlElement
     /**
      * Set translator
      *
+<<<<<<< HEAD
      * @param  Zend_Translate|Zend_Translate_Adapter|null $translator
+=======
+     * @param  Zend_Translate $translator
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return Zend_View_Helper_FormElement
      */
     public function setTranslator($translator = null)
@@ -146,6 +168,7 @@ abstract class Zend_View_Helper_FormElement extends Zend_View_Helper_HtmlElement
             $info['id'] = trim(strtr($info['name'],
                                      array('[' => '-', ']' => '')), '-');
         }
+<<<<<<< HEAD
         
         // Remove NULL name attribute override
         if (array_key_exists('name', $attribs) && is_null($attribs['name'])) {
@@ -156,6 +179,8 @@ abstract class Zend_View_Helper_FormElement extends Zend_View_Helper_HtmlElement
         if (array_key_exists('name', $attribs) && $attribs['name'] != $info['name']) {
             $info['name'] = $attribs['name'];
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         // Determine escaping from attributes
         if (array_key_exists('escape', $attribs)) {

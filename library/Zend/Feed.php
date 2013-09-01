@@ -15,9 +15,15 @@
  *
  * @category   Zend
  * @package    Zend_Feed
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Feed.php 25160 2012-12-18 15:17:16Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Feed.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -29,7 +35,11 @@
  *
  * @category   Zend
  * @package    Zend_Feed
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Feed
@@ -191,8 +201,12 @@ class Zend_Feed
     public static function importString($string)
     {
         // Load the feed as an XML DOMDocument object
+<<<<<<< HEAD
         $libxml_errflag       = libxml_use_internal_errors(true);
         $libxml_entity_loader = libxml_disable_entity_loader(true);
+=======
+        $libxml_errflag = libxml_use_internal_errors(true);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $doc = new DOMDocument;
         if (trim($string) == '') {
             require_once 'Zend/Feed/Exception.php';
@@ -200,9 +214,15 @@ class Zend_Feed
             . ' is an Empty string or comes from an empty HTTP response');
         }
         $status = $doc->loadXML($string);
+<<<<<<< HEAD
         libxml_disable_entity_loader($libxml_entity_loader);
         libxml_use_internal_errors($libxml_errflag);
 
+=======
+        libxml_use_internal_errors($libxml_errflag);
+
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (!$status) {
             // prevent the class to generate an undefined variable notice (ZF-2590)
             // Build error message

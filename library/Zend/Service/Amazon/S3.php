@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon_S3
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: S3.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: S3.php 24083 2011-05-30 10:52:55Z ezimuel $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -36,7 +42,11 @@ require_once 'Zend/Crypt/Hmac.php';
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon_S3
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @see        http://docs.amazonwebservices.com/AmazonS3/2006-03-01/
  */
@@ -160,8 +170,13 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
         $headers=array();
         if($location) {
             $data = '<CreateBucketConfiguration><LocationConstraint>'.$location.'</LocationConstraint></CreateBucketConfiguration>';
+<<<<<<< HEAD
             $headers[self::S3_CONTENT_TYPE_HEADER]= 'text/plain';
             $headers['Content-size']= strlen($data);
+=======
+            $headers['Content-type']= 'text/plain';
+            $headers['Contne-size']= strlen($data);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         } else {
             $data = null;
         }
@@ -321,6 +336,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
 
         return $objects;
     }
+<<<<<<< HEAD
      /**
      * List the objects and common prefixes in a bucket.
      *
@@ -367,6 +383,9 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
             'prefixes' => $prefixes
         );
     }
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     /**
      * Make sure the object name is valid
      *
@@ -535,7 +554,11 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
         }
 
         if(!isset($meta['Content-MD5'])) {
+<<<<<<< HEAD
             $meta['Content-MD5'] = base64_encode(md5_file($path, true));
+=======
+            $headers['Content-MD5'] = base64_encode(md5_file($path, true));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return $this->putObject($object, $data, $meta);

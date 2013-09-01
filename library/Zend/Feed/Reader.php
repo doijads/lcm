@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Feed_Reader
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Reader.php 25275 2013-03-06 09:55:33Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Reader.php 23975 2011-05-03 16:43:46Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -42,7 +48,11 @@ require_once 'Zend/Feed/Reader/FeedSet.php';
 /**
  * @category   Zend
  * @package    Zend_Feed_Reader
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Feed_Reader
@@ -240,7 +250,11 @@ class Zend_Feed_Reader
                     $etag = $cache->load($cacheId.'_etag');
                 }
                 if ($lastModified === null) {
+<<<<<<< HEAD
                     $lastModified = $cache->load($cacheId.'_lastmodified');
+=======
+                    $lastModified = $cache->load($cacheId.'_lastmodified');;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
                 if ($etag) {
                     $client->setHeaders('If-None-Match', $etag);
@@ -333,6 +347,7 @@ class Zend_Feed_Reader
      */
     public static function importString($string)
     {
+<<<<<<< HEAD
         $libxml_errflag = libxml_use_internal_errors(true);
         $oldValue = libxml_disable_entity_loader(true);
         $dom = new DOMDocument;
@@ -346,6 +361,12 @@ class Zend_Feed_Reader
             }
         }
         libxml_disable_entity_loader($oldValue);
+=======
+        
+        $libxml_errflag = libxml_use_internal_errors(true);
+        $dom = new DOMDocument;
+        $status = $dom->loadXML($string);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         libxml_use_internal_errors($libxml_errflag);
 
         if (!$status) {
@@ -416,10 +437,15 @@ class Zend_Feed_Reader
         }
         $responseHtml = $response->getBody();
         $libxml_errflag = libxml_use_internal_errors(true);
+<<<<<<< HEAD
         $oldValue = libxml_disable_entity_loader(true);
         $dom = new DOMDocument;
         $status = $dom->loadHTML($responseHtml);
         libxml_disable_entity_loader($oldValue);
+=======
+        $dom = new DOMDocument;
+        $status = $dom->loadHTML($responseHtml);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         libxml_use_internal_errors($libxml_errflag);
         if (!$status) {
             // Build error message
@@ -443,9 +469,13 @@ class Zend_Feed_Reader
      * Detect the feed type of the provided feed
      *
      * @param  Zend_Feed_Abstract|DOMDocument|string $feed
+<<<<<<< HEAD
      * @param  bool                                  $specOnly
      * @return string
      * @throws Zend_Feed_Exception
+=======
+     * @return string
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public static function detectType($feed, $specOnly = false)
     {
@@ -455,6 +485,7 @@ class Zend_Feed_Reader
             $dom = $feed;
         } elseif(is_string($feed) && !empty($feed)) {
             @ini_set('track_errors', 1);
+<<<<<<< HEAD
             $oldValue = libxml_disable_entity_loader(true);
             $dom = new DOMDocument;
             $status = @$dom->loadXML($feed);
@@ -467,6 +498,10 @@ class Zend_Feed_Reader
                 }
             }
             libxml_disable_entity_loader($oldValue);
+=======
+            $dom = new DOMDocument;
+            $status = @$dom->loadXML($feed);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             @ini_restore('track_errors');
             if (!$status) {
                 if (!isset($php_errormsg)) {

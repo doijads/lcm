@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Amf
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Server.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Server.php 23897 2011-04-30 02:07:57Z yoshida@zend.co.jp $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** @see Zend_Server_Interface */
@@ -52,7 +58,11 @@ require_once 'Zend/Auth.php';
  * @todo       Make the reflection methods cache and autoload.
  * @package    Zend_Amf
  * @subpackage Server
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Server implements Zend_Server_Interface
@@ -142,18 +152,24 @@ class Zend_Amf_Server implements Zend_Server_Interface
     /**
      * Set authentication adapter
      *
+<<<<<<< HEAD
      * If the authentication adapter implements a "getAcl()" method, populate 
      * the ACL of this instance with it (if none exists already).
      *
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param  Zend_Amf_Auth_Abstract $auth
      * @return Zend_Amf_Server
      */
     public function setAuth(Zend_Amf_Auth_Abstract $auth)
     {
         $this->_auth = $auth;
+<<<<<<< HEAD
         if ((null === $this->getAcl()) && method_exists($auth, 'getAcl')) {
             $this->setAcl($auth->getAcl());
         }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this;
     }
    /**
@@ -323,7 +339,10 @@ class Zend_Amf_Server implements Zend_Server_Interface
                     throw new Zend_Amf_Server_Exception('Class "' . $className . '" does not exist: '.$e->getMessage(), 0, $e);
                 }
                 // Add the new loaded class to the server.
+<<<<<<< HEAD
                     require_once 'Zend/Amf/Server/Exception.php';
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $this->setClass($className, $source);
             }
 
@@ -341,8 +360,11 @@ class Zend_Amf_Server implements Zend_Server_Interface
             $params = array_merge($params, $argv);
         }
 
+<<<<<<< HEAD
         $params = $this->_castParameters($info, $params);
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ($info instanceof Zend_Server_Reflection_Function) {
             $func = $info->getName();
             $this->_checkAcl(null, $func);
@@ -503,6 +525,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
         // set response encoding
         $response->setObjectEncoding($objectEncoding);
 
+<<<<<<< HEAD
         // Authenticate, if we have credential headers
         $error   = false;
         $headers = $request->getAmfHeaders();
@@ -538,10 +561,21 @@ class Zend_Amf_Server implements Zend_Server_Interface
                     $e->getLine()
                 );
                 $responseType = Zend_AMF_Constants::STATUS_METHOD;
+=======
+        $responseBody = $request->getAmfBodies();
+
+        $handleAuth = false;
+        if ($this->_auth) {
+            $headers = $request->getAmfHeaders();
+            if (isset($headers[Zend_Amf_Constants::CREDENTIALS_HEADER]) &&
+                isset($headers[Zend_Amf_Constants::CREDENTIALS_HEADER]->userid)) {
+                $handleAuth = true;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
 
         // Iterate through each of the service calls in the AMF request
+<<<<<<< HEAD
         foreach($request->getAmfBodies() as $body)
         {
             if ($error) {
@@ -557,6 +591,57 @@ class Zend_Amf_Server implements Zend_Server_Interface
                         // AMF0 Object Encoding
                         $targetURI = $body->getTargetURI();
                         $message = '';
+=======
+        foreach($responseBody as $body)
+        {
+            try {
+                if ($handleAuth) {
+                    $message = '';
+                    if ($this->_handleAuth(
+                        $headers[Zend_Amf_Constants::CREDENTIALS_HEADER]->userid,
+                        $headers[Zend_Amf_Constants::CREDENTIALS_HEADER]->password)) {
+                        // use RequestPersistentHeader to clear credentials
+                        $response->addAmfHeader(
+                            new Zend_Amf_Value_MessageHeader(
+                                Zend_Amf_Constants::PERSISTENT_HEADER,
+                                false,
+                                new Zend_Amf_Value_MessageHeader(
+                                    Zend_Amf_Constants::CREDENTIALS_HEADER,
+                                    false, null)));
+                        $handleAuth = false;
+                    }
+                }
+
+                if ($objectEncoding == Zend_Amf_Constants::AMF0_OBJECT_ENCODING) {
+                    // AMF0 Object Encoding
+                    $targetURI = $body->getTargetURI();
+                    $message = '';
+
+                    // Split the target string into its values.
+                    $source = substr($targetURI, 0, strrpos($targetURI, '.'));
+
+                    if ($source) {
+                        // Break off method name from namespace into source
+                        $method = substr(strrchr($targetURI, '.'), 1);
+                        $return = $this->_dispatch($method, $body->getData(), $source);
+                    } else {
+                        // Just have a method name.
+                        $return = $this->_dispatch($targetURI, $body->getData());
+                    }
+                } else {
+                    // AMF3 read message type
+                    $message = $body->getData();
+                    if ($message instanceof Zend_Amf_Value_Messaging_CommandMessage) {
+                        // async call with command message
+                        $return = $this->_loadCommandMessage($message);
+                    } elseif ($message instanceof Zend_Amf_Value_Messaging_RemotingMessage) {
+                        require_once 'Zend/Amf/Value/Messaging/AcknowledgeMessage.php';
+                        $return = new Zend_Amf_Value_Messaging_AcknowledgeMessage($message);
+                        $return->body = $this->_dispatch($message->operation, $message->body, $message->source);
+                    } else {
+                        // Amf3 message sent with netConnection
+                        $targetURI = $body->getTargetURI();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
                         // Split the target string into its values.
                         $source = substr($targetURI, 0, strrpos($targetURI, '.'));
@@ -569,6 +654,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
                             // Just have a method name.
                             $return = $this->_dispatch($targetURI, $body->getData());
                         }
+<<<<<<< HEAD
                         break;
                     case Zend_Amf_Constants::AMF3_OBJECT_ENCODING:
                     default:
@@ -598,6 +684,9 @@ class Zend_Amf_Server implements Zend_Server_Interface
                             }
                         }
                         break;
+=======
+                    }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 }
                 $responseType = Zend_AMF_Constants::RESULT_METHOD;
             } catch (Exception $e) {
@@ -964,6 +1053,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
     {
         return array_keys($this->_table);
     }
+<<<<<<< HEAD
 
     /**
      * Cast parameters
@@ -1045,4 +1135,6 @@ class Zend_Amf_Server implements Zend_Server_Interface
 
         return $params;
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

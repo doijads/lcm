@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Message.php 22802 2010-08-07 19:27:37Z ramon $
  */
@@ -29,7 +33,11 @@ require_once 'Zend/Service/Ebay/Finding/Abstract.php';
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @uses       Zend_Service_Ebay_Finding_Abstract
  */

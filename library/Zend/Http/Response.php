@@ -16,8 +16,13 @@
  * @category   Zend
  * @package    Zend_Http
  * @subpackage Response
+<<<<<<< HEAD
  * @version    $Id: Response.php 25081 2012-11-06 20:59:47Z rob $
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @version    $Id: Response.php 23775 2011-03-01 17:25:24Z ralph $
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -28,7 +33,11 @@
  *
  * @package    Zend_Http
  * @subpackage Response
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Http_Response
@@ -641,7 +650,11 @@ class Zend_Http_Response
          * @link http://framework.zend.com/issues/browse/ZF-6040
          */
         $zlibHeader = unpack('n', substr($body, 0, 2));
+<<<<<<< HEAD
         if ($zlibHeader[1] % 31 == 0 && ord($body[0]) == 0x78 && in_array(ord($body[1]), array(0x01, 0x5e, 0x9c, 0xda))) {
+=======
+        if ($zlibHeader[1] % 31 == 0) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return gzuncompress($body);
         } else {
             return gzinflate($body);

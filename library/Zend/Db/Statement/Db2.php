@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Statement
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Db2.php 24625 2012-02-22 21:53:40Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Db2.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -30,7 +36,11 @@ require_once 'Zend/Db/Statement.php';
  *
  * @package    Zend_Db
  * @subpackage Statement
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Db_Statement_Db2 extends Zend_Db_Statement
@@ -96,7 +106,11 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
             $datatype = DB2_CHAR;
         }
 
+<<<<<<< HEAD
         if (!db2_bind_param($this->_stmt, $parameter, "variable", $type, $datatype)) {
+=======
+        if (!db2_bind_param($this->_stmt, $position, "variable", $type, $datatype)) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             /**
              * @see Zend_Db_Statement_Db2_Exception
              */

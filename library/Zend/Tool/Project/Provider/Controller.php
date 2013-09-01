@@ -15,15 +15,25 @@
  * @category   Zend
  * @package    Zend_Tool
  * @subpackage Framework
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Controller.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Controller.php 23818 2011-03-25 21:11:23Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
  * @category   Zend
  * @package    Zend_Tool
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Tool_Project_Provider_Controller
@@ -70,7 +80,11 @@ class Zend_Tool_Project_Provider_Controller
      * @param Zend_Tool_Project_Profile $profile
      * @param string $controllerName
      * @param string $moduleName
+<<<<<<< HEAD
      * @return boolean
+=======
+     * @return Zend_Tool_Project_Profile_Resource
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public static function hasResource(Zend_Tool_Project_Profile $profile, $controllerName, $moduleName = null)
     {
@@ -79,7 +93,11 @@ class Zend_Tool_Project_Provider_Controller
         }
 
         $controllersDirectory = self::_getControllersDirectoryResource($profile, $moduleName);
+<<<<<<< HEAD
         return ($controllersDirectory &&($controllersDirectory->search(array('controllerFile' => array('controllerName' => $controllerName)))) instanceof Zend_Tool_Project_Profile_Resource);
+=======
+        return (($controllersDirectory->search(array('controllerFile' => array('controllerName' => $controllerName)))) instanceof Zend_Tool_Project_Profile_Resource);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -128,9 +146,12 @@ class Zend_Tool_Project_Provider_Controller
                 );
         }
         
+<<<<<<< HEAD
         $originalName = $name;
         $name = ucfirst($name);
         
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (self::hasResource($this->_loadedProfile, $name, $module)) {
             throw new Zend_Tool_Project_Provider_Exception('This project already has a controller named ' . $name);
         }
@@ -140,6 +161,12 @@ class Zend_Tool_Project_Provider_Controller
             throw new Zend_Tool_Project_Provider_Exception('Controller names should be camel cased.');
         }
 
+<<<<<<< HEAD
+=======
+        $originalName = $name;
+        $name = ucfirst($name);
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         try {
             $controllerResource = self::createResource($this->_loadedProfile, $name, $module);
             if ($indexActionIncluded) {

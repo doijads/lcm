@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Statement
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Statement.php 24790 2012-05-10 12:28:51Z mcleod@spaceweb.nl $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Statement.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -36,7 +42,11 @@ require_once 'Zend/Db/Statement/Interface.php';
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Statement
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
@@ -176,15 +186,34 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
      */
     protected function _stripQuoted($sql)
     {
+<<<<<<< HEAD
+=======
+        // get the character for delimited id quotes,
+        // this is usually " but in MySQL is `
+        $d = $this->_adapter->quoteIdentifier('a');
+        $d = $d[0];
+
+        // get the value used as an escaped delimited id quote,
+        // e.g. \" or "" or \`
+        $de = $this->_adapter->quoteIdentifier($d);
+        $de = substr($de, 1, 2);
+        $de = str_replace('\\', '\\\\', $de);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         // get the character for value quoting
         // this should be '
         $q = $this->_adapter->quote('a');
+<<<<<<< HEAD
         $q = $q[0];        
+=======
+        $q = $q[0];
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // get the value used as an escaped quote,
         // e.g. \' or ''
         $qe = $this->_adapter->quote($q);
         $qe = substr($qe, 1, 2);
+<<<<<<< HEAD
         $qe = preg_quote($qe);
         $escapeChar = substr($qe,0,1);
         // remove 'foo\'bar'
@@ -210,6 +239,19 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
         $de = preg_quote($de);
         // Note: $de and $d where never used..., now they are:
         $sql = preg_replace("/$d($de|\\\\{2}|[^$d])*$d/Us", '', $sql);
+=======
+        $qe = str_replace('\\', '\\\\', $qe);
+
+        // get a version of the SQL statement with all quoted
+        // values and delimited identifiers stripped out
+        // remove "foo\"bar"
+        $sql = preg_replace("/$q($qe|\\\\{2}|[^$q])*$q/", '', $sql);
+        // remove 'foo\'bar'
+        if (!empty($q)) {
+            $sql = preg_replace("/$q($qe|[^$q])*$q/", '', $sql);
+        }
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $sql;
     }
 

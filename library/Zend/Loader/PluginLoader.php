@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Loader
  * @subpackage PluginLoader
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: PluginLoader.php 24877 2012-06-04 14:04:53Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: PluginLoader.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Loader_PluginLoader_Interface */
@@ -32,7 +38,11 @@ require_once 'Zend/Loader.php';
  * @category   Zend
  * @package    Zend_Loader
  * @subpackage PluginLoader
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
@@ -127,8 +137,17 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
             return $prefix;
         }
 
+<<<<<<< HEAD
         $nsSeparator = (false !== strpos($prefix, '\\'))?'\\':'_';
         return rtrim($prefix, $nsSeparator) . $nsSeparator;
+=======
+        $last = strlen($prefix) - 1;
+        if ($prefix{$last} == '\\') {
+            return $prefix;
+        }
+
+        return rtrim($prefix, '_') . '_';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -368,11 +387,15 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
 
         $registry  = array_reverse($registry, true);
         $found     = false;
+<<<<<<< HEAD
         if (false !== strpos($name, '\\')) {
             $classFile = str_replace('\\', DIRECTORY_SEPARATOR, $name) . '.php';
         } else {
             $classFile = str_replace('_', DIRECTORY_SEPARATOR, $name) . '.php';
         }
+=======
+        $classFile = str_replace('_', DIRECTORY_SEPARATOR, $name) . '.php';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $incFile   = self::getIncludeFileCache();
         foreach ($registry as $prefix => $paths) {
             $className = $prefix . $name;

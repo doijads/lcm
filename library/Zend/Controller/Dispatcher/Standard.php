@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Dispatcher
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Standard.php 24861 2012-06-01 23:40:13Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Standard.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Loader */
@@ -30,7 +36,11 @@ require_once 'Zend/Controller/Dispatcher/Abstract.php';
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Dispatcher
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Controller_Dispatcher_Standard extends Zend_Controller_Dispatcher_Abstract
@@ -257,6 +267,7 @@ class Zend_Controller_Dispatcher_Standard extends Zend_Controller_Dispatcher_Abs
         }
 
         /**
+<<<<<<< HEAD
          * If we're in a module or prefixDefaultModule is on, we must add the module name
          * prefix to the contents of $className, as getControllerClass does not do that automatically.
          * We must keep a separate variable because modules are not strictly PSR-0: We need the no-module-prefix
@@ -270,6 +281,8 @@ class Zend_Controller_Dispatcher_Standard extends Zend_Controller_Dispatcher_Abs
         }
 
         /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
          * Load the controller class file
          */
         $className = $this->loadClass($className);
@@ -278,12 +291,20 @@ class Zend_Controller_Dispatcher_Standard extends Zend_Controller_Dispatcher_Abs
          * Instantiate controller with request, response, and invocation
          * arguments; throw exception if it's not an action controller
          */
+<<<<<<< HEAD
         $controller = new $moduleClassName($request, $this->getResponse(), $this->getParams());
+=======
+        $controller = new $className($request, $this->getResponse(), $this->getParams());
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if (!($controller instanceof Zend_Controller_Action_Interface) &&
             !($controller instanceof Zend_Controller_Action)) {
             require_once 'Zend/Controller/Dispatcher/Exception.php';
             throw new Zend_Controller_Dispatcher_Exception(
+<<<<<<< HEAD
                 'Controller "' . $moduleClassName . '" is not an instance of Zend_Controller_Action_Interface'
+=======
+                'Controller "' . $className . '" is not an instance of Zend_Controller_Action_Interface'
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             );
         }
 

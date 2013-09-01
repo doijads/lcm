@@ -16,9 +16,15 @@
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Gbase
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: ItemFeed.php 24777 2012-05-08 18:50:23Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: ItemFeed.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -34,9 +40,22 @@ require_once 'Zend/Gdata/Gbase/Feed.php';
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Gbase
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_Gbase_ItemFeed extends Zend_Gdata_Feed
 {
+<<<<<<< HEAD
+=======
+    /**
+     * The classname for individual item feed elements.
+     *
+     * @var string
+     */
+    protected $_entryClassName = 'Zend_Gdata_Gbase_ItemEntry';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

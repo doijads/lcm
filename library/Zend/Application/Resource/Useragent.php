@@ -15,7 +15,11 @@
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -23,7 +27,11 @@
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_ResourceAbstract
@@ -31,8 +39,13 @@ class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_Reso
     /**
      * @var Zend_Http_UserAgent
      */
+<<<<<<< HEAD
     protected $_userAgent;
     
+=======
+	protected $_userAgent;
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     /**
      * Intialize resource
      *
@@ -40,7 +53,11 @@ class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_Reso
      */
     public function init()
     {
+<<<<<<< HEAD
         $userAgent = $this->getUserAgent();
+=======
+		$userAgent = $this->getUserAgent();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         // Optionally seed the UserAgent view helper
         $bootstrap = $this->getBootstrap();
@@ -53,8 +70,13 @@ class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_Reso
         }
 
         return $userAgent;
+<<<<<<< HEAD
     }
     
+=======
+	}
+	
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     /**
      * Get UserAgent instance
      *
@@ -62,6 +84,7 @@ class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_Reso
      */
     public function getUserAgent()
     {
+<<<<<<< HEAD
         if (null === $this->_userAgent) {
             $options = $this->getOptions();
             $this->_userAgent = new Zend_Http_UserAgent($options);
@@ -69,4 +92,13 @@ class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_Reso
         
         return $this->_userAgent;
     }
+=======
+		if (null === $this->_userAgent) {
+			$options = $this->getOptions();
+			$this->_userAgent = new Zend_Http_UserAgent($options);
+		}
+		
+		return $this->_userAgent;
+	}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

@@ -15,6 +15,7 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: TableEntity.php 24593 2012-01-05 20:35:02Z matthew $
@@ -25,10 +26,29 @@
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: TableEntity.php 23775 2011-03-01 17:25:24Z ralph $
+ */
+
+/**
+ * @see Zend_Service_WindowsAzure_Exception
+ */
+require_once 'Zend/Service/WindowsAzure/Exception.php';
+
+
+/**
+ * @category   Zend
+ * @package    Zend_Service_WindowsAzure
+ * @subpackage Storage
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_WindowsAzure_Storage_TableEntity
 {
+<<<<<<< HEAD
     /**
      * Partition key
      * 
@@ -72,6 +92,53 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     /**
      * Get partition key
      * 
+=======
+    const DEFAULT_TIMESTAMP = '1900-01-01T00:00:00';
+
+    /**
+     * Partition key
+     *
+     * @var string
+     */
+    protected $_partitionKey;
+
+    /**
+     * Row key
+     *
+     * @var string
+     */
+    protected $_rowKey;
+
+    /**
+     * Timestamp
+     *
+     * @var string
+     */
+    protected $_timestamp;
+
+    /**
+     * Etag
+     *
+     * @var string
+     */
+    protected $_etag = '';
+
+    /**
+     * Constructor
+     *
+     * @param string  $partitionKey    Partition key
+     * @param string  $rowKey          Row key
+     */
+    public function __construct($partitionKey = '', $rowKey = '')
+    {	
+        $this->_partitionKey = $partitionKey;
+        $this->_rowKey       = $rowKey;
+    }
+
+    /**
+     * Get partition key
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @azure PartitionKey
      * @return string
      */
@@ -79,10 +146,17 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         return $this->_partitionKey;
     }
+<<<<<<< HEAD
     
     /**
      * Set partition key
      * 
+=======
+
+    /**
+     * Set partition key
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @azure PartitionKey
      * @param string $value
      */
@@ -90,10 +164,17 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         $this->_partitionKey = $value;
     }
+<<<<<<< HEAD
     
     /**
      * Get row key
      * 
+=======
+
+    /**
+     * Get row key
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @azure RowKey
      * @return string
      */
@@ -101,10 +182,17 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         return $this->_rowKey;
     }
+<<<<<<< HEAD
     
     /**
      * Set row key
      * 
+=======
+
+    /**
+     * Set row key
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @azure RowKey
      * @param string $value
      */
@@ -112,15 +200,23 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         $this->_rowKey = $value;
     }
+<<<<<<< HEAD
     
     /**
      * Get timestamp
      * 
+=======
+
+    /**
+     * Get timestamp
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @azure Timestamp Edm.DateTime
      * @return string
      */
     public function getTimestamp()
     {
+<<<<<<< HEAD
     	if (null === $this->_timestamp) {
             $this->setTimestamp(new DateTime());
         }
@@ -141,33 +237,73 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     /**
      * Get etag
      * 
+=======
+        if (null === $this->_timestamp) {
+            $this->setTimestamp(self::DEFAULT_TIMESTAMP);
+        }
+        return $this->_timestamp;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @azure Timestamp Edm.DateTime
+     * @param string $value
+     */
+    public function setTimestamp($value = '1900-01-01T00:00:00')
+    {
+        $this->_timestamp = $value;
+    }
+
+    /**
+     * Get etag
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return string
      */
     public function getEtag()
     {
         return $this->_etag;
     }
+<<<<<<< HEAD
     
     /**
      * Set etag
      * 
+=======
+
+    /**
+     * Set etag
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $value
      */
     public function setEtag($value = '')
     {
         $this->_etag = $value;
     }
+<<<<<<< HEAD
     
     /**
      * Get Azure values
      * 
+=======
+
+    /**
+     * Get Azure values
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return array
      */
     public function getAzureValues()
     {
         // Get accessors
         $accessors = self::getAzureAccessors(get_class($this));
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Loop accessors and retrieve values
         $returnValue = array();
         foreach ($accessors as $accessor) {
@@ -175,13 +311,19 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
                 $property = $accessor->EntityAccessor;
                 $returnValue[] = (object)array(
                     'Name'  => $accessor->AzurePropertyName,
+<<<<<<< HEAD
                 	'Type'  => $accessor->AzurePropertyType,
                 	'Value' => $this->$property,
+=======
+                    'Type'  => $accessor->AzurePropertyType,
+                    'Value' => $this->$property,
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 );
             } else if ($accessor->EntityType == 'ReflectionMethod' && substr(strtolower($accessor->EntityAccessor), 0, 3) == 'get') {
                 $method = $accessor->EntityAccessor;
                 $returnValue[] = (object)array(
                     'Name'  => $accessor->AzurePropertyName,
+<<<<<<< HEAD
                 	'Type'  => $accessor->AzurePropertyType,
                 	'Value' => $this->$method(),
                 );
@@ -195,6 +337,21 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     /**
      * Set Azure values
      * 
+=======
+                    'Type'  => $accessor->AzurePropertyType,
+                    'Value' => $this->$method(),
+                );
+            }
+        }
+
+        // Return
+        return $returnValue;
+    }
+
+    /**
+     * Set Azure values
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param array $values
      * @param boolean $throwOnError Throw Zend_Service_WindowsAzure_Exception when a property is not specified in $values?
      * @throws Zend_Service_WindowsAzure_Exception
@@ -203,7 +360,11 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         // Get accessors
         $accessors = self::getAzureAccessors(get_class($this));
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Loop accessors and set values
         $returnValue = array();
         foreach ($accessors as $accessor) {
@@ -211,6 +372,7 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
                 // Cast to correct type
                 if ($accessor->AzurePropertyType != '') {
                     switch (strtolower($accessor->AzurePropertyType)) {
+<<<<<<< HEAD
         	            case 'edm.int32':
         	            case 'edm.int64':
         	                $values[$accessor->AzurePropertyName] = intval($values[$accessor->AzurePropertyName]); break;
@@ -227,6 +389,22 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
         	        }
                 }
                 
+=======
+                        case 'edm.int32':
+                        case 'edm.int64':
+                            $values[$accessor->AzurePropertyName] = intval($values[$accessor->AzurePropertyName]); break;
+                        case 'edm.boolean':
+                            if ($values[$accessor->AzurePropertyName] == 'true' || $values[$accessor->AzurePropertyName] == '1')
+                                $values[$accessor->AzurePropertyName] = true;
+                            else
+                                $values[$accessor->AzurePropertyName] = false;
+                            break;
+                        case 'edm.double':
+                            $values[$accessor->AzurePropertyName] = floatval($values[$accessor->AzurePropertyName]); break;
+                    }
+                }
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 // Assign value
                 if ($accessor->EntityType == 'ReflectionProperty') {
                     $property = $accessor->EntityAccessor;
@@ -236,6 +414,7 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
                     $this->$method($values[$accessor->AzurePropertyName]);
                 }
             } else if ($throwOnError) {
+<<<<<<< HEAD
 				require_once 'Zend/Service/WindowsAzure/Exception.php';
                 throw new Zend_Service_WindowsAzure_Exception("Property '" . $accessor->AzurePropertyName . "' was not found in \$values array");    
             }
@@ -248,6 +427,19 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     /**
      * Get Azure accessors from class
      * 
+=======
+                throw new Zend_Service_WindowsAzure_Exception("Property '" . $accessor->AzurePropertyName . "' was not found in \$values array");
+            }
+        }
+
+        // Return
+        return $returnValue;
+    }
+
+    /**
+     * Get Azure accessors from class
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param string $className Class to get accessors for
      * @return array
      */
@@ -255,23 +447,39 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         // List of accessors
         $azureAccessors = array();
+<<<<<<< HEAD
         
         // Get all types
         $type = new ReflectionClass($className);
         
+=======
+
+        // Get all types
+        $type = new ReflectionClass($className);
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Loop all properties
         $properties = $type->getProperties();
         foreach ($properties as $property) {
             $accessor = self::getAzureAccessor($property);
+<<<<<<< HEAD
             if (!is_null($accessor)) {
                 $azureAccessors[] = $accessor;
             }
         }
         
+=======
+            if ($accessor !== null) {
+                $azureAccessors[] = $accessor;
+            }
+        }
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Loop all methods
         $methods = $type->getMethods();
         foreach ($methods as $method) {
             $accessor = self::getAzureAccessor($method);
+<<<<<<< HEAD
             if (!is_null($accessor)) {
                 $azureAccessors[] = $accessor;
             }
@@ -284,6 +492,20 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     /**
      * Get Azure accessor from reflection member
      * 
+=======
+            if ($accessor !== null) {
+                $azureAccessors[] = $accessor;
+            }
+        }
+
+        // Return
+        return $azureAccessors;
+    }
+
+    /**
+     * Get Azure accessor from reflection member
+     *
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @param ReflectionProperty|ReflectionMethod $member
      * @return object
      */
@@ -291,13 +513,21 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     {
         // Get comment
         $docComment = $member->getDocComment();
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Check for Azure comment
         if (strpos($docComment, '@azure') === false)
         {
             return null;
         }
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Search for @azure contents
         $azureComment = '';
         $commentLines = explode("\n", $docComment);
@@ -310,13 +540,18 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
                 break;
             }
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // Fetch @azure properties
         $azureProperties = explode(' ', $azureComment);
         return (object)array(
             'EntityAccessor'    => $member->getName(),
             'EntityType'        => get_class($member),
             'AzurePropertyName' => $azureProperties[0],
+<<<<<<< HEAD
         	'AzurePropertyType' => isset($azureProperties[1]) ? $azureProperties[1] : ''
         );
     }
@@ -351,4 +586,9 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     	
     	return false;
     }
+=======
+            'AzurePropertyType' => isset($azureProperties[1]) ? $azureProperties[1] : ''
+        );
+    }
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

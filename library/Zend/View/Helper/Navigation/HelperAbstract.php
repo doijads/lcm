@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: HelperAbstract.php 25239 2013-01-22 09:45:01Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: HelperAbstract.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -36,7 +42,11 @@ require_once 'Zend/View/Helper/HtmlElement.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_View_Helper_Navigation_HelperAbstract
@@ -72,6 +82,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
     protected $_indent = '';
 
     /**
+<<<<<<< HEAD
      * Whether HTML/XML output should be formatted
      *
      * @var bool
@@ -93,6 +104,8 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
     protected $_skipPrefixForId = false;
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Translator
      *
      * @var Zend_Translate_Adapter
@@ -285,6 +298,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
     }
 
     /**
+<<<<<<< HEAD
      * Returns indentation (format output is respected)
      *
      * @return string   indentation string or an empty string
@@ -295,10 +309,19 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
             return '';
         }
 
+=======
+     * Returns indentation
+     *
+     * @return string
+     */
+    public function getIndent()
+    {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this->_indent;
     }
 
     /**
+<<<<<<< HEAD
      * Returns the EOL character (format output is respected)
      *
      * @see self::EOL
@@ -387,6 +410,8 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
     }
 
     /**
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * Sets translator to use in helper
      *
      * Implements {@link Zend_View_Helper_Navigation_Helper::setTranslator()}.
@@ -782,6 +807,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
         }
 
         // get attribs for anchor element
+<<<<<<< HEAD
         $attribs = array_merge(
             array(
                 'id'     => $page->getId(),
@@ -791,6 +817,14 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
                 'target' => $page->getTarget()
             ),
             $page->getCustomHtmlAttribs()
+=======
+        $attribs = array(
+            'id'     => $page->getId(),
+            'title'  => $title,
+            'class'  => $page->getClass(),
+            'href'   => $page->getHref(),
+            'target' => $page->getTarget()
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         );
 
         return '<a' . $this->_htmlAttribs($attribs) . '>'
@@ -916,6 +950,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
     /**
      * Normalize an ID
      *
+<<<<<<< HEAD
      * Extends {@link Zend_View_Helper_HtmlElement::_normalizeId()}.
      *
      * @param  string $value    ID
@@ -932,6 +967,19 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
         }
 
         return parent::_normalizeId($value);
+=======
+     * Overrides {@link Zend_View_Helper_HtmlElement::_normalizeId()}.
+     *
+     * @param  string $value
+     * @return string
+     */
+    protected function _normalizeId($value)
+    {
+        $prefix = get_class($this);
+        $prefix = strtolower(trim(substr($prefix, strrpos($prefix, '_')), '_'));
+
+        return $prefix . '-' . $value;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     // Static methods:

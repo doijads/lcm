@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Frontcontroller.php 24798 2012-05-12 19:17:41Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Frontcontroller.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -32,7 +38,11 @@ require_once 'Zend/Application/Resource/ResourceAbstract.php';
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Application_Resource_Frontcontroller extends Zend_Application_Resource_ResourceAbstract
@@ -135,6 +145,7 @@ class Zend_Application_Resource_Frontcontroller extends Zend_Application_Resourc
                     }
                     break;
 
+<<<<<<< HEAD
                 case 'dispatcher':
                     if(!isset($value['class'])) {
                         require_once 'Zend/Application/Exception.php';
@@ -151,6 +162,8 @@ class Zend_Application_Resource_Frontcontroller extends Zend_Application_Resourc
                     }
                     $front->setDispatcher(new $dispatchClass((array)$value['params']));
                     break;
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 default:
                     $front->setParam($key, $value);
                     break;

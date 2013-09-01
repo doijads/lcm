@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Reflection
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Method.php 24870 2012-06-02 02:15:12Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Method.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -37,7 +43,11 @@ require_once 'Zend/Reflection/Parameter.php';
 /**
  * @category   Zend
  * @package    Zend_Reflection
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Reflection_Method extends ReflectionMethod
@@ -145,6 +155,7 @@ class Zend_Reflection_Method extends ReflectionMethod
     {
         $lines = array_slice(
             file($this->getDeclaringClass()->getFileName(), FILE_IGNORE_NEW_LINES),
+<<<<<<< HEAD
             $this->getStartLine()-1,
             ($this->getEndLine() - $this->getStartLine()) + 1,
             true
@@ -170,10 +181,22 @@ class Zend_Reflection_Method extends ReflectionMethod
         $restOfFirstLine = trim(substr($firstLine, strpos($firstLine, '{')+1));
         if (!empty($restOfFirstLine)) {
             array_unshift($lines, $restOfFirstLine);
+=======
+            $this->getStartLine(),
+            ($this->getEndLine() - $this->getStartLine()),
+            true
+        );
+
+        $firstLine = array_shift($lines);
+
+        if (trim($firstLine) !== '{') {
+            array_unshift($lines, $firstLine);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         $lastLine = array_pop($lines);
 
+<<<<<<< HEAD
         // If there are more characters on the line before the closing brace,
         // push them back onto the lines stack as they are part of the body
         $restOfLastLine = trim(substr($lastLine, 0, strrpos($lastLine, '}')-1));
@@ -183,5 +206,13 @@ class Zend_Reflection_Method extends ReflectionMethod
 
         // just in case we had code on the bracket lines
         return implode("\n", $lines);
+=======
+        if (trim($lastLine) !== '}') {
+            array_push($lines, $lastLine);
+        }
+
+        // just in case we had code on the bracket lines
+        return rtrim(ltrim(implode("\n", $lines), '{'), '}');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 }

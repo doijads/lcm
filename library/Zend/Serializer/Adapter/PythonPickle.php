@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Serializer
  * @subpackage Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: PythonPickle.php 24815 2012-05-24 08:50:24Z mabe $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: PythonPickle.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** @see Zend_Serializer_Adapter_AdapterAbstract */
@@ -31,7 +37,11 @@ require_once 'Zend/Serializer/Adapter/AdapterAbstract.php';
  * @category   Zend
  * @package    Zend_Serializer
  * @subpackage Adapter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Serializer_Adapter_PythonPickle extends Zend_Serializer_Adapter_AdapterAbstract
@@ -296,11 +306,19 @@ class Zend_Serializer_Adapter_PythonPickle extends Zend_Serializer_Adapter_Adapt
                 $this->_pickle .= self::OP_BINGET . chr($id);
             } else {
                 // LONG_BINGET + pack("<i", i)
+<<<<<<< HEAD
                 $bin = pack('l', $id);
                 if (self::$_isLittleEndian === false) {
                     $bin = strrev($bin);
                 }
                 $this->_pickle .= self::OP_LONG_BINGET . $bin;
+=======
+                $idBin = pack('l', $id);
+                if (self::$_isLittleEndian === false) {
+                    $idBin = strrev($bin);
+                }
+                $this->_pickle .= self::OP_LONG_BINGET . $idBin;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         } else {
             $this->_pickle .= self::OP_GET . $id . "\r\n";
@@ -321,11 +339,19 @@ class Zend_Serializer_Adapter_PythonPickle extends Zend_Serializer_Adapter_Adapt
                 $this->_pickle .= self::OP_BINPUT . chr($id);
             } else {
                 // LONG_BINPUT + pack("<i", i)
+<<<<<<< HEAD
                 $bin = pack('l', $id);
                 if (self::$_isLittleEndian === false) {
                     $bin = strrev($bin);
                 }
                 $this->_pickle .= self::OP_LONG_BINPUT . $bin;
+=======
+                $idBin = pack('l', $id);
+                if (self::$_isLittleEndian === false) {
+                    $idBin = strrev($bin);
+                }
+                $this->_pickle .= self::OP_LONG_BINPUT . $idBin;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         } else {
             $this->_pickle .= self::OP_PUT . $id . "\r\n";

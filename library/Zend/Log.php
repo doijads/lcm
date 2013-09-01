@@ -14,17 +14,29 @@
  *
  * @category   Zend
  * @package    Zend_Log
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Log.php 25131 2012-11-16 15:29:18Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Log.php 23783 2011-03-01 21:47:35Z intiilapa $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
  * @category   Zend
  * @package    Zend_Log
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Log.php 25131 2012-11-16 15:29:18Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Log.php 23783 2011-03-01 21:47:35Z intiilapa $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Log
 {
@@ -214,12 +226,21 @@ class Zend_Log
     }
 
    /**
+<<<<<<< HEAD
     * Construct formatter object from configuration array or Zend_Config object
     *
     * @param  array|Zend_Config $config Zend_Config or Array
     * @return Zend_Log_Formatter_Interface
     * @throws Zend_Log_Exception
     */
+=======
+     * Construct formatter object from configuration array or Zend_Config object
+     *
+     * @param  array|Zend_Config $config Zend_Config or Array
+     * @return Zend_Log_Formatter_Interface
+     * @throws Zend_Log_Exception
+     */
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     protected function _constructFormatterFromConfig($config)
     {
         $formatter = $this->_constructFromConfig('formatter', $config, $this->_defaultFormatterNamespace);
@@ -287,6 +308,7 @@ class Zend_Log
      */
     protected function getClassName($config, $type, $defaultNamespace)
     {
+<<<<<<< HEAD
         if (!isset($config[$type . 'Name'])) {
             require_once 'Zend/Log/Exception.php';
             throw new Zend_Log_Exception("Specify {$type}Name in the configuration array");
@@ -310,6 +332,21 @@ class Zend_Log
         }
 
         return $namespace . '_' . $className;
+=======
+        if (!isset($config[ $type . 'Name' ])) {
+            require_once 'Zend/Log/Exception.php';
+            throw new Zend_Log_Exception("Specify {$type}Name in the configuration array");
+        }
+        $className = $config[ $type . 'Name' ];
+
+        $namespace = $defaultNamespace;
+        if (isset($config[ $type . 'Namespace' ])) {
+            $namespace = $config[ $type . 'Namespace' ];
+        }
+
+        $fullClassName = $namespace . '_' . $className;
+        return $fullClassName;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     }
 
     /**
@@ -595,7 +632,11 @@ class Zend_Log
     {
         $errorLevel = error_reporting();
 
+<<<<<<< HEAD
         if ($errorLevel & $errno) {
+=======
+        if ($errorLevel && $errno) {
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if (isset($this->_errorHandlerMap[$errno])) {
                 $priority = $this->_errorHandlerMap[$errno];
             } else {

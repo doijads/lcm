@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Log
  * @subpackage Formatter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Xml.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Xml.php 23981 2011-05-03 19:01:03Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Log_Formatter_Abstract */
@@ -27,9 +33,15 @@ require_once 'Zend/Log/Formatter/Abstract.php';
  * @category   Zend
  * @package    Zend_Log
  * @subpackage Formatter
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Xml.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Xml.php 23981 2011-05-03 19:01:03Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Log_Formatter_Xml extends Zend_Log_Formatter_Abstract
 {
@@ -63,7 +75,11 @@ class Zend_Log_Formatter_Xml extends Zend_Log_Formatter_Abstract
             $args = func_get_args();
 
             $options = array(
+<<<<<<< HEAD
             	'rootElement' => array_shift($args)
+=======
+                'rootElement' => array_shift($args)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             );
 
             if (count($args)) {
@@ -92,10 +108,17 @@ class Zend_Log_Formatter_Xml extends Zend_Log_Formatter_Abstract
     }
 
     /**
+<<<<<<< HEAD
 	 * Factory for Zend_Log_Formatter_Xml classe
 	 *
 	 * @param array|Zend_Config $options
 	 * @return Zend_Log_Formatter_Xml
+=======
+     * Factory for Zend_Log_Formatter_Xml classe
+     *
+     * @param array|Zend_Config $options
+     * @return Zend_Log_Formatter_Xml
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public static function factory($options)
     {
@@ -146,6 +169,7 @@ class Zend_Log_Formatter_Xml extends Zend_Log_Formatter_Abstract
         $elt = $dom->appendChild(new DOMElement($this->_rootElement));
 
         foreach ($dataToInsert as $key => $value) {
+<<<<<<< HEAD
             if (empty($value) 
                 || is_scalar($value) 
                 || (is_object($value) && method_exists($value,'__toString'))
@@ -155,6 +179,12 @@ class Zend_Log_Formatter_Xml extends Zend_Log_Formatter_Abstract
                 }
                 $elt->appendChild(new DOMElement($key, (string)$value));
             }
+=======
+            if($key == "message") {
+                $value = htmlspecialchars($value, ENT_COMPAT, $enc);
+            }
+            $elt->appendChild(new DOMElement($key, $value));
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         $xml = $dom->saveXML();
@@ -162,4 +192,8 @@ class Zend_Log_Formatter_Xml extends Zend_Log_Formatter_Abstract
 
         return $xml . PHP_EOL;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

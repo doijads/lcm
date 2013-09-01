@@ -18,6 +18,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
            define($constName, $constantVal);
        }
    }
+<<<<<<< HEAD
    
+=======
+  
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }
 

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Ldap
  * @subpackage Node
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Node.php 24610 2012-01-21 13:54:27Z sgehrig $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Node.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -35,7 +41,11 @@ require_once 'Zend/Ldap/Node/Abstract.php';
  * @category   Zend
  * @package    Zend_Ldap
  * @subpackage Node
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, RecursiveIterator
@@ -171,7 +181,10 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
             $this->_ldap = $ldap;
             if (is_array($this->_children)) {
                 foreach ($this->_children as $child) {
+<<<<<<< HEAD
                     /* @var Zend_Ldap_Node $child */
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     $child->attachLdap($ldap);
                 }
             }
@@ -191,7 +204,10 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
         $this->_ldap = null;
         if (is_array($this->_children)) {
             foreach ($this->_children as $child) {
+<<<<<<< HEAD
                 /* @var Zend_Ldap_Node $child */
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                 $child->detachLdap();
             }
         }
@@ -321,6 +337,7 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
     /**
      * Ensures that teh RDN attributes are correctly set.
      *
+<<<<<<< HEAD
      * @param  boolean    $overwrite    True to overwrite the RDN attributes
      * @return void
      */
@@ -332,6 +349,14 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
             } else if (!in_array($value, $this->_currentData[$key])) {
                 Zend_Ldap_Attribute::setAttribute($this->_currentData, $key, $value, true);
             }
+=======
+     * @return void
+     */
+    protected function _ensureRdnAttributeValues()
+    {
+        foreach ($this->getRdnArray() as $key => $value) {
+            Zend_Ldap_Attribute::setAttribute($this->_currentData, $key, $value, false);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
     }
 
@@ -435,25 +460,38 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
 
         if ($this->willBeDeleted()) {
             if ($ldap->exists($this->_dn)) {
+<<<<<<< HEAD
                 $this->_preDelete();
                 $ldap->delete($this->_dn);
                 $this->_postDelete();
+=======
+                $ldap->delete($this->_dn);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
             return $this;
         }
 
         if ($this->isNew()) {
+<<<<<<< HEAD
             $this->_preAdd();
             $data = $this->getData();
             $ldap->add($this->_getDn(), $data);
             $this->_loadData($data, true);
             $this->_postAdd();
+=======
+            $data = $this->getData();
+            $ldap->add($this->_getDn(), $data);
+            $this->_loadData($data, true);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             return $this;
         }
 
         $changedData = $this->getChangedData();
         if ($this->willBeMoved()) {
+<<<<<<< HEAD
             $this->_preRename();
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             $recursive = $this->hasChildren();
             $ldap->rename($this->_dn, $this->_newDn, $recursive, false);
             foreach ($this->_newDn->getRdn() as $key => $value) {
@@ -463,12 +501,18 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
             }
             $this->_dn = $this->_newDn;
             $this->_newDn = null;
+<<<<<<< HEAD
             $this->_postRename();
         }
         if (count($changedData) > 0) {
             $this->_preUpdate();
             $ldap->update($this->_getDn(), $changedData);
             $this->_postUpdate();
+=======
+        }
+        if (count($changedData) > 0) {
+            $ldap->update($this->_getDn(), $changedData);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
         $this->_originalData = $this->_currentData;
         return $this;
@@ -516,7 +560,11 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
         } else {
             $this->_newDn = Zend_Ldap_Dn::factory($newDn);
         }
+<<<<<<< HEAD
         $this->_ensureRdnAttributeValues(true);
+=======
+        $this->_ensureRdnAttributeValues();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $this;
     }
 
@@ -1034,7 +1082,10 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
             if ($this->isAttached()) {
                 $children = $this->searchChildren('(objectClass=*)', null);
                 foreach ($children as $child) {
+<<<<<<< HEAD
                     /* @var Zend_Ldap_Node $child */
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
                     $this->_children[$child->getRdnString(Zend_Ldap_Dn::ATTR_CASEFOLD_LOWER)] = $child;
                 }
             }
@@ -1114,6 +1165,7 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
     {
         return $this->_iteratorRewind;
     }
+<<<<<<< HEAD
 
     ####################################################
     # Empty method bodies for overriding in subclasses #
@@ -1182,4 +1234,6 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
      * @return void
      */
     protected function _postUpdate() { }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

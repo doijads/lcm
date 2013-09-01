@@ -14,9 +14,15 @@
  *
  * @category   Zend
  * @package    Zend_Loader
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Loader.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Loader.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -24,7 +30,11 @@
  *
  * @category   Zend
  * @package    Zend_Loader
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Loader
@@ -60,7 +70,23 @@ class Zend_Loader
             throw new Zend_Exception('Directory argument must be a string or an array');
         }
 
+<<<<<<< HEAD
         $file = self::standardiseFile($class);
+=======
+        // Autodiscover the path from the class name
+        // Implementation is PHP namespace-aware, and based on
+        // Framework Interop Group reference implementation:
+        // http://groups.google.com/group/php-standards/web/psr-0-final-proposal
+        $className = ltrim($class, '\\');
+        $file      = '';
+        $namespace = '';
+        if ($lastNsPos = strripos($className, '\\')) {
+            $namespace = substr($className, 0, $lastNsPos);
+            $className = substr($className, $lastNsPos + 1);
+            $file      = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+        }
+        $file .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         if (!empty($dirs)) {
             // use the autodiscovered path
@@ -314,6 +340,7 @@ class Zend_Loader
             return include $filespec ;
         }
     }
+<<<<<<< HEAD
 
     /**
      * Standardise the filename.
@@ -340,4 +367,6 @@ class Zend_Loader
         $file .= str_replace('_', DIRECTORY_SEPARATOR, $fileName) . '.php';
         return $file;    
     }
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 }

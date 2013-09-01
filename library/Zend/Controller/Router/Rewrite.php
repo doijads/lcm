@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Router
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Rewrite.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Rewrite.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -31,7 +36,11 @@ require_once 'Zend/Controller/Router/Route.php';
  *
  * @package    Zend_Controller
  * @subpackage Router
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @see        http://manuals.rubyonrails.com/read/chapter/65
  */
@@ -450,11 +459,14 @@ class Zend_Controller_Router_Rewrite extends Zend_Controller_Router_Abstract
      */
     public function assemble($userParams, $name = null, $reset = false, $encode = true)
     {
+<<<<<<< HEAD
         if (!is_array($userParams)) {
             require_once 'Zend/Controller/Router/Exception.php';
             throw new Zend_Controller_Router_Exception('userParams must be an array');
         }
         
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if ($name == null) {
             try {
                 $name = $this->getCurrentRouteName();
@@ -470,7 +482,11 @@ class Zend_Controller_Router_Rewrite extends Zend_Controller_Router_Abstract
         $url   = $route->assemble($params, $reset, $encode);
 
         if (!preg_match('|^[a-z]+://|', $url)) {
+<<<<<<< HEAD
             $url = rtrim($this->getFrontController()->getBaseUrl(), self::URI_DELIMITER) . self::URI_DELIMITER . $url;
+=======
+            $url = rtrim($this->getFrontController()->getBaseUrl(), '/') . '/' . $url;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         }
 
         return $url;

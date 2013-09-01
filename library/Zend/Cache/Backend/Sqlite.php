@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Sqlite.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Sqlite.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -34,7 +40,11 @@ require_once 'Zend/Cache/Backend.php';
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache_Backend_ExtendedInterface
@@ -530,6 +540,10 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
             $rand = rand(1, $this->_options['automatic_vacuum_factor']);
             if ($rand == 1) {
                 $this->_query('VACUUM');
+<<<<<<< HEAD
+=======
+                @sqlite_close($this->_getConnection());
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
     }

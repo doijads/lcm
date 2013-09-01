@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: View.php 24593 2012-01-05 20:35:02Z matthew $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: View.php 23992 2011-05-04 03:32:01Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -33,7 +39,11 @@ require_once 'Zend/Application/Resource/ResourceAbstract.php';
  * @category   Zend
  * @package    Zend_Application
  * @subpackage Resource
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Application_Resource_View extends Zend_Application_Resource_ResourceAbstract
@@ -52,8 +62,14 @@ class Zend_Application_Resource_View extends Zend_Application_Resource_ResourceA
     {
         $view = $this->getView();
 
+<<<<<<< HEAD
         $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
         $viewRenderer->setView($view);
+=======
+        $viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
+        $viewRenderer->setView($view);
+        Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         return $view;
     }
 

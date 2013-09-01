@@ -16,7 +16,11 @@
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Gapps
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id:$
  */
@@ -41,7 +45,11 @@ require_once 'Zend/Gdata/Gapps/OwnerEntry.php';
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Gapps
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_Gapps_OwnerFeed extends Zend_Gdata_Feed

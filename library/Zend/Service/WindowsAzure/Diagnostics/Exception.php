@@ -15,21 +15,39 @@
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
+<<<<<<< HEAD
+=======
+/**
+ * @see Zend_Service_WindowsAzure_Exception
+ */
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 require_once 'Zend/Service/WindowsAzure/Exception.php';
 
 /**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_WindowsAzure_Diagnostics_Exception
 	extends Zend_Service_WindowsAzure_Exception
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ */
+class Zend_Service_WindowsAzure_Diagnostics_Exception
+    extends Zend_Service_WindowsAzure_Exception
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 {
 }

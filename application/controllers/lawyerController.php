@@ -30,6 +30,7 @@ class lawyerController extends Zend_Controller_Action
        $this->view->searchForm = $searchForm;              
     }
     
+<<<<<<< HEAD
     public function editlawyerAction(){          
         $request = $this->getRequest();
         $id = $request->getParams('id');
@@ -47,6 +48,8 @@ class lawyerController extends Zend_Controller_Action
         
         
     }      
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     
     public function createAction(){        
         $request = $this->getRequest();

@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Amf
  * @subpackage Parse_Amf3
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Serializer.php 25179 2012-12-22 21:29:30Z rob $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Serializer.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Amf_Constants */
@@ -35,7 +41,11 @@ require_once 'Zend/Amf/Parse/TypeLoader.php';
  *
  * @package    Zend_Amf
  * @subpackage Parse_Amf3
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Parse_Amf3_Serializer extends Zend_Amf_Parse_Serializer
@@ -215,7 +225,11 @@ class Zend_Amf_Parse_Amf3_Serializer extends Zend_Amf_Parse_Serializer
      * @return Zend_Amf_Parse_Amf3_Serializer
      */
     protected function writeBinaryString(&$string){
+<<<<<<< HEAD
         $ref = ($this->_mbStringFunctionsOverloaded ? mb_strlen($string, '8bit') : strlen($string)) << 1 | 0x01;
+=======
+        $ref = strlen($string) << 1 | 0x01;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->writeInteger($ref);
         $this->_stream->writeBytes($string);
 
@@ -230,7 +244,11 @@ class Zend_Amf_Parse_Amf3_Serializer extends Zend_Amf_Parse_Serializer
      */
     public function writeString(&$string)
     {
+<<<<<<< HEAD
         $len = $this->_mbStringFunctionsOverloaded ? mb_strlen($string, '8bit') : strlen($string);
+=======
+        $len = strlen($string);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         if(!$len){
             $this->writeInteger(0x01);
             return $this;

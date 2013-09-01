@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: FormSelect.php 25187 2013-01-08 08:21:00Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: FormSelect.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -33,7 +39,11 @@ require_once 'Zend/View/Helper/FormElement.php';
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
@@ -52,9 +62,12 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
      * multiple-select elements).
      *
      * @param array|string $attribs Attributes added to the 'select' tag.
+<<<<<<< HEAD
      * the optional 'optionClasses' attribute is used to add a class to
      * the options within the select (associative array linking the option
      * value to the desired class)
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      *
      * @param array $options An array of key-value pairs where the array
      * key is the radio value, and the array value is the radio text.
@@ -99,6 +112,7 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
             unset($attribs['multiple']);
         }
 
+<<<<<<< HEAD
         // handle the options classes
         $optionClasses = array();
         if (isset($attribs['optionClasses'])) {
@@ -106,6 +120,8 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
             unset($attribs['optionClasses']);
         }
         
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // now start building the XHTML.
         $disabled = '';
         if (true === $disable) {
@@ -133,6 +149,7 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
                 if (null !== $translator) {
                     $opt_value = $translator->translate($opt_value);
                 }
+<<<<<<< HEAD
                 $opt_id = ' id="' . $this->view->escape($id) . '-optgroup-'
                         . $this->view->escape($opt_value) . '"';
                 $list[] = '<optgroup'
@@ -145,6 +162,17 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
                 $list[] = '</optgroup>';
             } else {
                 $list[] = $this->_build($opt_value, $opt_label, $value, $disable, $optionClasses);
+=======
+                $list[] = '<optgroup'
+                        . $opt_disable
+                        . ' label="' . $this->view->escape($opt_value) .'">';
+                foreach ($opt_label as $val => $lab) {
+                    $list[] = $this->_build($val, $lab, $value, $disable);
+                }
+                $list[] = '</optgroup>';
+            } else {
+                $list[] = $this->_build($opt_value, $opt_label, $value, $disable);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
 
@@ -161,15 +189,22 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
      * @param string $label Options Label
      * @param array  $selected The option value(s) to mark as 'selected'
      * @param array|bool $disable Whether the select is disabled, or individual options are
+<<<<<<< HEAD
      * @param array $optionClasses The classes to associate with each option value
      * @return string Option Tag XHTML
      */
     protected function _build($value, $label, $selected, $disable, $optionClasses = array())
+=======
+     * @return string Option Tag XHTML
+     */
+    protected function _build($value, $label, $selected, $disable)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         if (is_bool($disable)) {
             $disable = array();
         }
 
+<<<<<<< HEAD
         $class = null;
         if (array_key_exists($value, $optionClasses)) {
             $class = $optionClasses[$value];
@@ -182,6 +217,12 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
              if ($class) {
              $opt .= ' class="' . $class . '"';
          }
+=======
+        $opt = '<option'
+             . ' value="' . $this->view->escape($value) . '"'
+             . ' label="' . $this->view->escape($label) . '"';
+
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         // selected?
         if (in_array((string) $value, $selected)) {
             $opt .= ' selected="selected"';

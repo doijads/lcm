@@ -14,7 +14,11 @@
  *
  * @category   Zend
  * @package    Zend_Pdf
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Style.php 20096 2010-01-06 02:05:09Z bkarwin $
  */
@@ -31,9 +35,12 @@ require_once 'Zend/Pdf/Element/Name.php';
 require_once 'Zend/Pdf/Element/Null.php';
 require_once 'Zend/Pdf/Element/Numeric.php';
 require_once 'Zend/Pdf/Element/String.php';
+<<<<<<< HEAD
 require_once 'Zend/Pdf/Resource/GraphicsState.php';
 require_once 'Zend/Pdf/Resource/Font.php';
 require_once 'Zend/Pdf/Resource/Image.php';
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
 
 /**
@@ -41,7 +48,11 @@ require_once 'Zend/Pdf/Resource/Image.php';
  * page object at specified place.
  *
  * @package    Zend_Pdf
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface

@@ -16,9 +16,15 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Offer.php 24780 2012-05-08 19:34:59Z adamlundrigan $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Offer.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 
@@ -26,7 +32,11 @@
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_Amazon_Offer
@@ -85,7 +95,11 @@ class Zend_Service_Amazon_Offer
     public function __construct(DOMElement $dom)
     {
         $xpath = new DOMXPath($dom->ownerDocument);
+<<<<<<< HEAD
         $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2011-08-01');
+=======
+        $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2005-10-05');
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $this->MerchantId = (string) $xpath->query('./az:Merchant/az:MerchantId/text()', $dom)->item(0)->data;
         $name = $xpath->query('./az:Merchant/az:Name/text()', $dom);
         if ($name->length == 1) {

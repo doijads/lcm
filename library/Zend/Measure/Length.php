@@ -14,9 +14,15 @@
  *
  * @category  Zend
  * @package   Zend_Measure
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd     New BSD License
  * @version   $Id: Length.php 25199 2013-01-09 11:56:38Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd     New BSD License
+ * @version   $Id: Length.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /**
@@ -31,7 +37,11 @@ require_once 'Zend/Locale.php';
  * @category   Zend
  * @package    Zend_Measure
  * @subpackage Zend_Measure_Length
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Measure_Length extends Zend_Measure_Abstract
@@ -361,7 +371,11 @@ class Zend_Measure_Length extends Zend_Measure_Abstract
         'ALEN_DANISH'     => array('0.6277',           'alen'),
         'ALEN'            => array('0.6',              'alen'),
         'ALEN_SWEDISH'    => array('0.5938',           'alen'),
+<<<<<<< HEAD
         'ANGSTROM'        => array('1.0e-10',          'Å'),
+=======
+        'ANGSTROM'        => array('1.0e-10',          'Å'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'ARMS'            => array('0.7',              'arms'),
         'ARPENT_CANADIAN' => array('58.47',            'arpent'),
         'ARPENT'          => array('58.471308',        'arpent'),
@@ -373,11 +387,19 @@ class Zend_Measure_Length extends Zend_Measure_Abstract
         'BAMBOO'          => array('3.2',              'bamboo'),
         'BARLEYCORN'      => array('0.0085',           'barleycorn'),
         'BEE_SPACE'       => array('0.0065',           'bee space'),
+<<<<<<< HEAD
         'BICRON'          => array('1.0e-12',          'µµ'),
         'BLOCK_US_EAST'   => array('80.4672',          'block'),
         'BLOCK_US_WEST'   => array('100.584',          'block'),
         'BLOCK_US_SOUTH'  => array('160.9344',         'block'),
         'BOHR'            => array('52.918e-12',       'a₀'),
+=======
+        'BICRON'          => array('1.0e-12',          '��'),
+        'BLOCK_US_EAST'   => array('80.4672',          'block'),
+        'BLOCK_US_WEST'   => array('100.584',          'block'),
+        'BLOCK_US_SOUTH'  => array('160.9344',         'block'),
+        'BOHR'            => array('52.918e-12',       'a�'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'BRACCIO'         => array('0.7',              'braccio'),
         'BRAZA_ARGENTINA' => array('1.733',            'braza'),
         'BRAZA'           => array('1.67',             'braza'),
@@ -415,8 +437,13 @@ class Zend_Measure_Length extends Zend_Measure_Abstract
         'DIGIT'           => array('0.019',            'digit'),
         'DIRAA'           => array('0.58',             ''),
         'DONG'            => array(array('' => '7','/' => '300'), 'dong'),
+<<<<<<< HEAD
         'DOUZIEME_WATCH'  => array('0.000188',         'douzième'),
         'DOUZIEME'        => array('0.00017638888889', 'douzième'),
+=======
+        'DOUZIEME_WATCH'  => array('0.000188',         'douzi�me'),
+        'DOUZIEME'        => array('0.00017638888889', 'douzi�me'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'DRA_IRAQ'        => array('0.745',            'dra'),
         'DRA'             => array('0.7112',           'dra'),
         'EL'              => array('0.69',             'el'),
@@ -533,10 +560,17 @@ class Zend_Measure_Length extends Zend_Measure_Abstract
         'METRE'           => array('1',                'm'),
         'METRIC_MILE'     => array('1500',             'metric mile'),
         'METRIC_MILE_US'  => array('1600',             'metric mile'),
+<<<<<<< HEAD
         'MICROINCH'       => array('2.54e-08',         'µin'),
         'MICROMETER'      => array('0.000001',         'µm'),
         'MICROMICRON'     => array('1.0e-12',          'µµ'),
         'MICRON'          => array('0.000001',         'µm'),
+=======
+        'MICROINCH'       => array('2.54e-08',         '�in'),
+        'MICROMETER'      => array('0.000001',         '�m'),
+        'MICROMICRON'     => array('1.0e-12',          '��'),
+        'MICRON'          => array('0.000001',         '�'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'MIGLIO'          => array('1488.6',           'miglio'),
         'MIIL'            => array('7500',             'miil'),
         'MIIL_DENMARK'    => array('7532.5',           'miil'),
@@ -560,7 +594,11 @@ class Zend_Measure_Length extends Zend_Measure_Abstract
         'MILLE'           => array('1949',             'mille'),
         'MILLIARE'        => array('0.001478',         'milliare'),
         'MILLIMETER'      => array('0.001',            'mm'),
+<<<<<<< HEAD
         'MILLIMICRON'     => array('1.0e-9',           'mµ'),
+=======
+        'MILLIMICRON'     => array('1.0e-9',           'm�'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'MKONO'           => array('0.4572',           'mkono'),
         'MOOT'            => array('0.0762',           'moot'),
         'MYRIAMETER'      => array('10000',            'mym'),
@@ -578,7 +616,11 @@ class Zend_Measure_Length extends Zend_Measure_Abstract
         'PARASANG'        => array('6000',             'parasang'),
         'PARIS_FOOT'      => array('0.3248406',        'paris foot'),
         'PARSEC'          => array('3.0856776e+16',    'pc'),
+<<<<<<< HEAD
         'PE'              => array('0.33324',          'pé'),
+=======
+        'PE'              => array('0.33324',          'p�'),
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         'PEARL'           => array('0.001757299',      'pearl'),
         'PERCH'           => array('5.0292',           'perch'),
         'PERCH_IRELAND'   => array('6.4008',           'perch'),

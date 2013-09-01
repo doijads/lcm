@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_Controller
  * @subpackage Router
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Chain.php 25249 2013-02-06 09:54:24Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Chain.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -28,7 +33,11 @@ require_once 'Zend/Controller/Router/Route/Abstract.php';
  *
  * @package    Zend_Controller
  * @subpackage Router
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Abstract
@@ -39,8 +48,12 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
     /**
      * Instantiates route based on passed Zend_Config structure
      *
+<<<<<<< HEAD
      * @param  Zend_Config $config Configuration object
      * @return Zend_Controller_Router_Route_Chain
+=======
+     * @param Zend_Config $config Configuration object
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public static function getInstance(Zend_Config $config)
     {
@@ -55,7 +68,11 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
      * @param  string                                $separator
      * @return Zend_Controller_Router_Route_Chain
      */
+<<<<<<< HEAD
     public function chain(Zend_Controller_Router_Route_Abstract $route, $separator = self::URI_DELIMITER)
+=======
+    public function chain(Zend_Controller_Router_Route_Abstract $route, $separator = '/')
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     {
         $this->_routes[]     = $route;
         $this->_separators[] = $separator;
@@ -69,16 +86,25 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
      * Assigns and returns an array of defaults on a successful match.
      *
      * @param  Zend_Controller_Request_Http $request Request to get the path info from
+<<<<<<< HEAD
      * @param  null                         $partial
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return array|false An array of assigned values or a false on a mismatch
      */
     public function match($request, $partial = null)
     {
+<<<<<<< HEAD
         $path        = trim($request->getPathInfo(), self::URI_DELIMITER);
         $subPath     = $path;
         $values      = array();
         $numRoutes   = count($this->_routes);
         $matchedPath = null;
+=======
+        $path    = trim($request->getPathInfo(), '/');
+        $subPath = $path;
+        $values  = array();
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
         foreach ($this->_routes as $key => $route) {
             if ($key > 0
@@ -103,7 +129,11 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
                 $match = $request;
             }
 
+<<<<<<< HEAD
             $res = $route->match($match, true, ($key == $numRoutes - 1));
+=======
+            $res = $route->match($match, true);
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             if ($res === false) {
                 return false;
             }
@@ -130,9 +160,13 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
     /**
      * Assembles a URL path defined by this route
      *
+<<<<<<< HEAD
      * @param  array $data An array of variable and value pairs used as parameters
      * @param  bool  $reset
      * @param  bool  $encode
+=======
+     * @param array $data An array of variable and value pairs used as parameters
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return string Route path with user submitted parameters
      */
     public function assemble($data = array(), $reset = false, $encode = false)
@@ -175,6 +209,7 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
             }
         }
     }
+<<<<<<< HEAD
     
     /**
      * Return a single parameter of route's defaults
@@ -214,3 +249,7 @@ class Zend_Controller_Router_Route_Chain extends Zend_Controller_Router_Route_Ab
         return $defaults;
     }
 }
+=======
+
+}
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

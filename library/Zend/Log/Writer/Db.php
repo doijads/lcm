@@ -15,9 +15,15 @@
  * @category   Zend
  * @package    Zend_Log
  * @subpackage Writer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Db.php 25247 2013-02-01 17:49:40Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Db.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 
 /** Zend_Log_Writer_Abstract */
@@ -27,9 +33,15 @@ require_once 'Zend/Log/Writer/Abstract.php';
  * @category   Zend
  * @package    Zend_Log
  * @subpackage Writer
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Db.php 25247 2013-02-01 17:49:40Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id: Db.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  */
 class Zend_Log_Writer_Db extends Zend_Log_Writer_Abstract
 {
@@ -38,21 +50,33 @@ class Zend_Log_Writer_Db extends Zend_Log_Writer_Abstract
      *
      * @var Zend_Db_Adapter
      */
+<<<<<<< HEAD
     protected $_db;
+=======
+    private $_db;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Name of the log table in the database
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $_table;
+=======
+    private $_table;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Relates database columns names to log data field keys.
      *
      * @var null|array
      */
+<<<<<<< HEAD
     protected $_columnMap;
+=======
+    private $_columnMap;
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 
     /**
      * Class constructor
@@ -136,9 +160,13 @@ class Zend_Log_Writer_Db extends Zend_Log_Writer_Abstract
         } else {
             $dataToInsert = array();
             foreach ($this->_columnMap as $columnName => $fieldKey) {
+<<<<<<< HEAD
                 if (isset($event[$fieldKey])) {
                     $dataToInsert[$columnName] = $event[$fieldKey];
                 }
+=======
+                $dataToInsert[$columnName] = $event[$fieldKey];
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
             }
         }
 

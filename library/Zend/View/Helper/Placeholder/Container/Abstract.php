@@ -15,8 +15,13 @@
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @version    $Id: Abstract.php 25255 2013-02-13 15:25:39Z frosch $
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id: Abstract.php 23775 2011-03-01 17:25:24Z ralph $
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -25,7 +30,11 @@
  *
  * @package    Zend_View
  * @subpackage Helper
+<<<<<<< HEAD
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_View_Helper_Placeholder_Container_Abstract extends ArrayObject
@@ -93,7 +102,11 @@ abstract class Zend_View_Helper_Placeholder_Container_Abstract extends ArrayObje
     /**
      * Constructor - This is needed so that we can attach a class member as the ArrayObject container
      *
+<<<<<<< HEAD
      * @return \Zend_View_Helper_Placeholder_Container_Abstract
+=======
+     * @return void
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function __construct()
     {
@@ -252,10 +265,16 @@ abstract class Zend_View_Helper_Placeholder_Container_Abstract extends ArrayObje
     /**
      * Start capturing content to push into placeholder
      *
+<<<<<<< HEAD
      * @param int|string $type How to capture content into placeholder; append, prepend, or set
      * @param null       $key
      * @throws Zend_View_Helper_Placeholder_Container_Exception
      * @return void
+=======
+     * @param  int $type How to capture content into placeholder; append, prepend, or set
+     * @return void
+     * @throws Zend_View_Helper_Placeholder_Exception if nested captures detected
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      */
     public function captureStart($type = Zend_View_Helper_Placeholder_Container_Abstract::APPEND, $key = null)
     {
@@ -350,16 +369,22 @@ abstract class Zend_View_Helper_Placeholder_Container_Abstract extends ArrayObje
     /**
      * Render the placeholder
      *
+<<<<<<< HEAD
      * @param null $indent
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
      * @return string
      */
     public function toString($indent = null)
     {
+<<<<<<< HEAD
         // Check items
         if (0 === $this->count()) {
             return '';
         }
 
+=======
+>>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
         $indent = ($indent !== null)
                 ? $this->getWhitespace($indent)
                 : $this->getIndent();
