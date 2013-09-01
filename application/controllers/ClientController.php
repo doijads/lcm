@@ -8,7 +8,6 @@ class ClientController extends Zend_Controller_Action
         /* Initialize action controller here */
     }
 
-<<<<<<< HEAD
      public function indexAction(){        
        $request = $this->getRequest();
        $user    = new Application_Model_UsersMapper();
@@ -29,13 +28,14 @@ class ClientController extends Zend_Controller_Action
        $searchForm    = new Application_Form_Search();
        $this->view->searchForm = $searchForm;              
     } 
-=======
+
+    
     public function indexAction(){        
        $request = $this->getRequest();
        $form    = new Application_Form_Register();
        $this->view->registerForm = 'this is tet';                       
     }
->>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
+
     public function createAction(){        
         $request = $this->getRequest();
         //$form    = new Application_Form_Register();

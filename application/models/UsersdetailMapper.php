@@ -47,7 +47,6 @@ class Application_Model_UsersdetailMapper
 //            $this->getDbTable()->update($data, array('id = ?' => $id));
 //        }
     }
-<<<<<<< HEAD
      
     //public function save($id);
     public function find($id){       
@@ -56,12 +55,6 @@ class Application_Model_UsersdetailMapper
         return $row->toArray();                
     }
     
-=======
- 
-    
-    //public function save($id);
-    //public function find($id);
->>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
     //public function fetchAll();
 }
 ?>
