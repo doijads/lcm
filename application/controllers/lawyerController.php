@@ -32,19 +32,29 @@ class lawyerController extends Zend_Controller_Action
     
     public function editlawyerAction(){          
         $request = $this->getRequest();
-        $id = $request->getParams('id');
-        $user    = new Application_Model_UsersMapper();
-        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));
-        $registerForm->submit->setLabel('Edit');
+        $id = $request->getParam('id');                                                         
+        $user    = new Application_Model_UsersMapper();                
+        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));        
+        $getUserDetails = App_User::getUserById( $id );               
+        $registerForm->populate($getUserDetails);
+        
+        $registerForm->submit->setLabel('Update');
+        $isUpdated = false;
+        $isLawyerUpdated = false;
         if($request->isPost()){
             $formData =  $request->getPost();      
             if( $registerForm->isValid($request->getPost())) {
-                
-                
-            }
-            
+                  $isUpdated = $user->update($formData,$id );              
+                  if( $isUpdated ){
+                      $this->_redirect('http://localhost/lawyer');
+                      $isLawyerUpdated = true;
+                      $this->view->isLawyerUpdated = $isLawyerCreated ;
+                  }
+                  
+            }                                                           
         }
         
+        $this->view->registerForm = $registerForm;
         
     }      
     
