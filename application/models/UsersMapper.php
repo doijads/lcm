@@ -105,7 +105,7 @@ class Application_Model_UsersMapper
                 
         $userMapperObj = new Application_Model_UsersdetailMapper();
         $isUserDetailsUpdate = $userMapperObj->getDbTable()->update($userDetailsData,"user_id = $id"); 
-        if( $isUserUpdate && $isUserDetailsUpdate ){
+        if( $isUserUpdate || $isUserDetailsUpdate ){
             return true;
         } else {
             return false;

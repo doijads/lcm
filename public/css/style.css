@@ -1,8 +1,4 @@
 * {margin:0 auto;padding:0}
-<<<<<<< HEAD
-
-=======
->>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa
 .fleft {float:left}
 .fright {float:right}
 .fclear {clear:both}
@@ -103,7 +99,7 @@ table thead{
     border-radius: 10px 10px 10px 10px;
     color: #FFFFFF;
     font-weight: bold;
-    margin: 0 0 10px;
+    width: 450px;
     padding: 5px;
     text-align:center;
 }
@@ -125,9 +121,6 @@ table tr:nth-of-type(even){background: #EEEEFF;}
     text-align: left;
     background-color: #EADFC1;
 }
-<<<<<<< HEAD
-=======
-
 
 input[type="text"], input[type="password"], input[type="date"], textarea {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -136,8 +129,7 @@ input[type="text"], input[type="password"], input[type="date"], textarea {
     box-shadow: 1px 1px 2px #CCCCCC inset;
     color: #5F5F5F;
     font-size: 13px;
-    padding: 4px;
+    padding: 3px;
     resize: none;
     vertical-align: middle;
 }
->>>>>>> 11dbc85715960d0a16f57d59a3db15f5d571b6fa

@@ -9,20 +9,20 @@ class lawyerController extends Zend_Controller_Action
          $this->view->headScript()->appendFile('/js/user.js');
     }
 
-    public function indexAction(){        
+    public function indexAction(){   
+              
        $request = $this->getRequest();
        $user    = new Application_Model_UsersMapper();
        
        //user(lawyer) registration form       
        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));
        $this->view->registerForm = $registerForm;                    
-       $isLawyerCreated = false;
+       $isLawyerCreated = false;                    
        if($request->isPost()){
             if( $registerForm->isValid($request->getPost())) {
                 $user->save( $request->getPost() );                
                 $registerForm->reset(); 
-                $isLawyerCreated = true;
-                $this->view->isLawyerCreated = $isLawyerCreated ;
+                $this->view->success = "New Lawyer has been created";                
             }                              
        }       
        //user(lawyer) registration form
@@ -31,6 +31,7 @@ class lawyerController extends Zend_Controller_Action
     }
     
     public function editlawyerAction(){          
+       
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
         $user    = new Application_Model_UsersMapper();                
@@ -44,11 +45,10 @@ class lawyerController extends Zend_Controller_Action
         if($request->isPost()){
             $formData =  $request->getPost();      
             if( $registerForm->isValid($request->getPost())) {
-                  $isUpdated = $user->update($formData,$id );              
-                  if( $isUpdated ){
-                      $this->_redirect('http://localhost/lawyer');
-                      $isLawyerUpdated = true;
-                      $this->view->isLawyerUpdated = $isLawyerCreated ;
+                  $isUpdated = $user->update($formData,$id );                                
+                  if( $isUpdated ){                      
+                     // $this->_redirect('http://localhost/lawyer');
+                      $this->view->success = "Lawyer has been updated successfully";
                   }
                   
             }                                                           

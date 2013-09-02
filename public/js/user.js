@@ -17,9 +17,9 @@ var lawyerDetails = {
                 url: '/ajax/deletelawyers/',
                 type: 'POST',
                 data: param,
-                success: function(response) {
-                    if( response.success ){
-                         //remove record
+                dataType: 'json',
+                success: function(response) {                                                              
+                    if( response.success ){                       
                          $(this).parents('tr').remove();
                          jAlert("Record Delete Successfully");
                     }

@@ -35,9 +35,21 @@ $controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerN
 	</div><div class="inner_copy"></div>
        <?php  if($controller == 'index' && $action == 'index' ) :?>
             <div class="banner"></div>
+       <?php else : ?>        
+            <div class="banner-strip"></div>   
        <?php endif;?> 
-            
+                              
         <div id="wrapper">            
+            <?php if ($this->success) { ?>
+                     <div class="success_message"><?php echo $this->success ;?></div>
+                     <div style="clear:both"></div>
+            <?php } ?>
+
+             <?php if ($this->error) { ?>
+                     <div class="success_message"><?php echo $this->error ;?></div>
+                     <div style="clear:both"></div>
+            <?php } ?>         
+            
             <?php echo $this->layout()->content ?>
         </div>          
         
