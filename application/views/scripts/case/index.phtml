@@ -1,0 +1,23 @@
+<div class="banner-strip"></div>
+<div id="content">     
+    
+<script type="text/javascript">
+    	$(function(){
+    		$( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+    	});
+                
+</script>
+ 
+ <?php if ($this->isLawyerCreated) { ?>
+    <div class="success_message">New Case account has been added.</div>
+    <div style="clear:both"></div>
+ <?php } ?>
+                
+<fieldset>
+    <legend>Add Case</legend>    
+    <div class="case-form">       
+    	<?php echo $this->registerForm; ?>  
+    </div>
+</fieldset>
+<br/>
+</div>

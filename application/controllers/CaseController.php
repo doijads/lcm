@@ -1,6 +1,6 @@
 <?php
 
-class lawyerController extends Zend_Controller_Action
+class CaseController extends Zend_Controller_Action
 {
 
     public function init()
@@ -11,10 +11,10 @@ class lawyerController extends Zend_Controller_Action
 
     public function indexAction(){        
        $request = $this->getRequest();
-       $user    = new Application_Model_UsersMapper();
+       $user    = new Application_Model_CaseMapper();
        
        //user(lawyer) registration form       
-       $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
+       $registerForm    = new Application_Form_Register( array( 'strFormType' => 'case' ) );
        $this->view->registerForm = $registerForm;                    
        $isLawyerCreated = false;
        if($request->isPost()){
@@ -24,22 +24,18 @@ class lawyerController extends Zend_Controller_Action
                 $isLawyerCreated = true;
                 $this->view->isLawyerCreated = $isLawyerCreated ;
             }                              
-       }       
-       //user(lawyer) registration form
-       $searchForm    = new Application_Form_Search();
-       $this->view->searchForm = $searchForm;              
+       }
     }
     
     public function editlawyerAction(){          
         $request = $this->getRequest();
         $id = $request->getParams('id');
-        $user    = new Application_Model_UsersMapper();
-        $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
+        $user    = new Application_Model_CaseMapper();
+        $registerForm    = new Application_Form_Register( array( 'strFormType' => 'case' ) );
         $registerForm->submit->setLabel('Edit');
         if($request->isPost()){
             $formData =  $request->getPost();      
             if( $registerForm->isValid($request->getPost())) {
-                
                 
             }
         }
@@ -50,6 +46,4 @@ class lawyerController extends Zend_Controller_Action
         $form    = new Application_Form_Register();
         $this->view->registerForm = $form;        
     }
-
 }
-
