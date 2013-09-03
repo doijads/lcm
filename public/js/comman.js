@@ -1,5 +1,4 @@
 //All the comman functions are located here
-
 var dashboard = {
     populateData: function(formId,data) { 
         

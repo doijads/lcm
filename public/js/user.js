@@ -1,6 +1,7 @@
 $(function(){                                  
     lawyerDetails.init();     
     clientDetails.init(); 
+    $('.success_message').delay(3500).fadeOut();
 });
 
 //Here All the js functions will be releated to Lawyer Only

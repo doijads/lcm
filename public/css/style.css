@@ -98,8 +98,7 @@ table thead{
     border: 2px solid #FFD870;
     border-radius: 10px 10px 10px 10px;
     color: #FFFFFF;
-    font-weight: bold;
-    width: 450px;
+    font-weight: bold;   
     padding: 5px;
     text-align:center;
 }

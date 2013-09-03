@@ -9,11 +9,9 @@ class lawyerController extends Zend_Controller_Action
          $this->view->headScript()->appendFile('/js/user.js');
     }
 
-    public function indexAction(){   
-              
+    public function indexAction(){                 
        $request = $this->getRequest();
-       $user    = new Application_Model_UsersMapper();
-       
+       $user    = new Application_Model_UsersMapper();                          
        //user(lawyer) registration form       
        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));
        $this->view->registerForm = $registerForm;                    
@@ -27,18 +25,23 @@ class lawyerController extends Zend_Controller_Action
        }       
        //user(lawyer) registration form
        $searchForm    = new Application_Form_Search();
+       //Redirect message from edit action..and display on this action
+       $messages = $this->_helper->FlashMessenger->getMessages('editlawyer');
+       if(is_array($messages) && !empty($messages)){
+           $this->view->success = $messages[0] ;
+       }
        $this->view->searchForm = $searchForm;              
     }
     
-    public function editlawyerAction(){          
-       
+    public function editlawyerAction(){                                                                   
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
         $user    = new Application_Model_UsersMapper();                
-        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));        
+        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));              
         $getUserDetails = App_User::getUserById( $id );               
-        $registerForm->populate($getUserDetails);
-        
+        if( !empty($getUserDetails) ){
+            $registerForm->populate($getUserDetails);
+        }
         $registerForm->submit->setLabel('Update');
         $isUpdated = false;
         $isLawyerUpdated = false;
@@ -46,9 +49,9 @@ class lawyerController extends Zend_Controller_Action
             $formData =  $request->getPost();      
             if( $registerForm->isValid($request->getPost())) {
                   $isUpdated = $user->update($formData,$id );                                
-                  if( $isUpdated ){                      
-                     // $this->_redirect('http://localhost/lawyer');
-                      $this->view->success = "Lawyer has been updated successfully";
+                  if( $isUpdated ){              
+                      $this->_helper->FlashMessenger->addMessage("Lawyer has been updated successfully", 'editlawyer');
+                      $this->_redirect(BASE_URL.'lawyer');                      
                   }
                   
             }                                                           
