@@ -33,7 +33,11 @@ class lawyerController extends Zend_Controller_Action
        $this->view->searchForm = $searchForm;              
     }
     
-    public function editlawyerAction(){                                                                   
+    public function editlawyerAction(){      
+        
+        $baseUrl = $this->view->baseUrl();
+        $frontUrl = 'http://'.$baseUrl.'/lawyer' ;                
+                
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
         $user    = new Application_Model_UsersMapper();                
@@ -51,7 +55,7 @@ class lawyerController extends Zend_Controller_Action
                   $isUpdated = $user->update($formData,$id );                                
                   if( $isUpdated ){              
                       $this->_helper->FlashMessenger->addMessage("Lawyer has been updated successfully", 'editlawyer');
-                      $this->_redirect(BASE_URL.'lawyer');                      
+                      $this->_redirect($frontUrl);                      
                   }
                   
             }                                                           
