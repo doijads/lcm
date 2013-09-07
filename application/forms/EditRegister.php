@@ -3,6 +3,7 @@ class Application_Form_EditRegister extends Application_Form_Register
 {
     public function init()
     {
+
         // Set the method for the display form to POST        
         $userRoleType = $this->getAttrib('userRoleType');             
                   

@@ -13,7 +13,7 @@ class lawyerController extends Zend_Controller_Action
        $request = $this->getRequest();
        $user    = new Application_Model_UsersMapper();                          
        //user(lawyer) registration form       
-       $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));
+       $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
        $this->view->registerForm = $registerForm;                    
        $isLawyerCreated = false;                    
        if($request->isPost()){
@@ -41,7 +41,7 @@ class lawyerController extends Zend_Controller_Action
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
         $user    = new Application_Model_UsersMapper();                
-        $registerForm    = new Application_Form_Register(array('userRoleType' => 'lawyer'));              
+        $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
         $getUserDetails = App_User::getUserById( $id );               
         if( !empty($getUserDetails) ){
             $registerForm->populate($getUserDetails);
@@ -62,8 +62,7 @@ class lawyerController extends Zend_Controller_Action
         }
         
         $this->view->registerForm = $registerForm;
-        
-    }      
+      }      
     
     public function createAction(){        
         $request = $this->getRequest();
