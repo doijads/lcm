@@ -1,6 +1,7 @@
 $(function(){                                  
     lawyerDetails.init();     
     clientDetails.init(); 
+    $('.success_message').delay(3500).fadeOut();
 });
 
 //Here All the js functions will be releated to Lawyer Only
@@ -17,9 +18,9 @@ var lawyerDetails = {
                 url: '/ajax/deletelawyers/',
                 type: 'POST',
                 data: param,
-                success: function(response) {
-                    if( response.success ){
-                         //remove record
+                dataType: 'json',
+                success: function(response) {                                                              
+                    if( response.success ){                       
                          $(this).parents('tr').remove();
                          jAlert("Record Delete Successfully");
                     }
@@ -88,7 +89,7 @@ var lawyerDetails = {
         '<td>'+data.email+'</td>' +
         '<td>'+data.mobile_number+'/'+ data.work_phone +'</td>' +
         '<td>'+data.street_line+','+ data.city +'</td>' +
-        '<td style="float:right"><a href="editlawyer" id="edit_lawyer" data-id="edit-row-'+ data.id +'">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delete_lawyer" data-id="delete-row-'+ data.id +'">Delete</a></td>'+        
+        '<td style="float:right"><a href="/lawyer/editlawyer/id/'+ data.id +'" id="edit_lawyer" data-id="edit-row-'+ data.id +'">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delete_lawyer" data-id="delete-row-'+ data.id +'">Delete</a></td>'+        
         '</tr>';        
         $('tbody').append(html);
    }                      

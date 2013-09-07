@@ -69,6 +69,50 @@ class Application_Model_UsersMapper
       
     }
  
+    public function update( $formData , $id ){
+        $userData = array();
+        $userDetailsData = array();
+        
+        if( empty($formData) ){
+            return false;
+        }
+        
+         $userData = array(
+            'name'   => $formData['name'],
+            'user_type'  => USER_LAWYER, //constant specified in configs/constant.ini file
+            'home_phone' => $formData['home_phone'],
+            'work_phone' => $formData['work_phone'],
+            'mobile_number' => $formData['mobile_number'],
+            'email' => $formData['email'],
+            'fax_number' => $formData['fax_number'],
+            'street_line'   => $formData['street_line'],
+            'city'   => $formData['city'],
+            'state' => $formData['state'],
+            'country' => $formData['country'],
+            'postal_code'   => $formData['postal_code'],            
+            'created_on' => date('Y-m-d H:i:s'),
+            'created_by' => USER_ADMIN          
+        );
+                
+        $isUserUpdate = $this->getDbTable()->update($userData,"id = $id");
+        $userDetailsData = array(
+              'user_id' => $id,
+              'pan_card_number'  => $formData['pan_card_number'],
+              'IFSC_code'  => $formData['IFSC_code'],
+              'bank_account_number'  => $formData['bank_account_number'],
+              'service_tax_number'  => $formData['service_tax_number']           
+        );
+                
+        $userMapperObj = new Application_Model_UsersdetailMapper();
+        $isUserDetailsUpdate = $userMapperObj->getDbTable()->update($userDetailsData,"user_id = $id"); 
+        if( $isUserUpdate || $isUserDetailsUpdate ){
+            return true;
+        } else {
+            return false;
+        }               
+    }
+            
+    
     public function getUsers( $params ){
         //$userMapperObj = new Application_Model_UsersdetailMapper();           
         $conditions = array();

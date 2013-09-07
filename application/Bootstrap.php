@@ -19,5 +19,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
        }
    }
    
+   
+    protected function _initAutoloaders()
+    {
+        $autoloader = Zend_Loader_Autoloader::getInstance();
+        $autoloader->setFallbackAutoloader(true);
+
+        $defaultLoader = new Zend_Application_Module_Autoloader(array(
+                    'namespace' => '',
+                    'basePath' => APPLICATION_PATH
+                ));
+    }
+       
 }
 
