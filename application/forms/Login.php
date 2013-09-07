@@ -5,6 +5,7 @@ class Application_Form_Login extends Zend_Form
     {
         // Set the method for the display form to POST
         $this->setMethod('post');
+        $this->setAction('/auth/login');
  
         // Add an email element
         $this->addElement('text', 'email', array(

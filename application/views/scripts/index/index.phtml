@@ -11,10 +11,14 @@
         </ul>
         <!-- / .sidebar1_contents -->
     </div>
+    
+    <?php if (empty($this->loggedIdUserId)) {?>
     <div class="sidebar1_box">
         <?php echo $this->loginForm; ?>	<br/> 
         <!-- <a href="/index/register"><i>Register here</i></a> -->
     </div>
+    <?php } ?>
+    
 </div>
 <br />
 <div id="mainContent"><img src="images/image.jpg" alt="image1" width="123" height="87" class="fltlft" />

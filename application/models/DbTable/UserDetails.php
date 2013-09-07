@@ -1,9 +1,9 @@
 <?php
 
-class Model_DbTable_Users extends App_DbTable {
+class Model_DbTable_UserDetails extends App_DbTable {
 
     /** Table name */
-    protected $_name = 'users';
+    protected $_name = 'user_details';
 
     /**
      * Primary Key
@@ -19,5 +19,6 @@ class Model_DbTable_Users extends App_DbTable {
      * Gross hack by Kiran
      * Columns can be defined here to suppress the db column fetch
      */
-    //protected $_cols = array( 'id', 'email', 'password' );
+    //protected $_cols = array( 'id', 'name');
 }
+

@@ -1,115 +1,83 @@
 <?php
 
-class App_User
-{
-    
-    
-    public static function isLogged()
-    {                
-        $auth = Zend_Auth::getInstance();
-        return $auth->hasIdentity();
+class App_User {
+
+    const
+            INVALID_USERNAME_PASSWORD = 0,
+            PENDING = 1,
+            ACTIVE = 2,
+            APPROVED = 3,
+            DECLINED = 4,
+            SUSPENDED = 5,
+            DELETED = 9,
+            NO_USER_ACCESS_RULES = 100,
+            ENCRIPTED_PASSWORD = 'ENCRIPTED-PASSWORD',
+            READ_ONLY = 1,
+            CHANGE_STATUS = 2,
+            FULL_ACCESS = 3;
+
+    /**
+     * @var object
+     * @static
+     */
+    static private $_singleton = null;
+
+    /**
+     *
+     */
+    private function __construct() {
+        $user = new Model_Users();
+        if (App_Auth::isLogged() && App_Auth::getId()) {
+            $user->id = App_Auth::getId();
+            $user->find();
+        }
+
+        $this->user = $user->toArray();
     }
-    
-    
-    public static function getUserById( $id ){
-        $getLawyer = new Application_Model_UsersMapper();          
-        $getLawyerDetails = new Application_Model_UsersdetailMapper();                          
-        $allDetails = array();        
-        if( $id ){            
-            $lawyer       = $getLawyer->find( $id );            
-            $lawyerDetail =  $getLawyerDetails->find( $id );                        
-            //merge the data from user and user details table
-            $allDetails   = $lawyer[0] + $lawyerDetail[0];                    
-            return $allDetails ;
-        }                                              
+
+    /**
+     * singleton function used to manage this object
+     *
+     * @return object
+     * @static
+     */
+    static function &singleton() {
+        if (self::$_singleton === null) {
+            self::$_singleton = new App_User();
+        }
+        return self::$_singleton;
+    }
+
+    /**
+     * get value from singleton object
+     *
+     * @return value
+     * @static
+     */
+    static function get($key) {
+        if (self::$_singleton === null) {
+            self::$_singleton = new App_User();
+        }
         
+        $value = null;
+        if (isset(self::$_singleton->user[$key])) {
+            $value = self::$_singleton->user[$key];
+        }
+
+        return $value;
     }
-            
-    
-//    public static function getRole()
-//    {
-//        $auth = Zend_Auth::getInstance();
-//        $role = 'guest';
-//        
-//        if ($auth->hasIdentity()) {
-//
-//            $user = self::getLoggedUser();
-//           
-//            //some time we get the
-//            //email address as identity.
-//            $userRoles = array();
-//            if ( is_a( $user, 'Model_User' ) ) {
-//                $userRoles = $user->roleTypeIds;
-//            }
-//
-//            if ( in_array(6, $userRoles) ) {
-//                $role = 'super-admin';
-//            } else if ( in_array(5, $userRoles) ) {
-//                $role = 'admin';
-//            } else if ( (in_array(1, $userRoles) && in_array(2, $userRoles)) || 
-//                        (in_array(1, $userRoles) && in_array(4, $userRoles)) ||
-//                        (in_array(2, $userRoles) && in_array(3, $userRoles)) ||
-//                        (in_array(3, $userRoles) && in_array(4, $userRoles)) ) {
-//                $role = 'publisher_advertiser';
-//            } else if (in_array(1, $userRoles)||in_array(3, $userRoles)) {
-//                //publisher or publisher manager
-//                $role = 'publisher';
-//            } else if (in_array(2, $userRoles)||in_array(4, $userRoles)) {
-//                //advertiser or advertiser manager
-//                $role = 'advertiser';
-//            }
-//            
-//            /*
-//              if($user->roleTypeId == 1 || $user->roleTypeId == 2) {
-//              return 'publisher';
-//              } else if ($user->roleTypeId == 3) {
-//              return 'advertiser';
-//              } else if($user->roleTypeId == 4) {
-//              return 'publisher_advertiser';
-//              } else if($user->roleTypeId == 5) {
-//              return 'admin';
-//              } else {
-//              return 'guest';
-//              }
-//             */
-//        }
-//        
-//        return $role;
-//    }
-//     
-//    public static function isLogged()
-//    {
-//        $auth = Zend_Auth::getInstance();
-//        return $auth->hasIdentity();
-//    }
-//
-//    public static function getUserId() 
-//    {
-//        $userId = null;
-//        $auth = Zend_Auth::getInstance();
-//        if (is_a($auth, 'Zend_Auth')) {
-//            $user = $auth->getIdentity();
-//            if (is_a($user, 'Model_User')) {
-//                $userId = $user->id;
-//            }
-//        }
-//        return $userId;
-//    }
-//    
-//    /**
-//     * @return Model_User
-//     */
-//    public static function getLoggedUser()
-//    {
-//        $auth = Zend_Auth::getInstance();
-//        return $auth->getIdentity();
-//    }
-//	
-//    /**
-//     * @return bool
-//     */
-//    public static function isAdmin() {
-//        return in_array(self::getRole(), array('admin', 'super-admin'));
-//    }
-//  
+
+    /**
+     * set value to singleton object
+     *
+     * @return value
+     * @static
+     */
+    static function set($key, $value) {
+        if (self::$_singleton === null) {
+            self::$_singleton = new App_User();
+        }
+        self::$_singleton->user[$key] = $value;
+    }
+
 }
