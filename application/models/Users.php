@@ -22,18 +22,18 @@ class Model_Users extends App_Model {
     }
 
     public function update($data = null) {
-        $data['id'] = 1;
-        if (empty($data['password'])) {
-            unset($data['password']);
-        } else {
-            //$data['password'] = md5($data['password']);
+        //this allow to update object w/ 
+        //1. $user = new Model_User($data);
+        //$user->update();
+        //
+        //2. $user = new Model_User();
+        //$user->update($data);
+        
+        if (is_array($data)) {
+            $this->setOptions($data);  
         }
-        
-        $this->setOptions($data);
-        
-        $isUpdated = parent::update($data);
-        
-        return $isUpdated;
+         
+        return parent::update($data);
     }
 
     public function getUsers($params) {

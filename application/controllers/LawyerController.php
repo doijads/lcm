@@ -69,10 +69,15 @@ class LawyerController extends Zend_Controller_Action
         $isLawyerUpdated = false;
         if($request->isPost()){
             $formData =  $request->getPost();                            
-            if( $registerForm->isValid($request->getPost())) {
-                  $formData['id'] = 1;
-                  $user->setOptions($formData);
-                  $isUpdated = $user->update($formData);
+            if( $registerForm->isValid($request->getPost())) {                                  
+                  //update user
+                  $formData['id'] = $id;
+                  $isUserUpdated = $user->update($formData);
+                  
+                  //update user details
+                  $formData['user_id'] = $id;
+                  $userDetails = new Model_UserDetails();
+                  $isUserDetailsUpdated = $userDetails->update($formData);
                   
                   if( $isUpdated ){              
                       $this->_helper->FlashMessenger->addMessage("Lawyer has been updated successfully", 'editlawyer');
