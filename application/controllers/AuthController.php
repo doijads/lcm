@@ -18,7 +18,7 @@ class AuthController extends Zend_Controller_Action {
             $this->_redirect('/');
         }
 
-        $isLoggedIn = App_Auth::login($email, $password, false);
+        $isLoggedIn = App_Auth::login($email, $password);
 
         if ($isLoggedIn == App_User::ACTIVE) {
             $url = '/';

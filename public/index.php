@@ -14,6 +14,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
+defined('PUBLIC_PATH') || define('PUBLIC_PATH', dirname(__FILE__));
 
 
 /** Zend_Application */
