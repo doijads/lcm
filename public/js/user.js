@@ -61,15 +61,16 @@ var lawyerDetails = {
                 dataType: 'json',
                 success: function(response) {
                     if (response.success) {  
-                        var $tr = $('#lawyer-data-' + response.data[0].id );                       
+                                                                        
+                        var $tr = $('#lawyer-data-' + response.data.id );                       
                         var foundTr = false;							
-                        if ( $tr.attr('id') === 'lawyer-data-' + response.data[0].id ) {
+                        if ( $tr.attr('id') === 'lawyer-data-' + response.data.id ) {
                             foundTr = true;
                         }                         
                         if( !foundTr )
                         {
                             $.each(response.data, function(i, elem) {                          
-                            lawyerDetails.renderData(i,elem);                           
+                                lawyerDetails.renderData(i,elem);                           
                             });
                         }
                     }else{
@@ -83,6 +84,7 @@ var lawyerDetails = {
     },    
    renderData: function(id, data) {
         $("#no-record-tr").remove();
+                      
         var html =
         '<tr  id="lawyer-data-'+data.id+'" style="height:30px;">' +       
         '<td>'+data.name+'</td>' +

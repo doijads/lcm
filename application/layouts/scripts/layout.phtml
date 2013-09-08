@@ -27,12 +27,12 @@ $controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerN
 	<div id="menu">         
             <ul>
               <li><a href="/" <?php if($controller == 'index'){?> class="current" <?php } else { ?> class="" <?php }?> >Home</a></li>			
+              <?php if (App_Auth::isLogged()) { ?>
               <li><a href="/lawyer/" <?php if($controller == 'lawyer'){?> class="current" <?php } else { ?> class="" <?php }?> >Lawyer's Panel</a></li> 
               <li><a href="/client/" <?php if($controller == 'client'){?> class="current" <?php } else { ?> class="" <?php }?> >Client's Panel</a></li> 
               <li><a href="/account/" <?php if($controller == 'account'){?> class="current" <?php } else { ?> class="" <?php }?> >Account's Panels</a></li> 
-              <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>
-              <?php if (App_Auth::isLogged()) { ?>
-              <li><a href ="auth/logout">Log Out</a></li
+              <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>             
+              <li><a href ="/auth/logout">Log Out</a></li
               <?php } ?>
 	   </ul>
 	</div><div class="inner_copy"></div>

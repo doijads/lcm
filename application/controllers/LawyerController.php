@@ -49,9 +49,18 @@ class LawyerController extends Zend_Controller_Action
                 
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
-        $user    = new Application_Model_UsersMapper();                
+        //$user    = new Application_Model_UsersMapper(); 
+        
+        $user = new Model_Users();
+        
         $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
-        $getUserDetails = App_User::getUserById( $id );               
+        
+        //$getUserDetails = App_User::getUserById( $id );               
+        
+        $param = array('u.id'=> $id );
+        
+        $getUserDetails = $user->getUsersById( $param );
+                                                 
         if( !empty($getUserDetails) ){
             $registerForm->populate($getUserDetails);
         }
@@ -59,9 +68,12 @@ class LawyerController extends Zend_Controller_Action
         $isUpdated = false;
         $isLawyerUpdated = false;
         if($request->isPost()){
-            $formData =  $request->getPost();      
+            $formData =  $request->getPost();                            
             if( $registerForm->isValid($request->getPost())) {
-                  $isUpdated = $user->update($formData,$id );                                
+                  $formData['id'] = 1;
+                  $user->setOptions($formData);
+                  $isUpdated = $user->update($formData);
+                  
                   if( $isUpdated ){              
                       $this->_helper->FlashMessenger->addMessage("Lawyer has been updated successfully", 'editlawyer');
                       $this->_redirect($frontUrl);                      

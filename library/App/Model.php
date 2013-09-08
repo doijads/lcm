@@ -145,6 +145,7 @@ abstract class App_Model {
         foreach ($primaryKeys as $primary) {
             $where["{$tableName}.{$primary}" . ' = ?'] = $this->_data[$primary];
         }
+       
         return $where;
     }
 
@@ -163,6 +164,13 @@ abstract class App_Model {
             $options = $data;
         } else {
             $options = $this->_data;
+        }
+        
+        //mad update adapter, unset fields those are not present w/ object
+        foreach ($options as $name => $value ) {
+            if (!array_key_exists($name, $this->_data)) {
+                unset($options[$name]);
+            }
         }
 
         $primaries = $table->info(Zend_Db_Table_Abstract::PRIMARY);
@@ -198,7 +206,8 @@ abstract class App_Model {
         if (!empty($options['columns'])) {
             $select->from($table, $options['columns']);
         }
-
+        
+   
         if (!empty($options['order'])) {
             foreach ($options['order'] as $cond) {
                 $select->order($cond);
@@ -214,7 +223,8 @@ abstract class App_Model {
                 $select->where($cond);
             }
         }
-
+               
+             
         return $table->fetchAll($select);
     }
 
