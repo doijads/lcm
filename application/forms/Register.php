@@ -57,9 +57,12 @@ class Application_Form_Register extends Zend_Form
         $this->addElement($mobileNumber);
         
         // Add an email element
+        
+        $emailExists = array('users', 'email');
         $email = new Zend_Form_Element_Text('email');
         $email->setLabel('E-mail:');
         $email->addValidator(new Zend_Validate_EmailAddress());
+        $email->addValidator('Db_NoRecordExists', true, $emailExists);
         $email->setRequired(true);       
         $this->addElement($email);
                
