@@ -24,7 +24,7 @@ class LawyerController extends Zend_Controller_Action
                 if ($user->id) {
                     $data['user_id'] = $user->id;
                     $userDetails = new Model_UserDetails($data);
-                    $userDetails->save();
+                    // $userDetails->save();
                 }
                 
                 $registerForm->reset(); 
@@ -42,8 +42,7 @@ class LawyerController extends Zend_Controller_Action
        $this->view->searchForm = $searchForm;              
     }
     
-    public function editlawyerAction(){      
-        
+    public function editlawyerAction(){             
         $baseUrl = $this->view->baseUrl();
         $frontUrl = 'http://'.$baseUrl.'/lawyer' ;                
                 
@@ -55,6 +54,8 @@ class LawyerController extends Zend_Controller_Action
         
         $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
         
+        $registerForm->getElement('email')->clearValidators(); 
+                       
         //$getUserDetails = App_User::getUserById( $id );               
         
         $param = array('u.id'=> $id );
@@ -65,20 +66,20 @@ class LawyerController extends Zend_Controller_Action
             $registerForm->populate($getUserDetails);
         }
         $registerForm->submit->setLabel('Update');
-        $isUpdated = false;
-        $isLawyerUpdated = false;
+        $isUpdated = false;        
         if($request->isPost()){
             $formData =  $request->getPost();                            
-            if( $registerForm->isValid($request->getPost())) {                                  
+            if( $registerForm->isValid($request->getPost())) {                                                                 
                   //update user
                   $formData['id'] = $id;
-                  $isUserUpdated = $user->update($formData);
+                  $user->update($formData);
                   
                   //update user details
                   $formData['user_id'] = $id;
                   $userDetails = new Model_UserDetails();
-                  $isUserDetailsUpdated = $userDetails->update($formData);
+                  $userDetails->update($formData);
                   
+                  $isUpdated = true;
                   if( $isUpdated ){              
                       $this->_helper->FlashMessenger->addMessage("Lawyer has been updated successfully", 'editlawyer');
                       $this->_redirect($frontUrl);                      
