@@ -17,6 +17,21 @@ class Application_Form_Register extends Zend_Form
             'filters'    => array('StringTrim')           
         ));
         
+        // Add an email element        
+        $emailExists = array('users', 'email');
+        $email = new Zend_Form_Element_Text('email');
+        $email->setLabel('E-mail:');
+        $email->addValidator(new Zend_Validate_EmailAddress());
+        $email->addValidator('Db_NoRecordExists', true, $emailExists);
+        $email->setRequired(true);       
+        $this->addElement($email);
+        
+        $this->addElement('password', 'password', array(
+            'label'      => 'Password:',
+            'required'   => true,
+            'filters'    => array('StringTrim')           
+        ));
+        
         if( $userRoleType == 'client' ){
             $this->addElement('text', 'contact_person', array(
                 'label'      => 'Contact Person:',
@@ -42,17 +57,7 @@ class Application_Form_Register extends Zend_Form
         $mobileNumber->setRequired(true);
         $mobileNumber->addValidator(new Zend_Validate_Int());        
         $this->addElement($mobileNumber);
-        
-        // Add an email element
-        
-        $emailExists = array('users', 'email');
-        $email = new Zend_Form_Element_Text('email');
-        $email->setLabel('E-mail:');
-        $email->addValidator(new Zend_Validate_EmailAddress());
-        $email->addValidator('Db_NoRecordExists', true, $emailExists);
-        $email->setRequired(true);       
-        $this->addElement($email);
-               
+                               
         $this->addElement('text', 'fax_number', array(
             'label'      => 'Fax Number:',
             'required'   => false,
