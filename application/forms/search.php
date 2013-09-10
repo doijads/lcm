@@ -13,6 +13,7 @@ class Application_Form_Search extends Zend_Form
             'filters'    => array('StringTrim')            
         ));
         
+     
         // Add an email element
         $this->addElement('text', 'search-name', array(
             'label'      => 'Users Name:',

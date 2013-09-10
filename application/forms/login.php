@@ -3,6 +3,7 @@ class Application_Form_Login extends Zend_Form
 {
     public function init()
     {
+        
         // Set the method for the display form to POST
         $this->setMethod('post');
         $this->setAction('/auth/login');
