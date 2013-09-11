@@ -16,7 +16,7 @@ class Application_Form_Login extends Zend_Form
         ));
         
         // Add an email element
-        $this->addElement('text', 'password', array(
+        $this->addElement('password', 'password', array(
             'label'      => 'Password:',
             'required'   => true,
             'filters'    => array('StringTrim')            
@@ -27,10 +27,10 @@ class Application_Form_Login extends Zend_Form
                     'label'        => 'I am a:',
                     'value'        => '-select-',
                     'multiOptions' => array(
-                        USER_ADMIN    => 'admin',
-                        USER_LAWYER   => 'lawyer',
-                        USER_CLIENT   => 'client',
-                        USER_ACCOUNT  => 'account',
+                        USER_ADMIN    => 'Admin',
+                        USER_LAWYER   => 'Lawyer',
+                        USER_CLIENT   => 'Client',
+                        USER_ACCOUNTANT  => 'Accountant',
                     ),
                 )
         );
