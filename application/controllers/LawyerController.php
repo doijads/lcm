@@ -20,11 +20,16 @@ class LawyerController extends Zend_Controller_Action
             if( $registerForm->isValid($request->getPost())) {
                 $data = $request->getPost();
                 $user = new Model_Users($data); 
+                                
                 $user->save();
                 if ($user->id) {
                     $data['user_id'] = $user->id;
                     $userDetails = new Model_UserDetails($data);
-                    // $userDetails->save();
+                    $userDetails->save();               
+                    $recipient = array('email' => $data['email'],
+                                       'password' => $data['password']
+                                        );
+                    App_Email::sendEmailToLawyer($recipient);                    
                 }
                 
                 $registerForm->reset(); 
