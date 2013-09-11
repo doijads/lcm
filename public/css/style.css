@@ -125,7 +125,7 @@ table tr:nth-of-type(even){background: #EEEEFF;}
     background-color: #EADFC1;
 }
 
-input[type="text"], input[type="password"], input[type="date"], textarea {
+input[type="text"], input[type="password"], input[type="date"], textarea,select {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 5px 5px 5px 5px;
