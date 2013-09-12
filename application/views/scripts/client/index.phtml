@@ -10,8 +10,13 @@
                 
 </script>
  
- <?php if ($this->isClientCreated) { ?>
+ <?php if ($this->isLawyerCreated) { ?>
                 <div class="success_message">New Client account has been added.</div>
+                <div style="clear:both"></div>
+ <?php } ?>
+               
+  <?php if ($this->isLawyerUpdated) { ?>
+                <div class="success_message">Client's account has been updated.</div>
                 <div style="clear:both"></div>
  <?php } ?>
                 
@@ -37,7 +42,7 @@
         <th>Email</th>
         <th>Mobile No</th>
         <th>Address</th>    
-        <th></th>
+        <th></th> 
     </tr>
     </thead>
     <tbody>       

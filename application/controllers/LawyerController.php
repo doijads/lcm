@@ -33,7 +33,7 @@ class LawyerController extends Zend_Controller_Action
                 }
                 
                 $registerForm->reset(); 
-                $this->view->success = "New Lawyer has been created";                
+                $this->view->success = "New Lawyer has been added";                
             }                              
        }  
        
@@ -50,7 +50,7 @@ class LawyerController extends Zend_Controller_Action
     public function editlawyerAction(){             
         $baseUrl = $this->view->baseUrl();
         $frontUrl = 'http://'.$baseUrl.'/lawyer' ;                
-                
+               
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
         //$user    = new Application_Model_UsersMapper(); 

@@ -16,8 +16,9 @@ class IndexController extends Zend_Controller_Action
            $loginForm = new Application_Form_Login();
        } 
        
-       $this->loggedIdUserId = App_User::get('id');
-       $this->view->loginForm = $loginForm;  
+       $this->view->loggedIdUserId = App_User::get('id');
+       $this->view->loggedInUser   = App_Auth::getUser()->name;
+       $this->view->loginForm = $loginForm;                       
     }
     
     

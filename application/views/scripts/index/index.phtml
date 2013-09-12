@@ -12,12 +12,15 @@
         <!-- / .sidebar1_contents -->
     </div>
     
-    <?php if (empty($this->loggedIdUserId)) {?>
+    
     <div class="sidebar1_box">
-        <?php echo $this->loginForm; ?>	<br/> 
-        <!-- <a href="/index/register"><i>Register here</i></a> -->
-    </div>
-    <?php } ?>
+        <?php if (empty($this->loggedIdUserId)) {?>
+            <?php echo $this->loginForm; ?>	<br/> 
+            <!-- <a href="/index/register"><i>Register here</i></a> -->   
+        <?php } else { ?>
+            <p> Welcome, <?php echo $this->loggedInUser; ?> </p>
+        <?php } ?>
+     </div>
     
 </div>
 <br />

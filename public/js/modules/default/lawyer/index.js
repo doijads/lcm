@@ -61,9 +61,9 @@ var lawyerDetails = {
                 success: function(response) {
                     if (response.success) {  
                                                                         
-                        var $tr = $('#lawyer-data-' + response.data.id );                       
+                        var $tr = $('#lawyer-data-' + response.data.user_id );                       
                         var foundTr = false;							
-                        if ( $tr.attr('id') === 'lawyer-data-' + response.data.id ) {
+                        if ( $tr.attr('id') === 'lawyer-data-' + response.data.user_id ) {
                             foundTr = true;
                         }                         
                         if( !foundTr )
@@ -85,12 +85,12 @@ var lawyerDetails = {
         $("#no-record-tr").remove();
                       
         var html =
-        '<tr  id="lawyer-data-'+data.id+'" style="height:30px;">' +       
+        '<tr  id="lawyer-data-'+data.user_id+'" style="height:30px;">' +       
         '<td>'+data.name+'</td>' +
         '<td>'+data.email+'</td>' +
         '<td>'+data.mobile_number+'/'+ data.work_phone +'</td>' +
         '<td>'+data.street_line+','+ data.city +'</td>' +
-        '<td style="float:right"><a href="/lawyer/editlawyer/id/'+ data.id +'" id="edit_lawyer" data-id="edit-row-'+ data.id +'">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delete_lawyer" data-id="delete-row-'+ data.id +'">Delete</a></td>'+        
+        '<td style="float:right"><a href="/lawyer/editlawyer/id/'+ data.user_id +'" id="edit_lawyer" data-id="edit-row-'+ data.user_id +'">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delete_lawyer" data-id="delete-row-'+ data.user_id +'">Delete</a></td>'+        
         '</tr>';        
         $('tbody').append(html);
    }                      
