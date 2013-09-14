@@ -8,7 +8,7 @@ class AjaxController extends Zend_Controller_Action
         /* Initialize action controller here */
     }
 
-    public function getlawyersAction(){    
+    public function getUsersAction(){    
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $request = $this->getRequest();
@@ -36,7 +36,7 @@ class AjaxController extends Zend_Controller_Action
     }
    
     
-    public function deletelawyersAction(){
+    public function deleteUsersAction(){
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $request = $this->getRequest();
@@ -58,10 +58,7 @@ class AjaxController extends Zend_Controller_Action
         
     }
 
-    public function contactAction(){
-        
-        
-    }
+  
             
     
 

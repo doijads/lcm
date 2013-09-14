@@ -1,13 +1,13 @@
 $(function(){                                  
-    lawyerDetails.init();     
+    clientDetails.init();     
     $('.success_message').delay(3500).fadeOut();
 });
 
 //Here All the js functions will be releated to Lawyer Only
-var lawyerDetails = {
+var clientDetails = {
     init: function() { 
-        //Delete Lawyer
-        $("#delete_lawyer").live('click',function(e){  
+        //Delete Client
+        $("#delete_client").live('click',function(e){  
             //e.preventDefault();
             var row_id = $(this).attr('data-id'); 
             var uid = row_id.replace('delete-row-','');
@@ -47,7 +47,7 @@ var lawyerDetails = {
 //            });                                     
 //        });
                         
-        //Search and Display Lawyer        
+        //Search and Display Lawuer        
         $("#searchbutton").click(function() { 
             var userName = $.trim($('#searchname').val()) ;
             var userEmail = $.trim($('#searchemail').val());
@@ -61,15 +61,15 @@ var lawyerDetails = {
                 success: function(response) {
                     if (response.success) {  
                                                                         
-                        var $tr = $('#lawyer-data-' + response.data.user_id );                       
+                        var $tr = $('#client-data-' + response.data.user_id );                       
                         var foundTr = false;							
-                        if ( $tr.attr('id') === 'lawyer-data-' + response.data.user_id ) {
+                        if ( $tr.attr('id') === 'client-data-' + response.data.user_id ) {
                             foundTr = true;
                         }                         
                         if( !foundTr )
                         {
                             $.each(response.data, function(i, elem) {                          
-                                lawyerDetails.renderData(i,elem);                           
+                                clientDetails.renderData(i,elem);                           
                             });
                         }
                     }else{
@@ -85,12 +85,12 @@ var lawyerDetails = {
         $("#no-record-tr").remove();
                       
         var html =
-        '<tr  id="lawyer-data-'+data.user_id+'" style="height:30px;">' +       
+        '<tr  id="client-data-'+data.user_id+'" style="height:30px;">' +       
         '<td>'+data.name+'</td>' +
         '<td>'+data.email+'</td>' +
         '<td>'+data.mobile_number+'/'+ data.work_phone +'</td>' +
         '<td>'+data.street_line+','+ data.city +'</td>' +
-        '<td style="float:right"><a href="/lawyer/edit-lawyer/id/'+ data.user_id +'" id="edit_lawyer" data-id="edit-row-'+ data.user_id +'">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delete_lawyer" data-id="delete-row-'+ data.user_id +'">Delete</a></td>'+        
+        '<td style="float:right"><a href="/client/edit-client/id/'+ data.user_id +'" id="edit_client" data-id="edit-row-'+ data.user_id +'">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delete_client" data-id="delete-row-'+ data.user_id +'">Delete</a></td>'+        
         '</tr>';        
         $('tbody').append(html);
    }                      

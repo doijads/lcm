@@ -15,12 +15,13 @@ class LawyerController extends Zend_Controller_Action
        //user(lawyer) registration form       
        $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
        $this->view->registerForm = $registerForm;                    
-       $isLawyerCreated = false;                    
+       //$isLawyerCreated = false;                    
        if($request->isPost()){
             if( $registerForm->isValid($request->getPost())) {
                 $data = $request->getPost();
                 $user = new Model_Users($data); 
-                                
+                //set user role as 2 for lawyer
+                $user->user_type = USER_LAWYER ;                                                  
                 $user->save();
                 if ($user->id) {
                     $data['user_id'] = $user->id;
@@ -29,7 +30,9 @@ class LawyerController extends Zend_Controller_Action
                     $recipient = array('email' => $data['email'],
                                        'password' => $data['password']
                                         );
-                    App_Email::sendEmailToLawyer($recipient);                    
+                    
+                    /*Uncomment this when set up the mail server */
+                    //App_Email::sendEmailToLawyer($recipient);                    
                 }
                 
                 $registerForm->reset(); 
@@ -47,7 +50,7 @@ class LawyerController extends Zend_Controller_Action
        $this->view->searchForm = $searchForm;              
     }
     
-    public function editlawyerAction(){             
+    public function editLawyerAction(){             
         $baseUrl = $this->view->baseUrl();
         $frontUrl = 'http://'.$baseUrl.'/lawyer' ;                
                
@@ -76,12 +79,13 @@ class LawyerController extends Zend_Controller_Action
             $formData =  $request->getPost();                            
             if( $registerForm->isValid($request->getPost())) {                                                                 
                   //update user
-                  $formData['id'] = $id;
+                  $formData['id'] = $id;                                                     
+                  $formData['password'] = md5($formData['password']);
                   $user->update($formData);
                   
                   //update user details
                   $formData['user_id'] = $id;
-                  $userDetails = new Model_UserDetails();
+                  $userDetails = new Model_UserDetails();                                   
                   $userDetails->update($formData);
                   
                   $isUpdated = true;

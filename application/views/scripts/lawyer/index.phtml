@@ -9,16 +9,6 @@
     	});
                 
 </script>
- 
- <?php if ($this->isLawyerCreated) { ?>
-                <div class="success_message">New Lawyer account has been added.</div>
-                <div style="clear:both"></div>
- <?php } ?>
-               
-  <?php if ($this->isLawyerUpdated) { ?>
-                <div class="success_message">Lawyer account has been updated.</div>
-                <div style="clear:both"></div>
- <?php } ?>
                 
 <fieldset>
     <legend>Add Lawyer</legend>    
@@ -34,6 +24,7 @@
     </div>
 </fieldset>
 <br/>
+<div><input type="hidden" id="role_type" value="2"></div>
 <div> 
 <table id="search-table" class="display" cellpadding="0" cellspacing="0" border="0" width="100%"> 
     <thead>

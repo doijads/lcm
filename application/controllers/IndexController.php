@@ -12,12 +12,14 @@ class IndexController extends Zend_Controller_Action
        $request = $this->getRequest();
         
        $loginForm = null;
+       $user      = null;
        if (!App_Auth::isLogged()) {
            $loginForm = new Application_Form_Login();
-       } 
-       
-       $this->view->loggedIdUserId = App_User::get('id');
-       $this->view->loggedInUser   = App_Auth::getUser()->name;
+       }  else { 
+            $user = App_Auth::getUser()    ;
+            $this->view->loggedInUser   = $user->name;
+       }                                       
+       $this->view->loggedIdUserId = App_User::get('id');       
        $this->view->loginForm = $loginForm;                       
     }
     

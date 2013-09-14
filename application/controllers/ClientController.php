@@ -16,7 +16,9 @@ class ClientController extends Zend_Controller_Action
        if($request->isPost()){
             if( $registerForm->isValid($request->getPost())) {
                 $data = $request->getPost();
-                $user = new Model_Users($data);                                 
+                $user = new Model_Users($data);  
+                //set user role as client (id = 3)
+                $user->user_type = USER_CLIENT ;
                 $user->save();
                 if ($user->id) {
                     $data['user_id'] = $user->id;
@@ -25,7 +27,9 @@ class ClientController extends Zend_Controller_Action
                     $recipient = array('email' => $data['email'],
                                        'password' => $data['password']
                                         );
-                    App_Email::sendEmailToClient($recipient);                    
+                    
+                    /*Uncomment this when set up the mail server */
+                    //App_Email::sendEmailToClient($recipient);                    
                 }               
                 $registerForm->reset(); 
                 $this->view->success = "New Client has been added";                
@@ -41,7 +45,7 @@ class ClientController extends Zend_Controller_Action
        $this->view->searchForm = $searchForm;       
     } 
     
-     public function editclientAction(){             
+     public function editClientAction(){             
         $baseUrl = $this->view->baseUrl();
         $frontUrl = 'http://'.$baseUrl.'/client' ;                
                
