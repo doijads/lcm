@@ -13,7 +13,7 @@ class LawyerController extends Zend_Controller_Action
        $request = $this->getRequest();
        
        //user(lawyer) registration form       
-       $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
+       $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client' ) );
        $this->view->registerForm = $registerForm;                    
        //$isLawyerCreated = false;                    
        if($request->isPost()){
@@ -60,7 +60,7 @@ class LawyerController extends Zend_Controller_Action
         
         $user = new Model_Users();
         
-        $registerForm    = new Application_Form_Register(array( 'strFormType' => 'lawyer', 'userRoleType' => 'lawyer'));
+        $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client'));
         
         $registerForm->getElement('email')->clearValidators(); 
                        
@@ -105,6 +105,4 @@ class LawyerController extends Zend_Controller_Action
         $form    = new Application_Form_Register();
         $this->view->registerForm = $form;        
     }
-
 }
-

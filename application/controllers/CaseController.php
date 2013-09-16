@@ -11,28 +11,33 @@ class CaseController extends Zend_Controller_Action
 
     public function indexAction(){        
        $request = $this->getRequest();
-       $user    = new Application_Model_CaseMapper();
        
-       //user(lawyer) registration form       
-       $registerForm    = new Application_Form_Register( array( 'strFormType' => 'case' ) );
-       $this->view->registerForm = $registerForm;                    
+       $registerForm    			= new Application_Form_CaseRegister();
+       $this->view->registerForm 	= $registerForm;                    
        $isLawyerCreated = false;
-       if($request->isPost()){
-            if( $registerForm->isValid($request->getPost())) {
-                $user->save( $request->getPost() );                
+       
+       if( $request->isPost() ){
+            if( $registerForm->isValid($request->getPost() ) ) {
+            	$data = $request->getPost();
+            	$case = new Model_Cases();
+            	$data['closed_by'] 		= NULL;
+            	$data['closing_date']	= NULL;
+                $case->save( $data );                
                 $registerForm->reset(); 
                 $isLawyerCreated = true;
                 $this->view->isLawyerCreated = $isLawyerCreated ;
+                $this->view->success = "Case added for Lawyer[" . $data['lawyer_id']. "] and Client[" . $data['client_id'] . "].";
             }                              
        }
     }
     
-    public function editlawyerAction(){          
+    public function editCaseAction(){          
         $request = $this->getRequest();
         $id = $request->getParams('id');
-        $user    = new Application_Model_CaseMapper();
-        $registerForm    = new Application_Form_Register( array( 'strFormType' => 'case' ) );
+        $case    		= new Model_Cases();
+        $registerForm   = new Application_Form_CaseRegister();
         $registerForm->submit->setLabel('Edit');
+        
         if($request->isPost()){
             $formData =  $request->getPost();      
             if( $registerForm->isValid($request->getPost())) {
@@ -43,7 +48,7 @@ class CaseController extends Zend_Controller_Action
     
     public function createAction(){        
         $request = $this->getRequest();
-        $form    = new Application_Form_Register();
-        $this->view->registerForm = $form;        
+        $form    = new Application_Form_CaseRegister();
+        $this->view->registerForm = $form;      
     }
 }

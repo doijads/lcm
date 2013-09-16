@@ -136,7 +136,5 @@ class Application_Form_Register extends Zend_Form
             'label'    => 'Register',
         ));
 	}
-	
-	
 }
 ?>

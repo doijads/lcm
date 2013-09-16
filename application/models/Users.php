@@ -61,7 +61,6 @@ class Model_Users extends App_Model {
 
     
     public function getUsersById($params) {
-        //$userMapperObj = new Application_Model_UsersdetailMapper();           
         
        $conditions = array();
         if (!empty($params)) {
@@ -84,7 +83,24 @@ class Model_Users extends App_Model {
  
         return $userData[0]->toArray();
     }
+    
+    public function fetchUsersByUserTypes( $arrIntUserTypes = array() ) {
+    	
+    	if( true == empty( $arrIntUserTypes ) ) {
+    		return false;
+    	}
 
+    	$whereClause = ' user_type IN (' . implode( ',' , $arrIntUserTypes ) . ')';
+    
+    	$sql = $this->getDbTable()->select()
+						    	  ->setIntegrityCheck(false)
+						    	  ->from(array('u' => 'users'), array('*'))
+						    	  ->join(array('ud' => 'user_details'), 'ud.user_id = u.id' )
+						    	  ->where($whereClause);
+    
+    	 return $this->getDbTable()->fetchAll($sql)->toArray();
+    }
+    
     public function deleteUser() {                
         $userDetails = new Model_UserDetails();
         $userDetails->user_id = $this->id;
@@ -92,6 +108,4 @@ class Model_Users extends App_Model {
         
         return parent::delete();        
     }
-
 }
-

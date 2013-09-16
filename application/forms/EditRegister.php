@@ -95,7 +95,6 @@ class Application_Form_EditRegister extends Application_Form_Register
                         'india'    => 'India'                       
                     ),
                 )
-            
         );
                                      
         $this->addElement('text', 'pan_card_number', array(
@@ -127,11 +126,6 @@ class Application_Form_EditRegister extends Application_Form_Register
             'ignore'   => true,
             'label'    => 'Register',
         ));
-
     }
-    
 }
-
-
 ?>
-
