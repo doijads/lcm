@@ -18,8 +18,8 @@ class IndexController extends Zend_Controller_Action
        }  else { 
             $user = App_Auth::getUser()    ;
             $this->view->loggedInUser   = $user->name;
-       }                                       
-       $this->view->loggedIdUserId = App_User::get('id');       
+            $this->view->loggedIdUserId = App_User::get('id');
+       }                                                                          
        $this->view->loginForm = $loginForm;                       
     }
     

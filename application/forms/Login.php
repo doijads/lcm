@@ -22,18 +22,18 @@ class Application_Form_Login extends Zend_Form
             'filters'    => array('StringTrim')            
         ));
         
-        $this->addElement('select','user_role',
-            array(
-                    'label'        => 'I am a:',
-                    'value'        => '-select-',
-                    'multiOptions' => array(
-                        USER_ADMIN    => 'Admin',
-                        USER_LAWYER   => 'Lawyer',
-                        USER_CLIENT   => 'Client',
-                        USER_ACCOUNTANT  => 'Accountant',
-                    ),
-                )
-        );
+//        $this->addElement('select','user_role',
+//            array(
+//                    'label'        => 'I am a:',
+//                    'value'        => '-select-',
+//                    'multiOptions' => array(
+//                        USER_ADMIN    => 'Admin',
+//                        USER_LAWYER   => 'Lawyer',
+//                        USER_CLIENT   => 'Client',
+//                        USER_ACCOUNTANT  => 'Accountant',
+//                    ),
+//                )
+//        );
                 
         // Add the submit button
         $this->addElement('submit', 'submit', array(

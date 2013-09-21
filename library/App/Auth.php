@@ -99,4 +99,17 @@ class App_Auth {
         return $auth->getIdentity();
     }
 
+    public static function getUserRole() {
+        $userRole = null;
+        $auth = Zend_Auth::getInstance();
+        if (is_a($auth, 'Zend_Auth')) {
+            $user = $auth->getIdentity();
+            if (is_a($user, 'Model_Users')) {
+                $userRole = $user->user_type;
+            }
+        }
+
+        return $userRole;
+    }
+
 }
