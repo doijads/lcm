@@ -23,38 +23,73 @@ class AjaxController extends Zend_Controller_Action
                 'name'  => $post['user_name'],
                 'email' => $post['user_email']
             );
-            $fetchRow = $user->getUsers( $params );
+            
+            $roleType = $post['user_type'];            
+            $fetchRow = $user->getUsers( $params ,$roleType );
             $result['data'] = $fetchRow;
         }
                                                      
         if( $result['data'] ){
-            $result['success'] = true;
-            echo json_encode($result);
+            $result['success'] = true;            
+        }else {
+            $result['success'] = false;            
         }
+        
+        echo json_encode($result);    
         exit(0);       
         //$this->asJSON();        
     }
    
     
-    public function deleteUsersAction(){
+    public function deleteUserAction(){
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $request = $this->getRequest();
-        $post = $request->getParams();
-                
-        $user = new Model_Users();
-        $user->id =  $post['id'];
+        $lowyerId = $request->getParam('id');
         
         $result['success'] = false;
-        if( empty( $post['id'] )){            
-            return;
-        }     
-         
-        if( $user->deleteUser() ){
-            $result['success'] = true ;
-            echo json_encode($result);
-        }
-        exit(0);
         
+        if (!$request->isPost() || empty($lowyerId)) {
+            echo json_encode($result);
+            exit(0);
+        }
+
+        //delete lowyer.
+        $user = new Model_Users();
+        $user->id =  $lowyerId;
+        //$result['success'] =$user->deleteUser();        
+        $result['success'] = true;        
+        echo json_encode($result);
+        exit(0);
     }
+    
+    public function displayClientModalAction(){
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout()->disableLayout();
+        $clientId = $this->getRequest()->getParam('id');
+        $result = array(
+            'data' => '', 
+            'success' => false,
+        );
+        if (empty($clientId)) {
+            echo json_encode($result);
+            exit(0);
+        }
+        
+        //$this->view->action( 'build-client-view', 'client', 'default', $data),
+        $data = array(
+            'id' => 123,
+            'name' => 'My test name'
+            );
+        
+        $result = array(
+            'data' => $this->view->partial('_partials/display-client-details.phtml', array('data' => $data)), 
+            'success' => true
+        );
+        
+        echo json_encode($result);
+        exit(0);
+    }
+    
+    
 }
