@@ -36,7 +36,7 @@ class Model_Users extends App_Model {
         return parent::update($data);
     }
 
-    public function getUsers($params) {
+    public function getUsers($params , $roleType =  null) {
         //$userMapperObj = new Application_Model_UsersdetailMapper();           
         $conditions = array();
         if (!empty($params)) {
@@ -47,15 +47,19 @@ class Model_Users extends App_Model {
             }
         }
         $whereClause = (!empty($conditions)) ? implode(" OR ", $conditions) : null;
+                       
+        if($roleType){
+           $whereClause = $whereClause." AND user_type = {$roleType}" ;
+        }
+                
         $sql = $this->getDbTable()->select()
                 ->setIntegrityCheck(false)
                 ->from(array('u' => 'users'), array('*'))
                 ->join(array('ud' => 'user_details'), 'ud.user_id = u.id')
                 ->where($whereClause)
                 ->group('u.id');
-          
+                  
         $userData = $this->getDbTable()->fetchAll($sql);
-
         return $userData->toArray();
     }
 

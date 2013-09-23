@@ -42,12 +42,15 @@ class ClientController extends Zend_Controller_Action
        if(is_array($messages) && !empty($messages)){
            $this->view->success = $messages[0] ;
        }
-       $this->view->searchForm = $searchForm;       
+       $this->view->searchForm = $searchForm;
+       
+       //$viewDetails = $this->_viewClient();
+       //$this->view->viewDetails = $viewDetails;
     } 
     
      public function editClientAction(){             
         $baseUrl = $this->view->baseUrl();
-        $frontUrl = 'http://'.$baseUrl.'/client' ;                
+        $frontUrl = $baseUrl.'/client' ;                
                
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         

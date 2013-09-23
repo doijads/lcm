@@ -124,6 +124,9 @@ table tr:nth-of-type(even){background: #EEEEFF;}
     text-align: left;
     background-color: #EADFC1;
 }
+#search-table td,#search-table th{
+    padding:5px;
+}
 
 input[type="text"], input[type="password"], input[type="date"], textarea,select {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -135,4 +138,35 @@ input[type="text"], input[type="password"], input[type="date"], textarea,select 
     padding: 3px;
     resize: none;
     vertical-align: middle;
+    min-width: 200px;
+}
+
+
+input[type="text"]#email ,input[type="password"]#password{
+    min-width:170px !important;
+}
+
+.ui-widget-header {
+    background-color: #EADFC1 !important;
+    border: 1px solid #61492D !important;
+    color: #222222;
+    font-weight: bold;
+}
+
+
+#client-details-table{
+    margin:0px;
+    color: #61492D;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    border: 1px solid;
+    width: 70%
+}
+
+#client-details-table th{
+    background-color: #EADFC1;       
+    padding: 4px 10px 4px 4px;
+    text-align: right;
+    width: 40%;
 }

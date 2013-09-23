@@ -52,7 +52,7 @@ class LawyerController extends Zend_Controller_Action
     
     public function editLawyerAction(){             
         $baseUrl = $this->view->baseUrl();
-        $frontUrl = 'http://'.$baseUrl.'/lawyer' ;                
+        $frontUrl = $baseUrl.'/lawyer' ;                
                
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
