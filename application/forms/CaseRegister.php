@@ -13,38 +13,47 @@ class Application_Form_CaseRegister extends Zend_Form {
 			}
 		}
 
-		$this->addElement( 'select','lawyer_id',
-            array(
-                    'label'        => 'Lawyer',
-                    'value'        => '',
-            		'required'	   => true,
-                    'multiOptions' => array( ''	=> '- Select a Lawyer -' ) + (array) $arrUserRekeyedByUserType[USER_LAWYER]
-                    ) );
+		$arrLawyerList = ( true == array_key_exists( USER_LAWYER, $arrUserRekeyedByUserType ) ) ? array( ''	=> '- Select a Lawyer -' ) + $arrUserRekeyedByUserType[USER_LAWYER] : array( ''	=> '- No Lawyer -' );
 		
+		$this->addElement( 'select','lawyer_id',
+			            array(
+			                    'label'        => 'Lawyer',
+			                    'value'        => '',
+			            		'required'	   => true,
+			                    'multiOptions' => $arrLawyerList
+			                    ) );
+
+		$arrClientList = ( true == array_key_exists( USER_CLIENT, $arrUserRekeyedByUserType ) ) ? array( ''	=> '- Select a Client -' ) + $arrUserRekeyedByUserType[USER_CLIENT] : array( ''	=> '- No Client -' );
 		$this->addElement( 'select','client_id',
 			            array(
 			                    'label'        => 'Client',
 			                    'value'        => '',
 			            		'required'	   => true,
-			            		'multiOptions' => array( ''	=> '- Select a Client -' ) + (array) $arrUserRekeyedByUserType[USER_CLIENT]
+			            		'multiOptions' => $arrClientList
 			                    ) );
 		
 		$dateOfAllotment = new Zend_Dojo_Form_Element_DateTextBox('date_of_allotment');
 		$dateOfAllotment->setLabel('Date of Allotment:');
 		$dateOfAllotment->setAttrib( 'class','datepicker' );
-		$dateOfAllotment->addValidator(new Zend_Validate_Date());
+		//$dateOfAllotment->addValidator(new Zend_Validate_Date());
 		$this->addElement($dateOfAllotment);
 	
 		$dueDate = new Zend_Dojo_Form_Element_DateTextBox('due_date');
 		$dueDate->setLabel('Due Date:');
 		$dueDate->setAttrib( 'class','datepicker' );
-		$dueDate->addValidator(new Zend_Validate_Date());
+		//$dueDate->addValidator(new Zend_Validate_Date());
 		$this->addElement($dueDate);
-		
+	
+		$closingDate = new Zend_Dojo_Form_Element_DateTextBox('closing_date');
+		$closingDate->setLabel('Closing Date:');
+		$closingDate->setAttrib( 'class','datepicker' );
+		//$closingDate->addValidator(new Zend_Validate_Date());
+		$this->addElement($closingDate);
+
 		// Add the submit button
 		$this->addElement('submit', 'submit', array(
 													'ignore'   => true,
-													'label'    => 'Register',
+													'label'    => 'Register'
 											));
 	}
 }

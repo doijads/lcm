@@ -8,15 +8,8 @@ class Model_Cases extends App_Model {
         if( empty( $formData ) ){
             return false;
         }
-        
-        $caseData = array( 'lawyer_id'			=> $formData['lawyer_id'],
-				           'client_id' 			=> $formData['client_id'],
-				           'date_of_allotment' 	=> $formData['date_of_allotment'],
-				           'due_date' 			=> $formData['due_date'],
-				           'closed_by' 			=> $formData['closed_by'],
-				           'closing_date' 		=> $formData['closing_date'] );
-       
-        $userRow = $this->getDbTable()->insert($caseData);
+        unset( $formData['submit'] );
+        $userRow = $this->getDbTable()->insert($formData);
     }
  
     public function getCases( $params ){
@@ -25,22 +18,22 @@ class Model_Cases extends App_Model {
         if( !empty($params) ){
            foreach( $params as $property=>$value ){ 
               if(!empty($value)){
-                 $conditions[] =  "{$property} LIKE '%{$value}%'" ;               
+                if( !is_numeric($value)) {
+                  $conditions[] =  "{$property} LIKE '%{$value}%'" ;     
+                } else {
+                  $conditions[] =  "{$property} = {$value}" ;
+                }
               }
            }           
         }        
                 
-        $whereClause = (!empty($conditions)) ? implode(" OR ", $conditions) : null;        
+       $whereClause = (!empty($conditions)) ? implode(" AND ", $conditions) : '1=1';        
                   
-        $sql = $this->getDbTable()->select()
-                       ->setIntegrityCheck(false)
-                       ->from(array('u'=>'users'),array('*'))                                     
-                       ->join(array('ud'=>'user_details'),'ud.user_id = u.id')
-                       ->where($whereClause)                                      
-                       ->group('u.id');   
-        
-        $caseData = $this->getDbTable()->fetchAll($sql);
-        return $caseData->toArray();
+       $strSql = $this->getDbTable()->select()
+                ->setIntegrityCheck(false)
+                ->from(array('c' => 'cases'), array('*'))
+                ->where($whereClause);
+        return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
     
     public function deleteCase( $uid ){         
@@ -53,7 +46,6 @@ class Model_Cases extends App_Model {
         }
     }
   
-    
      public function find($id){
         //get the row
         $row  = $this->getDbTable()->find($id);
