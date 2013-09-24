@@ -6,8 +6,9 @@
        $( ".datepicker" ).datepicker({
          showOn: "button",
          buttonImage: "/images/calendar.gif",
-         buttonImageOnly: true
-       });
+         buttonImageOnly: true,
+         dateFormat: 'yy-mm-dd'
+       }).attr( 'readOnly', true );
 
        $('#example').dataTable();
        /*{ we will be calling this for server side loading
@@ -15,6 +16,14 @@
            "bServerSide": true,
            "sAjaxSource": "../server_side/scripts/server_processing.php"
           }*/
+       $( "#dialog-message" ).dialog({
+      		modal: true,
+      		buttons: {
+	        Ok: function() {
+	          $( this ).dialog( "close" );
+	        }
+	      }
+	    });
    });
                 
 </script>
@@ -67,6 +76,15 @@
 		echo $strTable; ?>	
 		</tbody>
 	</table>
+</div>
+<div id="dialog-message" title="Download complete">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
+    We will be using this modal for showing the pop up of Lawyer or Client or Cases.
+  </p>
+  <p>
+    Any other good reference then we will replace it</b>.
+  </p>
 </div>
 <?php 
    if( false == in_array( App_User::get('user_type'), array( USER_LAWYER, USER_CLIENT ) ) ) {

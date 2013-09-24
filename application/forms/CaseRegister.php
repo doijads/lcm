@@ -35,7 +35,7 @@ class Application_Form_CaseRegister extends Zend_Form {
 		$dateOfAllotment = new Zend_Dojo_Form_Element_DateTextBox('date_of_allotment');
 		$dateOfAllotment->setLabel('Date of Allotment:');
 		$dateOfAllotment->setAttrib( 'class','datepicker' );
-		//$dateOfAllotment->addValidator(new Zend_Validate_Date());
+		$dateOfAllotment->addValidator(new Zend_Validate_Date());
 		$this->addElement($dateOfAllotment);
 	
 		$dueDate = new Zend_Dojo_Form_Element_DateTextBox('due_date');
