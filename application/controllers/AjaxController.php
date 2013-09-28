@@ -91,5 +91,7 @@ class AjaxController extends Zend_Controller_Action
         exit(0);
     }
     
-    
+    public function displayCaseModalAction() {
+
+    }
 }

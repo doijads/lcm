@@ -1,5 +1,7 @@
 <?php
+
 class Application_Form_CaseRegister extends Zend_Form {
+
 	public function init() {
 
 		$user = new Model_Users();
@@ -41,13 +43,13 @@ class Application_Form_CaseRegister extends Zend_Form {
 		$dueDate = new Zend_Dojo_Form_Element_DateTextBox('due_date');
 		$dueDate->setLabel('Due Date:');
 		$dueDate->setAttrib( 'class','datepicker' );
-		//$dueDate->addValidator(new Zend_Validate_Date());
+		$dueDate->addValidator(new Zend_Validate_Date());
 		$this->addElement($dueDate);
 	
 		$closingDate = new Zend_Dojo_Form_Element_DateTextBox('closing_date');
 		$closingDate->setLabel('Closing Date:');
 		$closingDate->setAttrib( 'class','datepicker' );
-		//$closingDate->addValidator(new Zend_Validate_Date());
+		$closingDate->addValidator(new Zend_Validate_Date());
 		$this->addElement($closingDate);
 
 		// Add the submit button

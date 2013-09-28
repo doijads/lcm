@@ -12,7 +12,7 @@ class Model_Cases extends App_Model {
         $userRow = $this->getDbTable()->insert($formData);
     }
  
-    public function getCases( $params ){
+    public function getCases( $params ) {
         $conditions = array();
       
         if( !empty($params) ){
@@ -30,13 +30,13 @@ class Model_Cases extends App_Model {
        $whereClause = (!empty($conditions)) ? implode(" AND ", $conditions) : '1=1';        
                   
        $strSql = $this->getDbTable()->select()
-                ->setIntegrityCheck(false)
-                ->from(array('c' => 'cases'), array('*'))
-                ->where($whereClause);
+                      ->setIntegrityCheck(false)
+                      ->from(array('c' => 'cases'), array('*'))
+                      ->where($whereClause);
         return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
     
-    public function deleteCase( $uid ){         
+    public function deleteCase( $uid ) {         
         $userDetailsObj = new Application_Model_UsersdetailMapper();
         $userDetailsObj->getDbTable()->delete('user_id = '. $uid );
         $caseData = $this->getDbTable()->delete('id = '. $uid );
@@ -46,7 +46,7 @@ class Model_Cases extends App_Model {
         }
     }
   
-     public function find($id){
+     public function find( $id ) {
         //get the row
         $row  = $this->getDbTable()->find($id);
         return $row->toArray();        

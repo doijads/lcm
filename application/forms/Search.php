@@ -25,11 +25,6 @@ class Application_Form_Search extends Zend_Form
             'ignore'   => true,
             'label'    => 'Search User',
         ));
- 
     }
-    
 }
-
-
 ?>
-

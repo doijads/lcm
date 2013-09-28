@@ -11,7 +11,7 @@ class ClientController extends Zend_Controller_Action
      public function indexAction(){        
        $request = $this->getRequest();       
        //user(lawyer) registration form       
-       $registerForm    = new Application_Form_Register(array( 'strFormType' => 'client', 'userRoleType' => 'client'));
+       $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client'));
        $this->view->registerForm = $registerForm;                                         
        if($request->isPost()){
             if( $registerForm->isValid($request->getPost())) {
@@ -39,6 +39,7 @@ class ClientController extends Zend_Controller_Action
        $searchForm    = new Application_Form_Search();
        //Redirect message from edit action..and display on this action
        $messages = $this->_helper->FlashMessenger->getMessages('editclient');
+       print_r($messages);
        if(is_array($messages) && !empty($messages)){
            $this->view->success = $messages[0] ;
        }
@@ -58,7 +59,7 @@ class ClientController extends Zend_Controller_Action
         
         $user = new Model_Users();
         
-        $registerForm    = new Application_Form_Register(array( 'strFormType' => 'client', 'userRoleType' => 'client'));
+        $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client'));
         
         $registerForm->getElement('email')->clearValidators(); 
                        
