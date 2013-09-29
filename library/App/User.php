@@ -80,4 +80,25 @@ class App_User {
         self::$_singleton->user[$key] = $value;
     }
 
+   static function getUserName( $id ){
+       if( empty($id)){
+        return $name = '';
+       }
+       
+       $user = new Model_Users();
+       $user->id = $id;
+       $user->find();
+       return $user->name;               
+   }
+   
+   static function getStatus( $id ){
+       if( empty($id)){
+        return $name = '';
+       }
+       $statuses = new Model_Status();
+       $statuses->id = $id;
+       $statuses->find();
+       return $statuses->name;       
+   }
+    
 }

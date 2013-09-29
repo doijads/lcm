@@ -71,8 +71,8 @@ var clientDetails = {
             success: function(response) {
                 if (response.success) {
                      $("#dialog-form-client").dialog({                 
-                        width:600,
-                        height:300
+                        width:800,
+                        height:500
                     });
                     
                     $("#dialog-form-client").html( response.data );
@@ -94,7 +94,7 @@ var clientDetails = {
             <a href="javascript:void(0)" id="delete_client_'+ data.user_id +'" class="delete-client">Delete</a>&nbsp;&nbsp;\n\
             <a href="#" id="view_client_'+ data.user_id +'" class="view-client">View</a></td>'+        
         '</tr>';        
-        $('#search-table tbody').append(html);
+        $('#search-table tbody').html(html);
          //append all events.
         this.appendEvents();
         

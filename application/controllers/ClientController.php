@@ -35,6 +35,14 @@ class ClientController extends Zend_Controller_Action
                 $this->view->success = "New Client has been added";                
             }                              
        }         
+       
+       //lawyer list
+       $client = new Model_Users();      
+       $clientList = $client->fetchUsersByUserTypes( array(USER_CLIENT) );             
+       if( !empty($clientList) ){           
+           $this->view->clientList = $clientList ;
+       }
+       
        //user(lawyer) registration form
        $searchForm    = new Application_Form_Search();
        //Redirect message from edit action..and display on this action
@@ -63,11 +71,8 @@ class ClientController extends Zend_Controller_Action
         
         $registerForm->getElement('email')->clearValidators(); 
                        
-        //$getUserDetails = App_User::getUserById( $id );               
-        
-        $param = array('u.id'=> $id );
-        
-        $getUserDetails = $user->getUsersById( $param );
+        //$getUserDetails = App_User::getUserById( $id );                                   
+        $getUserDetails = $user->getUsersById( $id );
                                                  
         if( !empty($getUserDetails) ){
             $registerForm->populate($getUserDetails);

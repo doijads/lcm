@@ -36,6 +36,33 @@ class Model_Cases extends App_Model {
         return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
     
+    public function getCaseDetailsByClientId( $clientId ){        
+        $whereClause = "c.client_id = {$clientId}";
+        $strSql = $this->getDbTable()->select()
+                      ->setIntegrityCheck(false)
+                      ->from(array('c' => 'cases'), array('*'))
+                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id')
+                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id')
+                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id')
+                      ->where($whereClause);
+                
+        return $this->getDbTable()->fetchAll($strSql)->toArray();
+        
+    }
+    
+    public function getCaseDetailsByLawyerId( $lawyerId ){
+        $whereClause = "c.lawyer_id = {$lawyerId}";
+        $strSql = $this->getDbTable()->select()
+                      ->setIntegrityCheck(false)
+                      ->from(array('c' => 'cases'), array('*'))
+                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id')
+                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id')
+                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id')
+                      ->where($whereClause);
+                
+        return $this->getDbTable()->fetchAll($strSql)->toArray();
+    }
+    
     public function deleteCase( $uid ) {         
         $userDetailsObj = new Application_Model_UsersdetailMapper();
         $userDetailsObj->getDbTable()->delete('user_id = '. $uid );

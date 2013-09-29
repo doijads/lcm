@@ -67,31 +67,29 @@ class AjaxController extends Zend_Controller_Action
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $clientId = $this->getRequest()->getParam('id');
-        $result = array(
-            'data' => '', 
-            'success' => false,
-        );
-        if (empty($clientId)) {
-            echo json_encode($result);
-            exit(0);
+         
+        //$this->view->action( 'build-client-view', 'client', 'default', $data),
+        $user = new Model_Users();
+        $case = new Model_Cases();
+        
+        if(isset( $clientId )) {        
+            $userDetails = $user->getUsersById( $clientId );
+            $caseDetails = $case->getCaseDetailsByClientId( $clientId );
         }
         
-        //$this->view->action( 'build-client-view', 'client', 'default', $data),
         $data = array(
-            'id' => 123,
-            'name' => 'My test name'
+            'users' => $userDetails,
+            'cases' => $caseDetails
             );
-        
+                 
         $result = array(
             'data' => $this->view->partial('_partials/display-client-details.phtml', array('data' => $data)), 
-            'success' => true
+            'success' => true            
         );
         
         echo json_encode($result);
         exit(0);
     }
     
-    public function displayCaseModalAction() {
-
-    }
+    
 }

@@ -43,7 +43,13 @@ class LawyerController extends Zend_Controller_Action
                 $this->view->success = "New Lawyer has been added";                
             }                              
        }  
-       
+       //lawyer list
+       $lawyer = new Model_Users();      
+       $lawyerList = $lawyer->fetchUsersByUserTypes( array(USER_LAWYER) );             
+       if( !empty($lawyerList) ){           
+           $this->view->lawyerList = $lawyerList ;
+       }
+              
        //user(lawyer) registration form
        $searchForm    = new Application_Form_Search();
        //Redirect message from edit action..and display on this action

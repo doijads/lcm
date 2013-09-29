@@ -9,7 +9,34 @@
     	});
                 
 </script>
-                
+<div id="dataTable">
+  	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+		<thead>
+			<tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile No</th>
+                            <th>Address</th>    
+                            <th></th>    
+                        </tr>
+                </thead>
+                <tbody>
+                    <?php foreach( $this->clientList as $client ) { ?>
+                        <tr> 
+                            <td><?php echo $client['name'];?></td>
+                            <td><?php echo $client['email'];?></td>
+                            <td><?php echo $client['mobile_number'];?> <?php if( $client['home_phone'] ) { echo  '/'.$client['home_phone'] ;}?> </td>
+                            <td><?php echo $client['street_line'];?>,<?php echo $client['city'];?></td>
+                            <td><a href="/client/edit-client/id/<?php echo $client['id'] ?>">Edit </a>|
+                                <a href=""> Delete </a>| 
+                                   <a href="/lawyer/view-client-case/id/">View Case</a> </td> 
+                        </tr>
+                    <?php } ?>
+                         
+                </tbody>
+           </table>                                 
+</div>
+<br/><br/>
 <fieldset>
     <legend>Add Client</legend>    
     <div class="client-form">       
@@ -25,7 +52,7 @@
 </fieldset>
 <br/>
 <div><input type="hidden" id="role_type" value="3"></div>
-<div> 
+<!--<div> 
 <table id="search-table" class="display" cellpadding="0" cellspacing="0" border="0" width="100%"> 
     <thead>
     <tr>
@@ -40,8 +67,7 @@
         <tr id="no-record-tr"><td>No Records <td></tr>
     </tbody>
 </table>
-</div>
+</div>-->
 
 </div>
-
 <div id="dialog-form-client" title="Client Details" style="display: none;"></div>
