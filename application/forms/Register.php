@@ -112,14 +112,19 @@ class Application_Form_Register extends Zend_Form
             'filters'    => array('StringTrim')           
           ));
         
-        $this->addElement('text', 'IFSC_code', array(
-            'label'      => 'IFSC Code',
+        $this->addElement('text', 'bank_name', array(
+            'label'      => 'Bank Name',
+            'required'   => false,
+            'filters'    => array('StringTrim')           
+          ));        
+        $this->addElement('text', 'bank_account_number', array(
+            'label'      => 'Bank Account Number',
             'required'   => false,
             'filters'    => array('StringTrim')           
           ));
         
-        $this->addElement('text', 'bank_account_number', array(
-            'label'      => 'Bank Account Number',
+        $this->addElement('text', 'IFSC_code', array(
+            'label'      => 'IFSC Code',
             'required'   => false,
             'filters'    => array('StringTrim')           
           ));

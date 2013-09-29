@@ -227,3 +227,14 @@ ALTER TABLE `user_details`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Add status for user tables
+--
+ALTER TABLE `user_details` ADD `bank_name` VARCHAR( 50 ) NOT NULL AFTER `area_of_practice` 
+
+ALTER TABLE `users` ADD `status` INT NOT NULL DEFAULT '1' AFTER `created_by` 
+
+ALTER TABLE `cases` ADD `status` INT NOT NULL DEFAULT '1' AFTER `closing_date`
+
+INSERT INTO `lcm`.`status` (`id`, `name`) VALUES ('1', 'pending'), ('2', 'completed') , ('3', 'Approve'),('4', 'In Progress'),('5', 'Active'),('6', 'Decline') ;

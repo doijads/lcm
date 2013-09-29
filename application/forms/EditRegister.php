@@ -103,11 +103,11 @@ class Application_Form_EditRegister extends Application_Form_Register
             'filters'    => array('StringTrim')           
           ));
         
-        $this->addElement('text', 'IFSC_code', array(
-            'label'      => 'IFSC Code',
+       $this->addElement('text', 'bank_name', array(
+            'label'      => 'Bank Name',
             'required'   => false,
             'filters'    => array('StringTrim')           
-          ));
+          ));    
         
         $this->addElement('text', 'bank_account_number', array(
             'label'      => 'Bank Account Number',
@@ -115,6 +115,12 @@ class Application_Form_EditRegister extends Application_Form_Register
             'filters'    => array('StringTrim')           
           ));
         
+        $this->addElement('text', 'IFSC_code', array(
+            'label'      => 'IFSC Code',
+            'required'   => false,
+            'filters'    => array('StringTrim')           
+          ));
+                
          $this->addElement('text', 'service_tax_number', array(
             'label'      => 'Service Tax Number',
             'required'   => false,

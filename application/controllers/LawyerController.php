@@ -21,7 +21,11 @@ class LawyerController extends Zend_Controller_Action
                 $data = $request->getPost();
                 $user = new Model_Users($data); 
                 //set user role as 2 for lawyer
-                $user->user_type = USER_LAWYER ;                                                  
+                $user->user_type = USER_LAWYER ;
+                if( isset($data['password']) ){
+                    $user->password  = md5($data['password']);
+                }
+                                                
                 $user->save();
                 if ($user->id) {
                     $data['user_id'] = $user->id;
@@ -65,11 +69,9 @@ class LawyerController extends Zend_Controller_Action
         $registerForm->getElement('email')->clearValidators(); 
                        
         //$getUserDetails = App_User::getUserById( $id );               
+                        
+        $getUserDetails = $user->getUsersById( $id );
         
-        $param = array('u.id'=> $id );
-        
-        $getUserDetails = $user->getUsersById( $param );
-                                                 
         if( !empty($getUserDetails) ){
             $registerForm->populate($getUserDetails);
         }

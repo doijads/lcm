@@ -1,11 +1,10 @@
-<?php echo 'hello:'. $this->data['id'] . ' ' .$this->data['name']; ?>
 <table id="client-details-table">
     <tbody>
-        <tr><th>Name</th> <td> Sachin </td></tr>
-        <tr><th>Email</th> <td> sachin@cybage.com</td></tr>
-        <tr><th>Contact Person</th> <td> anyone </td></tr>        
-        <tr><th>Contact Number</th> <td> Sachin </td></tr>
-        <tr><th>Address</th> <td> Sachin </td></tr>
+        <tr><th>Name</th> <td> <?php echo $this->data['users']['name']; ?> </td></tr>
+        <tr><th>Email</th> <td> <?php echo $this->data['users']['email']; ?> </td></tr>
+        <tr><th>Contact Person</th> <td> <?php echo $this->data['users']['contact_person']; ?> </td></tr>        
+        <tr><th>Contact Number</th> <td> <?php echo $this->data['users']['mobile_number']; ?>,<?php echo $this->data['users']['home_phone']; ?> </td></tr>
+        <tr><th>Address</th> <td><?php echo $this->data['users']['street_line']; ?><?php echo $this->data['users']['city']; ?></td></tr>
         <tr><th>Bank Details</th> <td> Sachin </td></tr>        
     </tbody>
 </table>    

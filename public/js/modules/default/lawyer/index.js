@@ -90,7 +90,7 @@ var lawyerDetails = {
         '<td>'+data.street_line+','+ data.city +'</td>' +
         '<td style="float:right">\n\
                <a href="/lawyer/edit-lawyer/id/'+ data.user_id +'" id="edit_lawyer_'+ data.user_id +'" class="edit-lawyer">Edit</a>&nbsp;&nbsp;\n\
-               <a href="javascript:void(0)" id="delete_lawyer_'+ data.user_id +'" class="delete-lawyer">Delete</a>\n\\n\
+               <a href="javascript:void(0)" id="delete_lawyer_'+ data.user_id +'" class="delete-lawyer">Delete</a>\n\
                <a href="#" id="view_lawyer_'+ data.user_id +'" class="view-lawyer">View</a>\n\
         </td>'+                       
         '</tr>';        

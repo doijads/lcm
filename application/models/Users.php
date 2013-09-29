@@ -64,7 +64,25 @@ class Model_Users extends App_Model {
     }
 
     
-    public function getUsersById($params) {
+    public function getUsersById( $id ){
+        if( empty($id) ){
+            return;
+        }
+        
+        $whereClause = "u.id = {$id}";        
+        $sql = $this->getDbTable()->select()
+                ->setIntegrityCheck(false)
+                ->from(array('u' => 'users'), array('*'))
+                ->join(array('ud' => 'user_details'), 'ud.user_id = u.id' )
+                ->where($whereClause);
+                
+                 
+        $userData = $this->getDbTable()->fetchAll($sql);
+ 
+        return $userData[0]->toArray();
+    }
+    
+    public function getUsersByProperty($params) {
         
        $conditions = array();
         if (!empty($params)) {

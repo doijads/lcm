@@ -170,3 +170,30 @@ input[type="text"]#email ,input[type="password"]#password{
     text-align: right;
     width: 40%;
 }
+
+.ui-datepicker-trigger{
+    padding:0px 3px;
+}
+
+table.dataTable{
+    
+}
+
+table.dataTable tr th{
+    background: none repeat scroll 0 0 #3A3E41;
+    border: 1px solid #767B7F;
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.05) inset;
+    color: #FAFAFA;
+    font-weight: normal !important;
+    padding: 8px !important;
+ 
+ }
+ table.dataTable tr td{
+     padding: 5px !important;
+ }
+ 
+ .action-link {
+     font-size:11px;
+     font-style: italic
+ }
+ 
