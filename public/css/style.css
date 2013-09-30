@@ -161,8 +161,8 @@ input[type="text"]#email ,input[type="password"]#password{
     font-size: 12px;
     font-weight: normal;
     border: 1px solid;
-    width: 70%;
-    margin:7px 0px;    
+    width: 100%;    
+    margin:auto;    
 }
 
 #client-details-table th{

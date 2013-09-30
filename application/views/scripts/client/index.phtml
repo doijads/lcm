@@ -23,7 +23,7 @@
                 <tbody>
                     <?php foreach( $this->clientList as $client ) { ?>
                         <tr> 
-                            <td><?php echo $client['name'];?></td>
+                            <td><a href="#" class ="view-client" id="view_client_<?php echo $client['id']?>"><?php echo $client['name'];?></a></td>
                             <td><?php echo $client['email'];?></td>
                             <td><?php echo $client['mobile_number'];?> <?php if( $client['home_phone'] ) { echo  '/'.$client['home_phone'] ;}?> </td>
                             <td><?php echo $client['street_line'];?>,<?php echo $client['city'];?></td>

@@ -23,7 +23,7 @@
                 <tbody>
                     <?php foreach( $this->lawyerList as $lawyer ) { ?>
                         <tr> 
-                            <td><?php echo $lawyer['name'];?></td>
+                            <td><a href="#" class ="view-lawyer" id="view_lawyer_<?php echo $lawyer['id']?>"><?php echo $lawyer['name'];?></a></td>
                             <td><?php echo $lawyer['email'];?></td>
                             <td><?php echo $lawyer['mobile_number'];?> <?php if(  $lawyer['home_phone'] ) { echo  '/'.$lawyer['home_phone'] ;}?> </td>
                             <td><?php echo $lawyer['street_line'];?>,<?php echo $lawyer['city'];?></td>
@@ -70,3 +70,6 @@
 </div>
 
 </div>
+
+
+<div id="dialog-form-lawyer" title="Lawyer Details" style="display: none;"></div>

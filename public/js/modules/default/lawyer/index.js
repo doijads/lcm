@@ -1,6 +1,11 @@
 $(function(){    
     lawyerDetails.init();     
     $('.success_message').delay(3500).fadeOut();
+    $(".view-lawyer").on('click',function(){
+            var lawyerId = $(this).attr('id').replace('view_lawyer_', '');                       
+            lawyerDetails.viewLawyer(lawyerId);
+   });
+   
 });
 
 //Here All the js functions will be releated to Lawyer Only
@@ -25,7 +30,7 @@ var lawyerDetails = {
 //                }
 //            });                                     
 //        });
-                        
+                                
         //Search and Display Lawyer        
         $("#searchbutton").click(function() {             
             var userName  = $.trim($('#searchname').val()) ;
@@ -80,6 +85,27 @@ var lawyerDetails = {
             }
         });
     },
+    
+    viewLawyer: function(lawyerId) {
+        var param = {'id': lawyerId};
+        $.ajax({
+            url: '/ajax/display-lawyer-modal/',
+            type: 'POST',
+            data: param,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    $("#dialog-form-lawyer").dialog({
+                        width: 500,
+                        height: 400
+                    });
+
+                    $("#dialog-form-lawyer").html(response.data);
+                }
+            }
+        });
+    },
+
    renderData: function(id, data) {              
         $("#no-record-tr").remove();                      
         var html =

@@ -1,6 +1,11 @@
 $(function(){                                  
     clientDetails.init();     
     $('.success_message').delay(4000).fadeOut();
+    $(".view-client").on('click',function(){
+            var clientId = $(this).attr('id').replace('view_client_', '');                       
+            clientDetails.viewClient(clientId);
+   });   
+        
 });
 
 //Here All the js functions will be releated to Lawyer Only
@@ -71,8 +76,8 @@ var clientDetails = {
             success: function(response) {
                 if (response.success) {
                      $("#dialog-form-client").dialog({                 
-                        width:800,
-                        height:500
+                        width:500,
+                        height:400
                     });
                     
                     $("#dialog-form-client").html( response.data );
@@ -96,20 +101,22 @@ var clientDetails = {
         '</tr>';        
         $('#search-table tbody').html(html);
          //append all events.
-        this.appendEvents();
+        //this.appendEvents();
         
-   },
+   }
     
-   appendEvents : function() {
-        $(".delete-client").on('click',function(){
-            var clientId = $(this).attr('id').replace('delete_client_', ''); 
-            clientDetails.deleteClient(clientId);
-        });
-        
-        $(".view-client").on('click',function(){
-            var clientId = $(this).attr('id').replace('view_client_', '');                       
-            clientDetails.viewClient(clientId);
-        });        
-   }                                  
+//   appendEvents : function() {
+//        $(".delete-client").on('click',function(){
+//            var clientId = $(this).attr('id').replace('delete_client_', ''); 
+//            clientDetails.deleteClient(clientId);
+//        });
+//        
+//        $(".view-client").on('click',function(){
+//            var clientId = $(this).attr('id').replace('view_client_', '');                       
+//            clientDetails.viewClient(clientId);
+//        });        
+//   }                                  
+   
 };
+
 

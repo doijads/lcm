@@ -1,23 +1,20 @@
-<div id="sidebar1">
+    <div id="sidebar1">
     
    <div class="sidebar1_contents">
         <h2>Get Started with..</h2>
         <ul>             
             <?php if( App_Auth::getUserRole() == USER_ADMIN  ||  App_Auth::getUserRole() == USER_CLIENT ) : ?>
-                <li><a href="#">Client's Panel</a></li>
-                <li><a href="#">My Case Details</a></li>  
+                <li><a href="/client">Client's Panel</a></li>                 
             <?php endif;?>
                 
             <?php if( App_Auth::getUserRole() == USER_ADMIN  ||  App_Auth::getUserRole() == USER_LAWYER ) : ?>
-                <li><a href="#">Lawyer's Panel</a></li>            
-                <li><a href="#">My Cases</a></li> 
+                <li><a href="/lawyer">Lawyer's Panel</a></li>                           
             <?php endif;?>
                 
             <?php if( App_Auth::getUserRole() == USER_ADMIN  ||  App_Auth::getUserRole() == USER_ACCOUNTANT ) : ?>
                 <li><a href="#">Account Details</a></li>                        
             <?php endif;?>
-            
-            <li><a href="#">Overview</a></li>
+                        
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact Details</a></li>
         </ul>

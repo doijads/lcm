@@ -69,21 +69,43 @@ class AjaxController extends Zend_Controller_Action
         $clientId = $this->getRequest()->getParam('id');
          
         //$this->view->action( 'build-client-view', 'client', 'default', $data),
-        $user = new Model_Users();
-        $case = new Model_Cases();
+        $user = new Model_Users();        
         
         if(isset( $clientId )) {        
-            $userDetails = $user->getUsersById( $clientId );
-            $caseDetails = $case->getCaseDetailsByClientId( $clientId );
+            $userDetails = $user->getUsersById( $clientId );           
         }
         
         $data = array(
-            'users' => $userDetails,
-            'cases' => $caseDetails
+            'users' => $userDetails            
             );
                  
         $result = array(
             'data' => $this->view->partial('_partials/display-client-details.phtml', array('data' => $data)), 
+            'success' => true            
+        );
+        
+        echo json_encode($result);
+        exit(0);
+    }
+    
+    public function displayLawyerModalAction(){
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout()->disableLayout();
+        $lawyerId = $this->getRequest()->getParam('id');
+         
+        //$this->view->action( 'build-client-view', 'client', 'default', $data),
+        $user = new Model_Users();        
+        
+        if(isset( $lawyerId )) {        
+            $userDetails = $user->getUsersById( $lawyerId );           
+        }
+        
+        $data = array(
+            'users' => $userDetails            
+            );
+                 
+        $result = array(
+            'data' => $this->view->partial('_partials/display-lawyer-details.phtml', array('data' => $data)), 
             'success' => true            
         );
         
