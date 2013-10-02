@@ -36,19 +36,19 @@ class Application_Form_CaseRegister extends Zend_Form {
 		
 		$dateOfAllotment = new Zend_Dojo_Form_Element_DateTextBox('date_of_allotment');
 		$dateOfAllotment->setLabel('Date of Allotment:');
-		$dateOfAllotment->setAttrib( 'class','datepicker' );
+		$dateOfAllotment->setAttrib( 'class','datePicker' );
 		$dateOfAllotment->addValidator(new Zend_Validate_Date());
 		$this->addElement($dateOfAllotment);
 	
 		$dueDate = new Zend_Dojo_Form_Element_DateTextBox('due_date');
 		$dueDate->setLabel('Due Date:');
-		$dueDate->setAttrib( 'class','datepicker' );
+		$dueDate->setAttrib( 'class','datePicker' );
 		$dueDate->addValidator(new Zend_Validate_Date());
 		$this->addElement($dueDate);
 	
 		$closingDate = new Zend_Dojo_Form_Element_DateTextBox('closing_date');
 		$closingDate->setLabel('Closing Date:');
-		$closingDate->setAttrib( 'class','datepicker' );
+		$closingDate->setAttrib( 'class','datePicker' );
 		$closingDate->addValidator(new Zend_Validate_Date());
 		$this->addElement($closingDate);
 

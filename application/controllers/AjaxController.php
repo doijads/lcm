@@ -1,14 +1,13 @@
 <?php
 
-class AjaxController extends Zend_Controller_Action
-{
+class AjaxController extends Zend_Controller_Action {
 
-    public function init()
-    {
+    public function init() {
         /* Initialize action controller here */
     }
 
-    public function getUsersAction(){    
+    public function getUsersAction() {
+
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $request = $this->getRequest();
@@ -39,9 +38,9 @@ class AjaxController extends Zend_Controller_Action
         exit(0);       
         //$this->asJSON();        
     }
-   
     
-    public function deleteUserAction(){
+    public function deleteUserAction() {
+
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $request = $this->getRequest();
@@ -63,7 +62,8 @@ class AjaxController extends Zend_Controller_Action
         exit(0);
     }
     
-    public function displayClientModalAction(){
+    public function displayClientModalAction() {
+
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $clientId = $this->getRequest()->getParam('id');
@@ -88,7 +88,8 @@ class AjaxController extends Zend_Controller_Action
         exit(0);
     }
     
-    public function displayLawyerModalAction(){
+    public function displayLawyerModalAction() {
+
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
         $lawyerId = $this->getRequest()->getParam('id');
@@ -113,5 +114,45 @@ class AjaxController extends Zend_Controller_Action
         exit(0);
     }
     
-    
+    public function displayCaseModalAction() {
+
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout()->disableLayout();
+        $caseId = 21;//$this->getRequest()->getParam('id');
+
+        $case = new Model_Cases();        
+        
+        if( isset( $caseId ) ) {        
+            $getCaseDetails = $case->getCases( array( 'id' => (int) $caseId ) );
+        }
+
+        if( !empty($getCaseDetails) && 1 == count( $getCaseDetails ) ){
+            $getCaseDetails = array_pop( $getCaseDetails );
+        }else{
+            $this->view->error = "Case not found.";   
+        }
+        
+        $data = array(
+            'case' => $getCaseDetails            
+            );
+        
+        $user = new Model_Users();
+        $fetchRow = $user->fetchUsersByUserTypes( array( USER_LAWYER, USER_CLIENT, USER_ADMIN, USER_ADMINISTRATOR ) );
+        
+        $arrUserRekeyedByUserType = array();
+        
+        if( true == is_array( $fetchRow ) ) {
+            foreach( $fetchRow as $arrUser ) {
+                $arrUserRekeyedByUserType[$arrUser['user_type']][$arrUser['id']] = $arrUser['name'];
+            }
+        }       
+
+        $result = array(
+            'data' => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $data, 'users' => $arrUserRekeyedByUserType )), 
+            'success' => true            
+        );
+        
+        echo json_encode($result);
+        exit(0);
+    }
 }

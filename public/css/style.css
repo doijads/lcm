@@ -212,4 +212,6 @@ table.dataTable tr th{
     padding: 10px 6px;
     width: 45%;
 }
-
+table.dataTable td{
+    text-align: center;
+}

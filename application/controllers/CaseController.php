@@ -6,10 +6,10 @@ class CaseController extends Zend_Controller_Action {
 
         ini_alter('date.timezone','Asia/Calcutta');
 
-        $user = new Model_Cases();
+        $case = new Model_Cases();
         $refUser = ( App_User::get('user_type') == USER_LAWYER ) ? 'lawyer_id' : 'client_id';
         $param = ( true == in_array( App_User::get('user_type'), array( USER_LAWYER, USER_CLIENT ) ) ) ? array( $refUser => App_User::get('id') ) : array();
-        $this->view->dataList = $user->getCases( $param );
+        $this->view->dataList = $case->getCases( $param );
 
         $user = new Model_Users();
         $fetchRow = $user->fetchUsersByUserTypes( array( USER_LAWYER, USER_CLIENT, USER_ADMIN, USER_ADMINISTRATOR ) );
@@ -51,13 +51,25 @@ class CaseController extends Zend_Controller_Action {
        }
     }
     
-    public function editCaseAction() {    
+    public function editCaseAction() {
 
         $request = $this->getRequest();
-        $id = $request->getParams('id');
+        $id = $request->getParam( 'id' );
+
         $case    		= new Model_Cases();
         $registerForm   = new Application_Form_CaseRegister();
-        $registerForm->submit->setLabel('Edit');
+
+        $getCaseDetails = $case->getCases( array( 'id' => (int) $id ) );
+
+        if( !empty($getCaseDetails) && 1 == count( $getCaseDetails ) ){
+            $getCaseDetails = array_pop( $getCaseDetails );
+            $registerForm->populate($getCaseDetails);
+        }else{
+            $this->view->error = "Case not found.";   
+        }
+        
+        $registerForm->submit->setLabel('Update');
+        $this->view->registerForm  = $registerForm; 
         
         if($request->isPost()){
             $formData =  $request->getPost();      

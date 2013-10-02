@@ -73,7 +73,7 @@ class ClientController extends Zend_Controller_Action
                        
         //$getUserDetails = App_User::getUserById( $id );                                   
         $getUserDetails = $user->getUsersById( $id );
-                                                 
+        print_r($getUserDetails);                          
         if( !empty($getUserDetails) ){
             $registerForm->populate($getUserDetails);
         }
