@@ -1,17 +1,30 @@
 <?php
 
 class Model_Cases extends App_Model {
-	
+	 
+    const CASE_REGISTER = 1;
+    const CASE_HISTORY  = 2;
+    const CASE_DOCUMENT = 3;
+    const CASE_BUDGET   = 4;
+   
     protected $_tableClass = 'Model_DbTable_Cases';
     
-    public function save( $formData ) {
+   public function save( $formData ) {
         if( empty( $formData ) ){
             return false;
         }
         unset( $formData['submit'] );
-        $userRow = $this->getDbTable()->insert($formData);
+        return $this->getDbTable()->insert($formData);
     }
  
+    public function update( $data = null ) {
+        if( is_array( $data ) ) {
+            $this->setOptions( $data );  
+        }
+         
+        return parent::update( $data );
+    }
+
     public function getCases( $params ) {
         $conditions = array();
       

@@ -1,7 +1,7 @@
 <?php
 
 class Model_DbTable_Cases extends App_DbTable {
-
+    
     /** Table name */
     protected $_name = 'cases';
 

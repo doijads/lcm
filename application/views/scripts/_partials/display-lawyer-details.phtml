@@ -3,17 +3,17 @@
 <table id="client-details-table">    
     <tbody>
         <tr><th colspan="2" style="text-align:left">Personal Info</th></tr>
-        <tr><th>Name</th> <td> <?php echo $this->data['users']['name']; ?> </td></tr>
-        <tr><th>Email</th> <td> <?php echo $this->data['users']['email']; ?> </td></tr>
-        <tr><th>Contact Person</th> <td> <?php echo $this->data['users']['contact_person']; ?> </td></tr>        
-        <tr><th>Contact Number</th> <td> <?php echo $this->data['users']['mobile_number']; ?>,<?php echo $this->data['users']['home_phone']; ?> </td></tr>
-        <tr><th>Address</th> <td><?php echo $this->data['users']['street_line']; ?>,<?php echo $this->data['users']['city']; ?></td></tr>
+        <tr><th>Name</th> <td> <?php echo getElement( 'name', $this->data['users'] ); ?> </td></tr>
+        <tr><th>Email</th> <td> <?php echo getElement( 'email', $this->data['users'] ); ?> </td></tr>
+        <tr><th>Contact Person</th> <td> <?php echo getElement( 'contact_person', $this->data['users'] ); ?> </td></tr>        
+        <tr><th>Contact Number</th> <td> <?php echo getElement( 'mobile_number', $this->data['users'] ); ?>,<?php echo getElement( 'home_phone', $this->data['users'] ); ?> </td></tr>
+        <tr><th>Address</th> <td><?php echo getElement( 'street_line', $this->data['users'] ); ?>,<?php echo getElement( 'city', $this->data['users'] ); ?></td></tr>
         
         <tr><th colspan="2" style="text-align:left">Bank Details</th></tr>
-        <tr><th>Name of the Bank</th> <td><?php echo $this->data['users']['bank_name']; ?></td></tr>
-        <tr><th>Account Number</th> <td><?php echo $this->data['users']['bank_account_number']; ?></td></tr> 
-        <tr><th>IFSC Code</th> <td><?php echo $this->data['users']['IFSC_code']; ?></td></tr> 
-        <tr><th>Pan Number</th> <td><?php echo $this->data['users']['pan_card_number']; ?></td></tr> 
+        <tr><th>Name of the Bank</th> <td><?php echo getElement( 'bank_name', $this->data['users'] ); ?></td></tr>
+        <tr><th>Account Number</th> <td><?php echo getElement( 'bank_account_number', $this->data['users'] ); ?></td></tr> 
+        <tr><th>IFSC Code</th> <td><?php echo getElement( 'IFSC_code', $this->data['users'] ); ?></td></tr> 
+        <tr><th>Pan Number</th> <td><?php echo getElement( 'pan_card_number', $this->data['users'] ); ?></td></tr> 
     </tbody>
 </table>  
 <?php endif ;?>

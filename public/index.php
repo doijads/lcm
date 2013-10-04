@@ -19,6 +19,7 @@ defined('PUBLIC_PATH') || define('PUBLIC_PATH', dirname(__FILE__));
 
 /** Zend_Application */
 require_once 'Zend/Application.php';
+require_once APPLICATION_PATH . '/controllers/CommonFunctions.php';
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(

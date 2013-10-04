@@ -57,9 +57,10 @@
 
 					$strTable .='<td id="' . $arrCase['id'] .'" class="action">
 								 	<a href="#" id="View">View</a> | 
-								 	<a href="edit-case/id/' . $arrCase['id'] . '" id="Edit">Edit</a> | 
-								 	<a href="#" id="Add Details">Add Details</a> | 
-								 	<a href="#" id="Add Budget">Add Budget</a> | 
+								 	<a href="edit/id/' . $arrCase['id'] . '" id="Edit">Edit</a> | 
+								 	<a href="history/case_id/' . $arrCase['id'] . '" id="Add Details">Add Details</a> | 
+								 	<a href="document/case_id/' . $arrCase['id'] . '" id="Upload Documents">Upload Documents</a> | 
+								 	<a href="budget/case_id/' . $arrCase['id'] . '" id="Add Budget">Add Budget</a> | 
 								 	<a href="#" id="Delete">Delete</a>
 								 </td></tr>';	
 				}
