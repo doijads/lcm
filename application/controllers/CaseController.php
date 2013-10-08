@@ -2,9 +2,7 @@
 
 class CaseController extends Zend_Controller_Action {
 
-    public function init() {
-        ini_alter('date.timezone','Asia/Calcutta');
-    }
+    public function init() { }
     
     public function indexAction() {    
 
@@ -96,7 +94,22 @@ class CaseController extends Zend_Controller_Action {
     
     public function documentAction() {
         $request = $this->getRequest();
-        $registerForm = $this->loadCase( $request->getParam( 'case_id' ) );
+        $registerForm = $this->loadCase( $case_id = $request->getParam( 'case_id' ) );
+        $this->view->registerForm  = $registerForm;
+
+        if( $request->isPost() && $registerForm->isValid( $request->getPost() ) ) {
+            $data = $request->getPost();
+            //move_uploaded_file(filename, destination)
+            $data['case_id'] = $case_id ;
+            $caseHistory = new Model_CaseDocuments();
+
+            $data['uploaded_by']   = App_User::get('id');
+            $data['uploaded_on']   = date('Y-m-d');
+
+            $caseHistory->save( $data );                
+            $registerForm->reset(); 
+            $this->view->success = "Case document uploaded successfully for case id[" . $case_id. "]";
+        }
     }
 
     public function budgetAction() {
@@ -116,7 +129,7 @@ class CaseController extends Zend_Controller_Action {
 
             $caseTransaction->save( $data );                
             $registerForm->reset(); 
-            $this->view->success = "Case expense added successfully for case id[" . $case_id. "]";
+            $this->view->success = "Case expense added successfully for case id[" . $case_id . "]";
         }
     }
 
@@ -144,6 +157,11 @@ class CaseController extends Zend_Controller_Action {
 
        if( !empty($getCaseDetails) && 1 == count( $getCaseDetails ) ) {
             $getCaseDetails = array_pop( $getCaseDetails );
+            foreach( $getCaseDetails as $strKey => &$mixValue) {
+                if( true == is_integer( stripos( $strKey, 'date' ) ) ) { 
+                    $mixValue = ( 0 < strtotime( $mixValue ) ) ? date( 'Y-m-d', strtotime( $mixValue ) ) : NULL;
+                }
+            }
             $registerForm->populate( $getCaseDetails );
         }else{
             $registerForm = NULL;

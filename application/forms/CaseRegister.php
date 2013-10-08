@@ -107,6 +107,8 @@ class Application_Form_CaseRegister extends Zend_Form {
 		$this->addElement('textarea', 'content', array(
 									            'label'      => 'Details:',
 									            'required'   => true,
+									            'cols'		 => 20,
+												'rows'		 => 10,
 									            'filters'    => array('StringTrim')           
         ));
 
@@ -118,7 +120,30 @@ class Application_Form_CaseRegister extends Zend_Form {
 	}
 
 	private function loadDocument() {
-		echo 'case document';
+		$this->addElement('file', 'document`', array(
+										            'label'      => 'Select Document:',
+										            'required'   => true,
+										            'filters'    => array('StringTrim')           
+        ));
+
+        $this->addElement('text', 'name', array(
+											            'label'      => 'Document Name:',
+											            'required'   => true,
+											            'filters'    => array('StringTrim')           
+        ));
+
+        $this->addElement('textarea', 'details', array(
+												            	'label'      => 'Document Detail:',
+													            'required'   => true,
+													            'cols'		 => 20,
+													            'rows'		 => 10,
+													            'filters'    => array('StringTrim')           
+        ));
+    	// Add the submit button
+		$this->addElement('submit', 'submit', array(
+													'ignore'   => true,
+													'label'    => 'Upload Document'
+											));
 	}
 
 	private function loadBudget() {
@@ -138,6 +163,8 @@ class Application_Form_CaseRegister extends Zend_Form {
 		$this->addElement('textarea', 'transaction_details', array(
 									            'label'      => 'Details:',
 									            'required'   => true,
+									            'cols'		 => 20,
+												'rows'		 => 10,
 									            'filters'    => array('StringTrim')           
         ));
 

@@ -11,12 +11,12 @@
 						}else {
 							echo '<th style="width:110;"> Lawyer </th><th style="width:110;"> Client </th>';
 						}						
-					?>
-					<th> Date of Allotment</th>
-					<th> Due Date </th>
-					<th> Closed By </th>
-					<th> Closing Date </th>
-					<th> Action</th>
+					 ?>
+					<th>Amount Receiveable</th>
+					<th>Amount Payable</th>
+					<th>Total Expense</th>
+					<th>Status</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,27 +41,26 @@
 									 		. $this->userList[USER_CLIENT][$arrCase['client_id']] .'</a></td>';
 					}
 					
-					$strDateOfAllotment = ( false == is_null( $arrCase['date_of_allotment'] ) ) 
-											? date( 'm/d/Y', strtotime( $arrCase['date_of_allotment'] ) ) : '';
-					$strDueDate 		= ( false == is_null( $arrCase['due_date'] ) ) 
-											? date( 'm/d/Y', strtotime( $arrCase['due_date'] ) ) : '';
-					$strClosingDate 	= ( false == is_null( $arrCase['closing_date'] ) ) 
-											? date( 'm/d/Y', strtotime( $arrCase['closing_date'] ) ) : 'N/A';
-					$strClosedBy		= ( false == is_null( $arrCase['closing_date'] ) ) 
-											? $this->userList[USER_ADMIN][$arrCase['closed_by']] : 'N/A';
+					$fltAmountReceiveable = $fltAmountPayable = 5;
+					$fltTotalExpense 	  = $fltAmountReceiveable + $fltAmountPayable;
+					$strClosed			= ( false == is_null( $arrCase['closing_date'] ) ) 
+											? 'Closed' : 'Open';
 
-					$strTable .='<td>' . $strDateOfAllotment . '</td>
-								 <td>' . $strDueDate . '</td>
-								 <td>' . $strClosedBy . '</td>
-								 <td>' . $strClosingDate . '</td>';
+					$strTable .='<td>' . $fltAmountReceiveable . '</td>
+								 <td>' . $fltAmountPayable . '</td>
+								 <td>' . $fltTotalExpense . '</td>
+								 <td>' . $strClosed . '</td>';
 
 					$strTable .='<td id="' . $arrCase['id'] .'" class="action">
 								 	<a href="#" id="View">View</a> | 
 								 	<a href="edit/id/' . $arrCase['id'] . '" id="Edit">Edit</a> | 
-								 	<a href="history/case_id/' . $arrCase['id'] . '" id="Add Details">Add Details</a> | 
-								 	<a href="document/case_id/' . $arrCase['id'] . '" id="Upload Documents">Upload Documents</a> | 
-								 	<a href="budget/case_id/' . $arrCase['id'] . '" id="Add Budget">Add Budget</a> | 
-								 	<a href="#" id="Delete">Delete</a>
+								 	<a href="#" id="Delete">Delete</a> |
+							 		<span style="display:none;">More</span>
+							 		<span class="other_action" style="display:block;">
+									 	<a href="history/case_id/' . $arrCase['id'] . '" id="Add Details">Add Details</a> | 
+									 	<a href="document/case_id/' . $arrCase['id'] . '" id="Upload Documents">Upload Documents</a> | 
+									 	<a href="budget/case_id/' . $arrCase['id'] . '" id="Add Budget">Add Budget</a>
+									 </span>
 								 </td></tr>';	
 				}
 			echo $strTable; ?>	

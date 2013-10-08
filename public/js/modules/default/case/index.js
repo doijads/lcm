@@ -30,6 +30,7 @@ $(document).ready(function() {
                       }
                   },
                   error: function( error ) {
+                    alert(id);
                       console.log(error);
                   }
               }); 

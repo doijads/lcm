@@ -80,7 +80,7 @@ class AjaxController extends Zend_Controller_Action {
             );
                  
         $result = array(
-            'data' => $this->view->partial('_partials/display-client-details.phtml', array('data' => $data)), 
+            'data'    => $this->view->partial('_partials/display-client-details.phtml', array('data' => $data)), 
             'success' => true            
         );
         
@@ -106,7 +106,7 @@ class AjaxController extends Zend_Controller_Action {
             );
                  
         $result = array(
-            'data' => $this->view->partial('_partials/display-lawyer-details.phtml', array('data' => $data)), 
+            'data'    => $this->view->partial('_partials/display-lawyer-details.phtml', array('data' => $data)), 
             'success' => true            
         );
         
@@ -118,25 +118,56 @@ class AjaxController extends Zend_Controller_Action {
 
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout()->disableLayout();
-        $caseId = 21;//$this->getRequest()->getParam('id');
+
+        $request  = $this->getRequest();
+        $caseId   = $request->getParam('id');
 
         $case = new Model_Cases();        
         
         if( isset( $caseId ) ) {        
-            $getCaseDetails = $case->getCases( array( 'id' => (int) $caseId ) );
+            $getCaseDetails = $case->getCaseDetailsById( (int) $caseId );
         }
 
-        if( !empty($getCaseDetails) && 1 == count( $getCaseDetails ) ){
-            $getCaseDetails = array_pop( $getCaseDetails );
-        }else{
-            $this->view->error = "Case not found.";   
+        if( empty( $getCaseDetails ) ) {
+            $this->view->error = "Case not found.";
+            return;
+        }else {
+            foreach( $getCaseDetails as $arrCaseDetail ) {
+                $case          = array(
+                                        'date_of_allotment' => $arrCaseDetail['date_of_allotment'],
+                                        'due_date'          => $arrCaseDetail['due_date'],
+                                        'closed_by'         => $arrCaseDetail['closed_by'],
+                                        'closing_date'      => $arrCaseDetail['closing_date'] );
+
+                $caseHistory[] = array( 
+                                        'hearing_date'      => $arrCaseDetail['hearing_date'],
+                                        'next_hearing_date' => $arrCaseDetail['next_hearing_date'],
+                                        'judge_name'        => $arrCaseDetail['judge_name'],
+                                        'content'           => $arrCaseDetail['content'] );
+ 
+                $caseBudget[] = array( 
+                                        'transaction_type_id'  => $arrCaseDetail['transaction_type_id'],
+                                        'amount'               => $arrCaseDetail['amount'],
+                                        'submission_date'      => $arrCaseDetail['submission_date'],
+                                        'submitted_by'         => $arrCaseDetail['submitted_by'],
+                                        'approved_by'          => $arrCaseDetail['approved_by'],
+                                        'transaction_details'  => $arrCaseDetail['transaction_details'] ); 
+
+                $caseDocument[] = array( 
+                                        'name'         => $arrCaseDetail['name'],
+                                        'path'         => $arrCaseDetail['path'],
+                                        'details'      => $arrCaseDetail['details'],
+                                        'uploaded_by'  => $arrCaseDetail['uploaded_by'],
+                                        'uploaded_on'  => $arrCaseDetail['uploaded_on'] );
+                $arrCaseDetails = array( 
+                                         'case'         => $case,
+                                         'history'      => $caseHistory,
+                                         'budget'       => $caseBudget,
+                                         'documents'    => $caseDocument );
+            }
         }
         
-        $data = array(
-            'case' => $getCaseDetails            
-            );
-        
-        $user = new Model_Users();
+        $user     = new Model_Users();
         $fetchRow = $user->fetchUsersByUserTypes( array( USER_LAWYER, USER_CLIENT, USER_ADMIN, USER_ADMINISTRATOR ) );
         
         $arrUserRekeyedByUserType = array();
@@ -148,7 +179,7 @@ class AjaxController extends Zend_Controller_Action {
         }       
 
         $result = array(
-            'data' => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $data, 'users' => $arrUserRekeyedByUserType )), 
+            'data'    => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $arrCaseDetails, 'users' => $arrUserRekeyedByUserType ) ), 
             'success' => true            
         );
         

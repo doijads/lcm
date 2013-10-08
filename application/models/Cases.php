@@ -76,6 +76,20 @@ class Model_Cases extends App_Model {
         return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
     
+     public function getCaseDetailsById( $Id ){        
+        $whereClause = "c.id = {$Id}";
+        $strSql = $this->getDbTable()->select()
+                      ->setIntegrityCheck(false)
+                      ->from(array('c' => 'cases'), array('*'))
+                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id')
+                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id')
+                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id')
+                      ->where($whereClause);
+                
+        return $this->getDbTable()->fetchAll($strSql)->toArray();
+        
+    }
+
     public function deleteCase( $uid ) {         
         $userDetailsObj = new Application_Model_UsersdetailMapper();
         $userDetailsObj->getDbTable()->delete('user_id = '. $uid );

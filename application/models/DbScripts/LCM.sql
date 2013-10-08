@@ -49,7 +49,9 @@ CREATE TABLE IF NOT EXISTS `cases` (
 CREATE TABLE IF NOT EXISTS `case_documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `case_id` int(11) NOT NULL,
-  `document_name` varchar(25) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `path` varchar(25) NOT NULL,
+  `details` varchar(200) NOT NULL,
   `uploaded_by` int(11) NOT NULL,
   `uploaded_on` datetime NOT NULL,
   PRIMARY KEY (`id`),
