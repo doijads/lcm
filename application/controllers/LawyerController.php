@@ -70,15 +70,12 @@ class LawyerController extends Zend_Controller_Action
         
         $user = new Model_Users();
         
-        $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client'));
-        
-        $registerForm->getElement('email')->clearValidators(); 
-                       
-        //$getUserDetails = App_User::getUserById( $id );               
-                        
+        $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'lawyer'));        
+        $registerForm->getElement('email')->clearValidators();                        
+        //$getUserDetails = App_User::getUserById( $id );                                       
         $getUserDetails = $user->getUsersById( $id );
         
-        if( !empty($getUserDetails) ){
+        if( !empty($getUserDetails) ){                                    
             $registerForm->populate($getUserDetails);
         }
         $registerForm->submit->setLabel('Update');
@@ -93,10 +90,11 @@ class LawyerController extends Zend_Controller_Action
                   
                   //update user details
                   $formData['user_id'] = $id;
-                  $userDetails = new Model_UserDetails();                                   
-                  $userDetails->update($formData);
+                  $userDetails = new Model_UserDetails();                                                                  
+                  $userDetails->update($formData);   
                   
                   $isUpdated = true;
+                  
                   if( $isUpdated ){              
                       $this->_helper->FlashMessenger->addMessage("Lawyer has been updated successfully", 'editlawyer');
                       $this->_redirect($frontUrl);                      
@@ -113,4 +111,14 @@ class LawyerController extends Zend_Controller_Action
         $form    = new Application_Form_Register();
         $this->view->registerForm = $form;        
     }
+    
+    public function viewLawyerCaseAction(){
+        $request = $this->getRequest();
+        $lawyerId = $request->getParam('id');
+        $case = new Model_Cases();       
+        $caseDetails = $case->getCaseDetailsByLawyerId($lawyerId);          
+        if(!empty($caseDetails)){
+            $this->view->caseDetails = $caseDetails ;               
+        }                                
+    }        
 }

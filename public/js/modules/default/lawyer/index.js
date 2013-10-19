@@ -3,8 +3,15 @@ $(function(){
     $('.success_message').delay(3500).fadeOut();
     $(".view-lawyer").on('click',function(){
             var lawyerId = $(this).attr('id').replace('view_lawyer_', '');                       
-            lawyerDetails.viewLawyer(lawyerId);
+            lawyerDetails.viewLawyer(lawyerId);            
    });
+   
+    $(".delete-lawyer").on('click',function(){
+            var lawyerId = $(this).attr('id').replace('delete_lawyer_', ''); 
+            lawyerDetails.deleteLawyer(lawyerId);
+    });
+   
+  $( "#accordion" ).accordion();
    
 });
 

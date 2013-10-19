@@ -51,43 +51,67 @@ class Model_Cases extends App_Model {
     
     public function getCaseDetailsByClientId( $clientId ){        
         $whereClause = "c.client_id = {$clientId}";
+        
+        $caseDocFields = array(
+                'cd.id as case_doc_id', 
+                'cd.name as document_name'
+            );
+        
+        $caseHistoryFields = array(
+                'ch.id as case_history_id', 
+                'ch.hearing_date as hearing_date',
+                'ch.next_hearing_date as next_hearing_date',
+                'ch.judge_name as judge_name'
+            );
+        
+        $caseTransactionFields = array(
+                'ct.id as case_transaction_id',
+                'ct.amount as amount',
+                'ct.transaction_type_id as trasaction_type_id',
+                'ct.transaction_details as trasaction_details'
+            );        
+        
         $strSql = $this->getDbTable()->select()
                       ->setIntegrityCheck(false)
-                      ->from(array('c' => 'cases'), array('*'))
-                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id')
-                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id')
-                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id')
+                      ->from(array('c' => 'cases'), array('c.*'))
+                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id', $caseDocFields)
+                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id', $caseHistoryFields)
+                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id', $caseTransactionFields)
                       ->where($whereClause);
                 
         return $this->getDbTable()->fetchAll($strSql)->toArray();
-        
     }
     
     public function getCaseDetailsByLawyerId( $lawyerId ){
         $whereClause = "c.lawyer_id = {$lawyerId}";
-        $strSql = $this->getDbTable()->select()
-                      ->setIntegrityCheck(false)
-                      ->from(array('c' => 'cases'), array('*'))
-                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id')
-                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id')
-                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id')
-                      ->where($whereClause);
+         $caseDocFields = array(
+                'cd.id as case_doc_id', 
+                'cd.name as document_name'
+            );
                 
-        return $this->getDbTable()->fetchAll($strSql)->toArray();
-    }
+        $caseHistoryFields = array(
+                'ch.id as case_history_id', 
+                'ch.hearing_date as hearing_date',
+                'ch.next_hearing_date as next_hearing_date',
+                'ch.judge_name as judge_name'
+            );
     
-     public function getCaseDetailsById( $Id ){        
-        $whereClause = "c.id = {$Id}";
+        $caseTransactionFields = array(
+                'ct.id as case_transaction_id',
+                'ct.amount as amount',
+                'ct.transaction_type_id as trasaction_type_id',
+                'ct.transaction_details as trasaction_details'
+            );        
+        
         $strSql = $this->getDbTable()->select()
                       ->setIntegrityCheck(false)
-                      ->from(array('c' => 'cases'), array('*'))
-                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id')
-                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id')
-                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id')
+                      ->from(array('c' => 'cases'), array('c.*'))
+                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id', $caseDocFields)
+                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id', $caseHistoryFields)
+                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id', $caseTransactionFields)
                       ->where($whereClause);
                 
         return $this->getDbTable()->fetchAll($strSql)->toArray();
-        
     }
 
     public function deleteCase( $uid ) {         
@@ -100,6 +124,39 @@ class Model_Cases extends App_Model {
         }
     }
   
+    public function getCaseDetailsById( $caseId ){
+        $whereClause = "c.id = {$caseId}";
+         $caseDocFields = array(
+                'cd.id as case_doc_id', 
+                'cd.name as document_name'
+            );
+        
+        $caseHistoryFields = array(
+                'ch.id as case_history_id', 
+                'ch.hearing_date as hearing_date',
+                'ch.next_hearing_date as next_hearing_date',
+                'ch.judge_name as judge_name'
+            );
+        
+        $caseTransactionFields = array(
+                'ct.id as case_transaction_id',
+                'ct.amount as amount',
+                'ct.transaction_type_id as trasaction_type_id',
+                'ct.transaction_details as trasaction_details'
+            );        
+        
+        $strSql = $this->getDbTable()->select()
+                      ->setIntegrityCheck(false)
+                      ->from(array('c' => 'cases'), array('c.*'))
+                      ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id', $caseDocFields)
+                      ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id', $caseHistoryFields)
+                      ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id', $caseTransactionFields)
+                      ->where($whereClause);
+        
+        return $this->getDbTable()->fetchAll($strSql)->toArray();         
+        
+    }
+    
      public function find( $id ) {
         //get the row
         $row  = $this->getDbTable()->find($id);

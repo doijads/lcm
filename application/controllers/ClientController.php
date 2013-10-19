@@ -46,8 +46,7 @@ class ClientController extends Zend_Controller_Action
        //user(lawyer) registration form
        $searchForm    = new Application_Form_Search();
        //Redirect message from edit action..and display on this action
-       $messages = $this->_helper->FlashMessenger->getMessages('editclient');
-       print_r($messages);
+       $messages = $this->_helper->FlashMessenger->getMessages('editclient');       
        if(is_array($messages) && !empty($messages)){
            $this->view->success = $messages[0] ;
        }
@@ -55,7 +54,7 @@ class ClientController extends Zend_Controller_Action
        
        //$viewDetails = $this->_viewClient();
        //$this->view->viewDetails = $viewDetails;
-    } 
+    }   
     
      public function editClientAction(){             
         $baseUrl = $this->view->baseUrl();
@@ -63,20 +62,17 @@ class ClientController extends Zend_Controller_Action
                
         $request = $this->getRequest();
         $id = $request->getParam('id');                                                         
-        //$user    = new Application_Model_UsersMapper(); 
-        
-        $user = new Model_Users();
-        
-        $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client'));
-        
-        $registerForm->getElement('email')->clearValidators(); 
-                       
+        //$user    = new Application_Model_UsersMapper();         
+        $user = new Model_Users();        
+        $registerForm    = new Application_Form_Register(array( 'userRoleType' => 'client'));        
+        $registerForm->getElement('email')->clearValidators();                        
         //$getUserDetails = App_User::getUserById( $id );                                   
-        $getUserDetails = $user->getUsersById( $id );
-        print_r($getUserDetails);                          
+        $getUserDetails = $user->getUsersById( $id );                                
+                               
         if( !empty($getUserDetails) ){
             $registerForm->populate($getUserDetails);
         }
+             
         $registerForm->submit->setLabel('Update');
         $isUpdated = false;        
         if($request->isPost()){
@@ -84,13 +80,14 @@ class ClientController extends Zend_Controller_Action
             if( $registerForm->isValid($request->getPost())) {                                                                 
                   //update user
                   $formData['id'] = $id;
+                  $formData['password'] = md5($formData['password']);
                   $user->update($formData);
                   
                   //update user details
                   $formData['user_id'] = $id;
-                  $userDetails = new Model_UserDetails();
+                  $userDetails = new Model_UserDetails();                                    
                   $userDetails->update($formData);
-                  
+                    
                   $isUpdated = true;
                   if( $isUpdated ){              
                       $this->_helper->FlashMessenger->addMessage("Client has been updated successfully", 'editclient');
@@ -103,6 +100,16 @@ class ClientController extends Zend_Controller_Action
         $this->view->registerForm = $registerForm;
       }      
 
+    
+   public function viewClientCaseAction(){
+        $request = $this->getRequest();
+        $clientId = $request->getParam('id');
+        $case = new Model_Cases();       
+        $caseDetails = $case->getCaseDetailsByClientId($clientId);          
+        if(!empty($caseDetails)){
+            $this->view->caseDetails = $caseDetails ;               
+        }                                
+    }           
 
     public function createAction(){        
         $request = $this->getRequest();

@@ -1,0 +1,38 @@
+<div id="content">         
+    <div class="client-view">    
+        <div id="accordion">
+            <?php if(!empty($this->caseDetails)): ?>
+            <?php foreach( $this->caseDetails as $cases ) { ?>
+                <h3>case#<?php echo $cases['id']?></h3>
+                <div>
+                      <table id="client-details-table">    
+                            <tbody>
+                                <tr><th colspan="2" style="text-align:left">Case Details</th></tr>
+                                <tr><th>Case Status</th> <td>  <?php echo App_User::getStatus( $cases['status'] ) ;?> </td></tr>
+                                <tr><th>Client Name</th> <td> <?php echo App_User::getUserName( $cases['client_id'] ) ;?> </td></tr>
+                                <tr><th>Assigned Lawyer</th> <td> <?php echo App_User::getUserName( $cases['lawyer_id'] ) ;?> </td></tr>
+                                <tr><th>Documents Updated </th> <td><?php echo $cases['document_name'] ;?></td></tr>        
+                                <tr><th>Hearing dates </th> <td><?php echo $cases['hearing_date'] ;?></td></tr>        
+                                <tr><th>Judge Name </th> <td><?php echo $cases['judge_name'] ;?></td></tr>        
+                                <tr><th>Date Of Allotment </th> <td><?php echo $cases['date_of_allotment'] ;?></td></tr>        
+                                <tr><th>Next Hearing dates </th> <td><?php echo $cases['next_hearing_date'] ;?></td></tr>
+                                
+                                <tr><th colspan="2" style="text-align:left">Transaction Details</th></tr>
+                                <tr><th>Amount Deposited</th> <td><?php echo $cases['amount'] ;?></td></tr>
+                                <tr><th>Transaction Type</th> <td><?php echo $cases['trasaction_type_id'] ;?></td></tr> 
+                                <tr><th>Transaction Details</th> <td><?php echo $cases['trasaction_details'] ;?></td></tr> 
+                                
+                            </tbody>
+                        </table>  
+                </div>           
+            <?php }?>
+            <?php else :?>
+                <div>
+                      <table id="client-details-table"><tr> <td> No Case Details found </td> </tr></table>
+                </div>
+            <?php endif ;?>    
+        </div>
+    </div>
+    <div class='btn'><input type="button" value="Back" onClick="window.location='/client'"></div>
+</div>
+

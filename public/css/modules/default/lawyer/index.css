@@ -2,3 +2,7 @@
 .lower-form {
     boder:solid;
 }
+
+.client-view .ui-accordion-content{
+ height: auto !important;   
+}

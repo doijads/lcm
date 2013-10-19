@@ -10,7 +10,7 @@
                 
 </script>
 <div id="dataTable">
-  	<table cellpadding="0" cellspacing="0" border="0" class="dataTable" width="100%">
+  	<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" id="example" width="100%">
 		<thead>
 			<tr>
                             <th>Name</th>
@@ -23,13 +23,13 @@
                 <tbody>
                     <?php foreach( $this->lawyerList as $lawyer ) { ?>
                         <tr> 
-                            <td><a href="#" class ="view-lawyer" id="view_lawyer_<?php echo $lawyer['id']?>"><?php echo $lawyer['name'];?></a></td>
+                            <td><a href="javascript:void()" class ="view-lawyer" id="view_lawyer_<?php echo $lawyer['id']?>"><?php echo $lawyer['name'];?></a></td>
                             <td><?php echo $lawyer['email'];?></td>
                             <td><?php echo $lawyer['mobile_number'];?> <?php if(  $lawyer['home_phone'] ) { echo  '/'.$lawyer['home_phone'] ;}?> </td>
                             <td><?php echo $lawyer['street_line'];?>,<?php echo $lawyer['city'];?></td>
-                            <td><a href="/lawyer/edit-lawyer/id/<?php echo $lawyer['id'] ?>">Edit </a>|
-                                <a href=""> Delete </a>| 
-                                <a href="/lawyer/view-lawyer-case/id/">View Case</a> </td> 
+                            <td><a title="Edit Lawyer" href="/lawyer/edit-lawyer/id/<?php echo $lawyer['id'] ?>">Edit </a>|
+                                <a id="delete_lawyer_<?php echo $lawyer['id'];?>" title="Delete Lawyer"  href= "javascript:void(0);"> Delete </a>| 
+                                <a href="/lawyer/view-lawyer-case/id/<?php echo $lawyer['id'] ?>">View Case</a> </td> 
                         </tr>
                     <?php } ?>
                          
@@ -44,13 +44,13 @@
     </div>
 </fieldset>
 <br/>
+<!--
 <fieldset>
     <legend>Search Lawyer</legend>    
     <div class="lawyer-form">
-    	<?php echo $this->searchForm; ?>  
+    	<?php //echo $this->searchForm; ?>  
     </div>
-</fieldset>
-<br/>
+</fieldset>-->
 <div><input type="hidden" id="role_type" value="2"></div>
 <div> 
 <!--<table id="search-table" class="display" cellpadding="0" cellspacing="0" border="0" width="100%"> 

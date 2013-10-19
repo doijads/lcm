@@ -75,8 +75,7 @@ class Model_Users extends App_Model {
                 ->from(array('u' => 'users'), array('*'))
                 ->join(array('ud' => 'user_details'), 'ud.user_id = u.id' )
                 ->where($whereClause);
-                
-                 
+                                 
         $userData = $this->getDbTable()->fetchAll($sql);
  
         return $userData[0]->toArray();
@@ -106,20 +105,19 @@ class Model_Users extends App_Model {
         return $userData[0]->toArray();
     }
     
-    public function fetchUsersByUserTypes( $arrIntUserTypes = array() ) {
+    public function fetchUsersByUserTypes( $arrIntUserTypes = array(), $status = 1 ) {
     	
     	if( true == empty( $arrIntUserTypes ) ) {
     		return false;
     	}
 
-    	$whereClause = ' user_type IN (' . implode( ',' , $arrIntUserTypes ) . ')';
+    	$whereClause = 'is_active = '.$status.' AND user_type IN (' . implode( ',' , $arrIntUserTypes ) . ')';
     
     	$sql = $this->getDbTable()->select()
 						    	  ->setIntegrityCheck(false)
 						    	  ->from(array('u' => 'users'), array('*'))
 						    	  ->join(array('ud' => 'user_details'), 'ud.user_id = u.id' )
-						    	  ->where($whereClause);
-    
+						    	  ->where($whereClause);                    
     	 return $this->getDbTable()->fetchAll($sql)->toArray();
     }
     

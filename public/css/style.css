@@ -16,7 +16,7 @@
 .register input#submit{ width:200px; cursor: pointer;}
 
 .inner_copy, .inner_copy a {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0}
-body {font-family:Helvetica,Arial,sans-serif ;color:#61492D;font-size:13px;font-weight:normal;overflow: auto;}
+body {font-family:Helvetica,Arial,sans-serif ;color:#61492D;font-size:13px;font-weight:normal;overflow: auto;width: 100%}
 h1, h2, h3 {font-family:Georgia, "Times New Roman", Times, serif;font-weight:normal;color:#80614D}
 h1 {letter-spxacing:-2px;font-size:2em}
 h2 {letter-spacing:-1px;font-size:2em}
@@ -154,7 +154,7 @@ input[type="text"]#email ,input[type="password"]#password{
 }
 
 
-#client-details-table{
+#client-details-table , #lawyer-details-table{
     margin:0px;
     color: #61492D;
     font-family: Helvetica,Arial,sans-serif;
@@ -165,7 +165,7 @@ input[type="text"]#email ,input[type="password"]#password{
     margin:auto;    
 }
 
-#client-details-table th{
+#client-details-table th , #lawyer-details-table th{
     background-color: #EADFC1;       
     padding: 4px 10px 4px 4px;
     text-align: right;
@@ -176,8 +176,8 @@ input[type="text"]#email ,input[type="password"]#password{
     padding:0px 3px;
 }
 
-table.dataTable{
-    
+div#dataTable{
+    border: 1px solid #61492D;        
 }
 
 table.dataTable tr th{
@@ -205,13 +205,17 @@ table.dataTable tr th{
 #theme_links span { float: left; padding: 2px 10px; }
 
 #example_wrapper{
-    border:1px solid;
+    /*border:1px solid;*/
 }
 #example_length , #example_filter{
     float: left;
     padding: 10px 6px;
     width: 45%;
 }
-table.dataTable td{
-    text-align: center;
+    
+.btn{
+     margin: auto;
+    padding: 6px;
+    width: 20%;
 }
+

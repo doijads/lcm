@@ -6,6 +6,8 @@ $(function(){
             clientDetails.viewClient(clientId);
    });   
         
+  $( "#accordion" ).accordion();
+  
 });
 
 //Here All the js functions will be releated to Lawyer Only

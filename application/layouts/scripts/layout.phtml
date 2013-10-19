@@ -43,14 +43,12 @@ $controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerN
 	              <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>                                                         
 	              <li><a href ="/auth/logout">Log Out</a></li>
                       
-              <?php } elseif( App_Auth::isLogged() && App_Auth::getUserRole() == USER_LAWYER ) { ?>                  
-                      <li><a href="/lawyer/" <?php if($controller == 'lawyer'){?> class="current" <?php } else { ?> class="" <?php }?> >Lawyer's Panel</a></li>     
+              <?php } elseif( App_Auth::isLogged() && App_Auth::getUserRole() == USER_LAWYER ) { ?>                                          
                       <li><a href="/case/" <?php if($controller == 'case'){?> class="current" <?php } else { ?> class="" <?php }?> >Case's Panels</a></li> 
                       <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>                                                         
 	              <li><a href ="/auth/logout">Log Out</a></li>
                       
-              <?php } elseif( App_Auth::isLogged() && App_Auth::getUserRole() == USER_CLIENT ) { ?>
-                       <li><a href="/client/" <?php if($controller == 'client'){?> class="current" <?php } else { ?> class="" <?php }?> >Client's Panel</a></li>
+              <?php } elseif( App_Auth::isLogged() && App_Auth::getUserRole() == USER_CLIENT ) { ?>                       
                        <li><a href="/case/" <?php if($controller == 'case'){?> class="current" <?php } else { ?> class="" <?php }?> >Case's Panels</a></li>
                        <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>                                                         
 	               <li><a href ="/auth/logout">Log Out</a></li>              
