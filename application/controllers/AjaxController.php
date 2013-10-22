@@ -127,7 +127,7 @@ class AjaxController extends Zend_Controller_Action {
         if( isset( $caseId ) ) {        
             $getCaseDetails = $case->getCaseDetailsById( (int) $caseId );
         }
-
+          
         if( empty( $getCaseDetails ) ) {
             $this->view->error = "Case not found.";
             return;
@@ -154,11 +154,11 @@ class AjaxController extends Zend_Controller_Action {
                                         'transaction_details'  => $arrCaseDetail['transaction_details'] ); 
 
                 $caseDocument[] = array( 
-                                        'name'         => $arrCaseDetail['name'],
-                                        'path'         => $arrCaseDetail['path'],
-                                        'details'      => $arrCaseDetail['details'],
-                                        'uploaded_by'  => $arrCaseDetail['uploaded_by'],
-                                        'uploaded_on'  => $arrCaseDetail['uploaded_on'] );
+                                        'name'         => $arrCaseDetail['case_doc_name'],
+                                        'path'         => $arrCaseDetail['case_doc_path'],
+                                        'details'      => $arrCaseDetail['case_doc_details'],
+                                        'uploaded_by'  => $arrCaseDetail['case_doc_uploaded_by'],
+                                        'uploaded_on'  => $arrCaseDetail['case_doc_uploaded_on'] );
                 $arrCaseDetails = array( 
                                          'case'         => $case,
                                          'history'      => $caseHistory,
@@ -182,7 +182,7 @@ class AjaxController extends Zend_Controller_Action {
             'data'    => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $arrCaseDetails, 'users' => $arrUserRekeyedByUserType ) ), 
             'success' => true            
         );
-        
+                    
         echo json_encode($result);
         exit(0);
     }

@@ -1,7 +1,7 @@
 var case_id = null;
 $(document).ready(function() {
 
-    $('td.action').on( 'click', function(){
+    $('td.action').on( 'click', function(event){
      	id = this.id;
       div_title = event.target.id;
       if( this.id == '' ){
@@ -19,18 +19,18 @@ $(document).ready(function() {
                   data: param,
                   dataType: 'json',
                   success: function(response) {
-                      if (response.success) {
-                          $('#dialog-div p').html( response.data );
+                      if (response.success) {                        
                           $('#dialog-div').dialog({
                              title: 'Case',
                              modal: true,
-                             width: 200,
-                             height: 200
+                             width: 500,
+                             height: 450
                           });
+                          
+                        $('#dialog-div p').html( response.data );
                       }
                   },
-                  error: function( error ) {
-                    alert(id);
+                  error: function( error ) {                    
                       console.log(error);
                   }
               }); 
@@ -49,7 +49,7 @@ $(document).ready(function() {
                               title: 'View Lawyer',
                               modal: true,
                               width: 500,
-                              height: 400
+                              height: 450
                           });
 
                           $("#dialog-div p").html(response.data);
@@ -71,7 +71,7 @@ $(document).ready(function() {
                               title: 'View Client',
                               modal: true,
                               width: 500,
-                              height: 400
+                              height:450
                           });
 
                           $("#dialog-div p").html(response.data);

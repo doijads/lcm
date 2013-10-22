@@ -128,21 +128,29 @@ class Model_Cases extends App_Model {
         $whereClause = "c.id = {$caseId}";
          $caseDocFields = array(
                 'cd.id as case_doc_id', 
-                'cd.name as document_name'
+                'cd.path as case_doc_path', 
+                'cd.name as case_doc_name',
+                'cd.details as case_doc_details',
+                'cd.uploaded_by as case_doc_uploaded_by',
+                'cd.uploaded_on as case_doc_uploaded_on'             
             );
         
         $caseHistoryFields = array(
                 'ch.id as case_history_id', 
                 'ch.hearing_date as hearing_date',
                 'ch.next_hearing_date as next_hearing_date',
-                'ch.judge_name as judge_name'
+                'ch.judge_name as judge_name',
+                'ch.content as content',
             );
         
         $caseTransactionFields = array(
                 'ct.id as case_transaction_id',
                 'ct.amount as amount',
-                'ct.transaction_type_id as trasaction_type_id',
-                'ct.transaction_details as trasaction_details'
+                'ct.submission_date as submission_date',
+                'ct.submitted_by as submitted_by',
+                'ct.approved_by as approved_by',
+                'ct.transaction_type_id as transaction_type_id',
+                'ct.transaction_details as transaction_details'
             );        
         
         $strSql = $this->getDbTable()->select()
