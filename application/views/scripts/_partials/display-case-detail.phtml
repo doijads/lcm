@@ -1,39 +1,73 @@
 <br/>
-<?php if( !empty( $this->data['case'] ) ) : 
-        $arrCaseHistory   = $this->data['history'];
-        $arrCaseBudgets   = $this->data['budget'];
-        $arrCaseDocuments = $this->data['documents'];
-        $arrCase          = $this->data['case'];
-         ?>
-    <div id="dataTable">
+<?php //if( !empty( $this->data['case'] ) ) : 
+//        $arrCaseHistory   = $this->data['history'];
+//        $arrCaseBudgets   = $this->data['budget'];
+//        $arrCaseDocuments = $this->data['documents'];
+//        $arrCase          = $this->data['case'];
+//         ?>
+<!--    <div id="dataTable">
         <table cellpadding="0" cellspacing="0" border="0" class="dataTable" width="100%">
             <tr><th colspan="4">Case Details</th>
-            <th>Closed On<?php echo $arrCase['date_of_allotment']; ?></th></tr>
+            <th>Closed On//<?php //echo $arrCase['date_of_allotment']; ?></th></tr>
             <tr>
                 <th>Judge Name</th>
                 <th>Hearing Date</th>
                 <th>Next Alloted Hearing Date</th>
                 <th></th>
                 <th></th>
-            </tr> 
-                <?php
-                    $strRows = '';
-                    foreach( $arrCaseHistory as $arrMixCaseDetail ) {
-                        $strResultRow = '<tr><td>' . $arrMixCaseDetail['judge_name'] . '</td>
-                                         <td>' . $arrMixCaseDetail['hearing_date'] . '</td>';
-                        $strOptional  = ( true == is_null( $arrCase['closed_by'] ) )
-                                         ? '<td>Closed</td>' 
-                                         : '<td>' . $arrMixCaseDetail['next_hearing_date'] . '</td>';
-                        $strRows .= $strResultRow . $strOptional .'</tr>';
-                    }
-                    echo $strRows;
-                ?>                 
-                <td>View Detail</td>
+            </tr> -->
+              <?php
+//                    $strRows = '';
+//                    foreach( $arrCaseHistory as $arrMixCaseDetail ) {
+//                        $strResultRow = '<tr><td>' . $arrMixCaseDetail['judge_name'] . '</td>
+//                                         <td>' . $arrMixCaseDetail['hearing_date'] . '</td>';
+//                        $strOptional  = ( true == is_null( $arrCase['closed_by'] ) )
+//                                         ? '<td>Closed</td>' 
+//                                         : '<td>' . $arrMixCaseDetail['next_hearing_date'] . '</td>';
+//                        $strRows .= $strResultRow . $strOptional .'</tr>';
+//                    }
+//                    echo $strRows;
+//                ?>                 
+<!--                <td>View Detail</td>
             </tr>
             <tr><th>Case Documents</th></tr>
 
             <tr><th>Case Alloted Budgets</th></tr>
         </table>
-    </div>
+    </div>-->
+<?php //endif ;?>
+
+<?php if( !empty($this->data['users']) ) :?>
+
+<table id="client-details-table">    
+    <tbody>
+        <tr><th colspan="2" style="text-align:left">Case Info</th></tr>
+        <tr><th>Lawyer</th> <td> <?php echo App_User::getUserName( getElement( 'lawyer_id', $this->data['users'][0] ) ); ?> </td></tr>        
+        <tr><th>Client</th> <td> <?php echo App_User::getUserName( getElement( 'client_id', $this->data['users'][0] ) ); ?> </td></tr>  
+        <tr><th>Case Status</th> <td> <?php echo App_User::getStatus( getElement( 'status', $this->data['users'][0] ) ); ?> </td></tr>  
+        <tr><th>Date of Allotment</th> <td> <?php echo getElement( 'date_of_allotment', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Due Date</th> <td> <?php echo getElement( 'due_date', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Close By</th> <td> <?php echo App_User::getUserName( getElement( 'closed_by', $this->data['users'][0] ) ); ?> </td></tr>        
+        
+        <tr><th colspan="2" style="text-align:left">Case Docs Info</th></tr>
+        <tr><th>Documents</th> <td> <?php echo getElement( 'case_doc_name', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Documents Details</th> <td> <?php echo getElement( 'case_doc_details', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Documents Uploaded By</th> <td> <?php echo App_User::getUserName( getElement( 'case_doc_uploaded_by', $this->data['users'][0] ) ); ?> </td></tr>        
+        <tr><th>Documents Uploaded On</th> <td> <?php echo getElement( 'case_doc_uploaded_on', $this->data['users'][0] ); ?> </td></tr>        
+        
+        <tr><th colspan="2" style="text-align:left">Case Details/History Info</th></tr>
+        <tr><th>Hearing Date</th> <td> <?php echo getElement( 'hearing_date', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Next Hearing Date</th> <td> <?php echo getElement( 'next_hearing_date', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Judge Name</th> <td> <?php echo getElement( 'judge_name', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Content</th> <td> <?php echo getElement( 'content', $this->data['users'][0] ); ?> </td></tr>        
+        
+        <tr><th colspan="2" style="text-align:left">Case Budget/Transaction Info</th></tr>
+        <tr><th>Amount</th> <td> <?php echo getElement( 'amount', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Amount Submitted On</th> <td> <?php echo getElement( 'submission_date', $this->data['users'][0] ); ?> </td></tr>               
+        <tr><th>Transaction Details</th> <td> <?php echo getElement( 'transaction_details', $this->data['users'][0] ); ?> </td></tr>        
+        
+    </tbody>
+</table>  
 <?php endif ;?>
 <br/>
+

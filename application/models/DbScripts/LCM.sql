@@ -243,3 +243,6 @@ INSERT INTO `lcm`.`status` (`id`, `name`) VALUES ('1', 'pending'), ('2', 'comple
 ALTER TABLE `status` ADD PRIMARY KEY ( `id` ) 
 
 ALTER TABLE `users` ADD `is_active` ENUM( '1', '0' ) NOT NULL DEFAULT '1' AFTER `created_by` 
+
+ALTER TABLE cases 
+  ADD COLUMN created_on DATETIME NOT NULL DEFAULT '2013-10-27 14:30:00' AFTER status

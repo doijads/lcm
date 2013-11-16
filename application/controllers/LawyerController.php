@@ -29,7 +29,7 @@ class LawyerController extends Zend_Controller_Action
                 $user->save();
                 if ($user->id) {
                     $data['user_id'] = $user->id;
-                    $userDetails = new Model_UserDetails($data);
+                    $userDetails = new Model_UserDetails($data);                                                           
                     $userDetails->save();               
                     $recipient = array('email' => $data['email'],
                                        'password' => $data['password']

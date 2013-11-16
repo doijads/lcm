@@ -83,6 +83,7 @@ class AjaxController extends Zend_Controller_Action {
             'data'    => $this->view->partial('_partials/display-client-details.phtml', array('data' => $data)), 
             'success' => true            
         );
+              
         
         echo json_encode($result);
         exit(0);
@@ -178,11 +179,25 @@ class AjaxController extends Zend_Controller_Action {
             }
         }       
 
+         $data = array(
+            'users' => $getCaseDetails            
+            );
+         
+    
         $result = array(
-            'data'    => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $arrCaseDetails, 'users' => $arrUserRekeyedByUserType ) ), 
+            'data'    => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $data ) ), 
             'success' => true            
         );
-                    
+        
+        
+                
+       
+//         
+//        $result = array(
+//            'data'    => $this->view->partial('_partials/display-case-detail.phtml', array('data' => $arrCaseDetails, 'users' => $arrUserRekeyedByUserType ) ), 
+//            'success' => true            
+//        );
+                                 
         echo json_encode($result);
         exit(0);
     }

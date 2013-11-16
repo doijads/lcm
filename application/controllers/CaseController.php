@@ -10,7 +10,7 @@ class CaseController extends Zend_Controller_Action {
         $refUser = ( App_User::get('user_type') == USER_LAWYER ) ? 'lawyer_id' : 'client_id';
         $param = ( true == in_array( App_User::get('user_type'), array( USER_LAWYER, USER_CLIENT ) ) ) ? array( $refUser => App_User::get('id') ) : array();
         $this->view->dataList = $case->getCases( $param );
-
+               
         $user = new Model_Users();
         $fetchRow = $user->fetchUsersByUserTypes( array( USER_LAWYER, USER_CLIENT, USER_ADMIN, USER_ADMINISTRATOR ) );
         

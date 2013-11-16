@@ -37,15 +37,17 @@ class Model_Cases extends App_Model {
                   $conditions[] =  "{$property} = {$value}" ;
                 }
               }
-           }           
-        }        
-                
+           }                
+        }                        
+        
        $whereClause = (!empty($conditions)) ? implode(" AND ", $conditions) : '1=1';        
                   
        $strSql = $this->getDbTable()->select()
                       ->setIntegrityCheck(false)
                       ->from(array('c' => 'cases'), array('*'))
-                      ->where($whereClause);
+                      ->where($whereClause)
+                      ->order('created_on DESC');
+                           
         return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
     

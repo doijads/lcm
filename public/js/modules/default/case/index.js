@@ -21,10 +21,10 @@ $(document).ready(function() {
                   success: function(response) {
                       if (response.success) {                        
                           $('#dialog-div').dialog({
-                             title: 'Case',
+                             title: 'Case Details',
                              modal: true,
-                             width: 500,
-                             height: 450
+                             width: 700,
+                             height: 780
                           });
                           
                         $('#dialog-div p').html( response.data );
