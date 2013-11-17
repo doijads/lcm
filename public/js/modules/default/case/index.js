@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('td.action').on( 'click', function(event){
      	id = this.id;
       div_title = event.target.id;
+            
       if( this.id == '' ){
         var actionElement = div_title.split( '_' );
         div_title = actionElement[0];
@@ -11,7 +12,7 @@ $(document).ready(function() {
       }
      	
      	switch(div_title) {
-      		case 'View':
+      		case 'view':
               var param = {'id': id };
               $.ajax({
                   url: '/ajax/display-case-modal/',

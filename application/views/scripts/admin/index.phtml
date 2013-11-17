@@ -27,9 +27,9 @@
                             <td><?php echo $lawyer['email'];?></td>
                             <td><?php echo $lawyer['mobile_number'];?> <?php if(  $lawyer['home_phone'] ) { echo  '/'.$lawyer['home_phone'] ;}?> </td>
                             <td><?php echo $lawyer['street_line'];?>,<?php echo $lawyer['city'];?></td>
-                            <td><a title="Edit Lawyer" href="/lawyer/edit-lawyer/id/<?php echo $lawyer['id'] ?>"><img src="/images/edit-icon.png" alt="Edit" height="16" width="16"> </a> &nbsp;&nbsp;
-                                <a id="delete_lawyer_<?php echo $lawyer['id'];?>" title="Delete Lawyer"  href= "javascript:void(0);"> <img src="/images/delete-icon.png" alt="Delete" height="16" width="16"> </a> &nbsp;&nbsp;
-                                <a href="/lawyer/view-lawyer-case/id/<?php echo $lawyer['id'] ?>"><img id = "view" src="/images/view-icon.png" alt="view" height="16" width="16"></a> </td> 
+                            <td><a title="Edit Lawyer" href="/lawyer/edit-lawyer/id/<?php echo $lawyer['id'] ?>">Edit </a>|
+                                <a id="delete_lawyer_<?php echo $lawyer['id'];?>" title="Delete Lawyer"  href= "javascript:void(0);"> Delete </a>| 
+                                <a href="/lawyer/view-lawyer-case/id/<?php echo $lawyer['id'] ?>">View Case</a> </td> 
                         </tr>
                     <?php } ?>
                          

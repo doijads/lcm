@@ -1,3 +1,7 @@
+<?php 
+$caseListing = $this->dataList;
+
+?>
 <div id="content">
 	<div id="dataTable">
 	  	<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" id="example" width="100%">
@@ -5,65 +9,51 @@
 				<tr>
 					<?php 
 						if( App_User::get('user_type') == USER_CLIENT ) {
-							echo '<th style="width:110;"> Lawyer </th>';
+							echo '<th style="width:110;"> Your Lawyer(s) </th>';
 						}elseif( App_User::get('user_type') == USER_LAWYER ) {
-							echo '<th style="width:110;"> Client </th>';
+							echo '<th style="width:110;"> Your Client(s) </th>';
 						}else {
-							echo '<th style="width:110;"> Lawyer </th><th style="width:110;"> Client </th>';
+							echo '<th style="width:110;"> Lawyers </th><th style="width:110;"> Clients </th>';
 						}						
 					 ?>
-					<th>Amount Receiveable</th>
-					<th>Amount Payable</th>
-					<th>Total Expense</th>
-					<th>Status</th>
+					
+					<th>Case Status</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-			<?php
-			 	$strTable = '';
-				foreach( $this->dataList as $arrCase) {
-					$strTable .='<tr>';
-					if( App_User::get('user_type') == USER_CLIENT ) {
-						$strTable .='<td class="action"> 
-										<a href=# id="lawyer_' . $arrCase['lawyer_id'] . '">'
-											. $this->userList[USER_LAWYER][$arrCase['lawyer_id']] .'</a></td>';
-					}elseif( App_User::get('user_type') == USER_LAWYER ) {
-						$strTable .='<td class="action">
-										<a href=# id="client_' . $arrCase['client_id'] . '">'
-											. $this->userList[USER_CLIENT][$arrCase['client_id']] .'</a></td>';
-					}else {
-						$strTable .='<td class="action">
-										<a href=# id="lawyer_' . $arrCase['lawyer_id'] . '">'
-											. $this->userList[USER_LAWYER][$arrCase['lawyer_id']] .'</a></td>
-									 <td class="action">
-									 	<a href=# id="client_' . $arrCase['client_id'] . '">'
-									 		. $this->userList[USER_CLIENT][$arrCase['client_id']] .'</a></td>';
-					}
-					
-					$fltAmountReceiveable = $fltAmountPayable = 5;
-					$fltTotalExpense 	  = $fltAmountReceiveable + $fltAmountPayable;
-					$strClosed			= ( false == is_null( $arrCase['closing_date'] ) ) 
-											? 'Closed' : 'Open';
-
-					$strTable .='<td>' . $fltAmountReceiveable . '</td>
-								 <td>' . $fltAmountPayable . '</td>
-								 <td>' . $fltTotalExpense . '</td>
-								 <td>' . $strClosed . '</td>';
-
-					$strTable .='<td id="' . $arrCase['id'] .'" class="action">
-								 	<a href="#" id="View">View</a> | 
-								 	<a href="edit/id/' . $arrCase['id'] . '" id="Edit">Edit</a> | 
-								 	<a href="#" id="Delete">Delete</a> |
-							 		<span style="display:none;">More</span>
-							 		<span class="other_action" style="display:block;">
-									 	<a href="history/case_id/' . $arrCase['id'] . '" id="Add Details">Add Details</a> | 
-									 	<a href="document/case_id/' . $arrCase['id'] . '" id="Upload Documents">Upload Documents</a> | 
-									 	<a href="budget/case_id/' . $arrCase['id'] . '" id="Add Budget">Add Budget</a>
-									 </span>
-								 </td></tr>';	
-				}
-			echo $strTable; ?>	
+                            <?php foreach( $caseListing  as $arrCase ) : ?>
+                            <tr> 
+                               <?php  if( App_User::get('user_type') == USER_CLIENT ) { ?>
+                                        <td class="action">
+                                            <a href=# id="lawyer_<?php echo $arrCase['lawyer_id']; ?>"><?php echo $this->userList[USER_LAWYER][$arrCase['lawyer_id']]; ?> </a>						                                            
+                                        </td>
+                               <?php } else if( App_User::get('user_type') == USER_LAWYER ) { ?>         
+                                        <td class="action">
+                                            <a href=# id="client_<?php echo $arrCase['client_id']; ?>"><?php echo $this->userList[USER_CLIENT][$arrCase['client_id']]; ?> </a>                                            
+                                        </td>
+                               <?php } else { ?>         
+                                        <td class="action">
+                                            <a href=# id="lawyer_<?php echo $arrCase['lawyer_id']; ?>"><?php echo $this->userList[USER_LAWYER][$arrCase['lawyer_id']]; ?> </a>
+                                        </td> 
+                                        <td>   
+                                            <a href=# id="client_<?php echo $arrCase['client_id']; ?>"><?php echo $this->userList[USER_CLIENT][$arrCase['client_id']]; ?> </a>
+                                        </td>                                        
+                               <?php } ?>          
+                                       <td><?php echo App_User::getStatus( $arrCase['status'] )  ;?></td>
+                                       <td class="action" id="<?php echo $arrCase['id'];?>"> 
+                                       <span class="other_action" style="display:block;">								 								 							 
+                                         <?php if(App_Auth::getUserRole() == USER_ADMIN || App_Auth::getUserRole() == USER_LAWYER){?><a href="history/case_id/<?php echo $arrCase['id'] ?>" id="Add Details">Add Details</a> | <?php }?>
+                                         <a href="document/case_id/<?php echo $arrCase['id'] ?>" id="Upload Documents">Upload Documents</a> | 
+                                         <?php if(App_Auth::getUserRole() == USER_ADMIN || App_Auth::getUserRole() == USER_LAWYER ){?><a href="budget/case_id/<?php echo $arrCase['id'] ?>" id="Add Budget">Add Budget</a>&nbsp;&nbsp;<?php }?>                                         
+                                         <?php if(App_Auth::getUserRole() == USER_ADMIN){?><a href="edit/id/<?php echo $arrCase['id'] ?>" id="edit"><img src="/images/edit-icon.png" alt="Edit" height="16" width="16"></a>&nbsp;&nbsp;<?php }?>
+                                         <?php if(App_Auth::getUserRole() == USER_ADMIN){?><a href="#" id="delete"><img src="/images/delete-icon.png" alt="Delete" height="16" width="16"></a><?php }?> &nbsp;&nbsp;
+                                         <a href="#" id="view"> <img id = "view" src="/images/view-icon.png" alt="view" height="16" width="16"> </a>  
+                                       </span>
+                                        
+                                        </td>
+                            </tr>                            
+                            <?php endforeach; ?>
 			</tbody>
 		</table>
 	</div>

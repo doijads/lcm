@@ -9,6 +9,8 @@
     width: 150px;
 }
 
+a{ text-decoration: none;}
+
 .zend_form dd{padding: 5px;}
 
 .register input{ width:200px;}
@@ -219,3 +221,30 @@ table.dataTable tr th{
     width: 20%;
 }
 
+.other_action a{   
+/*    font-size: 11px;*/
+}
+
+#submit-element{
+    width:20%;
+    float:left;
+}
+
+#back-element{
+    width: 0%;
+    float: left;    
+}
+
+#back-label{
+    display: none;
+}
+
+td#contact-title{
+    padding:5px;
+    background-color: #EADFC1;
+}
+
+td#contact-text{
+    padding:5px;
+    background-color: #FFF;
+}

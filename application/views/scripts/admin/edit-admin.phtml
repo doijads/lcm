@@ -1,0 +1,21 @@
+<div id="content">     
+    
+<script type="text/javascript">
+    	$(function(){
+    		$('legend').click(function(){
+                        //$(this).parent().find('.lawyer-form').show();
+    			$(this).parent().find('.admin-form').slideToggle();
+    		});
+    	});
+                
+</script>
+ 
+                
+<fieldset>
+    <legend>Edit Admin</legend>    
+    <div class="admin-form">       
+    	<?php echo $this->registerForm; ?>  
+    </div>
+</fieldset>
+<br/>
+</div>

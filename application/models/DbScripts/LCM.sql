@@ -239,7 +239,7 @@ ALTER TABLE `users` ADD `status` INT NOT NULL DEFAULT '1' AFTER `created_by`
 
 ALTER TABLE `cases` ADD `status` INT NOT NULL DEFAULT '1' AFTER `closing_date`
 
-INSERT INTO `lcm`.`status` (`id`, `name`) VALUES ('1', 'pending'), ('2', 'completed') , ('3', 'Approve'),('4', 'In Progress'),('5', 'Active'),('6', 'Decline') ;
+INSERT INTO `lcm`.`status` (`id`, `name`) VALUES ('1', 'Pending'), ('2', 'completed') , ('3', 'Approve'),('4', 'In Progress'),('5', 'Active'),('6', 'Decline') ;
 ALTER TABLE `status` ADD PRIMARY KEY ( `id` ) 
 
 ALTER TABLE `users` ADD `is_active` ENUM( '1', '0' ) NOT NULL DEFAULT '1' AFTER `created_by` 

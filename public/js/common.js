@@ -1,8 +1,8 @@
 //All the comman functions are located here
    $(document).ready(function() {
    		
-   		//Applying calender to all text having datepicker class.
-	   	 $( ".datePicker" ).datepicker({
+   	  //Applying calender to all text having datepicker class.
+	  $( ".datePicker" ).datepicker({
 	     showOn: "button",
 	     buttonImage: "/images/calendar.gif",
 	     buttonImageOnly: true,
@@ -16,6 +16,11 @@
        "bServerSide": true,
        "sAjaxSource": "../server_side/scripts/server_processing.php"
       }*/
+       //back Action
+       $("#back").click(function(){           
+            window.history.back();           
+       });
+              
    });
    
   

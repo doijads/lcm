@@ -27,9 +27,9 @@
                             <td><?php echo $client['email'];?></td>
                             <td><?php echo $client['mobile_number'];?> <?php if( $client['home_phone'] ) { echo  '/'.$client['home_phone'] ;}?> </td>
                             <td><?php echo $client['street_line'];?>,<?php echo $client['city'];?></td>
-                            <td><a title="Edit Client" href="/client/edit-client/id/<?php echo $client['id'] ?>">Edit </a>|
-                                <a title="Delete Client" href=""> Delete </a>| 
-                                   <a href="/client/view-client-case/id/<?php echo $client['id'] ?>">View Case</a> </td> 
+                            <td><a title="Edit Client" href="/client/edit-client/id/<?php echo $client['id'] ?>"><img src="/images/edit-icon.png" alt="Edit" height="16" width="16"> </a> &nbsp;&nbsp;
+                                <a title="Delete Client" href=""> <img src="/images/delete-icon.png" alt="Delete" height="16" width="16"> </a> &nbsp;&nbsp;
+                                   <a href="/client/view-client-case/id/<?php echo $client['id'] ?>"><img id = "view" src="/images/view-icon.png" alt="view" height="16" width="16"></a> </td> 
                         </tr>
                     <?php } ?>
                          

@@ -39,17 +39,19 @@ $controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerN
 	              <li><a href="/lawyer/" <?php if($controller == 'lawyer'){?> class="current" <?php } else { ?> class="" <?php }?> >Lawyer's Panel</a></li> 
 	              <li><a href="/client/" <?php if($controller == 'client'){?> class="current" <?php } else { ?> class="" <?php }?> >Client's Panel</a></li> 
 	              <li><a href="/case/" <?php if($controller == 'case'){?> class="current" <?php } else { ?> class="" <?php }?> >Case's Panels</a></li>
-	              <li><a href="/account/" <?php if($controller == 'account'){?> class="current" <?php } else { ?> class="" <?php }?> >Account's Panels</a></li> 
+	              <li><a href="/admin/edit-admin/id/<?php echo App_Auth::getId(); ?>" <?php if($controller == 'admin'){?> class="current" <?php } else { ?> class="" <?php }?> >My Profile</a></li> 
 	              <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>                                                         
 	              <li><a href ="/auth/logout">Log Out</a></li>
                       
               <?php } elseif( App_Auth::isLogged() && App_Auth::getUserRole() == USER_LAWYER ) { ?>                                          
                       <li><a href="/case/" <?php if($controller == 'case'){?> class="current" <?php } else { ?> class="" <?php }?> >Case's Panels</a></li> 
+                      <li><a href="/lawyer/edit-lawyer/id/<?php echo App_Auth::getId(); ?>" <?php if($controller == 'lawyer'){?> class="current" <?php } else { ?> class="" <?php }?> >My Profile</a></li> 
                       <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>                                                         
 	              <li><a href ="/auth/logout">Log Out</a></li>
                       
               <?php } elseif( App_Auth::isLogged() && App_Auth::getUserRole() == USER_CLIENT ) { ?>                       
                        <li><a href="/case/" <?php if($controller == 'case'){?> class="current" <?php } else { ?> class="" <?php }?> >Case's Panels</a></li>
+                       <li><a href="/client/edit-client/id/<?php echo App_Auth::getId(); ?>" <?php if($controller == 'client'){?> class="current" <?php } else { ?> class="" <?php }?> >My Profile</a></li> 
                        <li><a href="/contact/" <?php if($controller == 'contact'){?> class="current" <?php } else { ?> class="" <?php }?> >Contact Us</a></li>                                                         
 	               <li><a href ="/auth/logout">Log Out</a></li>              
                        
