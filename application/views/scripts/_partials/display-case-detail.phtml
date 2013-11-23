@@ -49,22 +49,22 @@
         <tr><th>Due Date</th> <td> <?php echo getElement( 'due_date', $this->data['users'][0] ); ?> </td></tr>        
         <tr><th>Close By</th> <td> <?php echo App_User::getUserName( getElement( 'closed_by', $this->data['users'][0] ) ); ?> </td></tr>        
         
-        <tr><th colspan="2" style="text-align:left">Case Docs Info</th></tr>
-        <tr><th>Documents</th> <td> <?php echo getElement( 'case_doc_name', $this->data['users'][0] ); ?> </td></tr>        
-        <tr><th>Documents Details</th> <td> <?php echo getElement( 'case_doc_details', $this->data['users'][0] ); ?> </td></tr>        
-        <tr><th>Documents Uploaded By</th> <td> <?php echo App_User::getUserName( getElement( 'case_doc_uploaded_by', $this->data['users'][0] ) ); ?> </td></tr>        
-        <tr><th>Documents Uploaded On</th> <td> <?php echo getElement( 'case_doc_uploaded_on', $this->data['users'][0] ); ?> </td></tr>        
+<!--        <tr><th colspan="2" style="text-align:left">Case Docs Info</th></tr>
+        <tr><th>Documents</th> <td> <?php //echo getElement( 'case_doc_name', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Documents Details</th> <td> <?php //echo getElement( 'case_doc_details', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Documents Uploaded By</th> <td> <?php //echo App_User::getUserName( getElement( 'case_doc_uploaded_by', $this->data['users'][0] ) ); ?> </td></tr>        
+        <tr><th>Documents Uploaded On</th> <td> <?php //echo getElement( 'case_doc_uploaded_on', $this->data['users'][0] ); ?> </td></tr>        -->
         
         <tr><th colspan="2" style="text-align:left">Case Details/History Info</th></tr>
         <tr><th>Hearing Date</th> <td> <?php echo getElement( 'hearing_date', $this->data['users'][0] ); ?> </td></tr>        
         <tr><th>Next Hearing Date</th> <td> <?php echo getElement( 'next_hearing_date', $this->data['users'][0] ); ?> </td></tr>        
         <tr><th>Judge Name</th> <td> <?php echo getElement( 'judge_name', $this->data['users'][0] ); ?> </td></tr>        
         <tr><th>Content</th> <td> <?php echo getElement( 'content', $this->data['users'][0] ); ?> </td></tr>        
-        
+<!--        
         <tr><th colspan="2" style="text-align:left">Case Budget/Transaction Info</th></tr>
-        <tr><th>Amount</th> <td> <?php echo getElement( 'amount', $this->data['users'][0] ); ?> </td></tr>        
-        <tr><th>Amount Submitted On</th> <td> <?php echo getElement( 'submission_date', $this->data['users'][0] ); ?> </td></tr>               
-        <tr><th>Transaction Details</th> <td> <?php echo getElement( 'transaction_details', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Amount</th> <td> <?php //echo getElement( 'amount', $this->data['users'][0] ); ?> </td></tr>        
+        <tr><th>Amount Submitted On</th> <td> <?php //echo getElement( 'submission_date', $this->data['users'][0] ); ?> </td></tr>               
+        <tr><th>Transaction Details</th> <td> <?php //echo getElement( 'transaction_details', $this->data['users'][0] ); ?> </td></tr>        -->
         
     </tbody>
 </table>  

@@ -43,12 +43,13 @@ $caseListing = $this->dataList;
                                        <td><?php echo App_User::getStatus( $arrCase['status'] )  ;?></td>
                                        <td class="action" id="<?php echo $arrCase['id'];?>"> 
                                        <span class="other_action" style="display:block;">								 								 							 
-                                         <?php if(App_Auth::getUserRole() == USER_ADMIN || App_Auth::getUserRole() == USER_LAWYER){?><a href="history/case_id/<?php echo $arrCase['id'] ?>" id="Add Details">Add Details</a> | <?php }?>
-                                         <a href="document/case_id/<?php echo $arrCase['id'] ?>" id="Upload Documents">Upload Documents</a> | 
+                                         <?php if(App_Auth::getUserRole() == USER_ADMIN || App_Auth::getUserRole() == USER_LAWYER){?><a href="history/case_id/<?php echo $arrCase['id'] ?>" id="Add Hearing Details">Add Hearing Details</a> | <?php }?>
+                                         <a href="document/case_id/<?php echo $arrCase['id'] ?>" id="Documents Details">Documents Details</a> | 
                                          <?php if(App_Auth::getUserRole() == USER_ADMIN || App_Auth::getUserRole() == USER_LAWYER ){?><a href="budget/case_id/<?php echo $arrCase['id'] ?>" id="Add Budget">Add Budget</a>&nbsp;&nbsp;<?php }?>                                         
                                          <?php if(App_Auth::getUserRole() == USER_ADMIN){?><a href="edit/id/<?php echo $arrCase['id'] ?>" id="edit"><img src="/images/edit-icon.png" alt="Edit" height="16" width="16"></a>&nbsp;&nbsp;<?php }?>
-                                         <?php if(App_Auth::getUserRole() == USER_ADMIN){?><a href="#" id="delete"><img src="/images/delete-icon.png" alt="Delete" height="16" width="16"></a><?php }?> &nbsp;&nbsp;
-                                         <a href="#" id="view"> <img id = "view" src="/images/view-icon.png" alt="view" height="16" width="16"> </a>  
+                                         <?php if(App_Auth::getUserRole() == USER_ADMIN){?><a href="#" id="delete"><img src="/images/delete-icon.png" alt="Delete" height="16" width="16"></a><?php }?> &nbsp;
+                                         <a href="#" id="view"> <img id = "view" src="/images/view-icon.png" alt="View" height="16" width="16"> </a> &nbsp;
+                                         <a href="#" id="vct"> <img id = "vct" src="/images/dollar-icon.png" alt="View Case Transaction" height="16" width="16"> </a>  
                                        </span>
                                         
                                         </td>

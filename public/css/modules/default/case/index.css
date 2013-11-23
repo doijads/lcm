@@ -1,0 +1,58 @@
+
+#case-details-div{
+    border: 1px solid #61492D;
+    margin: 10px;    
+}
+table{
+    width:100%;     
+}
+
+table th,table td
+{
+    text-align: left;
+    padding: 5px 2px;
+    /* background-color: #EADFC1; */
+}
+
+table#case-transaction-details-table th{
+    background-color: #EADFC1;
+}
+
+table#case-transaction-total th
+{
+    background: none repeat scroll 0 0 #3A3E41;
+    color: #FAFAFA;
+} 
+table#case-transaction-total td
+{  
+    padding: 2px;
+}
+
+#case-transaction-details-table{
+    width:99.4%;  
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#case-transaction-details-table td , #case-transaction-details-table th{ 
+   border: 1px solid #61492D;
+}
+
+#clist{
+    margin: 5px 25px;
+    padding: 5px;
+}
+
+#cdetails{
+   font-size: 10px;
+   color:#999;
+   margin-top: -5px;
+}
+
+#clist a{
+    text-decoration: underline;
+}
+
+dd#content-element #content{
+    margin:0px !important;
+}

@@ -201,4 +201,46 @@ class AjaxController extends Zend_Controller_Action {
         echo json_encode($result);
         exit(0);
     }
+    
+     public function displayCaseTransactionModalAction() {
+
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout()->disableLayout();
+        $request  = $this->getRequest();
+        $caseId   = $request->getParam('id');
+         
+        //$this->view->action( 'build-client-view', 'client', 'default', $data),
+        $caseTransactions = new Model_CaseTransactions();                
+        if(isset( $caseId )) {        
+            $caseTransactionDetails         = $caseTransactions->getCaseTransactionById($caseId);
+            $caseTransactionPaymentsDetails = $caseTransactions->getCaseTransactionPaymentsById($caseId);
+            $caseTransactionExpensesDetails = $caseTransactions->getCaseTransactionExpensesById($caseId);
+        }
+                     
+        $totalBalance = $totalPayment = $totalExpenses = 0;
+        foreach( $caseTransactionPaymentsDetails as $payment ){
+            $totalPayment = $totalPayment +  $payment['amount'];
+        }
+        foreach( $caseTransactionExpensesDetails as $expenses ){
+            $totalExpenses = $totalExpenses + $expenses['amount'];
+        }
+        
+        $totalBalance = (int)$totalPayment - $totalExpenses; 
+                              
+        $data = array(
+            'caseTransactionPayment'       => $caseTransactionPaymentsDetails ,
+            'caseTransactionTotalPayment'  => $totalPayment ,
+            'caseTransactionExpenses'      => $caseTransactionExpensesDetails, 
+            'caseTransactionTotalExpenses' => $totalExpenses,
+            'totalBalance'                 => $totalBalance   
+            );
+                 
+        $result = array(
+            'data'    => $this->view->partial('_partials/display-case-transaction-details.phtml', array('data' => $data)), 
+            'success' => true            
+        );
+        
+        echo json_encode($result);
+        exit(0);
+    }
 }

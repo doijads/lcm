@@ -6,7 +6,7 @@
     display: table;
     float: left;
     padding: 5px;
-    width: 150px;
+    width: 152px;
 }
 
 a{ text-decoration: none;}
@@ -209,12 +209,25 @@ table.dataTable tr th{
 #example_wrapper{
     /*border:1px solid;*/
 }
-#example_length , #example_filter{
+#example_filter{
     float: left;
     padding: 10px 6px;
-    width: 45%;
+    width: 55%;
+    text-align: left;
 }
-    
+#example_length{
+    float: right;
+    padding: 10px 6px;
+    width: 35%;
+    text-align: right;
+}
+#example_length select{
+    min-width: 80px;
+    width: 80px !important;
+}
+#example_filter input[type="text"]{
+    width: 300px !important;
+}
 .btn{
      margin: auto;
     padding: 6px;
@@ -225,6 +238,18 @@ table.dataTable tr th{
 /*    font-size: 11px;*/
 }
 
+#cross {
+   background-image: url('/images/delete-icon.png');
+}
+
+#budget_type-element {
+    margin-bottom: 20px;    
+}
+
+#budget_type-label{
+    font-weight: bold;
+}
+ 
 #submit-element{
     width:20%;
     float:left;
@@ -247,4 +272,30 @@ td#contact-title{
 td#contact-text{
     padding:5px;
     background-color: #FFF;
+}
+#hours_spent,#hour_amount{
+    min-width: 100px;
+}
+
+#hours_spent,#hour_amount{
+    min-width: 100px;
+}
+
+
+#hours_spent-label, #hour_amount-label{    
+    width: 145px;
+}
+
+#hours_spent-element{
+   width:21%;    
+   float:left;
+}
+#hour_amount-element {
+   width:21%;   
+   float:left;
+}
+
+form{
+    margin: 5px 10px;
+    padding: 5px;
 }

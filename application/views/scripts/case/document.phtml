@@ -1,9 +1,24 @@
-<div id="content">     
+<div id="content">         
 <fieldset>
-    <legend>Document Case</legend>    
+    <legend>Upload Case Documents</legend>    
     <div class="cases-form">       
     	<?php echo $this->registerForm; ?>  
     </div>
 </fieldset>
+    
+<fieldset>
+    <legend>Documents Listing </legend>    
+    <div id="clist">
+        <ul>
+            <?php foreach( $this->caseListing as $cList ) :?>
+                <li><b> 
+                        <a href="/documents/<?php echo $cList['case_id'] ;?>/<?php echo $cList['path'] ;?>" target="_blank"><div><?php echo $cList['name']; ?></div></a>
+                   </b> 
+                    <div id ="cdetails"> <?php echo $cList['details']; ?> </div>                    
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+</fieldset>    
 <br/>
 </div>

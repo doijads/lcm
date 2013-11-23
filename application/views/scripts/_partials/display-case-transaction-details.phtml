@@ -1,0 +1,46 @@
+<div id="case-details-div">
+<table id="case-transaction-heading"><th colspan="3">Total Amount Paid By Client </th></table>
+<table style="border-collapse: collapse;" id="case-transaction-details-table"> 
+    <thead>                
+        <th width="50"> Sr.No</th><th  width="150"> Date </th> <th width="270"> Description </th><th  width="130"> Amount Paid(Rs.)</th> 
+    </thead>     
+    <tbody>
+      <?php if($this->data['caseTransactionPayment']){ ?>        
+      <?php $i = 1; foreach( $this->data['caseTransactionPayment'] as $payement ){  ?>
+        <tr> <td><?php echo $i ;?></td> 
+             <td><?php print_r(date('d-m-Y', strtotime($payement['submission_date'])))?></td> 
+             <td><?php print_r( $payement['transaction_details'] )?></td> 
+             <td><?php print_r( $payement['amount'] )?></td> 
+        </tr>                
+      <?php $i++ ;}  ;?>   
+        <tr> <th></th><th></th><th> Total:</th> <th> <?php echo $this->data['caseTransactionTotalPayment']; ?> </th> </tr>
+      <?php } else { ?>            
+        <tr><td colspan="3"> No Payment done</td></tr>
+      <?php }?>   
+    </tbody>
+</table>    
+<table id="case-transaction-heading"><th colspan="3">Total Expenses by Lawyers</th></table>
+<table style="border-collapse: collapse;" id="case-transaction-details-table">     
+    <thead>    
+        <th width="50"> Sr.No</th><th  width="150"> Date </th> <th width="270"> Description </th><th  width="130"> Expenses(Rs.)</th> 
+    </thead>     
+    <tbody>        
+        <?php if($this->data['caseTransactionExpenses']){ ?>        
+        <?php $j = 1 ;foreach( $this->data['caseTransactionExpenses'] as $expenses ){  ?>
+        <tr> 
+            <td><?php echo $j ;?></td> 
+            <td><?php print_r(date('d-m-Y', strtotime($expenses['submission_date'])))?></td> 
+            <td><?php print_r( $expenses['transaction_details'] )?></td> 
+            <td><?php print_r( $expenses['amount'] )?></td> 
+        </tr>
+      <?php $j++; } ?>   
+        <tr> <th></th><th></th><th> Total:</th> <th> <?php echo $this->data['caseTransactionTotalExpenses']; ?> </th> </tr>
+      <?php } else { ?>            
+        <tr><td colspan="3"> No Expenses made</td></tr>
+      <?php }?> 
+    </tbody>
+</table>    
+
+<table id="case-transaction-total"><th width="50"></th><th width="150"></th><th width="270">Total Amount Balance </th> <th width="130"><?php echo $this->data['totalBalance'];?></th></table>
+</div>
+<br/>

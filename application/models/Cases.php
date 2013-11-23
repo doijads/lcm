@@ -79,8 +79,9 @@ class Model_Cases extends App_Model {
                       ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id', $caseDocFields)
                       ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id', $caseHistoryFields)
                       ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id', $caseTransactionFields)
-                      ->where($whereClause);
-                
+                      ->where($whereClause)
+                      ->group('c.id');
+                      
         return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
     
@@ -111,8 +112,9 @@ class Model_Cases extends App_Model {
                       ->joinLeft(array('cd' => 'case_documents'), 'cd.case_id = c.id', $caseDocFields)
                       ->joinLeft(array('ch' => 'case_history'), 'ch.case_id = c.id', $caseHistoryFields)
                       ->joinLeft(array('ct' => 'case_transactions'), 'ct.case_id = c.id', $caseTransactionFields)
-                      ->where($whereClause);
-                
+                      ->where($whereClause)
+                      ->group('c.id');
+        
         return $this->getDbTable()->fetchAll($strSql)->toArray();
     }
 

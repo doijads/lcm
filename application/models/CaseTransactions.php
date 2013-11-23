@@ -26,6 +26,51 @@ class Model_CaseTransactions extends App_Model {
         return parent::update( $data );
     }
 
+    public function getCaseTransactionById( $id ){
+        if( empty($id) ){
+            return;
+        }      
+        $whereClause = "ct.case_id = {$id}";        
+        $sql = $this->getDbTable()->select()
+                ->setIntegrityCheck(false)
+                ->from(array('ct' => 'case_transactions'), array('*'))                
+                ->where($whereClause);
+                
+        $userData = $this->getDbTable()->fetchAll($sql);
+ 
+        return $userData->toArray();
+    }
+    
+    public function getCaseTransactionExpensesById( $id ){
+        if( empty($id) ){
+            return;
+        }      
+        $whereClause = "ct.case_id = {$id} AND transaction_type_id = 1";        
+        $sql = $this->getDbTable()->select()
+                ->setIntegrityCheck(false)
+                ->from(array('ct' => 'case_transactions'), array('*'))                
+                ->where($whereClause);
+                
+        $userData = $this->getDbTable()->fetchAll($sql);
+ 
+        return $userData->toArray();
+    }
+    
+    public function getCaseTransactionPaymentsById( $id ){
+        if( empty($id) ){
+            return;
+        }      
+        $whereClause = "ct.case_id = {$id} AND transaction_type_id = 2";        
+        $sql = $this->getDbTable()->select()
+                ->setIntegrityCheck(false)
+                ->from(array('ct' => 'case_transactions'), array('*'))                
+                ->where($whereClause);
+                
+        $userData = $this->getDbTable()->fetchAll($sql);
+ 
+        return $userData->toArray();
+    }
+    
     public static function getCaseTransactionTypes() {
         //return array( self::TRANSACTION_TYPE_RECEIVABLE => array( 'Amount ' )
     }

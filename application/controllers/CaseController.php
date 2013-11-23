@@ -96,37 +96,81 @@ class CaseController extends Zend_Controller_Action {
         $request = $this->getRequest();
         $registerForm = $this->loadCase( $case_id = $request->getParam( 'case_id' ) );
         $this->view->registerForm  = $registerForm;
-
+                                             
+        $caseDocuments = new Model_CaseDocuments();
+        $caseDir = "/documents/".$case_id ;
+                        
         if( $request->isPost() && $registerForm->isValid( $request->getPost() ) ) {
-            $data = $request->getPost();
-            //move_uploaded_file(filename, destination)
+            $data = $request->getPost();                                    
             $data['case_id'] = $case_id ;
-            $caseHistory = new Model_CaseDocuments();
-
-            $data['uploaded_by']   = App_User::get('id');
-            $data['uploaded_on']   = date('Y-m-d');
-
-            $caseHistory->save( $data );                
+        
+            if ($_FILES['document']['error'] > 0) {                
+                $this->view->error = "Some thing is Wrong".$_FILES["document"]["error"]; 
+                $validFile = false;
+            } else {
+                $validFile = true;
+                $data['path'] = $_FILES['document']['name'];
+                $data['uploaded_by'] = App_User::get('id');
+                $data['uploaded_on'] = date('Y-m-d');
+            }
+                       
+            $isUpload = false;
+            if( $validFile  ){
+                $dir        = PUBLIC_PATH."/documents/".$case_id ; 
+                $docs       = $dir."/".$_FILES["document"]["name"];
+                if( !file_exists( $docs ) ){
+                    if( !is_dir( $dir )){
+                        mkdir( $dir , 0777 );    
+                    }
+                                                                                                                                                                                                                                                                                                                                                                          
+                    if( move_uploaded_file($_FILES["document"]["tmp_name"], $docs ) ){
+                            $isUpload = true;                            
+                    }else{
+                            $isUpload = false;                            
+                    }                    
+                                                                              
+                } else {                     
+                    $this->view->error = $_FILES["document"]["name"]." file Already Exists" ;
+                }                                            
+            }
+                                                    
+            if( $isUpload ){
+                $caseDocuments->save( $data );
+                $this->view->success = "Case document uploaded successfully for case id[" . $case_id. "]";
+            }
             $registerForm->reset(); 
-            $this->view->success = "Case document uploaded successfully for case id[" . $case_id. "]";
-        }
+        }               
+        $docListing = $caseDocuments->getCaseDocumentsList( $case_id );       
+        $this->view->caseListing = $docListing ;    
+        $this->view->caseDir     = $caseDir ;    
     }
 
     public function budgetAction() {
         $request = $this->getRequest();
         $registerForm = $this->loadCase( $case_id = $request->getParam( 'case_id' ) );
-
+       
+        $cases  = new Model_Cases();
+        $getCaseDetails  = $cases->getCases( array( 'id' => (int) $case_id) );
+                        
+        $this->view->caseDetails   = $getCaseDetails;
         $this->view->registerForm  = $registerForm; 
-        
-        if( $request->isPost() && $registerForm->isValid( $request->getPost() ) ) {
-            $data = $request->getPost();
-            $data['case_id']        = $case_id ;
-            $data['submitted_by']   = App_User::get('id');
-           
-            $data['transaction_type_id']   = ( App_User::get('user_type') <> USER_CLIENT ) ? Model_CaseTransactions::TRANSACTION_TYPE_RECEIVABLE : Model_CaseTransactions::TRANSACTION_TYPE_PAYABLE;
-
+            
+        if( $request->isPost() || $registerForm->isValid( $request->getPost() ) ) {
+            $post = $request->getPost();
+            $data = array();
+                        
+            $data['transaction_type_id'] = $post['transaction_type_id'];
+            $data['submission_date']    = $post['submission_date'];
+            $data['fees_type_id']       = $post['fees_type_id'];            
+            $data['hours_spent']        = $post['hours_spent'];            
+            $data['amount']             = $post['amount'];
+            $data['transaction_details']= $post['transaction_details'];
+            
+            $data['case_id']            = $case_id ;
+            $data['submitted_by']       = App_User::get('id');           
+            //$data['transaction_type_id']   = ( App_User::get('user_type') <> USER_CLIENT ) ? Model_CaseTransactions::TRANSACTION_TYPE_RECEIVABLE : Model_CaseTransactions::TRANSACTION_TYPE_PAYABLE;
             $caseTransaction = new Model_CaseTransactions();
-
+                            
             $caseTransaction->save( $data );                
             $registerForm->reset(); 
             $this->view->success = "Case expense added successfully for case id[" . $case_id . "]";

@@ -159,18 +159,54 @@ class Application_Form_CaseRegister extends Zend_Form {
 
     private function loadBudget() {
 
-        $this->addElement('text', 'amount', array(
-            'label' => 'Amount:',
-            'required' => true,
-            'filters' => array('StringTrim')
-        ));
-
+        $arrLawyerList = array(             
+             '2' => 'Add Lawyers Fees against Case' , 
+             '1' => 'Add Lawyers Expenses for Case' 
+            );
+        
+        $this->addElement('select', 'transaction_type_id', array(
+                'label' => 'Select Transaction Type',
+                'value' => '',
+                'required' => true,
+                'multiOptions' => $arrLawyerList
+         ));
+        
         $submissionDate = new Zend_Dojo_Form_Element_DateTextBox('submission_date');
         $submissionDate->setLabel('Effected Date:');
         $submissionDate->setAttrib('class', 'datePicker');
         $submissionDate->addValidator(new Zend_Validate_Date());
         $this->addElement($submissionDate);
+        
+        $this->addElement('select', 'fees_type_id', array(
+            'label' => 'Fees Types:',
+            'required' => false,
+            'multiOptions' => array(
+                '1' => 'Flat',
+                '2' => 'Hourly',
+                '3' => 'Retainers'
+            )                        
+        ));
+                
+        $this->addElement('text', 'hours_spent', array(
+            'label' => 'Hours Spent:',
+            'required' => false,
+            'class' => 'hsp',
+            'filters' => array('StringTrim')
+        ));
+        $this->addElement('text', 'hour_amount', array(
+            'label' => 'Amount per Hour:',
+            'required' => false,
+            'class' => 'hsp',
+            'filters' => array('StringTrim')
+        ));
 
+        $this->addElement('text', 'amount', array(
+            'label' => 'Total Amount:',
+            'required' => true,
+            'id' => 'sum',
+            'filters' => array('StringTrim')
+        ));
+        
         $this->addElement('textarea', 'transaction_details', array(
             'label' => 'Details:',
             'required' => true,
@@ -182,7 +218,7 @@ class Application_Form_CaseRegister extends Zend_Form {
         // Add the submit button
         $this->addElement('submit', 'submit', array(
             'ignore' => true,
-            'label' => 'Add Expense'
+            'label' => 'Add Details'
         ));
         $this->addElement('button', 'back', array(
                 'ignore' => true,

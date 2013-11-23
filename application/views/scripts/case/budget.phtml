@@ -1,6 +1,11 @@
 <div id="content">     
 <fieldset>
-    <legend>Budget Case</legend>    
+    <legend>Budget Details for Case - case#<?php echo $this->caseDetails[0]['id'] ; ?></legend>    
+    </br>
+    <span style="padding: 5px;"><b>Lawyer </b>:- <?php echo App_User::getUserName( $this->caseDetails[0]['lawyer_id'] ) ; ?></span>
+    <br/><br/>
+    <span style="padding: 5px;"><b>Client </b>:- <?php echo App_User::getUserName( $this->caseDetails[0]['client_id'] ); ?></span>
+    <br/><br/>
     <div class="cases-form">       
     	<?php echo $this->registerForm; ?>  
     </div>

@@ -24,4 +24,21 @@ class Model_CaseDocuments extends App_Model {
     public static function getCaseDocumentTypes() {
         //return array( self::TRANSACTION_TYPE_RECEIVABLE => array( 'Amount ' )
     }
+    
+    public function getCaseDocumentsList( $caseId ){
+         if( !$caseId ){
+             return;
+         }
+         $whereClause = "cd.case_id = {$caseId}";
+         $sql = $this->getDbTable()->select()
+                ->setIntegrityCheck(false)
+                ->from(array('cd' => 'case_documents'), array('*'))                
+                ->where($whereClause);
+                       
+        $caseDocs = $this->getDbTable()->fetchAll($sql);        
+        
+        return $caseDocs->toArray();
+        
+    }
+    
 }
